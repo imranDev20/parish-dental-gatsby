@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "day": "Sunday",
+    "time": "8AM-7PM"
+  },
+  {
+    "id": 2,
+    "day": "Monday",
+    "time": "8AM-7PM"
+  },
+  {
+    "id": 3,
+    "day": "Tuesday",
+    "time": "8AM-7PM"
+  },
+  {
+    "id": 4,
+    "day": "Wednesday",
+    "time": "8AM-7PM"
+  },
+  {
+    "id": 5,
+    "day": "Thursday",
+    "time": "8AM-7PM"
+  },
+  {
+    "id": 6,
+    "day": "Friday",
+    "time": "8AM-7PM"
+  },
+  {
+    "id": 7,
+    "day": "Saturday",
+    "time": "8AM-7PM"
+  }
+]
