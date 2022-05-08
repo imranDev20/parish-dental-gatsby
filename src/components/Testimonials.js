@@ -1,23 +1,18 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SectionHeader from "./SectionHeader";
 import TestimonialCard from "./TestimonialCard";
 
 const Testimonials = () => {
   return (
-    <section className="my-20">
+    <section className="my-36">
       <div className="container px-10 mx-auto ">
         <div className="my-10">
-          <h3 className="uppercase text-center text-secondary font-medium tracking-[0.2em] text-sm">
-            Our dear clients
-          </h3>
-          <h2 className="text-center text-5xl my-2 capitalize font-semibold text-primary">
-            What people say
-          </h2>
-          <p className="text-gray-500 font-light max-w-4xl text-center mx-auto my-5 text-lg">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni
-            dolor fuga, facere esse sint ullam assumenda. Minima tempora dolorum
-            iure!
-          </p>
+          <SectionHeader
+            subTitle="Our dear clients"
+            mainTitle="What People Say"
+            description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
+          />
         </div>
         <Swiper
           modules={[]}

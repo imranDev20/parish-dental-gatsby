@@ -12,7 +12,7 @@ const Schedule = () => {
   ];
 
   return (
-    <aside className="bg-rose-100/60 rounded pt-10 flex flex-col justify-between">
+    <aside className="bg-rose-50 rounded pt-10 flex flex-col justify-between">
       <h3 className="text-center text-primary text-3xl font-medium">
         Working Hours
       </h3>

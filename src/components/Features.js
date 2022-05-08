@@ -16,7 +16,7 @@ const Features = () => {
   return (
     <section className="container mx-auto px-10 grid grid-cols-3 my-32 gap-10">
       <div>
-        <div className="max-h-[230px] overflow-hidden rounded mb-3">
+        <div className="max-h-[230px] overflow-hidden rounded mb-10">
           <img
             className="overflow-hidden h-full w-full object-cover"
             src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
@@ -39,7 +39,7 @@ const Features = () => {
         </Link>
       </div>
       <div>
-        <div className="max-h-[230px] overflow-hidden rounded mb-3">
+        <div className="max-h-[230px] overflow-hidden rounded mb-10">
           <img
             className="overflow-hidden h-full w-full object-cover"
             src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"

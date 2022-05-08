@@ -1,5 +1,7 @@
 import React from "react";
 import RootCanalIcon from "../images/icons/root-canal.svg";
+import TeethAlignmentIcon from "../images/icons/teeth-alignment.svg";
+import ToolsIcon from "../images/icons/tools.svg";
 
 const Services = () => {
   const services = [
@@ -11,31 +13,31 @@ const Services = () => {
     },
     {
       id: 2,
-      name: "Root Canal Specialist",
+      name: "Alignment Specialist",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-      icon: RootCanalIcon,
+      icon: TeethAlignmentIcon,
     },
     {
       id: 3,
-      name: "Root Canal Specialist",
+      name: "Cosmetic Dentistry",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-      icon: RootCanalIcon,
+      icon: ToolsIcon,
     },
     {
       id: 4,
-      name: "Root Canal Specialist",
+      name: "Oral Hygiene Experts",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-      icon: RootCanalIcon,
+      icon: ToolsIcon,
     },
     {
       id: 5,
-      name: "Root Canal Specialist",
+      name: "Live Dental Advisory",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing.",
       icon: RootCanalIcon,
     },
     {
       id: 6,
-      name: "Root Canal Specialist",
+      name: "Cavity Inspection",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing.",
       icon: RootCanalIcon,
     },
@@ -45,7 +47,7 @@ const Services = () => {
     <section className="container mx-auto px-10 grid grid-cols-3 gap-10 my-32">
       {services.map((service) => (
         <div key={service.id} className="flex my-3">
-          <div className="w-1/3 mr-8">
+          <div className="w-2/5 mr-5">
             <img className="w-full object-contain" src={service.icon} alt="" />
           </div>
           <div>

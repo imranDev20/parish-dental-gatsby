@@ -4,9 +4,9 @@ import Triangle from "../images/triangle.svg";
 const About = () => {
   return (
     <section className="bg-background">
-      <div className="w-full bg-[url('../images/operation.jpeg')] bg-[length:66%_100%] bg-no-repeat bg-[center_right]">
+      <div className="w-full relative before:content-[''] before:absolute before:w-[55%] before:h-full before:top-0 before:right-0 before:bottom-0 before:bg-[url('../images/surgery.jpeg')] before:bg-cover before:bg-no-repeat before:bg-center">
         <div className="container mx-auto px-10 ">
-          <div className="w-2/5 bg-background py-28 px-20 mr-auto relative">
+          <div className="w-[45%] bg-background py-36 px-20 mr-auto relative">
             <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
               Our dear clients
             </h3>
@@ -21,7 +21,7 @@ const About = () => {
               electram. Mei sum prodesset in pro, quo scripta feugait vidisse.
             </p>
 
-            <p className="font-['Catamaran'] text-xl text-orange-500 font-medium">
+            <p className="font-['Catamaran'] text-xl text-orange-500 font-medium mt-10">
               Andrea McCollins
             </p>
 
