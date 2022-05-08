@@ -10,7 +10,7 @@ const Contact = () => {
             <h2 className=" text-4xl my-2 capitalize font-semibold text-primary">
               Request an Appointment
             </h2>
-            <p className="text-gray-500 font-light mx-auto my-5 text-lg leading-8">
+            <p className="text-neutral-500 font-light mx-auto my-5 text-lg leading-8">
               Te veritus tractatos delicatissimi qui, justo diceret mentitum ut
               sit. Qui sed reque dicam, qui veri nullam vituperatoribus in.
             </p>

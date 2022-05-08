@@ -14,7 +14,7 @@ const TestimonialCard = () => {
       <h3 className="text-2xl mt-5 text-primary font-medium">
         Quick, easy & reliable
       </h3>
-      <p className="text-center my-5 text-gray-500">
+      <p className="text-center my-5 text-neutral-500">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
         molestiae blanditiis dolore, adipisci sapiente in maxime omnis.
       </p>

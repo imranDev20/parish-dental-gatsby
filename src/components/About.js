@@ -13,7 +13,7 @@ const About = () => {
             <h2 className=" text-4xl my-2 capitalize font-semibold text-primary">
               Fully dedicated to your dental health
             </h2>
-            <p className="text-gray-500 font-light mx-auto my-5 text-base">
+            <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
               Te veritus tractatos delicatissimi qui, justo diceret mentitum ut
               sit. Qui sed reque dicam, qui veri nullam vituperatoribus in.
               Tibique maiestatis sum quod sum ut alienum nec et, summo possim

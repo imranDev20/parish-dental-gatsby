@@ -26,7 +26,7 @@ const Features = () => {
         <h2 className="text-2xl font-medium mb-3 text-primary">
           Pick the dentist that fits all your needs the best
         </h2>
-        <p className="text-gray-500 font-light">
+        <p className="text-neutral-500 font-light">
           Lorem ipsum dolor sit amet, eu duo ferri labor. Mea ex modo reque
           senserit, et sed hinc dolor, scaevola sum salutandi expetendis vix ne.
           Eros dicat his sum mel quod mundi consequat sum.
@@ -50,7 +50,7 @@ const Features = () => {
           {featurePoints.map((featurePoint) => (
             <p
               key={featurePoint.id}
-              className="my-3 text-gray-500 flex items-center"
+              className="my-3 text-neutral-500 flex items-center"
             >
               <span className="text-secondary font-medium text-xl mr-3">+</span>{" "}
               {featurePoint.text}

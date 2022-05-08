@@ -67,7 +67,7 @@ const Form = () => {
       </div>
 
       <textarea
-        className={`${inputClasses} py-4`}
+        className={`${inputClasses} py-6`}
         id="message"
         name="message"
         placeholder="Message"
