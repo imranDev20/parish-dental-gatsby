@@ -23,6 +23,7 @@
     "gatsby-plugin-react-helmet": "^5.12.1",
     "gatsby-plugin-sharp": "^4.14.0",
     "gatsby-plugin-sitemap": "^5.12.1",
+    "gatsby-plugin-tidio-chat": "^1.0.0",
     "gatsby-source-filesystem": "^4.14.0",
     "gatsby-source-strapi": "^2.0.0",
     "gatsby-transformer-remark": "^5.14.0",

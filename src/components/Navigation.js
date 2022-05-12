@@ -6,16 +6,16 @@ const Navigation = () => {
   const [indicatorLeft, setIndicatorLeft] = useState("");
   const ref = useRef(null);
 
-  useEffect(() => {
-    console.log("width", ref.current.offsetWidth);
-  }, []);
+  // useEffect(() => {
+  //   console.log("width", ref.current.offsetWidth);
+  // }, []);
 
-  const handleIndicator = (el) => {
-    setIndicatorWidth(el.offsetWidth + "px");
-    setIndicatorLeft(el.offsetLeft + "px");
-  };
+  // const handleIndicator = (el) => {
+  //   setIndicatorWidth(el.offsetWidth + "px");
+  //   setIndicatorLeft(el.offsetLeft + "px");
+  // };
 
-  const activeIndicator = () => {};
+  // const activeIndicator = () => {};
 
   const routes = [
     { id: 1, name: "Home", link: "/" },
@@ -31,9 +31,9 @@ const Navigation = () => {
           <div key={route.id} className="inline-block">
             <Link
               ref={ref}
-              activeClassName="active"
-              onMouseOver={(e) => handleIndicator(e.target)}
-              className="nav-item px-6 py-8 inline-block uppercase tracking-[2px] text-sm text-primary font-medium"
+              activeClassName={`border-t-[3px]  !border-secondary`}
+              // onMouseOver={(e) => handleIndicator(e.target)}
+              className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
               // activeClassName={`border-t-secondary border-t-4 `}
 
               to={route.link}
