@@ -6,33 +6,32 @@ const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
-    {
-      singularName: "article",
-      queryParams: {
-        // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt
-
-        publicationState:
-          process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
-        populate: {
-          image: "*",
-          images: "*",
-          author: {
-            populate: {
-              avatar: "*",
-              company: {
-                populate: {
-                  image: "*",
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-    ,
-    "company",
-    "author",
+    // {
+    //   singularName: "article",
+    //   queryParams: {
+    //     // Populate media and relations
+    //     // Make sure to not specify the fields key so the api always returns the updatedAt
+    //     publicationState:
+    //       process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
+    //     populate: {
+    //       image: "*",
+    //       images: "*",
+    //       author: {
+    //         populate: {
+    //           avatar: "*",
+    //           company: {
+    //             populate: {
+    //               image: "*",
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
+    // ,
+    // "company",
+    // "author",
   ],
   singleTypes: [],
 };
