@@ -4,11 +4,12 @@ import Features from "../components/Features";
 import Hero from "../components/Hero";
 import Layout from "../components/Layout";
 import Services from "../components/Services";
-import Specialist from "../components/Specialist";
+import SpecialistsTabs from "../components/SpecialistsTabs";
 import Testimonials from "../components/Testimonials";
 import Team from "../components/Team";
 import Contact from "../components/Contact";
 import Blog from "../components/Blog";
+import CallToAction from "../components/CallToAction";
 
 // markup
 const IndexPage = () => {
@@ -19,7 +20,8 @@ const IndexPage = () => {
       <Services />
       <About />
       <Testimonials />
-      <Specialist />
+      <CallToAction />
+      <SpecialistsTabs />
       <Team />
       <Contact />
       <Blog />

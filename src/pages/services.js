@@ -1,7 +1,8 @@
 import React from "react";
+import Layout from "../components/Layout";
 
 const ServicesPage = () => {
-  return <div>ServicesPage</div>;
+  return <Layout>ServicesPage</Layout>;
 };
 
 export default ServicesPage;

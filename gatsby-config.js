@@ -1,3 +1,42 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const strapiConfig = {
+  apiURL: process.env.STRAPI_API_URL,
+  accessToken: process.env.STRAPI_TOKEN,
+  collectionTypes: [
+    {
+      singularName: "article",
+      queryParams: {
+        // Populate media and relations
+        // Make sure to not specify the fields key so the api always returns the updatedAt
+
+        publicationState:
+          process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
+        populate: {
+          image: "*",
+          images: "*",
+          author: {
+            populate: {
+              avatar: "*",
+              company: {
+                populate: {
+                  image: "*",
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    ,
+    "company",
+    "author",
+  ],
+  singleTypes: [],
+};
+
 module.exports = {
   siteMetadata: {
     title: `S&B Dental`,
@@ -8,6 +47,10 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-source-strapi`,
+      options: strapiConfig,
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
