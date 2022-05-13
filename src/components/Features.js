@@ -32,7 +32,7 @@ const Features = () => {
           Eros dicat his sum mel quod mundi consequat sum.
         </p>
         <Link
-          className="tracking-widest text-sm uppercase mt-5 inline-block text-primary"
+          className="tracking-[.2em] text-sm uppercase mt-5 inline-block text-primary"
           to="/about/"
         >
           Read More

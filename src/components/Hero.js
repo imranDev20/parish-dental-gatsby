@@ -64,14 +64,14 @@ const Hero = () => {
         className="!max-h-[85vh]"
       >
         {heroContents.map((heroContent) => (
-          <SwiperSlide className="!max-h-[85vh] relative">
+          <SwiperSlide key={heroContent.id} className="!max-h-[85vh] relative">
             <img
               src={heroContent.image}
               className="w-full h-full object-cover"
               alt=""
             />
             <div className="absolute top-1/2 left-[15%] transform -translate-x-[15%] -translate-y-1/2 max-w-2xl">
-              <h3 className="tracking-widest uppercase bg-secondary text-white text-sm px-3 py-2 inline-block rounded">
+              <h3 className="tracking-[0.2em] uppercase bg-secondary text-white text-sm px-3 py-2 inline-block rounded">
                 {heroContent.text.subtitle}
               </h3>
               <div className="my-2">

@@ -11,7 +11,7 @@ const BlogCard = ({ image, title, text, name, date }) => {
       <p className="text-neutral-500 my-3"> {text}</p>
       <Link
         to="/"
-        className="uppercase text-sm text-primary font-medium tracking-widest"
+        className="uppercase text-sm text-primary font-medium tracking-[.2em]"
       >
         Read More
       </Link>
