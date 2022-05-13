@@ -45,8 +45,9 @@ const Team = () => {
           />
         </div>
         <div className="my-5 grid grid-cols-1 lg:grid-cols-4 gap-10">
-          {teamDetails.map((teamDetail) => (
+          {teamDetails.map((teamDetail, index) => (
             <TeamCard
+              key={index}
               image={teamDetail.image}
               name={teamDetail.name}
               position={teamDetail.position}

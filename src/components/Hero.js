@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade } from "swiper";
+import { EffectFade, Navigation, Pagination } from "swiper";
 import { useSwiper } from "swiper/react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const Hero = () => {
-  const swiper = useSwiper();
-
-  useEffect(() => {}, []);
-
   const heroContents = [
     {
       id: 1,
@@ -51,40 +49,95 @@ const Hero = () => {
       },
     },
   ];
+
   return (
     <section>
       <Swiper
-        modules={[EffectFade]}
+        modules={[EffectFade, Navigation]}
         effect="fade"
         spaceBetween={50}
         loop
+        navigation
+        pagination={{ clickable: true }}
         slidesPerView={1}
-        onSlideChange={() => console.log("changed")}
-        onSwiper={(swiper) => console.log("swiper initiated")}
+        // onSlideChange={() => setAnimate(true)}
+        // onSwiper={(swiper) => console.log(swiper)}
         className="!max-h-[85vh]"
       >
         {heroContents.map((heroContent) => (
           <SwiperSlide key={heroContent.id} className="!max-h-[85vh] relative">
-            <img
-              src={heroContent.image}
-              className="w-full h-full object-cover"
-              alt=""
-            />
-            <div className="absolute top-1/2 left-[15%] transform -translate-x-[15%] -translate-y-1/2 max-w-2xl">
-              <h3 className="tracking-[0.2em] uppercase bg-secondary text-white text-sm px-3 py-2 inline-block rounded">
-                {heroContent.text.subtitle}
-              </h3>
-              <div className="my-2">
-                <h2 className="text-6xl text-primary font-semibold capitalize">
-                  <span className="inline-block bg-white my-1 px-3 py-2 rounded ">
-                    {heroContent.text.title.firstLine}
-                  </span>
-                  <span className="bg-white inline-block my-1 px-3 py-2 rounded ">
-                    {heroContent.text.title.secondLine}
-                  </span>
-                </h2>
-              </div>
-            </div>
+            {({ isActive }) => (
+              <>
+                <img
+                  src={heroContent.image}
+                  className="w-full h-full object-cover"
+                  alt=""
+                />
+
+                <div className="max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%]">
+                  <motion.h3
+                    initial={{
+                      opacity: 0,
+                      x: -200,
+                    }}
+                    animate={{
+                      opacity: isActive ? 1 : 0,
+                      x: isActive ? 0 : -200,
+                    }}
+                    transition={{
+                      type: "tween",
+                      stiffness: 100,
+                      duration: 0.7,
+                    }}
+                    className="tracking-[0.2em] uppercase bg-secondary text-white text-sm px-3 py-2 inline-block rounded"
+                  >
+                    {heroContent.text.subtitle}
+                  </motion.h3>
+                  <div className="my-2">
+                    <h2 className="text-6xl text-primary font-semibold capitalize">
+                      <motion.span
+                        initial={{
+                          opacity: 0,
+                          x: -200,
+                        }}
+                        animate={{
+                          opacity: isActive ? 1 : 0,
+                          x: isActive ? 0 : -200,
+                        }}
+                        transition={{
+                          type: "tween",
+                          stiffness: 100,
+                          duration: 0.7,
+                          delay: 0.05,
+                        }}
+                        className="inline-block bg-white my-1 px-3 py-2 rounded "
+                      >
+                        {heroContent.text.title.firstLine}
+                      </motion.span>
+                      <motion.span
+                        initial={{
+                          opacity: 0,
+                          x: -200,
+                        }}
+                        animate={{
+                          opacity: isActive ? 1 : 0,
+                          x: isActive ? 0 : -200,
+                        }}
+                        transition={{
+                          type: "tween",
+                          stiffness: 100,
+                          duration: 0.7,
+                          delay: 0.1,
+                        }}
+                        className="bg-white inline-block my-1 px-3 py-2 rounded "
+                      >
+                        {heroContent.text.title.secondLine}
+                      </motion.span>
+                    </h2>
+                  </div>
+                </div>
+              </>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
@@ -93,3 +146,13 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// transition={{
+//   type: "tween",
+//   stiffness: 100,
+//   duration: 0.5,
+// }}
+// animate={{
+//   opacity: isActive ? 1 : 0,
+//   position: "absolute",
+// }}
