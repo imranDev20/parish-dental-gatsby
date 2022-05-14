@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper";
-import { useSwiper } from "swiper/react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -53,7 +52,7 @@ const Hero = () => {
   return (
     <section>
       <Swiper
-        modules={[EffectFade, Navigation]}
+        modules={[EffectFade, Navigation, Pagination]}
         effect="fade"
         spaceBetween={50}
         loop
@@ -78,11 +77,11 @@ const Hero = () => {
                   <motion.h3
                     initial={{
                       opacity: 0,
-                      x: -200,
+                      x: -100,
                     }}
                     animate={{
                       opacity: isActive ? 1 : 0,
-                      x: isActive ? 0 : -200,
+                      x: isActive ? 0 : -100,
                     }}
                     transition={{
                       type: "tween",
@@ -98,11 +97,11 @@ const Hero = () => {
                       <motion.span
                         initial={{
                           opacity: 0,
-                          x: -200,
+                          x: -100,
                         }}
                         animate={{
                           opacity: isActive ? 1 : 0,
-                          x: isActive ? 0 : -200,
+                          x: isActive ? 0 : -100,
                         }}
                         transition={{
                           type: "tween",
@@ -117,11 +116,11 @@ const Hero = () => {
                       <motion.span
                         initial={{
                           opacity: 0,
-                          x: -200,
+                          x: -100,
                         }}
                         animate={{
                           opacity: isActive ? 1 : 0,
-                          x: isActive ? 0 : -200,
+                          x: isActive ? 0 : -100,
                         }}
                         transition={{
                           type: "tween",
