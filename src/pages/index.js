@@ -10,11 +10,13 @@ import Team from "../components/Team";
 import Contact from "../components/Contact";
 import Blog from "../components/Blog";
 import CallToAction from "../components/CallToAction";
+import Seo from "../components/Seo";
 
 // markup
 const IndexPage = () => {
   return (
     <Layout>
+      <Seo />
       <Hero />
       <Features />
       <Services />

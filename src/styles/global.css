@@ -13,3 +13,22 @@ h1, h2,h3,h4, h5,h6{
 .react-tabs__tab--selected{
   @apply border-b-2 border-secondary mb-[-2px]
 }
+
+.swiper-button-prev{
+  @apply !text-primary bg-white p-6 rounded transition-colors !left-10
+}
+.swiper-button-next{
+  @apply !text-primary bg-white p-6 rounded transition-colors !right-10
+}
+
+.swiper-button-prev:hover, .swiper-button-next:hover{
+  @apply !text-white bg-secondary 
+}
+
+.swiper-button-prev::after{
+  @apply !text-2xl
+}
+
+.swiper-button-next::after{
+  @apply !text-2xl
+}

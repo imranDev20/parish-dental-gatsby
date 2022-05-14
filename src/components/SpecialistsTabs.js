@@ -50,7 +50,7 @@ const SpecialistsTabs = () => {
   ];
   return (
     <section className="w-full py-28 bg-rose-50">
-      <div className="container mx-auto px-20">
+      <div className="container mx-auto px-10">
         <Tabs>
           <TabList className="flex justify-between text-center border-b-2 border-secondary/20 relative">
             {tabContents.map((tab) => (

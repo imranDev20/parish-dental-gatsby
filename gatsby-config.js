@@ -5,7 +5,28 @@ require("dotenv").config({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [`page`],
+  collectionTypes: [
+    {
+      singularName: `page`,
+      queryParams: {
+        // Populate media and relations
+        // Make sure to not specify the fields key so the api always returns the updatedAt
+        populate: {
+          image: "*",
+          images: "*",
+          blocks: {
+            populate: {
+              slides: {
+                image: "*",
+                images: "*",
+                populate: "*",
+              },
+            },
+          },
+        },
+      },
+    },
+  ],
   singleTypes: [],
 };
 

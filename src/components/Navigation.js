@@ -1,10 +1,10 @@
 import { Link } from "gatsby";
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 
 const Navigation = () => {
-  const [indicatorWidth, setIndicatorWidth] = useState("");
-  const [indicatorLeft, setIndicatorLeft] = useState("");
-  const ref = useRef(null);
+  // const [indicatorWidth, setIndicatorWidth] = useState("");
+  // const [indicatorLeft, setIndicatorLeft] = useState("");
+  // const ref = useRef(null);
 
   // useEffect(() => {
   //   console.log("width", ref.current.offsetWidth);
@@ -30,7 +30,7 @@ const Navigation = () => {
         {routes.map((route) => (
           <div key={route.id} className="inline-block">
             <Link
-              ref={ref}
+              // ref={ref}
               activeClassName={`border-t-[3px]  !border-secondary`}
               // onMouseOver={(e) => handleIndicator(e.target)}
               className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
@@ -43,10 +43,10 @@ const Navigation = () => {
           </div>
         ))}
       </div>
-      <div
+      {/* <div
         style={{ width: indicatorWidth, left: indicatorLeft }}
         className="indicator"
-      ></div>
+      ></div> */}
     </nav>
   );
 };
