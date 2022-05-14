@@ -1,5 +1,6 @@
 import React from "react";
 import Triangle from "../images/triangle.svg";
+import { BgImage } from "gbimage-bridge";
 
 const About = () => {
   return (
