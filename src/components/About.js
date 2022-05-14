@@ -28,10 +28,8 @@ const About = () => {
     }
   `);
 
-  console.log(data);
-
-  const aboutContents = data.strapiPage.blocks[1];
-  const image = getImage(data.strapiPage.blocks[1].aboutBg.localFile);
+  const aboutContents = data?.strapiPage?.blocks[1];
+  const image = getImage(data?.strapiPage?.blocks[1]?.aboutBg?.localFile);
 
   return (
     <section className="bg-background">
@@ -40,17 +38,17 @@ const About = () => {
         <div className="container mx-auto px-10 ">
           <div className="w-[45%] bg-background py-36 px-20 mr-auto relative">
             <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
-              {aboutContents.aboutSubtitle}
+              {aboutContents?.aboutSubtitle}
             </h3>
             <h2 className=" text-4xl my-2 capitalize font-semibold text-primary">
-              {aboutContents.aboutTitle}
+              {aboutContents?.aboutTitle}
             </h2>
             <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
-              {aboutContents.aboutText}
+              {aboutContents?.aboutText}
             </p>
 
             <p className="font-['Catamaran'] text-xl text-orange-500 font-medium mt-10">
-              Andrea McCollins
+              Andrea Evans
             </p>
 
             <svg

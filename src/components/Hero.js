@@ -38,8 +38,6 @@ const Hero = () => {
     }
   `);
 
-  console.log(data);
-
   const heroContents = data?.strapiPage?.blocks[0]?.slides;
 
   // const heroContents = [
