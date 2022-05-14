@@ -7,7 +7,7 @@ const Blog = () => {
   const blogs = [
     {
       id: 1,
-      title: "Braces for teens",
+      title: "Braces for tens",
       text: "Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh mel integre facilis.",
       date: "17TH NOVEMBER 2020",
       image: BracesImage,
