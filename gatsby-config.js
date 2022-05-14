@@ -37,6 +37,7 @@ module.exports = {
   siteMetadata: {
     title: `S&B Dental`,
     siteUrl: `https://www.yourdomain.tld`,
+    author: `Imran Kabir`,
   },
   plugins: [
     "gatsby-plugin-image",

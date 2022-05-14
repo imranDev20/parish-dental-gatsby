@@ -2,14 +2,22 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
@@ -81,102 +89,113 @@ const Hero = () => {
 
   return (
     <section>
-      <Swiper
-        modules={[EffectFade, Navigation, Pagination]}
-        effect="fade"
-        spaceBetween={50}
-        loop
-        navigation
-        pagination={{ clickable: true }}
-        slidesPerView={1}
-        // onSlideChange={() => setAnimate(true)}
-        // onSwiper={(swiper) => console.log(swiper)}
-        className="!max-h-[85vh]"
-      >
-        {heroContents.map((heroContent) => {
-          const image = getImage(heroContent?.slideImage?.localFile);
-          return (
-            <SwiperSlide
-              key={heroContent.strapi_id}
-              className="!max-h-[85vh] relative "
-            >
-              {({ isActive }) => (
-                <>
-                  <GatsbyImage
-                    imgClassName="w-full h-full object-cover"
-                    className="w-full h-screen max-h-[700px]"
-                    image={image}
-                    alt={heroContent?.slideImage?.alternativeText}
-                  />
+      {data ? (
+        <Swiper
+          modules={[EffectFade, Navigation, Pagination]}
+          effect="fade"
+          spaceBetween={50}
+          loop
+          navigation
+          pagination={{ clickable: true }}
+          slidesPerView={1}
+          // onSlideChange={() => setAnimate(true)}
+          // onSwiper={(swiper) => console.log(swiper)}
+          className="!max-h-[85vh]"
+        >
+          {heroContents.map((heroContent) => {
+            const image = getImage(heroContent?.slideImage?.localFile);
+            return (
+              <SwiperSlide
+                key={heroContent.strapi_id}
+                className="!max-h-[85vh] relative "
+              >
+                {({ isActive }) => (
+                  <>
+                    <GatsbyImage
+                      imgClassName="w-full h-full object-cover"
+                      className="w-full h-screen max-h-[700px]"
+                      image={image}
+                      alt={heroContent?.slideImage?.alternativeText}
+                    />
 
-                  <div className="max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">
-                    <motion.h3
-                      initial={{
-                        opacity: 0,
-                        x: -100,
-                      }}
-                      animate={{
-                        opacity: isActive ? 1 : 0,
-                        x: isActive ? 0 : -100,
-                      }}
-                      transition={{
-                        type: "tween",
-                        stiffness: 100,
-                        duration: 0.7,
-                      }}
-                      className="tracking-[0.2em] uppercase bg-secondary text-white text-sm px-3 py-2 inline-block rounded"
-                    >
-                      {heroContent?.subtitle}
-                    </motion.h3>
-                    <div className="my-2">
-                      <h2 className="text-6xl text-primary font-semibold capitalize">
-                        <motion.span
-                          initial={{
-                            opacity: 0,
-                            x: -100,
-                          }}
-                          animate={{
-                            opacity: isActive ? 1 : 0,
-                            x: isActive ? 0 : -100,
-                          }}
-                          transition={{
-                            type: "tween",
-                            stiffness: 100,
-                            duration: 0.7,
-                            delay: 0.05,
-                          }}
-                          className="inline-block bg-white my-1 px-3 py-2 rounded "
-                        >
-                          {heroContent?.titleFirstLine}
-                        </motion.span>
-                        <motion.span
-                          initial={{
-                            opacity: 0,
-                            x: -100,
-                          }}
-                          animate={{
-                            opacity: isActive ? 1 : 0,
-                            x: isActive ? 0 : -100,
-                          }}
-                          transition={{
-                            type: "tween",
-                            stiffness: 100,
-                            duration: 0.7,
-                            delay: 0.1,
-                          }}
-                          className="bg-white inline-block my-1 px-3 py-2 rounded "
-                        >
-                          {heroContent?.titleSecondLine}
-                        </motion.span>
-                      </h2>
+                    <div className="max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">
+                      <motion.h3
+                        initial={{
+                          opacity: 0,
+                          x: -100,
+                        }}
+                        animate={{
+                          opacity: isActive ? 1 : 0,
+                          x: isActive ? 0 : -100,
+                        }}
+                        transition={{
+                          type: "tween",
+                          stiffness: 100,
+                          duration: 0.7,
+                        }}
+                        className="tracking-[0.2em] uppercase bg-secondary text-white text-sm px-3 py-2 inline-block rounded"
+                      >
+                        {heroContent?.subtitle}
+                      </motion.h3>
+                      <div className="my-2">
+                        <h2 className="text-6xl text-primary font-semibold capitalize">
+                          <motion.span
+                            initial={{
+                              opacity: 0,
+                              x: -100,
+                            }}
+                            animate={{
+                              opacity: isActive ? 1 : 0,
+                              x: isActive ? 0 : -100,
+                            }}
+                            transition={{
+                              type: "tween",
+                              stiffness: 100,
+                              duration: 0.7,
+                              delay: 0.05,
+                            }}
+                            className="inline-block bg-white my-1 px-3 py-2 rounded "
+                          >
+                            {heroContent?.titleFirstLine}
+                          </motion.span>
+                          <motion.span
+                            initial={{
+                              opacity: 0,
+                              x: -100,
+                            }}
+                            animate={{
+                              opacity: isActive ? 1 : 0,
+                              x: isActive ? 0 : -100,
+                            }}
+                            transition={{
+                              type: "tween",
+                              stiffness: 100,
+                              duration: 0.7,
+                              delay: 0.1,
+                            }}
+                            className="bg-white inline-block my-1 px-3 py-2 rounded "
+                          >
+                            {heroContent?.titleSecondLine}
+                          </motion.span>
+                        </h2>
+                      </div>
                     </div>
-                  </div>
-                </>
-              )}
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+                  </>
+                )}
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      ) : (
+        <div className="flex justify-center items-center w-full h-screen">
+          <ClipLoader
+            color={"#123abc"}
+            loading={data ? true : false}
+            css={override}
+            size={150}
+          />
+        </div>
+      )}
     </section>
   );
 };
