@@ -32,3 +32,27 @@ h1, h2,h3,h4, h5,h6{
 .swiper-button-next::after{
   @apply !text-2xl
 }
+
+.swiper-pagination-bullet{
+  @apply !opacity-100 !mx-3 transition-all
+}
+
+.swiper-pagination-bullet:nth-child(1){
+  @apply bg-secondary
+}
+
+.swiper-pagination-bullet:nth-child(2){
+  @apply bg-background
+}
+
+.swiper-pagination-bullet:nth-child(3){
+  @apply bg-primary
+}
+
+.swiper-pagination-bullet:nth-child(4){
+  @apply bg-rose-50
+}
+
+.swiper-pagination-bullet-active{
+  @apply scale-[2.0]
+}
