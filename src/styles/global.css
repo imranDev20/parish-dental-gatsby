@@ -56,3 +56,14 @@ h1, h2,h3,h4, h5,h6{
 .swiper-pagination-bullet-active{
   @apply scale-[2.0]
 }
+
+.about-bg-image::before {
+  width: 55%!important;
+  left: unset!important;
+  right: 0!important;
+}
+.about-bg-image::after {
+  width: 55%!important;
+  left: unset!important;
+  right: 0!important;
+}

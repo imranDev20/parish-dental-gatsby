@@ -17,18 +17,21 @@ const Hero = () => {
       strapiPage(title: { eq: "Home" }) {
         id
         blocks {
-          slides {
-            slideImage {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
+          ... on STRAPI__COMPONENT_BLOCKS_HERO {
+            slides {
+              slideImage {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
+                alternativeText
               }
-              alternativeText
+              subtitle
+              titleFirstLine
+              titleSecondLine
+              strapi_id
             }
-            subtitle
-            titleFirstLine
-            titleSecondLine
           }
         }
       }
@@ -96,7 +99,7 @@ const Hero = () => {
           const image = getImage(heroContent?.slideImage?.localFile);
           return (
             <SwiperSlide
-              key={heroContent.id}
+              key={heroContent.strapi_id}
               className="!max-h-[85vh] relative "
             >
               {({ isActive }) => (
@@ -105,6 +108,7 @@ const Hero = () => {
                     imgClassName="w-full h-full object-cover"
                     className="w-full h-screen max-h-[700px]"
                     image={image}
+                    alt={heroContent?.slideImage?.alternativeText}
                   />
 
                   <div className="max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">

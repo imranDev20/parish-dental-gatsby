@@ -1,25 +1,52 @@
 import React from "react";
-import Triangle from "../images/triangle.svg";
+import { graphql, useStaticQuery } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
 
 const About = () => {
+  const data = useStaticQuery(graphql`
+    query AboutQuery {
+      strapiPage(title: { eq: "Home" }) {
+        id
+        blocks {
+          ... on STRAPI__COMPONENT_BLOCKS_ABOUT {
+            id
+            aboutSubtitle
+            aboutText
+            aboutTitle
+            aboutBg {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+              alternativeText
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  console.log(data);
+
+  const aboutContents = data.strapiPage.blocks[1];
+  const image = getImage(data.strapiPage.blocks[1].aboutBg.localFile);
+
   return (
     <section className="bg-background">
-      <div className="w-full relative before:content-[''] before:absolute before:w-[55%] before:h-full before:top-0 before:right-0 before:bottom-0 before:bg-[url('../images/surgery.jpeg')] before:bg-cover before:bg-no-repeat before:bg-center">
+      {/* check global.css for about-bg-image custom class styling */}
+      <BgImage className="about-bg-image" image={image}>
         <div className="container mx-auto px-10 ">
           <div className="w-[45%] bg-background py-36 px-20 mr-auto relative">
             <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
-              Our dear clients
+              {aboutContents.aboutSubtitle}
             </h3>
             <h2 className=" text-4xl my-2 capitalize font-semibold text-primary">
-              Fully dedicated to your dental health
+              {aboutContents.aboutTitle}
             </h2>
             <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
-              Te veritus tractatos delicatissimi qui, justo diceret mentitum ut
-              sit. Qui sed reque dicam, qui veri nullam vituperatoribus in.
-              Tibique maiestatis sum quod sum ut alienum nec et, summo possim
-              persequeris vix mea. Adhuc quodsi qui, sit no tale essent
-              electram. Mei sum prodesset in pro, quo scripta feugait vidisse.
+              {aboutContents.aboutText}
             </p>
 
             <p className="font-['Catamaran'] text-xl text-orange-500 font-medium mt-10">
@@ -39,7 +66,7 @@ const About = () => {
             </svg>
           </div>
         </div>
-      </div>
+      </BgImage>
     </section>
   );
 };

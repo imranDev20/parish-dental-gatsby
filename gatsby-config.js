@@ -21,6 +21,9 @@ const strapiConfig = {
                 images: "*",
                 populate: "*",
               },
+              aboutBg: {
+                populate: "*",
+              },
             },
           },
         },
@@ -48,6 +51,13 @@ module.exports = {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",
+      },
+    },
+    {
+      resolve: "gatsby-background-image",
+      options: {
+        // add your own characters to escape, replacing the default ':/'
+        specialChars: "/:",
       },
     },
     "gatsby-plugin-sharp",
