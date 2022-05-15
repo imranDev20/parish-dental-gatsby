@@ -17,7 +17,7 @@ const About = () => {
             aboutBg {
               localFile {
                 childImageSharp {
-                  gatsbyImageData(placeholder: TRACED_SVG)
+                  gatsbyImageData
                 }
               }
               alternativeText
