@@ -30,7 +30,7 @@ const Hero = () => {
               slideImage {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(placeholder: TRACED_SVG)
                   }
                 }
                 alternativeText
