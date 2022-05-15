@@ -20,8 +20,8 @@ const Testimonials = () => {
           spaceBetween={75}
           loop
           slidesPerView={3}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
           className="mt-10"
         >
           {[0, 1, 2, 3, 4].map((n) => (
