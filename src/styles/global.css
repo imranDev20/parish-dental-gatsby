@@ -2,68 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body{
-  @apply font-['Open_Sans']
+body {
+  @apply font-['Open_Sans'];
 }
 
-h1, h2,h3,h4, h5,h6{
-  @apply font-['Catamaran']
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-['Catamaran'];
 }
-.react-tabs__tab--selected{
-  @apply border-b-2 border-secondary mb-[-2px]
-}
-
-.swiper-button-prev{
-  @apply !text-primary bg-white p-6 rounded transition-colors !left-10
-}
-.swiper-button-next{
-  @apply !text-primary bg-white p-6 rounded transition-colors !right-10
+.react-tabs__tab--selected {
+  @apply border-b-2 border-secondary mb-[-2px];
 }
 
-.swiper-button-prev:hover, .swiper-button-next:hover{
-  @apply !text-white bg-secondary 
+.hero-carousel .swiper-button-prev {
+  @apply !text-primary bg-white p-6 rounded transition-colors !left-10 !hidden;
+}
+.hero-carousel .swiper-button-next {
+  @apply !text-primary bg-white p-6 rounded transition-colors !right-10 !hidden;
 }
 
-.swiper-button-prev::after{
-  @apply !text-2xl
+@media (min-width: 768px) {
+  .hero-carousel .swiper-button-prev {
+    @apply !flex;
+  }
+  .hero-carousel .swiper-button-next {
+    @apply !flex;
+  }
 }
 
-.swiper-button-next::after{
-  @apply !text-2xl
+.hero-carousel .swiper-button-prev:hover,
+.hero-carousel .swiper-button-next:hover {
+  @apply !text-white bg-secondary;
 }
 
-.swiper-pagination-bullet{
-  @apply !opacity-100 !mx-3 transition-all
+.hero-carousel .swiper-button-prev::after {
+  @apply !text-2xl;
 }
 
-.swiper-pagination-bullet:nth-child(1){
-  @apply bg-secondary
+.hero-carousel .swiper-button-next::after {
+  @apply !text-2xl;
 }
 
-.swiper-pagination-bullet:nth-child(2){
-  @apply bg-background
+.hero-carousel .swiper-pagination-bullet {
+  @apply !opacity-100 !mx-3 transition-all;
 }
 
-.swiper-pagination-bullet:nth-child(3){
-  @apply bg-primary
+.hero-carousel .swiper-pagination-bullet:nth-child(1) {
+  @apply bg-secondary;
 }
 
-.swiper-pagination-bullet:nth-child(4){
-  @apply bg-rose-50
+.hero-carousel .swiper-pagination-bullet:nth-child(2) {
+  @apply bg-background;
 }
 
-.swiper-pagination-bullet-active{
-  @apply scale-[2.0]
+.hero-carousel .swiper-pagination-bullet:nth-child(3) {
+  @apply bg-primary;
 }
 
-.about-bg-image::before {
-  width: 55%!important;
-  left: unset!important;
-  right: 0!important;
+.hero-carousel .swiper-pagination-bullet:nth-child(4) {
+  @apply bg-rose-50;
 }
-.about-bg-image::after {
-  width: 55%!important;
-  left: unset!important;
-  right: 0!important;
+
+.hero-carousel .swiper-pagination-bullet-active {
+  @apply scale-[2.0];
 }

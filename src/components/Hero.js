@@ -36,9 +36,8 @@ const Hero = () => {
                 }
                 alternativeText
               }
-              subtitle
-              titleFirstLine
-              titleSecondLine
+              slideSubtitle
+              slideTitle
               strapi_id
             }
           }
@@ -48,45 +47,6 @@ const Hero = () => {
   `);
 
   const heroContents = data?.strapiPage?.blocks[0]?.slides;
-
-  // const heroContents = [
-  //   {
-  //     id: 1,
-  //     image:
-  //       "https://images.unsplash.com/photo-1643224297379-54023dacf558?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-  //     text: {
-  //       subtitle: "Dental Practice",
-  //       title: {
-  //         firstLine: "Stomatology experts ",
-  //         secondLine: "available 24/7",
-  //       },
-  //     },
-  //   },
-  //   {
-  //     id: 2,
-  //     image:
-  //       "https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-  //     text: {
-  //       subtitle: "Best in class",
-  //       title: {
-  //         firstLine: "Leading cosmetic",
-  //         secondLine: "dentistry clinic",
-  //       },
-  //     },
-  //   },
-  //   {
-  //     id: 3,
-  //     image:
-  //       "https://images.unsplash.com/photo-1643224297379-54023dacf558?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-  //     text: {
-  //       subtitle: "Quality matters",
-  //       title: {
-  //         firstLine: "Premium dental care for",
-  //         secondLine: "every patients",
-  //       },
-  //     },
-  //   },
-  // ];
 
   return (
     <section>
@@ -103,12 +63,19 @@ const Hero = () => {
           slidesPerView={1}
           // onSlideChange={() => setAnimate(true)}
           // onSwiper={(swiper) => console.log(swiper)}
-          className="!max-h-[85vh]"
+          className="hero-carousel !min-h-[600px]"
         >
           {heroContents.map((heroContent) => {
             const image = getImage(heroContent?.slideImage?.localFile);
+            const titleTextArray = heroContent?.slideTitle?.split(" ");
+            const half = Math.ceil(titleTextArray?.length / 2);
+            const firstHalf = titleTextArray?.splice(0, half);
+            const secondHalf = titleTextArray?.splice(-half);
+
+            console.log(firstHalf, secondHalf);
+
             return (
-              <SwiperSlide key={heroContent.strapi_id} className="relative ">
+              <SwiperSlide key={heroContent?.strapi_id} className="relative">
                 {({ isActive }) => (
                   <BgImage image={image} className="h-screen w-full">
                     {/* <GatsbyImage
@@ -118,7 +85,7 @@ const Hero = () => {
                       alt={heroContent?.slideImage?.alternativeText}
                     /> */}
 
-                    <div className="max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">
+                    <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">
                       <motion.h3
                         initial={{
                           opacity: 0,
@@ -133,12 +100,12 @@ const Hero = () => {
                           stiffness: 100,
                           duration: 0.7,
                         }}
-                        className="tracking-[0.2em] uppercase bg-secondary text-white text-sm px-3 py-2 inline-block rounded"
+                        className="tracking-[0.2em] uppercase bg-secondary text-white text-xs lg:text-sm px-3 py-2 inline-block rounded"
                       >
-                        {heroContent?.subtitle}
+                        {heroContent?.slideSubtitle}
                       </motion.h3>
                       <div className="my-2">
-                        <h2 className="text-6xl text-primary font-semibold capitalize">
+                        <h2 className="text-3xl sm:text-4xl md:text-6xl text-primary font-semibold capitalize">
                           <motion.span
                             initial={{
                               opacity: 0,
@@ -156,7 +123,9 @@ const Hero = () => {
                             }}
                             className="inline-block bg-white my-1 px-3 py-2 rounded "
                           >
-                            {heroContent?.titleFirstLine}
+                            {firstHalf.map((word) => (
+                              <>{word} </>
+                            ))}
                           </motion.span>
                           <motion.span
                             initial={{
@@ -175,7 +144,9 @@ const Hero = () => {
                             }}
                             className="bg-white inline-block my-1 px-3 py-2 rounded "
                           >
-                            {heroContent?.titleSecondLine}
+                            {secondHalf.map((word) => (
+                              <>{word} </>
+                            ))}
                           </motion.span>
                         </h2>
                       </div>

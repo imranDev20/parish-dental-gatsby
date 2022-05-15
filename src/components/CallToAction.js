@@ -4,8 +4,8 @@ import { LinkButton } from "./Button";
 const CallToAction = () => {
   return (
     <section className="py-16 bg-primary">
-      <div className="container mx-auto px-10 flex items-center justify-between">
-        <div className="text-white ">
+      <div className="container mx-auto px-10 flex flex-col lg:flex-row items-start lg:items-center justify-between">
+        <div className="text-white mb-3 lg:mb-0">
           <h2 className="font-semibold text-3xl">
             Discount dental plans save you{" "}
             <span className="text-secondary">up to 60%</span>
@@ -16,7 +16,7 @@ const CallToAction = () => {
           </p>
         </div>
         <div>
-          <LinkButton className="px-7 py-5" to="/">
+          <LinkButton className="px-7 py-5 inline-block" to="/">
             Learn More
           </LinkButton>
         </div>

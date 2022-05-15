@@ -14,7 +14,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="container mx-auto px-10 grid grid-cols-3 my-32 gap-10">
+    <section className="container mx-auto px-10 grid grid-cols-1  lg:grid-cols-3 my-32 gap-10">
       <div>
         <div className="max-h-[230px] overflow-hidden rounded mb-10">
           <img

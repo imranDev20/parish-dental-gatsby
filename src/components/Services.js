@@ -44,7 +44,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="container mx-auto px-10 grid grid-cols-3 gap-10 my-32">
+    <section className="container mx-auto px-10 grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-32">
       {services.map((service) => (
         <div key={service.id} className="flex my-3">
           <div className="w-2/5 mr-5">
