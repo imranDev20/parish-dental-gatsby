@@ -46,7 +46,7 @@ const About = () => {
           </p>
 
           <p className="font-['Catamaran'] text-xl text-orange-500 font-medium mt-10">
-            Andrea Evans
+            Andrea Evan
           </p>
           <svg
             className="absolute hidden lg:block top-0 -right-28 w-28 h-full z-10"
