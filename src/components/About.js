@@ -73,33 +73,3 @@ const About = () => {
 };
 
 export default About;
-
-{
-  /* <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
-              {aboutContents?.aboutSubtitle}
-</h3>
-<h2 className=" text-4xl my-2 capitalize font-semibold text-primary">
-  {aboutContents?.aboutTitle}
-</h2>
-<p className="text-neutral-500 mx-auto my-5 text-base leading-8">
-  {aboutContents?.aboutText}
-</p>
-
-<p className="font-['Catamaran'] text-xl text-orange-500 font-medium mt-10">
-  Andrea Evans
-</p> */
-}
-
-{
-  /* <svg
-  className="absolute top-0 -right-28 w-28 h-full"
-  width="100%"
-  viewBox="0 0 100 700"
-  preserveAspectRatio="none"
->
-  <polygon
-    fill="#EEF7FF"
-    points="100 0 0 0 0 700 0 700 100 0"
-  ></polygon>
-</svg> */
-}

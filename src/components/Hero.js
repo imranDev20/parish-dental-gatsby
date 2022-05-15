@@ -123,7 +123,7 @@ const Hero = () => {
                             }}
                             className="inline-block bg-white my-1 px-3 py-2 rounded "
                           >
-                            {firstHalf.map((word) => (
+                            {firstHalf?.map((word) => (
                               <>{word} </>
                             ))}
                           </motion.span>
@@ -144,7 +144,7 @@ const Hero = () => {
                             }}
                             className="bg-white inline-block my-1 px-3 py-2 rounded "
                           >
-                            {secondHalf.map((word) => (
+                            {secondHalf?.map((word) => (
                               <>{word} </>
                             ))}
                           </motion.span>
