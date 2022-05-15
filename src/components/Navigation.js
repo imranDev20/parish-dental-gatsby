@@ -25,8 +25,8 @@ const Navigation = () => {
     { id: 5, name: "Contact", link: "/contact/" },
   ];
   return (
-    <nav className="relative">
-      <div className="main-nav">
+    <nav className="hidden lg:block">
+      <div className="">
         {routes.map((route) => (
           <div key={route.id} className="inline-block">
             <Link
