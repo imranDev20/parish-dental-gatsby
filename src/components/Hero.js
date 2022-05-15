@@ -2,10 +2,11 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { BgImage } from "gbimage-bridge";
 
 // Import Swiper styles
 import "swiper/css";
@@ -95,6 +96,8 @@ const Hero = () => {
           effect="fade"
           spaceBetween={50}
           loop
+          autoplay
+          initialSlide={0}
           navigation
           pagination={{ clickable: true }}
           slidesPerView={1}
@@ -105,18 +108,15 @@ const Hero = () => {
           {heroContents.map((heroContent) => {
             const image = getImage(heroContent?.slideImage?.localFile);
             return (
-              <SwiperSlide
-                key={heroContent.strapi_id}
-                className="!max-h-[85vh] relative "
-              >
+              <SwiperSlide key={heroContent.strapi_id} className="relative ">
                 {({ isActive }) => (
-                  <>
-                    <GatsbyImage
+                  <BgImage image={image} className="h-screen w-full">
+                    {/* <GatsbyImage
                       imgClassName="w-full h-full object-cover"
                       className="w-full h-screen max-h-[700px]"
                       image={image}
                       alt={heroContent?.slideImage?.alternativeText}
-                    />
+                    /> */}
 
                     <div className="max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">
                       <motion.h3
@@ -180,7 +180,7 @@ const Hero = () => {
                         </h2>
                       </div>
                     </div>
-                  </>
+                  </BgImage>
                 )}
               </SwiperSlide>
             );
@@ -189,7 +189,7 @@ const Hero = () => {
       ) : (
         <div className="flex justify-center items-center w-full h-screen">
           <ClipLoader
-            color={"#123abc"}
+            color={"#25277e"}
             loading={data ? true : false}
             css={override}
             size={150}
