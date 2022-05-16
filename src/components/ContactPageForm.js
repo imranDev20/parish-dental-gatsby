@@ -3,7 +3,7 @@ import Form from "../components/Form";
 
 const ContactPageForm = () => {
   return (
-    <section className="container mx-auto px-10 flex items-center py-36">
+    <section className="container mx-auto px-10 flex items-center my-24">
       <div className="w-1/2 p-10">
         <img
           className="w-full object-cover rounded"

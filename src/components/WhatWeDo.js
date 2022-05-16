@@ -6,7 +6,7 @@ import {
 
 const WhatWeDo = () => {
   return (
-    <section className="w-full my-36">
+    <section className="w-full my-24">
       <div className="flex container mx-auto px-10">
         <div className="w-1/2 px-10">
           <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">

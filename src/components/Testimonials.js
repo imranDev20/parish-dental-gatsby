@@ -5,7 +5,7 @@ import TestimonialCard from "./TestimonialCard";
 
 const Testimonials = () => {
   return (
-    <section className="my-36">
+    <section className="my-24">
       <div className="container px-10 mx-auto ">
         <div className="my-10">
           <SectionHeader

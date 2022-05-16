@@ -2,7 +2,7 @@ import React from "react";
 
 const WhoWeAre = () => {
   return (
-    <section className="my-36">
+    <section className="my-24">
       <div className="container mx-auto px-10 flex justify-between">
         <div className="w-1/2 ">
           <img

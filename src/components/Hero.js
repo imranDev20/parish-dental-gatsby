@@ -63,7 +63,7 @@ const Hero = () => {
           slidesPerView={1}
           // onSlideChange={() => setAnimate(true)}
           // onSwiper={(swiper) => console.log(swiper)}
-          className="hero-carousel !min-h-[600px]"
+          className="hero-carousel min-h-fit"
         >
           {heroContents.map((heroContent) => {
             const image = getImage(heroContent?.slideImage?.localFile);
@@ -77,7 +77,11 @@ const Hero = () => {
             return (
               <SwiperSlide key={heroContent?.strapi_id} className="relative">
                 {({ isActive }) => (
-                  <BgImage image={image} className="h-screen w-full">
+                  // Additonal styles in global.css
+                  <BgImage
+                    image={image}
+                    className="hero-slide-image bg-cover w-full"
+                  >
                     <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">
                       <motion.h3
                         initial={{

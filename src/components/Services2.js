@@ -1,27 +1,26 @@
 import React from "react";
-import { GiPlagueDoctorProfile } from "react-icons/gi";
-import ContactPageForm from "./ContactPageForm";
 import SectionHeader from "./SectionHeader";
+import { GiPlagueDoctorProfile } from "react-icons/gi";
 
 const Services2 = () => {
   return (
-    <section className="py-36">
+    <section className="bg-rose-50 py-24">
       <div className="container px-10 mx-auto ">
         <SectionHeader
           subTitle="this is subtitle"
           mainTitle="Example Title"
           description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
         />
-        <div className="grid grid-cols-4 gap-5 my-10">
-          {[0, 1, 2, 3, 4, 5, 6, 7].map((n) => (
-            <div key={n} className=" rounded overflow-hidden">
+        <div className="grid grid-cols-3 gap-10 my-10">
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+            <div key={n} className=" rounded-lg overflow-hidden">
               <div>
                 <img
                   src="https://img.freepik.com/free-photo/woman-patient-dentist_1303-9365.jpg?w=2000"
                   alt=""
                 />
               </div>
-              <div className="bg-rose-50  p-5 relative">
+              <div className="bg-white  p-5 relative">
                 <div className="absolute top-0 -translate-y-1/2 px-6 py-6 bg-white rounded shadow">
                   <GiPlagueDoctorProfile className="text-secondary text-4xl" />
                 </div>
@@ -36,8 +35,6 @@ const Services2 = () => {
             </div>
           ))}
         </div>
-
-        <ContactPageForm />
       </div>
     </section>
   );
