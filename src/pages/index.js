@@ -17,13 +17,16 @@ const CallToAction = loadable(() => import("../components/CallToAction"));
 const IndexPage = () => {
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo
+        title="Home"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+      />
       <Hero />
       <Features />
       <Services />
       <About />
       <Testimonials />
-      <CallToAction />
+      <CallToAction bgColor="bg-primary" />
       <SpecialistsTabs />
       <Team />
       <Contact />

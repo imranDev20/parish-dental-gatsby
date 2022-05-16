@@ -38,7 +38,7 @@ const About = () => {
           <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
             {aboutContents?.aboutSubtitle}
           </h3>
-          <h2 className=" text-4xl my-2 capitalize font-semibold text-primary">
+          <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
             {aboutContents?.aboutTitle}
           </h2>
           <p className="text-neutral-500 mx-auto my-5 text-base leading-8">

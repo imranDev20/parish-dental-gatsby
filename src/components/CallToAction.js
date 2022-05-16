@@ -1,9 +1,9 @@
 import React from "react";
 import { LinkButton } from "./Button";
 
-const CallToAction = () => {
+const CallToAction = ({ bgColor }) => {
   return (
-    <section className="py-16 bg-primary">
+    <section className={`py-16 ${bgColor}`}>
       <div className="container mx-auto px-10 flex flex-col lg:flex-row items-start lg:items-center justify-between">
         <div className="text-white mb-3 lg:mb-0">
           <h2 className="font-semibold text-3xl">

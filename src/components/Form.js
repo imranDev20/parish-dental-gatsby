@@ -1,13 +1,13 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
-const Form = () => {
+const Form = ({ inputBg }) => {
   const [state, handleSubmit] = useForm("xlezaedd");
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
   }
   const inputClasses = [
-    `bg-background  px-4 outline-none ring-2 ring-primary/10 focus:ring-2 focus:ring-primary/40 rounded  my-2 transition-all w-full`,
+    `${inputBg} px-4 outline-none ring-2 ring-primary/10 focus:ring-2 focus:ring-primary/40 rounded  my-2 transition-all w-full`,
   ];
 
   return (
@@ -70,6 +70,7 @@ const Form = () => {
         className={`${inputClasses} py-6`}
         id="message"
         name="message"
+        rows="5"
         placeholder="Message"
       />
       <ValidationError prefix="Message" field="message" errors={state.errors} />

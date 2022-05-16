@@ -15,7 +15,7 @@ const Contact = () => {
               sit. Qui sed reque dicam, qui veri nullam vituperatoribus in.
             </p>
 
-            <Form />
+            <Form inputBg="bg-background" />
 
             <svg
               className="absolute top-0 -left-28 w-28 h-full"

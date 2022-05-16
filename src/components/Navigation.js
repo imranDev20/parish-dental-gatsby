@@ -1,44 +1,35 @@
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import React from "react";
 
 const Navigation = () => {
-  // const [indicatorWidth, setIndicatorWidth] = useState("");
-  // const [indicatorLeft, setIndicatorLeft] = useState("");
-  // const ref = useRef(null);
+  const data = useStaticQuery(graphql`
+    query NavQuery {
+      allStrapiPage {
+        nodes {
+          slug
+          title
+          strapi_id
+        }
+      }
+    }
+  `);
 
-  // useEffect(() => {
-  //   console.log("width", ref.current.offsetWidth);
-  // }, []);
+  console.log(data);
 
-  // const handleIndicator = (el) => {
-  //   setIndicatorWidth(el.offsetWidth + "px");
-  //   setIndicatorLeft(el.offsetLeft + "px");
-  // };
+  const routes = data?.allStrapiPage?.nodes;
+  console.log(routes);
 
-  // const activeIndicator = () => {};
-
-  const routes = [
-    { id: 1, name: "Home", link: "/" },
-    { id: 2, name: "About", link: "/about/" },
-    { id: 3, name: "Services", link: "/services/" },
-    { id: 4, name: "Pricing", link: "/pricing/" },
-    { id: 5, name: "Contact", link: "/contact/" },
-  ];
   return (
     <nav className="hidden lg:block">
       <div className="">
         {routes.map((route) => (
-          <div key={route.id} className="inline-block">
+          <div key={route?.strapi_id} className="inline-block">
             <Link
-              // ref={ref}
               activeClassName={`border-t-[3px]  !border-secondary`}
-              // onMouseOver={(e) => handleIndicator(e.target)}
               className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
-              // activeClassName={`border-t-secondary border-t-4 `}
-
-              to={route.link}
+              to={route?.slug === "home" ? `/` : `/${route?.slug}/`}
             >
-              {route.name}
+              {route?.title}
             </Link>
           </div>
         ))}

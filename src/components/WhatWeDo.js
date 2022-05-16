@@ -26,8 +26,14 @@ const WhatWeDo = () => {
             cupiditate accusantium totam quaerat sed, fuga explicabo doloremque
             cum temporibus
           </p>
+          <a
+            className="px-4 py-4 bg-primary rounded text-white my-3 inline-block"
+            href=""
+          >
+            See our services
+          </a>
         </div>
-        <div>
+        <div className="w-1/2">
           <ReactCompareSlider
             className="rounded"
             // handle={
@@ -59,7 +65,7 @@ const WhatWeDo = () => {
             style={{
               display: "flex",
               width: "100%",
-              height: "50vh",
+              height: "100%",
             }}
           />
         </div>
