@@ -36,7 +36,11 @@ const Testimonials = () => {
           className="mt-10"
         >
           {[0, 1, 2, 3, 4].map((n) => (
-            <SwiperSlide key={n} className="!max-h-[85vh]">
+            <SwiperSlide
+              key={n}
+              // Brought Card wrapper div styles here to avoid large dom
+              className="!max-h-[85vh] flex flex-col items-center"
+            >
               <TestimonialCard />
             </SwiperSlide>
           ))}

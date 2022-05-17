@@ -2,7 +2,7 @@ import React from "react";
 
 const TeamCard = ({ image, name, position }) => {
   return (
-    <div className="">
+    <div>
       <div className="rounded overflow-hidden">
         <img className="w-full h-full object-cover" src={image} alt="" />
       </div>

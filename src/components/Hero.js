@@ -63,7 +63,7 @@ const Hero = () => {
           slidesPerView={1}
           // onSlideChange={() => setAnimate(true)}
           // onSwiper={(swiper) => console.log(swiper)}
-          className="hero-carousel min-h-fit"
+          className="hero-carousel min-h-[500px]"
         >
           {heroContents.map((heroContent) => {
             const image = getImage(heroContent?.slideImage?.localFile);

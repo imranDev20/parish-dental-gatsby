@@ -2,12 +2,13 @@ import React from "react";
 
 const TestimonialCard = () => {
   return (
-    <div className="flex flex-col items-center">
+    <>
       <div className="p-2 border border-primary/10 rounded-full">
         <div className="rounded-full overflow-hidden w-28 h-28">
           <img
             src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
             alt=""
+            className="w-full h-full object-cover"
           />
         </div>
       </div>
@@ -21,7 +22,7 @@ const TestimonialCard = () => {
       <h5 className="uppercase tracking-[0.2em] text-sm text-secondary font-medium">
         Lena Johnson
       </h5>
-    </div>
+    </>
   );
 };
 
