@@ -31,7 +31,7 @@ const Hero = () => {
               slideImage {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(width: 1920)
                   }
                 }
                 alternativeText
