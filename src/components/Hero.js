@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper";
@@ -49,7 +49,7 @@ const Hero = () => {
   const heroContents = data?.strapiPage?.blocks[0]?.slides;
 
   return (
-    <section>
+    <section className="w-full">
       {data ? (
         <Swiper
           modules={[EffectFade, Navigation, Pagination]}
@@ -121,7 +121,7 @@ const Hero = () => {
                           className="inline-block bg-white my-1 px-3 py-2 rounded"
                         >
                           {firstHalf?.map((word, i) => (
-                            <span key={i}>{word} </span>
+                            <Fragment key={i}>{word} </Fragment>
                           ))}
                         </motion.span>
                         <motion.span
@@ -142,7 +142,7 @@ const Hero = () => {
                           className="bg-white inline-block my-1 px-3 py-2 rounded "
                         >
                           {secondHalf?.map((word, i) => (
-                            <span key={i}>{word} </span>
+                            <Fragment key={i}>{word} </Fragment>
                           ))}
                         </motion.span>
                       </h2>

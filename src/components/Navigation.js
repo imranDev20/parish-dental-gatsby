@@ -21,23 +21,23 @@ const Navigation = () => {
 
   return (
     <nav className="hidden lg:block">
-      <div className="">
-        {routes.map((route) => (
-          <div key={route?.strapi_id} className="inline-block">
-            <Link
-              activeClassName={`border-t-[3px]  !border-secondary`}
-              className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
-              to={route?.slug === "home" ? `/` : `/${route?.slug}/`}
-            >
-              {route?.title}
-            </Link>
-          </div>
-        ))}
-      </div>
-      {/* <div
-        style={{ width: indicatorWidth, left: indicatorLeft }}
-        className="indicator"
-      ></div> */}
+      {routes.map((route) => (
+        <Link
+          key={route?.strapi_id}
+          activeClassName={`border-t-[3px]  !border-secondary`}
+          className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
+          to={route?.slug === "home" ? `/` : `/${route?.slug}/`}
+        >
+          {route?.title}
+        </Link>
+      ))}
+      <Link
+        to="/blog/"
+        activeClassName={`border-t-[3px]  !border-secondary`}
+        className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
+      >
+        Blog
+      </Link>
     </nav>
   );
 };
