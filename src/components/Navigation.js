@@ -14,10 +14,7 @@ const Navigation = () => {
     }
   `);
 
-  console.log(data);
-
   const routes = data?.allStrapiPage?.nodes;
-  console.log(routes);
 
   return (
     <nav className="hidden lg:block">

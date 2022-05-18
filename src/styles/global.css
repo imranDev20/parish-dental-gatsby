@@ -14,7 +14,7 @@ h5,
 h6 {
   @apply font-['Catamaran'];
 }
-.react-tabs__tab--selected {
+.specialists-tab .react-tabs__tab--selected {
   @apply border-b-2 border-secondary mb-[-2px];
 }
 
