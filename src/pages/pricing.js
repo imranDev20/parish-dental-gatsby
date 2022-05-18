@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import PageHeader from "../components/PageHeader";
 import NhsCharges from "../components/NhsCharges";
-import PersonalFees from "../components/PersonalFees";
+import PrivateFees from "../components/PrivateFees";
 
 const PricingPage = () => {
   return (
@@ -11,7 +11,7 @@ const PricingPage = () => {
       <Seo title="Pricing" />
       <PageHeader pageTitle="Pricing" />
       <NhsCharges />
-      <PersonalFees />
+      <PrivateFees />
     </Layout>
   );
 };

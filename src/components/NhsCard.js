@@ -19,7 +19,7 @@ const NhsCard = ({ title, price, features, remaining }) => {
         ))}
 
         {remaining.map((remainingFeature, i) => (
-          <li className="my-4 flex items-start line-through">
+          <li key={i} className="my-4 flex items-start line-through">
             <span className="w-4 h-4 inline-block mr-4">
               <FaTimesCircle className="text-red-500 text-lg  mt-1" />
             </span>

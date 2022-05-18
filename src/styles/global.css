@@ -18,6 +18,10 @@ h6 {
   @apply border-b-2 border-secondary mb-[-2px];
 }
 
+.private-fees-tab .react-tabs__tab--selected {
+  @apply border-l-2 border-l-secondary text-secondary;
+}
+
 .hero-carousel .swiper-button-prev {
   @apply !text-primary bg-white p-6 rounded transition-colors !left-10 !hidden;
 }
