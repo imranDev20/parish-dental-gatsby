@@ -55,7 +55,6 @@ const Hero = () => {
           modules={[EffectFade, Navigation, Pagination]}
           effect="fade"
           spaceBetween={50}
-          loop
           autoplay
           initialSlide={0}
           navigation
