@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper";
-import { getImage } from "gatsby-plugin-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -31,7 +31,7 @@ const Hero = () => {
               slideImage {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData(width: 1920)
+                    gatsbyImageData(width: 1920, placeholder: BLURRED)
                   }
                 }
                 alternativeText
@@ -77,10 +77,14 @@ const Hero = () => {
               <SwiperSlide key={heroContent?.strapi_id} className="relative">
                 {({ isActive }) => (
                   // Additonal styles in global.css
-                  <BgImage
-                    image={image}
-                    className="hero-slide-image bg-cover w-full"
-                  >
+                  <>
+                    <GatsbyImage
+                      image={image}
+                      loading="eager"
+                      className="h-[90vh] min-h-[500px] w-full"
+                      imgClassName="w-full h-full object-cover"
+                      alt={heroContent?.slideImage?.alternativeText}
+                    />
                     <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">
                       <motion.h3
                         initial={{
@@ -146,7 +150,7 @@ const Hero = () => {
                         </motion.span>
                       </h2>
                     </div>
-                  </BgImage>
+                  </>
                 )}
               </SwiperSlide>
             );
