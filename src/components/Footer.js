@@ -60,7 +60,7 @@ const Footer = () => {
           <h3 className="font-medium text-xl mb-2">Contact Info</h3>
           <div></div>
         </div>
-        <div>1</div>
+        <div></div>
       </div>
     </footer>
   );

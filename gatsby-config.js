@@ -16,7 +16,14 @@ const strapiConfig = {
           images: "*",
           blocks: {
             populate: {
+              image: "*",
+              images: "*",
               slides: {
+                image: "*",
+                images: "*",
+                populate: "*",
+              },
+              featureImage: {
                 image: "*",
                 images: "*",
                 populate: "*",
@@ -29,6 +36,13 @@ const strapiConfig = {
               },
               aboutBg: {
                 populate: "*",
+              },
+              homeServiceBlock: {
+                populate: {
+                  serviceImage: {
+                    populate: "*",
+                  },
+                },
               },
             },
           },
