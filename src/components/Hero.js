@@ -71,8 +71,6 @@ const Hero = () => {
             const firstHalf = titleTextArray?.splice(0, half);
             const secondHalf = titleTextArray?.splice(-half);
 
-            console.log(firstHalf, secondHalf);
-
             return (
               <SwiperSlide key={heroContent?.strapi_id} className="relative">
                 {({ isActive }) => (

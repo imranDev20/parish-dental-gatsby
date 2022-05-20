@@ -21,7 +21,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-primary py-20">
-      <div className="container mx-auto px-10 grid grid-cols-4 gap-16 text-white">
+      <div className="container mx-auto px-10 grid-cols-1 sm:grid-cols-2 grid lg:grid-cols-4 gap-16 text-white">
         <div>
           <Logo isFooter />
           <p className="my-10">

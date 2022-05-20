@@ -1,32 +1,13 @@
 import React from "react";
 import SectionHeader from "./SectionHeader";
-import BracesImage from "../images/braces.jpeg";
 import BlogCard from "./BlogCard";
+import { getImage } from "gatsby-plugin-image";
+import useBlogQuery from "../hooks/useBlogQuery";
 
 const Blog = () => {
-  const blogs = [
-    {
-      id: 1,
-      title: "Braces for tens",
-      text: "Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh mel integre facilis.",
-      date: "17TH NOVEMBER 2020",
-      image: BracesImage,
-    },
-    {
-      id: 2,
-      title: "Braces for teens",
-      text: "Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh mel integre facilis.",
-      date: "17TH NOVEMBER 2020",
-      image: BracesImage,
-    },
-    {
-      id: 3,
-      title: "Braces for teens",
-      text: "Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh mel integre facilis.",
-      date: "17TH NOVEMBER 2020",
-      image: BracesImage,
-    },
-  ];
+  const data = useBlogQuery();
+
+  const blogs = data?.allStrapiBlog?.nodes;
 
   return (
     <section className="my-24">
@@ -38,17 +19,22 @@ const Blog = () => {
             description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
           />
 
-          <div className="grid grid-cols-3 gap-5">
-            {blogs.map((blog) => (
-              <BlogCard
-                key={blog.id}
-                image={blog.image}
-                title={blog.title}
-                text={blog.text}
-                name={blog.name}
-                date={blog.date}
-              />
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 my-10">
+            {blogs.map((blog) => {
+              const blogImage = getImage(blog?.image?.localFile);
+
+              return (
+                <BlogCard
+                  key={blog?.strapi_id}
+                  image={blogImage}
+                  title={blog?.title}
+                  excerpt={blog?.excerpt}
+                  slug={blog?.slug}
+                  createdAt={blog?.createdAt}
+                  category={blog?.category}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
