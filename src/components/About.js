@@ -28,8 +28,8 @@ const About = () => {
     }
   `);
 
-  const aboutContents = data?.strapiPage?.blocks[1];
-  const image = getImage(data?.strapiPage?.blocks[1]?.aboutBg?.localFile);
+  const aboutContents = data?.strapiPage?.blocks[2];
+  const image = getImage(data?.strapiPage?.blocks[2]?.aboutBg?.localFile);
 
   return (
     <section className="w-full bg-background relative min-h-[600px] mb-[800px] sm:mb-[600px] lg:mb-0">

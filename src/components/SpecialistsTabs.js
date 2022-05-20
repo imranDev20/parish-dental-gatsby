@@ -52,9 +52,12 @@ const SpecialistsTabs = () => {
     <section className="w-full py-28 bg-rose-50">
       <div className="container mx-auto px-10">
         <Tabs className="specialists-tab">
-          <TabList className="flex justify-between text-center border-b-2 border-secondary/20 relative">
+          <TabList className="flex flex-col lg:flex-row justify-between text-center lg:border-b-2 lg:border-secondary/20 relative">
             {tabContents.map((tab) => (
-              <Tab className="cursor-pointer position: relative" key={tab.id}>
+              <Tab
+                className="cursor-pointer position: relative border-b-2 lg:border-b-0 border-secondary/20 mb-[-2px]"
+                key={tab.id}
+              >
                 <h4 className="text-xl text-primary font-medium py-3 ">
                   {tab.label}
                 </h4>
@@ -63,15 +66,15 @@ const SpecialistsTabs = () => {
           </TabList>
 
           {tabContents.map((tab) => (
-            <TabPanel className="flex " key={tab.id}>
-              <div className="w-3/5 py-16 pr-20">
+            <TabPanel className="flex flex-col lg:flex-row" key={tab.id}>
+              <div className="w-full lg:w-3/5 mt-10 lg:py-16 pr-0 lg:pr-20">
                 <h2 className="font-medium text-primary text-3xl">
                   {tab.title}
                 </h2>
                 <p className="my-5 text-neutral-500 text-xl">{tab.textBig}</p>
                 <p className="my-5 text-neutral-500">{tab.textSmall}</p>
               </div>
-              <div className="w-2/5 py-16">
+              <div className="w-full lg:w-2/5 py-0 lg:py-16">
                 <img
                   className="w-full h-full object-contain rounded"
                   src={tab.image}

@@ -29,11 +29,12 @@ const Navigation = () => {
         </Link>
       ))}
       <Link
-        to="/blog/"
+        to="/blogs/"
+        partiallyActive={true}
         activeClassName={`border-t-[3px]  !border-secondary`}
         className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
       >
-        Blog
+        Blogs
       </Link>
     </nav>
   );

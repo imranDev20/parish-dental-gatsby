@@ -1,34 +1,68 @@
 import React from "react";
 import Form from "./Form";
+import { graphql, useStaticQuery } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
+import { BgImage } from "gbimage-bridge";
 
 const Contact = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      strapiPage(title: { eq: "Home" }) {
+        id
+        blocks {
+          ... on STRAPI__COMPONENT_BLOCKS_ABOUT {
+            id
+            aboutSubtitle
+            aboutText
+            aboutTitle
+            aboutBg {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+              alternativeText
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const aboutContents = data?.strapiPage?.blocks[2];
+  const image = getImage(data?.strapiPage?.blocks[2]?.aboutBg?.localFile);
+
   return (
-    <section className="bg-background">
-      <div className="w-full relative before:content-[''] before:absolute before:w-[55%] before:h-full before:top-0 before:left-0 before:bottom-0 before:bg-[url('../images/patient.jpeg')] before:bg-cover before:bg-no-repeat before:bg-center">
-        <div className="container mx-auto px-10 ">
-          <div className="w-[45%] bg-background py-36 px-10 ml-auto relative">
-            <h2 className=" text-4xl my-2 capitalize font-semibold text-primary">
-              Request an Appointment
-            </h2>
-            <p className="text-neutral-500 font-light mx-auto my-5 text-lg leading-8">
-              Te veritus tractatos delicatissimi qui, justo diceret mentitum ut
-              sit. Qui sed reque dicam, qui veri nullam vituperatoribus in.
-            </p>
-
-            <Form inputBg="bg-background" />
-
-            <svg
-              className="absolute top-0 -left-28 w-28 h-full"
-              width="100%"
-              viewBox="0 0 100 700"
-              preserveAspectRatio="none"
-            >
-              <polygon
-                fill="#EEF7FF"
-                points="0 700 100 700 100 0 100 0 0 700"
-              ></polygon>
-            </svg>
+    <section className="w-full bg-background relative min-h-[600px] mb-[1000px] sm:mb-[800px] lg:mb-0">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row  px-10 justify-between ">
+        <div className="w-full lg:w-1/2 ">
+          <div className="absolute block left-0 bg-red-50 w-full lg:w-1/2 h-full">
+            <BgImage className="h-full" image={image}>
+              <div className="h-full"></div>
+            </BgImage>
           </div>
+        </div>
+
+        <div className="w-full lg:w-1/2  pl-0 lg:pl-10 py-20 lg:py-36 relative">
+          <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
+            Request An Appointment
+          </h2>
+          <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
+            Te veritus tractatos delicatissimi qui, justo diceret mentitum ut
+            sit. Qui sed reque dicam, qui veri nullam vituperatoribus in.
+          </p>
+          <Form inputBg="bg-background" />
+          <svg
+            className="absolute hidden lg:block top-0 -left-28 w-28 h-full z-10"
+            width="100%"
+            viewBox="0 0 100 700"
+            preserveAspectRatio="none"
+          >
+            <polygon
+              fill="#EEF7FF"
+              points="0 700 100 700 100 0 100 0 0 700"
+            ></polygon>
+          </svg>
         </div>
       </div>
     </section>

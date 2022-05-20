@@ -74,8 +74,3 @@ h6 {
 .hero-carousel .swiper-pagination-bullet-active {
   @apply scale-[2.0];
 }
-
-.hero-slide-image {
-  min-height: 500px;
-  height: 85vh;
-}

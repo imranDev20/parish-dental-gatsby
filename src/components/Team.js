@@ -44,7 +44,7 @@ const Team = () => {
             description="An delicata inimicus sea, vis equidem oporteat conclusion mundi et. Nec malis dolor fabellas ex, eu nec falli iuvaret. Per elitr eloquentiam an esse."
           />
         </div>
-        <div className="my-5 grid grid-cols-1 lg:grid-cols-4 gap-10">
+        <div className="my-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {teamDetails.map((teamDetail, index) => (
             <TeamCard
               key={index}

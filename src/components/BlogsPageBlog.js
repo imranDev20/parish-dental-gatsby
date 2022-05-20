@@ -11,17 +11,22 @@ const BlogsPageBlog = ({
   category,
 }) => {
   return (
-    <div className="my-10">
-      <GatsbyImage
-        image={image}
-        className="w-full h-96 rounded"
-        imgClassName="w-full h-full object-cover"
-      />
-      <p></p>
+    <div className="first:mt-0 my-20">
       <Link to={`/blogs/${slug}`}>
-        <h3 className="text-4xl font-semibold text-primary my-5">{title}</h3>
+        <GatsbyImage
+          image={image}
+          className="w-full h-96 rounded"
+          imgClassName="w-full h-full object-cover"
+        />
       </Link>
-      <p className="text-neutral-500 my-3">{excerpt}</p>
+
+      <p className="uppercase text-secondary font-medium tracking-[0.13em] text-sm mt-10 mb-3">
+        {createdAt}, <Link to={category.slug}>{category.name}</Link>
+      </p>
+      <Link to={`/blogs/${slug}`}>
+        <h3 className="text-4xl font-semibold text-primary mb-5">{title}</h3>
+      </Link>
+      <p className="text-neutral-500 mt-3 mb-8 leading-8">{excerpt}</p>
       <Link
         to={`/blogs/${slug}`}
         className="uppercase text-sm text-primary font-medium tracking-[.2em]"

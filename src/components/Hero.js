@@ -83,7 +83,7 @@ const Hero = () => {
                       imgClassName="w-full h-full object-cover"
                       alt={heroContent?.slideImage?.alternativeText}
                     />
-                    <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-[10%] -translate-x-[-10%] ">
+                    <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-0 lg:left-[10%] -translate-x-[-10%] ">
                       <motion.h3
                         initial={{
                           opacity: 0,

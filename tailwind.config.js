@@ -9,7 +9,7 @@ module.exports = {
         },
         secondary: "#ea580c",
         background: "#EEF7FF",
-        backgroundSecondary: "#f2f2f2",
+        backgroundSecondary: "#f7f7f7",
       },
     },
   },

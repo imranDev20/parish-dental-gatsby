@@ -21,6 +21,12 @@ const strapiConfig = {
                 images: "*",
                 populate: "*",
               },
+              featuredBlog: {
+                populate: "*",
+              },
+              featurePoints: {
+                populate: "*",
+              },
               aboutBg: {
                 populate: "*",
               },
@@ -60,19 +66,20 @@ const strapiConfig = {
     {
       singularName: `blog`,
       queryParams: {
-        // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt
         populate: {
           image: "*",
           images: "*",
           category: {
             populate: "*",
           },
+          author: {
+            populate: "*",
+          },
         },
       },
     },
   ],
-  singleTypes: [],
+  singleTypes: [`schedule`],
 };
 
 module.exports = {

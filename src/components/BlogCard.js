@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 
 const BlogCard = ({ image, title, excerpt, slug, createdAt, category }) => {
   return (
-    <div>
+    <div className="my-7">
       <Link to={`/blogs/${slug}`}>
         <GatsbyImage
           class="rounded overflow-hidden mb-5 w-full h-52"

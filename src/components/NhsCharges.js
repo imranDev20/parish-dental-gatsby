@@ -23,8 +23,8 @@ const NhsCharges = () => {
 
   // Over Engineering the simple card to show red cross and green tick
 
-  const nhsCards = data.allStrapiNhsPrice.nodes;
-  const fullArray = nhsCards[2].nhsFeatures.map((elem) => elem.nhsFeature);
+  const nhsCards = data?.allStrapiNhsPrice?.nodes;
+  const fullArray = nhsCards[2]?.nhsFeatures?.map((elem) => elem?.nhsFeature);
   console.log(fullArray);
 
   return (
@@ -37,18 +37,18 @@ const NhsCharges = () => {
         />
 
         <div className="grid grid-cols-3 gap-10">
-          {nhsCards.map((nhsCard) => {
-            const cardFeaturesArray = nhsCard.nhsFeatures.map(
-              (element) => element.nhsFeature
+          {nhsCards?.map((nhsCard) => {
+            const cardFeaturesArray = nhsCard?.nhsFeatures?.map(
+              (element) => element?.nhsFeature
             );
-            const remainingArray = fullArray.filter(
-              (f) => !cardFeaturesArray.includes(f)
+            const remainingArray = fullArray?.filter(
+              (f) => !cardFeaturesArray?.includes(f)
             );
             return (
               <NhsCard
-                key={nhsCard.strapi_id}
-                title={nhsCard.cardTitle}
-                price={nhsCard.cardPrice}
+                key={nhsCard?.strapi_id}
+                title={nhsCard?.cardTitle}
+                price={nhsCard?.cardPrice}
                 features={cardFeaturesArray}
                 remaining={remainingArray}
               />

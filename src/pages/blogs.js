@@ -4,6 +4,8 @@ import BlogsPageBlog from "../components/BlogsPageBlog";
 import Layout from "../components/Layout";
 import PageHeader from "../components/PageHeader";
 import useBlogQuery from "../hooks/useBlogQuery";
+import Seo from "../components/Seo";
+import BlogsSidebar from "../components/BlogsSidebar";
 
 const BlogPage = () => {
   const data = useBlogQuery();
@@ -13,9 +15,10 @@ const BlogPage = () => {
   return (
     <Layout>
       <PageHeader pageTitle="Blogs" />
+      <Seo title="Blogs" />
       <section>
-        <div className="container mx-auto px-10 flex my-20">
-          <div className="w-4/5 pr-0 lg:pr-20">
+        <div className="container mx-auto px-10 flex flex-col lg:flex-row my-20">
+          <div className="w-full lg:w-4/5 pr-0 lg:pr-20">
             {blogs.map((blog) => {
               const blogImage = getImage(blog?.image?.localFile);
 
@@ -32,7 +35,9 @@ const BlogPage = () => {
               );
             })}
           </div>
-          <div className="w-1/5">2</div>
+          <div className="w-full lg:w-1/5">
+            <BlogsSidebar />
+          </div>
         </div>
       </section>
     </Layout>
