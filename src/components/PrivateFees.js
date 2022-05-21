@@ -24,70 +24,47 @@ const PrivateFees = () => {
   console.log(privateFees);
 
   return (
-    <section className="py-24 mx-auto container px-10 bg-background">
-      <SectionHeader
-        mainTitle="Private Fee Guide"
-        subTitle="Demo subtitle"
-        description="Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link.
+    <section className="w-full bg-white">
+      <div className="py-24 mx-auto container px-10 ">
+        <SectionHeader
+          mainTitle="Private Fee Guide"
+          subTitle="Demo subtitle"
+          description="Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link."
+        />
 
-"
-      />
-
-      <Tabs className="private-fees-tab flex overflow-hidden mt-10 rounded-lg bg-white">
-        <TabList className="text-xl text-neutral-500 font-medium py-6 border-r ">
-          {privateFees.map((privateFee) => (
-            <Tab
-              key={privateFee.strapi_id}
-              className="font-['Catamaran'] px-10 py-4 cursor-pointer text-neutral-500 border-l-2 border-transparent"
-            >
-              {privateFee.serviceName}
-            </Tab>
-          ))}
-        </TabList>
-
-        <div className="flex-1 py-10">
-          {privateFees.map((privateFee) => (
-            <TabPanel
-              className="w-full overflow-x-auto"
-              key={privateFee.strapi_id}
-            >
-              <h2 className="text-4xl mb-5  text-primary font-medium px-10">
-                {privateFee.serviceName}
-              </h2>
-              <hr />
-
-              <table className="w-full">
-                <tr className="w-full">
-                  <th className="text-white px-10 bg-primary py-3 font-semibold text-lg w-[500px] text-left">
-                    Services
-                  </th>
-                  <th className="text-white px-10 bg-primary py-3 font-semibold text-lg">
-                    Price From
-                  </th>
-                  <th className="text-white px-10 bg-primary py-3 font-semibold text-lg">
-                    Book now
-                  </th>
-                </tr>
-                {privateFee.servicesDetailed.map((serviceDetailed) => (
-                  <tr className="even:bg-rose-50">
-                    <td className="text-neutral-500 text-lg py-4 px-10">
-                      {serviceDetailed.serviceDetailedTitle}
-                    </td>
-                    <td className="text-secondary font-medium text-lg py-4 px-10 text-center">
-                      £{serviceDetailed.servicePrice}
-                    </td>
-                    <td className="text-center">
-                      <button className="px-4 py-2 rounded bg-primary text-white">
-                        Book now
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </table>
-            </TabPanel>
-          ))}
+        <div className="w-full mt-16">
+          {privateFees.map((privateFee) => {
+            console.log(privateFee);
+            return (
+              <div key={privateFee.strapi_id} className="mb-10">
+                <h3 className="text-3xl text-primary font-semibold mb-1">
+                  {privateFee.serviceName}
+                </h3>
+                <hr />
+                <div className="mt-3">
+                  {privateFee.servicesDetailed.map((service) => {
+                    return (
+                      <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center w-10/12 pr-7">
+                          <h5 className="text-xl text-neutral-500 my-7 w-3/5 max-w-[600px]">
+                            {service.serviceDetailedTitle}
+                          </h5>
+                          <p className="text-lg text-secondary font-medium w-1/5">
+                            £{service.servicePrice}
+                          </p>
+                        </div>
+                        <button className="bg-primary inline-block px-2 py-2 text-white rounded w-2/12">
+                          Book now
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
         </div>
-      </Tabs>
+      </div>
     </section>
   );
 };

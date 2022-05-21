@@ -11,7 +11,7 @@ const Services2 = () => {
           mainTitle="Example Title"
           description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
         />
-        <div className="grid grid-cols-3 gap-10 my-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
           {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
             <div key={n} className=" rounded-lg overflow-hidden">
               <div>

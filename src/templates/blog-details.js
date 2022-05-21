@@ -13,8 +13,8 @@ const BlogDetails = ({ data }) => {
   return (
     <Layout>
       <Seo title={title} />
-      <section className="container mx-auto px-10 flex mt-10">
-        <div className="w-4/5 pr-10">
+      <section className="container mx-auto px-10 flex flex-col lg:flex-row mt-10">
+        <div className="w-full lg:w-4/5 lg:pr-10">
           <GatsbyImage
             class="rounded overflow-hidden w-full h-[400px] mb-10"
             imgClassName="w-full h-full object-cover"
@@ -32,7 +32,7 @@ const BlogDetails = ({ data }) => {
             dangerouslySetInnerHTML={{ __html: content.data.content }}
           />
         </div>
-        <div className="w-1/5">2</div>
+        <div className="w-full lg:w-1/5">2</div>
 
         {/* <div dangerouslySetInnerHTML={{}}></div> */}
       </section>

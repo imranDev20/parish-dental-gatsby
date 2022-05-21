@@ -9,7 +9,7 @@ const SectionHeader = ({ subTitle, mainTitle, description }) => {
       <h2 className="text-center text-5xl my-2 capitalize font-semibold text-primary">
         {mainTitle}
       </h2>
-      <p className="text-neutral-500 font-light max-w-4xl text-center mx-auto my-5 text-lg">
+      <p className="text-neutral-500 max-w-4xl text-center mx-auto my-5 text-lg">
         {description}
       </p>
     </>

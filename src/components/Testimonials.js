@@ -7,7 +7,7 @@ const Testimonials = () => {
   return (
     <section className="my-24">
       <div className="container px-10 mx-auto ">
-        <div className="my-10">
+        <div className="mb-20">
           <SectionHeader
             subTitle="Our dear clients"
             mainTitle="What People Say"

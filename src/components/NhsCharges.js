@@ -28,15 +28,15 @@ const NhsCharges = () => {
   console.log(fullArray);
 
   return (
-    <section className="w-full">
-      <div className="container mx-auto px-10 bg-rose-50 py-24">
+    <section className="w-full bg-rose-50">
+      <div className="container mx-auto px-10  py-24">
         <SectionHeader
           subTitle="demo subtitle"
           mainTitle="NHS Dental Fees"
           description="Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link."
         />
 
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 mt-16">
           {nhsCards?.map((nhsCard) => {
             const cardFeaturesArray = nhsCard?.nhsFeatures?.map(
               (element) => element?.nhsFeature

@@ -7,8 +7,8 @@ import {
 const WhatWeDo = () => {
   return (
     <section className="w-full my-24">
-      <div className="flex container mx-auto px-10">
-        <div className="w-1/2 px-10">
+      <div className="flex flex-col lg:flex-row container mx-auto px-10">
+        <div className="w-full lg:w-1/2 lg:px-10">
           <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
             What We Do
           </h3>
@@ -33,7 +33,7 @@ const WhatWeDo = () => {
             See our services
           </a>
         </div>
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2 mt-10 lg:mt-0">
           <ReactCompareSlider
             className="rounded"
             // handle={

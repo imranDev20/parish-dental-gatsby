@@ -12,10 +12,10 @@ const TestimonialCard = () => {
           />
         </div>
       </div>
-      <h3 className="text-2xl mt-5 text-primary font-medium">
+      <h3 className="text-[27px] mt-5 text-primary font-semibold">
         Quick, easy & reliable
       </h3>
-      <p className="text-center my-5 text-neutral-500">
+      <p className="text-center my-5 text-neutral-500 leading-8">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
         molestiae blanditiis dolore, adipisci sapiente in maxime omnis.
       </p>

@@ -10,7 +10,6 @@ const ContactPage = () => {
     <Layout>
       <Seo title="Contact" />
       <PageHeader pageTitle="Contact" />
-
       <ContactInfo />
       <ContactPageForm />
     </Layout>

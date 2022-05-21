@@ -34,7 +34,7 @@ const About = () => {
   return (
     <section className="w-full bg-background relative min-h-[600px] mb-[800px] sm:mb-[600px] lg:mb-0">
       <div className="container mx-auto flex flex-col lg:flex-row  px-10 justify-between ">
-        <div className="w-full lg:w-1/2  pr-10 py-20 lg:py-36 relative">
+        <div className="w-full lg:w-1/2 lg:pr-10  py-20 lg:py-36 relative">
           <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
             {aboutContents?.aboutSubtitle}
           </h3>
