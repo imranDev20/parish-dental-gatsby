@@ -64,7 +64,7 @@ const Hero = () => {
           // onSwiper={(swiper) => console.log(swiper)}
           className="hero-carousel min-h-[500px]"
         >
-          {heroContents.map((heroContent) => {
+          {heroContents?.map((heroContent) => {
             const image = getImage(heroContent?.slideImage?.localFile);
             const titleTextArray = heroContent?.slideTitle?.split(" ");
             const half = Math.ceil(titleTextArray?.length / 2);

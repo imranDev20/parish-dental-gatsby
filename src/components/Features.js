@@ -52,7 +52,7 @@ const Features = () => {
   return (
     <section className="container mx-auto px-10 grid grid-cols-1  lg:grid-cols-3 my-32 gap-10">
       <div>
-        <Link to={`/blogs/${featuredBlog.slug}`}>
+        <Link to={`/blogs/${featuredBlog?.slug}`}>
           <GatsbyImage
             className="mb-10 h-[230px]"
             imgClassName="rounded w-full h-full object-cover"
@@ -86,7 +86,7 @@ const Features = () => {
           />
         </div>
         <div>
-          {featurePoints.map((point) => (
+          {featurePoints?.map((point) => (
             <p
               key={point?.strapi_id}
               className="my-3 text-neutral-500 flex items-center"

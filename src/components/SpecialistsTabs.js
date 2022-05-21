@@ -74,7 +74,7 @@ const SpecialistsTabs = () => {
                 <p className="my-5 text-neutral-500 text-xl">{tab.textBig}</p>
                 <p className="my-5 text-neutral-500">{tab.textSmall}</p>
               </div>
-              <div className="w-full lg:w-2/5 py-0 lg:py-16">
+              <div className="w-full rounded overflow-hidden lg:w-2/5 py-0 lg:py-16">
                 <img
                   className="w-full h-full object-contain rounded"
                   src={tab.image}
