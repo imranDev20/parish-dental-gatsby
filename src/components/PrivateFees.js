@@ -46,14 +46,14 @@ const PrivateFees = () => {
                     return (
                       <div className="flex justify-between items-center">
                         <div className="flex justify-between items-center w-10/12 pr-7">
-                          <h5 className="text-xl text-neutral-500 my-7 w-3/5 max-w-[600px]">
+                          <h5 className="text-base lg:text-xl text-neutral-500 my-7 w-3/5 max-w-[600px] ">
                             {service.serviceDetailedTitle}
                           </h5>
-                          <p className="text-lg text-secondary font-medium w-1/5">
+                          <p className="text-base lg:text-lg text-secondary font-medium w-1/5">
                             £{service.servicePrice}
                           </p>
                         </div>
-                        <button className="bg-primary inline-block px-2 py-2 text-white rounded w-2/12">
+                        <button className="bg-primary inline-block px-2 py-2 text-white rounded w-2/12 text-sm lg:text-base">
                           Book now
                         </button>
                       </div>
