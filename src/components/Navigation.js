@@ -4,7 +4,7 @@ import React from "react";
 const Navigation = ({ open }) => {
   const data = useStaticQuery(graphql`
     query NavQuery {
-      allStrapiPage {
+      allStrapiPage(sort: { fields: strapi_id, order: ASC }) {
         nodes {
           slug
           title
