@@ -9,8 +9,6 @@ const strapiConfig = {
     {
       singularName: `page`,
       queryParams: {
-        // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt
         populate: {
           image: "*",
           images: "*",
@@ -52,8 +50,6 @@ const strapiConfig = {
     {
       singularName: `nhs-price`,
       queryParams: {
-        // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt
         populate: {
           image: "*",
           images: "*",
@@ -66,8 +62,6 @@ const strapiConfig = {
     {
       singularName: `private-fee`,
       queryParams: {
-        // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt
         populate: {
           image: "*",
           images: "*",
@@ -104,15 +98,29 @@ const strapiConfig = {
         },
       },
     },
+
+    {
+      singularName: `author`,
+      queryParams: {
+        populate: {
+          image: "*",
+          images: "*",
+          avatar: {
+            populate: "*",
+          },
+        },
+      },
+    },
   ],
-  singleTypes: [`schedule`],
+  // singleTypes: [`schedule`],
 };
 
 module.exports = {
   trailingSlash: "never",
   siteMetadata: {
     title: `S&B Dental`,
-    siteUrl: `https://www.yourdomain.tld`,
+    description: `Blazing fast modern site generator for React`,
+    siteUrl: `https://sb-dental.co.uk`,
     author: `Imran Kabir`,
   },
   plugins: [

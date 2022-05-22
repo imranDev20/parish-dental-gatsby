@@ -3,11 +3,12 @@ import { useForm, ValidationError } from "@formspree/react";
 
 const Form = ({ inputBg }) => {
   const [state, handleSubmit] = useForm("xlezaedd");
-  if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
-  }
+
+  // if (state.succeeded) {
+  //   return <p>Thanks for joining!</p>;
+  // }
   const inputClasses = [
-    `${inputBg} px-4 outline-none ring-2 ring-primary/10 focus:ring-2 focus:ring-primary/40 rounded  my-2 transition-all w-full`,
+    `${inputBg} px-4 outline-none ring-2 ring-primary/10 focus:ring-2 focus:ring-primary/40 rounded  my-2 transition-all w-full text-neutral-400 focus:text-neutral-600`,
   ];
 
   return (
@@ -20,10 +21,11 @@ const Form = ({ inputBg }) => {
             type="text"
             name="firstName"
             placeholder="First Name"
+            required
           />
           <ValidationError
-            prefix="First_Name"
-            field="fName"
+            prefix="First Name"
+            field="firstName"
             errors={state.errors}
           />
         </div>
@@ -36,8 +38,8 @@ const Form = ({ inputBg }) => {
             placeholder="Last Name"
           />
           <ValidationError
-            prefix="Last_Name"
-            field="lName"
+            prefix="Last Name"
+            field="lastName"
             errors={state.errors}
           />
         </div>
@@ -63,6 +65,41 @@ const Form = ({ inputBg }) => {
             placeholder="Email"
           />
           <ValidationError prefix="Email" field="email" errors={state.errors} />
+        </div>
+      </div>
+
+      <div className="flex justify-between">
+        <div className="w-[49%]">
+          <input
+            type="date"
+            className={`${inputClasses} py-2`}
+            name="date"
+            id="date"
+          />
+          <ValidationError prefix="Date" field="date" errors={state.errors} />
+        </div>
+        <div className="w-[49%]">
+          <select
+            name="daytime"
+            id="daytime"
+            // form="carform"
+            className={`${inputClasses} py-2`}
+          >
+            <option className="text-neutral-500" value="morning">
+              Morning
+            </option>
+            <option className="text-neutral-500" value="afternoon">
+              Afternoon
+            </option>
+            <option className="text-neutral-500" value="evening">
+              Evening
+            </option>
+          </select>
+          <ValidationError
+            prefix="Daytime"
+            field="daytime"
+            errors={state.errors}
+          />
         </div>
       </div>
 

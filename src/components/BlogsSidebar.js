@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 
 import React from "react";
 import RecentBlogs from "./RecentBlogs";
@@ -63,9 +63,13 @@ const BlogsSidebar = () => {
         Categories
       </h2>
       {categories.map((category) => (
-        <div key={category.strapi_id} className="my-2 text-neutral-500">
+        <Link
+          key={category.strapi_id}
+          to={`/blogs/categories/${category.slug}`}
+          className="my-2 text-neutral-500 block hover:text-secondary transition-colors"
+        >
           {category.name} ({category.blogs.length})
-        </div>
+        </Link>
       ))}
     </>
   );

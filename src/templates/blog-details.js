@@ -9,30 +9,51 @@ import "../styles/blog-details.css";
 const BlogDetails = ({ data }) => {
   const { author, content, createdAt, title, image, category } =
     data?.strapiBlog;
+
   const blogImage = getImage(image?.localFile);
-  console.log(data);
   return (
     <Layout>
       <Seo title={title} />
-      <section className="container mx-auto px-10 flex flex-col lg:flex-row mt-10">
+      <section className="container mx-auto px-10 flex flex-col lg:flex-row my-16">
         <div className="w-full lg:w-4/5 lg:pr-10">
+          {/* Blog Image section */}
           <GatsbyImage
             class="rounded overflow-hidden w-full h-[400px] mb-10"
             imgClassName="w-full h-full object-cover"
             alt={image.alternativeText}
             image={blogImage}
           />
+          {/* Date Category */}
           <p className="uppercase text-secondary font-medium tracking-[0.13em] text-sm mt-7 mb-3">
             {createdAt},{" "}
             <Link to={`/blogs/categories/${category?.slug}`}>
               {category?.name}
             </Link>
           </p>
+          {/* Content */}
           <h1 className="text-5xl font-semibold text-primary mb-5">{title}</h1>
           <div
             className="text-neutral-500 leading-8 blog-content"
             dangerouslySetInnerHTML={{ __html: content?.data?.content }}
           />
+          {/* Author Area */}
+          <div className="rounded-lg mt-20 bg-background p-16 flex flex-col lg:flex-row items-center text-center lg:text-left">
+            <div className="">
+              <GatsbyImage
+                image={getImage(author.avatar.localFile)}
+                className="w-28 h-28 mb-5 lg:mb-0 lg:mr-10 rounded-full"
+                imgClassName="w-full h-full object-cover"
+                alt={author.name}
+              />
+            </div>
+            <div>
+              <h3 className="text-primary text-2xl font-medium mb-2">
+                {author.name}
+              </h3>
+              <p className="text-neutral-500 leading-7">{author.about}</p>
+            </div>
+          </div>
+          {/* Next Previous Button */}
         </div>
         <div className="w-full lg:w-1/5">
           <BlogsSidebar />
@@ -63,6 +84,14 @@ export const query = graphql`
       author {
         name
         slug
+        about
+        avatar {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 240, placeholder: BLURRED)
+            }
+          }
+        }
       }
       image {
         alternativeText
