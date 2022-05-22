@@ -29,6 +29,7 @@ const BlogPage = () => {
                   title={blog?.title}
                   excerpt={blog?.excerpt}
                   slug={blog?.slug}
+                  alt={blog?.image?.alternativeText}
                   createdAt={blog?.createdAt}
                   category={blog?.category}
                 />

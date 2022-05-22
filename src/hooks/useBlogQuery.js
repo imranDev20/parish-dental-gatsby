@@ -2,8 +2,8 @@ import { useStaticQuery, graphql } from "gatsby";
 
 const useBlogQuery = () => {
   const data = useStaticQuery(graphql`
-    query HomeBlogQuery {
-      allStrapiBlog(sort: { fields: publishedAt, order: DESC }) {
+    query BlogsQuery {
+      allStrapiBlog(sort: { fields: createdAt, order: DESC }) {
         nodes {
           image {
             localFile {
@@ -11,6 +11,7 @@ const useBlogQuery = () => {
                 gatsbyImageData(width: 360)
               }
             }
+            alternativeText
           }
           title
           excerpt

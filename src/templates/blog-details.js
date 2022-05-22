@@ -1,15 +1,16 @@
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
+import BlogsSidebar from "../components/BlogsSidebar";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import "../styles/blog-details.css";
 
 const BlogDetails = ({ data }) => {
-  console.log(data);
   const { author, content, createdAt, title, image, category } =
     data?.strapiBlog;
   const blogImage = getImage(image?.localFile);
+  console.log(data);
   return (
     <Layout>
       <Seo title={title} />
@@ -18,6 +19,7 @@ const BlogDetails = ({ data }) => {
           <GatsbyImage
             class="rounded overflow-hidden w-full h-[400px] mb-10"
             imgClassName="w-full h-full object-cover"
+            alt={image.alternativeText}
             image={blogImage}
           />
           <p className="uppercase text-secondary font-medium tracking-[0.13em] text-sm mt-7 mb-3">
@@ -32,7 +34,9 @@ const BlogDetails = ({ data }) => {
             dangerouslySetInnerHTML={{ __html: content?.data?.content }}
           />
         </div>
-        <div className="w-full lg:w-1/5">2</div>
+        <div className="w-full lg:w-1/5">
+          <BlogsSidebar />
+        </div>
       </section>
     </Layout>
   );
@@ -61,6 +65,7 @@ export const query = graphql`
         slug
       }
       image {
+        alternativeText
         localFile {
           childImageSharp {
             gatsbyImageData

@@ -29,13 +29,13 @@ const Navigation = ({ open }) => {
           key={route?.strapi_id}
           activeClassName={`border-b-[3px] lg:border-b-0 border-b-secondary border-t-0 lg:border-t-[3px] lg:border-t-secondary`}
           className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
-          to={route?.slug === "home" ? `/` : `/${route?.slug}/`}
+          to={route?.slug === "home" ? `/` : `/${route?.slug}`}
         >
           {route?.title}
         </Link>
       ))}
       <Link
-        to="/blogs/"
+        to="/blogs"
         partiallyActive={true}
         activeClassName={`border-b-[3px] lg:border-b-0 border-b-secondary border-t-0 lg:border-t-[3px] lg:border-t-secondary`}
         className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"

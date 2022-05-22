@@ -8,12 +8,24 @@ exports.createPages = async ({ graphql, actions }) => {
           slug
         }
       }
+      allStrapiCategory {
+        nodes {
+          slug
+        }
+      }
     }
   `);
   data.allStrapiBlog.nodes.forEach((node) => {
     actions.createPage({
       path: "/blogs/" + node?.slug,
       component: path.resolve("./src/templates/blog-details.js"),
+      context: { slug: node?.slug },
+    });
+  });
+  data.allStrapiCategory.nodes.forEach((node) => {
+    actions.createPage({
+      path: "/blogs/categories/" + node?.slug,
+      component: path.resolve("./src/templates/categories.js"),
       context: { slug: node?.slug },
     });
   });

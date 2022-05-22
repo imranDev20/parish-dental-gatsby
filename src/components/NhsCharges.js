@@ -23,7 +23,6 @@ const NhsCharges = () => {
 
   const nhsCards = data?.allStrapiNhsPrice?.nodes;
   const fullArray = nhsCards[2]?.nhsFeatures?.map((elem) => elem?.nhsFeature);
-  console.log(fullArray);
 
   return (
     <section className="w-full bg-rose-50">

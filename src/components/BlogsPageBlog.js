@@ -9,6 +9,7 @@ const BlogsPageBlog = ({
   slug,
   createdAt,
   category,
+  alt,
 }) => {
   return (
     <div className="first:mt-0 my-20">
@@ -17,11 +18,13 @@ const BlogsPageBlog = ({
           image={image}
           className="w-full h-96 rounded"
           imgClassName="w-full h-full object-cover"
+          alt={alt}
         />
       </Link>
 
       <p className="uppercase text-secondary font-medium tracking-[0.13em] text-sm mt-10 mb-3">
-        {createdAt}, <Link to={category.slug}>{category.name}</Link>
+        {createdAt},{" "}
+        <Link to={`/blogs/categories/${category?.slug}`}>{category?.name}</Link>
       </p>
       <Link to={`/blogs/${slug}`}>
         <h3 className="text-4xl font-semibold text-primary mb-5">{title}</h3>

@@ -92,11 +92,24 @@ const strapiConfig = {
         },
       },
     },
+    {
+      singularName: `category`,
+      queryParams: {
+        populate: {
+          image: "*",
+          images: "*",
+          blogs: {
+            populate: "*",
+          },
+        },
+      },
+    },
   ],
   singleTypes: [`schedule`],
 };
 
 module.exports = {
+  trailingSlash: "never",
   siteMetadata: {
     title: `S&B Dental`,
     siteUrl: `https://www.yourdomain.tld`,

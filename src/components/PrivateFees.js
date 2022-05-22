@@ -20,7 +20,6 @@ const PrivateFees = () => {
   `);
 
   const privateFees = data.allStrapiPrivateFee.nodes;
-  console.log(privateFees);
 
   return (
     <section className="w-full bg-white">
@@ -33,7 +32,6 @@ const PrivateFees = () => {
 
         <div className="w-full mt-16">
           {privateFees.map((privateFee) => {
-            console.log(privateFee);
             return (
               <div key={privateFee.strapi_id} className="mb-10">
                 <h3 className="text-3xl text-primary font-semibold mb-1">
@@ -43,7 +41,10 @@ const PrivateFees = () => {
                 <div className="mt-3">
                   {privateFee.servicesDetailed.map((service) => {
                     return (
-                      <div className="flex justify-between items-center">
+                      <div
+                        key={service.strapi_id}
+                        className="flex justify-between items-center"
+                      >
                         <div className="flex justify-between items-center w-10/12 pr-7">
                           <h5 className="text-base lg:text-xl text-neutral-500 my-7 w-3/5 max-w-[600px] ">
                             {service.serviceDetailedTitle}

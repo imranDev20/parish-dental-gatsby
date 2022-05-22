@@ -2,10 +2,34 @@ import React from "react";
 import SectionHeader from "./SectionHeader";
 import BlogCard from "./BlogCard";
 import { getImage } from "gatsby-plugin-image";
-import useBlogQuery from "../hooks/useBlogQuery";
+import { useStaticQuery, graphql } from "gatsby";
 
 const Blog = () => {
-  const data = useBlogQuery();
+  const data = useStaticQuery(graphql`
+    query HomeBlogQuery {
+      allStrapiBlog(limit: 3, sort: { fields: createdAt, order: DESC }) {
+        nodes {
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 360)
+              }
+            }
+          }
+          title
+          excerpt
+          slug
+          strapi_id
+          createdAt(fromNow: true, locale: "GB", formatString: "DD MMMM YYYY")
+          category {
+            name
+            slug
+            strapi_id
+          }
+        }
+      }
+    }
+  `);
 
   const blogs = data?.allStrapiBlog?.nodes;
 
