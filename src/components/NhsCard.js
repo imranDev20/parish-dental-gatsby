@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const NhsCard = ({ title, price, features, remaining }) => {

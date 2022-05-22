@@ -6,7 +6,6 @@ import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
-import { BgImage } from "gbimage-bridge";
 
 // Import Swiper styles
 import "swiper/css";
@@ -26,7 +25,7 @@ const Hero = () => {
       strapiPage(title: { eq: "Home" }) {
         id
         blocks {
-          ... on STRAPI__COMPONENT_BLOCKS_HERO {
+          ... on STRAPI__COMPONENT_HOME_HERO {
             slides {
               slideImage {
                 localFile {

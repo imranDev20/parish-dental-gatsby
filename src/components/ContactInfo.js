@@ -9,7 +9,12 @@ const ContactInfo = () => {
             <h5 className="text-primary text-2xl font-medium mb-2">
               Emergency Phone
             </h5>
-            <a className="text-sm text-neutral-500 my-1">415-205-5550</a>
+            <a
+              href="mailto:415-205-5550"
+              className="text-sm text-neutral-500 my-1"
+            >
+              415-205-5550
+            </a>
             <p className="text-sm text-neutral-500 my-1">
               Call us Anytime 24/7
             </p>

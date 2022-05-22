@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import React, { Fragment } from "react";
+import React from "react";
 
 const BlogCard = ({ image, title, excerpt, slug, createdAt, category }) => {
   return (

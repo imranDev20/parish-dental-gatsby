@@ -31,7 +31,7 @@ const WhoWeAre = () => {
           </p>
           <a
             className="px-4 py-4 bg-primary rounded text-white my-3 inline-block"
-            href=""
+            href="/"
           >
             Make an Appointment
           </a>

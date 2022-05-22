@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import SectionHeader from "./SectionHeader";
 
 const PrivateFees = () => {

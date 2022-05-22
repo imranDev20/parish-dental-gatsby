@@ -8,7 +8,7 @@ const Features = () => {
     query FeaturesQuery {
       strapiPage(title: { eq: "Home" }) {
         blocks {
-          ... on STRAPI__COMPONENT_BLOCKS_HOME_FEATURES {
+          ... on STRAPI__COMPONENT_HOME_HOME_FEATURES {
             featuredBlog {
               image {
                 localFile {

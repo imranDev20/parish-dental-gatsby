@@ -3,7 +3,10 @@ import React from "react";
 const Burger = ({ open, setOpen }) => {
   return (
     <div
+      role="button"
+      tabIndex={0}
       onClick={() => setOpen(!open)}
+      onKeyDown={() => setOpen(!open)}
       className={`flex lg:hidden w-8 h-6 right-4 justify-between flex-col flex-nowrap z-20 cursor-pointer `}
     >
       {[0, 1, 2].map((n) => (

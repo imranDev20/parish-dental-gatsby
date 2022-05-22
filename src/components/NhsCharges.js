@@ -1,11 +1,9 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
 import NhsCard from "./NhsCard";
 import SectionHeader from "./SectionHeader";
 
 const NhsCharges = () => {
-  const [fullArrayElems, setFullArrayElems] = useState("");
-
   const data = useStaticQuery(graphql`
     query NhsQuery {
       allStrapiNhsPrice {

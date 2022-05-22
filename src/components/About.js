@@ -6,10 +6,10 @@ import { BgImage } from "gbimage-bridge";
 const About = () => {
   const data = useStaticQuery(graphql`
     query AboutQuery {
-      strapiPage(title: { eq: "Home" }) {
+      strapiPage(strapi_id: { eq: 1 }) {
         id
         blocks {
-          ... on STRAPI__COMPONENT_BLOCKS_ABOUT {
+          ... on STRAPI__COMPONENT_HOME_ABOUT {
             id
             aboutSubtitle
             aboutText
@@ -28,8 +28,8 @@ const About = () => {
     }
   `);
 
-  const aboutContents = data?.strapiPage?.blocks[2];
-  const image = getImage(data?.strapiPage?.blocks[2]?.aboutBg?.localFile);
+  const aboutContents = data?.strapiPage?.blocks[3];
+  const image = getImage(data?.strapiPage?.blocks[3]?.aboutBg?.localFile);
 
   return (
     <section className="w-full bg-background relative min-h-[600px] mb-[800px] sm:mb-[600px] lg:mb-0">

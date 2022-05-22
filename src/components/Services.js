@@ -6,7 +6,7 @@ const Services = () => {
     query HomeServicesQuery {
       strapiPage(title: { eq: "Home" }) {
         blocks {
-          ... on STRAPI__COMPONENT_BLOCKS_HOME_SERVICES {
+          ... on STRAPI__COMPONENT_HOME_HOME_SERVICES {
             homeServiceBlock {
               serviceImage {
                 localFile {
@@ -25,24 +25,24 @@ const Services = () => {
     }
   `);
 
-  const services = data.strapiPage.blocks[3].homeServiceBlock;
+  const services = data.strapiPage?.blocks[2].homeServiceBlock;
 
   return (
     <section className="container mx-auto px-10 grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-32">
       {services.map((service) => (
-        <div key={service.strapi_id} className="flex my-3">
+        <div key={service?.strapi_id} className="flex my-3">
           <div className="w-2/5 mr-5">
             <img
               className="w-full object-contain"
-              src={service.serviceImage.localFile.publicURL}
-              alt={service.serviceImage.alternativeText}
+              src={service?.serviceImage?.localFile.publicURL}
+              alt={service?.serviceImage?.alternativeText}
             />
           </div>
           <div>
             <h3 className="text-primary font-medium text-xl mb-3">
-              {service.serviceName}
+              {service?.serviceName}
             </h3>
-            <p className="text-neutral-500">{service.serviceText}</p>
+            <p className="text-neutral-500">{service?.serviceText}</p>
           </div>
         </div>
       ))}
