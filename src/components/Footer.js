@@ -2,6 +2,8 @@ import React from "react";
 import Logo from "../components/Logo";
 import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
 import MapImage from "../images/maps.png";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Footer = () => {
   const schedule = [
@@ -13,6 +15,27 @@ const Footer = () => {
     { id: 6, day: "Friday", time: "8AM-7PM" },
     { id: 7, day: "Saturday", time: "8AM-7PM" },
   ];
+
+  const data = useStaticQuery(graphql`
+    query FooterQuery {
+      strapiGlobal {
+        footer {
+          mapImage {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 360)
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  console.log(data);
+  const mapImage = getImage(data.strapiGlobal.footer.mapImage.localFile);
+
+  console.log(mapImage);
 
   const socials = [
     { id: 1, icon: FiFacebook, href: "https://facebook.com" },
@@ -62,10 +85,14 @@ const Footer = () => {
           <div></div>
         </div>
         <div>
-          <a href="https://www.google.com/maps?ll=52.946335,-1.189357&z=14&t=m&hl=en&gl=US&mapclient=embed&q=31+Wollaton+Hall+Dr+Lenton+Nottingham+NG8+1AF+UK">
-            <img
-              className="w-full h-full object-cover rounded"
-              src={MapImage}
+          <a
+            href="https://www.google.com/maps?ll=52.946335,-1.189357&z=14&t=m&hl=en&gl=US&mapclient=embed&q=31+Wollaton+Hall+Dr+Lenton+Nottingham+NG8+1AF+UK"
+            target="_blank"
+          >
+            <GatsbyImage
+              image={mapImage}
+              className="h-full w-full"
+              imgClassName="w-full h-full object-cover rounded"
               alt="31 Wollaton Hall Dr Lenton Nottingham NG8 1AF UK"
             />
           </a>

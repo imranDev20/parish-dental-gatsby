@@ -112,7 +112,21 @@ const strapiConfig = {
       },
     },
   ],
-  singleTypes: [`schedule`],
+  singleTypes: [
+    `schedule`,
+    {
+      singularName: "global",
+      queryParams: {
+        image: "*",
+        images: "*",
+        populate: {
+          footer: {
+            populate: "*",
+          },
+        },
+      },
+    },
+  ],
 };
 
 module.exports = {
