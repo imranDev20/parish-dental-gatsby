@@ -194,7 +194,7 @@ const Hero = () => {
                               duration: 0.7,
                               delay: 0.12,
                             }}
-                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-white px-4 py-4 text-primary lg:ml-4 mt-4"
+                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-white px-4 py-4 text-primary ml-4 mt-4"
                           >
                             See Prices
                           </motion.div>
