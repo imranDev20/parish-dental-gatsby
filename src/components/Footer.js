@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../components/Logo";
 import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
+import MapImage from "../images/maps.png";
 
 const Footer = () => {
   const schedule = [
@@ -61,17 +62,13 @@ const Footer = () => {
           <div></div>
         </div>
         <div>
-          <iframe
-            title="Location Map"
-            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=31%20Wollaton%20Hall%20Drive,%20Nottingham,%20England,%20NG8%201AF+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-            width="100%"
-            height="100%"
-            className="rounded"
-            frameBorder="0"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            aria-hidden="false"
-          />
+          <a href="https://www.google.com/maps?ll=52.946335,-1.189357&z=14&t=m&hl=en&gl=US&mapclient=embed&q=31+Wollaton+Hall+Dr+Lenton+Nottingham+NG8+1AF+UK">
+            <img
+              className="w-full h-full object-cover rounded"
+              src={MapImage}
+              alt="31 Wollaton Hall Dr Lenton Nottingham NG8 1AF UK"
+            />
+          </a>
         </div>
       </div>
     </footer>
