@@ -177,28 +177,27 @@ const Hero = () => {
                         >
                           Appointment
                         </motion.button>
-                        <Link to="/pricing">
-                          <motion.div
-                            onClick={() => (modalOpen ? close() : open())}
-                            initial={{
-                              opacity: 0,
-                              x: -100,
-                            }}
-                            animate={{
-                              opacity: isActive ? 1 : 0,
-                              x: isActive ? 0 : -100,
-                            }}
-                            transition={{
-                              type: "tween",
-                              stiffness: 100,
-                              duration: 0.7,
-                              delay: 0.12,
-                            }}
-                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-white px-4 py-4 text-primary ml-4 mt-4"
-                          >
-                            See Prices
-                          </motion.div>
-                        </Link>
+
+                        <motion.div
+                          onClick={() => (modalOpen ? close() : open())}
+                          initial={{
+                            opacity: 0,
+                            x: -100,
+                          }}
+                          animate={{
+                            opacity: isActive ? 1 : 0,
+                            x: isActive ? 0 : -100,
+                          }}
+                          transition={{
+                            type: "tween",
+                            stiffness: 100,
+                            duration: 0.7,
+                            delay: 0.12,
+                          }}
+                          className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-white px-4 py-4 text-primary ml-4 mt-4"
+                        >
+                          <Link to="/pricing">See Prices</Link>
+                        </motion.div>
                       </div>
                     </>
                   )}
