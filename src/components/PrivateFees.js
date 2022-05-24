@@ -70,13 +70,15 @@ const PrivateFees = () => {
                           </div>
                           <button
                             onClick={() => {
-                              setService(service.serviceDetailedTitle);
+                              setService(
+                                `${privateFee.serviceName} - ${service.serviceDetailedTitle}`
+                              );
                               setPrice(service.servicePrice);
                               modalOpen ? close() : open();
                             }}
                             className="bg-primary inline-block px-2 py-2 text-white rounded w-2/12 text-sm lg:text-base"
                           >
-                            Book now
+                            Book
                           </button>
                         </div>
                       );
