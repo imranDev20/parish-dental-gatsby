@@ -16,7 +16,7 @@ const CallToAction = ({ bgColor }) => {
           </p>
         </div>
         <div>
-          <LinkButton className="px-7 py-5 inline-block" to="/pricing">
+          <LinkButton variant="white" className="px-7 py-5" to="/pricing">
             Learn More
           </LinkButton>
         </div>

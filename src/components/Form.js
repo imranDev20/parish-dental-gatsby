@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import { toast } from "react-toastify";
 
-const Form = ({ inputBg }) => {
-  const [state, handleSubmit] = useForm("xlezaedd");
+const Form = ({ inputBg, isPricing, price, service }) => {
+  const [state, handleSubmit] = useForm("mlezzdzv");
 
   // if (state.succeeded) {
   //   return <p>Thanks for joining!</p>;
@@ -11,21 +12,51 @@ const Form = ({ inputBg }) => {
     `${inputBg} px-4 outline-none ring-2 ring-primary/10 focus:ring-2 focus:ring-primary/40 rounded  my-2 transition-all w-full text-neutral-400 focus:text-neutral-600`,
   ];
 
+  const handleNotification = () => {
+    if (state.submitting) {
+      toast("Sumbitting your request...");
+    }
+    if (state.succeeded) {
+      toast.success("Request sent successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (state.errors) {
+      toast.error("There was an error.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col">
+      {/* Name */}
       <div className="flex justify-between">
         <div className="w-[49%]">
           <input
             className={`${inputClasses} py-2`}
             id="fName"
             type="text"
-            name="firstName"
+            name="First Name"
             placeholder="First Name"
             required
           />
           <ValidationError
             prefix="First Name"
-            field="firstName"
+            field="First Name"
             errors={state.errors}
           />
         </div>
@@ -34,53 +65,59 @@ const Form = ({ inputBg }) => {
             className={`${inputClasses} py-2`}
             id="lName"
             type="text"
-            name="lastName"
+            name="Last Name"
             placeholder="Last Name"
           />
           <ValidationError
             prefix="Last Name"
-            field="lastName"
+            field="Last Name"
             errors={state.errors}
           />
         </div>
       </div>
 
+      {/* Phone / Email */}
       <div className="flex justify-between">
         <div className="w-[49%]">
           <input
             className={`${inputClasses} py-2`}
             id="phone"
             type="text"
-            name="phone"
+            name="Phone"
             placeholder="Phone"
           />
-          <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+          <ValidationError prefix="Phone" field="Phone" errors={state.errors} />
         </div>
         <div className="w-[49%]">
           <input
             className={`${inputClasses} py-2`}
             id="email"
             type="email"
-            name="email"
+            name="Email"
             placeholder="Email"
           />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
+          <ValidationError prefix="Email" field="Email" errors={state.errors} />
         </div>
       </div>
 
+      {/* Time */}
       <div className="flex justify-between">
         <div className="w-[49%]">
           <input
             type="date"
             className={`${inputClasses} py-2`}
-            name="date"
+            name="Appointment Date"
             id="date"
           />
-          <ValidationError prefix="Date" field="date" errors={state.errors} />
+          <ValidationError
+            prefix="Date"
+            field="Appointment Date"
+            errors={state.errors}
+          />
         </div>
         <div className="w-[49%]">
           <select
-            name="daytime"
+            name="Preferred time of day"
             id="daytime"
             // form="carform"
             className={`${inputClasses} py-2`}
@@ -97,11 +134,49 @@ const Form = ({ inputBg }) => {
           </select>
           <ValidationError
             prefix="Daytime"
-            field="daytime"
+            field="Preferred time of day"
             errors={state.errors}
           />
         </div>
       </div>
+
+      {/* Price Section */}
+      {isPricing && (
+        <div className="flex justify-between">
+          <div className="w-[49%]">
+            <input
+              type="text"
+              className={`${inputClasses} py-2`}
+              name="Service Name"
+              id="service"
+              value={service}
+              readOnly
+              disabled
+            />
+            <ValidationError
+              prefix="Service"
+              field="Service Name"
+              errors={state.errors}
+            />
+          </div>
+          <div className="w-[49%]">
+            <input
+              type="text"
+              className={`${inputClasses} py-2`}
+              name="Price"
+              id="price"
+              value={`£${price}`}
+              readOnly
+              disabled
+            />
+            <ValidationError
+              prefix="Price"
+              field="Price"
+              errors={state.errors}
+            />
+          </div>
+        </div>
+      )}
 
       <textarea
         className={`${inputClasses} py-6`}
@@ -112,6 +187,7 @@ const Form = ({ inputBg }) => {
       />
       <ValidationError prefix="Message" field="message" errors={state.errors} />
       <button
+        onClick={() => handleNotification()}
         className="bg-primary rounded text-white my-2 py-3 hover:bg-secondary transition-colors"
         type="submit"
         disabled={state.submitting}

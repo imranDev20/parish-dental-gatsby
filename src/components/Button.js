@@ -2,11 +2,18 @@ import React from "react";
 import { Link } from "gatsby";
 
 const classNames = [
-  `tracking-[0.2em] uppercase text-sm font-medium rounded-md inline-block text-sm`,
+  `tracking-[0.2em] uppercase font-medium rounded-md inline-block text-xs`,
 ];
 export const LinkButton = ({ children, to, className, variant }) => {
   return (
-    <Link className={`${[...classNames]} ${className}`} to={to}>
+    <Link
+      className={`${[...classNames]} ${className} ${
+        variant === "blue" && "bg-primary text-white"
+      } ${variant === "orange" && "bg-secondary text-white"} ${
+        variant === "white" && "bg-white text-primary"
+      }`}
+      to={to}
+    >
       {children}
     </Link>
   );

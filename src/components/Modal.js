@@ -11,20 +11,18 @@ const dropIn = {
   },
 };
 
-const Modal = ({ handleClose, children }) => {
+const Modal = ({ handleClose, children, title }) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
-        className="max-w-[90%] lg:max-w-[50%] m-auto flex flex-col items-center z-20 bg-white rounded px-5 py-5"
+        className="max-w-[90%] lg:max-w-[50%] m-auto flex flex-col items-center z-20 bg-white rounded px-7 py-10"
         variants={dropIn}
         initial="hidden"
         animate="visible"
         exit="exit"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-3xl font-semibold text-primary mb-5">
-          Request an appointment!
-        </h2>
+        <h2 className="text-3xl font-semibold text-primary mb-5">{title}</h2>
 
         {children}
       </motion.div>

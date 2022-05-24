@@ -3,6 +3,7 @@ import {
   ReactCompareSlider,
   ReactCompareSliderImage,
 } from "react-compare-slider";
+import { LinkButton } from "./Button";
 
 const WhatWeDo = () => {
   return (
@@ -26,12 +27,9 @@ const WhatWeDo = () => {
             cupiditate accusantium totam quaerat sed, fuga explicabo doloremque
             cum temporibus
           </p>
-          <a
-            className="px-4 py-4 bg-primary rounded text-white my-3 inline-block"
-            href="/"
-          >
-            See our services
-          </a>
+          <LinkButton to="/services" variant="blue" className="px-4 py-5">
+            Our services
+          </LinkButton>
         </div>
         <div className="w-full lg:w-1/2 mt-10 lg:mt-0">
           <ReactCompareSlider

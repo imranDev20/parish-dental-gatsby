@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
@@ -159,9 +159,46 @@ const Hero = () => {
                         </h2>
                         <motion.button
                           onClick={() => (modalOpen ? close() : open())}
+                          initial={{
+                            opacity: 0,
+                            x: -100,
+                          }}
+                          animate={{
+                            opacity: isActive ? 1 : 0,
+                            x: isActive ? 0 : -100,
+                          }}
+                          transition={{
+                            type: "tween",
+                            stiffness: 100,
+                            duration: 0.7,
+                            delay: 0.12,
+                          }}
+                          className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary px-4 py-4 text-white  mt-4"
                         >
                           Appointment
                         </motion.button>
+                        <Link to="/pricing">
+                          <motion.div
+                            onClick={() => (modalOpen ? close() : open())}
+                            initial={{
+                              opacity: 0,
+                              x: -100,
+                            }}
+                            animate={{
+                              opacity: isActive ? 1 : 0,
+                              x: isActive ? 0 : -100,
+                            }}
+                            transition={{
+                              type: "tween",
+                              stiffness: 100,
+                              duration: 0.7,
+                              delay: 0.12,
+                            }}
+                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-white px-4 py-4 text-primary lg:ml-4 mt-4"
+                          >
+                            See Prices
+                          </motion.div>
+                        </Link>
                       </div>
                     </>
                   )}
@@ -186,7 +223,11 @@ const Hero = () => {
         onExitComplete={() => null}
       >
         {modalOpen && (
-          <Modal modalOpen={modalOpen} handleClose={close}>
+          <Modal
+            modalOpen={modalOpen}
+            handleClose={close}
+            title="Request an appointment!!!"
+          >
             <Form />
           </Modal>
         )}
