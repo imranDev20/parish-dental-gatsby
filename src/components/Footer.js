@@ -60,7 +60,19 @@ const Footer = () => {
           <h3 className="font-medium text-xl mb-2">Contact Info</h3>
           <div></div>
         </div>
-        <div></div>
+        <div>
+          <iframe
+            title="Location Map"
+            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=31%20Wollaton%20Hall%20Drive,%20Nottingham,%20England,%20NG8%201AF+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            width="100%"
+            height="100%"
+            className="rounded"
+            frameBorder="0"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            aria-hidden="false"
+          />
+        </div>
       </div>
     </footer>
   );

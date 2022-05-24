@@ -112,7 +112,7 @@ const strapiConfig = {
       },
     },
   ],
-  // singleTypes: [`schedule`],
+  singleTypes: [`schedule`],
 };
 
 module.exports = {
@@ -173,6 +173,14 @@ module.exports = {
         color: `#ea580c`,
         // Disable the loading spinner.
         showSpinner: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-notifications`,
+      // these are the default options
+      options: {
+        sound: `Glass`, // see ./assets/sounds for available sounds
+        toast: true,
       },
     },
   ],

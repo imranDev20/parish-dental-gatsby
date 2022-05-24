@@ -4,13 +4,29 @@ import React from "react";
 import BlogsSidebar from "../components/BlogsSidebar";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import "../styles/blog-details.css";
 
-const BlogDetails = ({ data }) => {
+const BlogDetails = ({ data, pageContext }) => {
   const { author, content, createdAt, title, image, category } =
     data?.strapiBlog;
-
   const blogImage = getImage(image?.localFile);
+
+  console.log(pageContext);
+  const prev = pageContext?.prev
+    ? {
+        url: `/blogs/${pageContext?.prev?.slug}`,
+        title: pageContext?.prev?.title,
+      }
+    : null;
+
+  const next = pageContext?.next
+    ? {
+        url: `/blogs/${pageContext?.next?.slug}`,
+        title: pageContext?.next?.title,
+      }
+    : null;
+
   return (
     <Layout>
       <Seo title={title} />
@@ -53,7 +69,28 @@ const BlogDetails = ({ data }) => {
               <p className="text-neutral-500 leading-7">{author.about}</p>
             </div>
           </div>
+
           {/* Next Previous Button */}
+          <div className="flex justify-between mt-16">
+            {prev && (
+              <Link className="justify-self-start mr-auto" to={prev.url}>
+                <span className="uppercase tracking-[0.2em] font-medium text-sm text-primary flex items-center">
+                  <FiChevronLeft className="mr-2 text-xl" />
+                  Previous
+                </span>
+                {/* <h3 className="text-neutral-500">{prev.title}</h3> */}
+              </Link>
+            )}
+            {next && (
+              <Link className="justify-self-end ml-auto" to={next.url}>
+                <span className="uppercase tracking-[0.2em] font-medium text-sm text-primary flex items-center">
+                  Next
+                  <FiChevronRight className="ml-2 text-xl" />
+                </span>
+                {/* <h3>{next.title}</h3> */}
+              </Link>
+            )}
+          </div>
         </div>
         <div className="w-full lg:w-1/5">
           <BlogsSidebar />

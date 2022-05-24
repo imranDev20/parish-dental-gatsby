@@ -1,4 +1,5 @@
 import React from "react";
+import { NormalButton } from "./Button";
 
 const WhoWeAre = () => {
   return (
@@ -29,12 +30,9 @@ const WhoWeAre = () => {
             cupiditate accusantium totam quaerat sed, fuga explicabo doloremque
             cum temporibus
           </p>
-          <a
-            className="px-4 py-4 bg-primary rounded text-white my-3 inline-block"
-            href="/"
-          >
-            Make an Appointment
-          </a>
+          <NormalButton variant="blue" className="px-4 py-4">
+            Make an appointment
+          </NormalButton>
         </div>
       </div>
     </section>

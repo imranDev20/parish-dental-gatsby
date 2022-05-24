@@ -9,16 +9,6 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             title
           }
-          previous {
-            title
-            slug
-            strapi_id
-          }
-          next {
-            slug
-            strapi_id
-            title
-          }
         }
       }
       allStrapiCategory {
@@ -28,15 +18,20 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  data.allStrapiBlog.edges.forEach((data) => {
-    const next = data?.next;
-    const previous = data?.previous;
+
+  const blogs = data?.allStrapiBlog?.edges;
+  blogs?.forEach(({ node }, index) => {
     actions.createPage({
-      path: "/blogs/" + data?.node?.slug,
-      component: path.resolve("./src/templates/blog-details.js"),
-      context: { slug: data?.node?.slug, next, previous },
+      path: "/blogs/" + node?.slug,
+      component: path?.resolve("./src/templates/blog-details.js"),
+      context: {
+        slug: node?.slug,
+        next: index === blogs?.length - 1 ? null : blogs[index + 1]?.node,
+        prev: index === 0 ? null : blogs[index - 1]?.node,
+      },
     });
   });
+
   data.allStrapiCategory.nodes.forEach((node) => {
     actions.createPage({
       path: "/blogs/categories/" + node?.slug,
