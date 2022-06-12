@@ -6,9 +6,7 @@ const Logo = ({ isFooter }) => {
       className={`font-semibold text-3xl ${
         isFooter ? `text-white` : `text-primary`
       }`}
-    >
-      SB Dental
-    </h1>
+    ></h1>
   );
 };
 
