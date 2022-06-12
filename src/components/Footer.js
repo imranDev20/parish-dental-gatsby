@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "../components/Logo";
 import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
-import MapImage from "../images/maps.png";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
