@@ -31,10 +31,7 @@ const Testimonials = () => {
     }
   `);
 
-  console.log(data);
-  console.log(data.strapiPage.blocks[4].testimonialBlock);
-
-  const testimonialData = data.strapiPage.blocks[4].testimonialBlock;
+  const testimonialData = data?.strapiPage?.blocks[4]?.testimonialBlock;
 
   return (
     <section className="my-24">

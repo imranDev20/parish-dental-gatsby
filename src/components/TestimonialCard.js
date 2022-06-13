@@ -15,8 +15,8 @@ const TestimonialCard = ({ testimonial }) => {
         <div className="rounded-full overflow-hidden w-28 h-28">
           <GatsbyImage
             imgClassName="w-full h-full object-cover"
-            image={getImage(testimonialAvatar.localFile)}
-            alt={testimonialAvatar.alternativeText}
+            image={getImage(testimonialAvatar?.localFile)}
+            alt={testimonialAvatar?.alternativeText}
           />
         </div>
       </div>
