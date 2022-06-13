@@ -7,7 +7,7 @@ import TestimonialCard from "./TestimonialCard";
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
     query TestimonialQuery {
-      strapiPage {
+      strapiPage(strapi_id: { eq: 1 }) {
         blocks {
           ... on STRAPI__COMPONENT_HOME_TESTIMONIAL {
             id
@@ -67,35 +67,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
-// <Swiper
-//     modules={[]}
-//     effect="fade"
-//     spaceBetween={75}
-//     loop
-//     slidesPerView={1}
-//     breakpoints={{
-//       0: {
-//         slidesPerView: 1,
-//       },
-//       768: {
-//         slidesPerView: 2,
-//       },
-//       1024: {
-//         slidesPerView: 3,
-//       },
-//     }}
-//     // onSlideChange={() => console.log("slide change")}
-//     // onSwiper={(swiper) => console.log(swiper)}
-//     className="mt-10"
-//   >
-//     {testimonialData.map((testimonial) => (
-//       <SwiperSlide
-//         key={testimonial.strapi_id}
-//         // Brought Card wrapper div styles here to avoid large dom
-//         className="!max-h-[85vh] flex flex-col items-center"
-//       >
-//         <TestimonialCard testimonial={testimonial} />
-//       </SwiperSlide>
-//     ))}
-//   </Swiper>
