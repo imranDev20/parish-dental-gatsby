@@ -1,9 +1,41 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SectionHeader from "./SectionHeader";
 import TestimonialCard from "./TestimonialCard";
 
 const Testimonials = () => {
+  const data = useStaticQuery(graphql`
+    query TestimonialQuery {
+      strapiPage {
+        blocks {
+          ... on STRAPI__COMPONENT_HOME_TESTIMONIAL {
+            id
+            testimonialBlock {
+              testimonialAvatar {
+                alternativeText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+              testimonialName
+              testimonialText
+              testimonialTitle
+              strapi_id
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  console.log(data);
+  console.log(data.strapiPage.blocks[4].testimonialBlock);
+
+  const testimonialData = data.strapiPage.blocks[4].testimonialBlock;
+
   return (
     <section className="my-24">
       <div className="container px-10 mx-auto ">
@@ -19,7 +51,7 @@ const Testimonials = () => {
           effect="fade"
           spaceBetween={75}
           loop
-          slidesPerView={3}
+          slidesPerView={1}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -35,13 +67,13 @@ const Testimonials = () => {
           // onSwiper={(swiper) => console.log(swiper)}
           className="mt-10"
         >
-          {[0, 1, 2, 3, 4].map((n) => (
+          {testimonialData.map((testimonial) => (
             <SwiperSlide
-              key={n}
+              key={testimonial.strapi_id}
               // Brought Card wrapper div styles here to avoid large dom
               className="!max-h-[85vh] flex flex-col items-center"
             >
-              <TestimonialCard />
+              <TestimonialCard testimonial={testimonial} />
             </SwiperSlide>
           ))}
         </Swiper>

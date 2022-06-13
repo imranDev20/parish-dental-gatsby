@@ -38,6 +38,7 @@ const Services = () => {
               alt={service?.serviceImage?.alternativeText}
             />
           </div>
+
           <div>
             <h3 className="text-primary font-medium text-xl mb-3">
               {service?.serviceName}

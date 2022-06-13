@@ -42,6 +42,13 @@ const strapiConfig = {
                   },
                 },
               },
+              testimonialBlock: {
+                populate: {
+                  testimonialAvatar: {
+                    populate: "*",
+                  },
+                },
+              },
             },
           },
         },

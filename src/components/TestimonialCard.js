@@ -1,26 +1,33 @@
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 
-const TestimonialCard = () => {
+const TestimonialCard = ({ testimonial }) => {
+  const {
+    testimonialAvatar,
+    testimonialTitle,
+    testimonialText,
+    testimonialName,
+  } = testimonial;
+
   return (
     <>
       <div className="p-2 border border-primary/10 rounded-full">
         <div className="rounded-full overflow-hidden w-28 h-28">
-          <img
-            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
-            alt=""
-            className="w-full h-full object-cover"
+          <GatsbyImage
+            imgClassName="w-full h-full object-cover"
+            image={getImage(testimonialAvatar.localFile)}
+            alt={testimonialAvatar.alternativeText}
           />
         </div>
       </div>
       <h3 className="text-[27px] mt-5 text-primary font-semibold">
-        Quick, easy & reliable
+        {testimonialTitle}
       </h3>
       <p className="text-center my-5 text-neutral-500 leading-8">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
-        molestiae blanditiis dolore, adipisci sapiente in maxime omnis.
+        {testimonialText}
       </p>
       <h5 className="uppercase tracking-[0.2em] text-sm text-secondary font-medium">
-        Lena Johnson
+        {testimonialName}
       </h5>
     </>
   );

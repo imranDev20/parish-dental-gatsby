@@ -31,10 +31,8 @@ const Footer = () => {
       }
     }
   `);
-  console.log(data);
-  const mapImage = getImage(data.strapiGlobal.footer.mapImage.localFile);
 
-  console.log(mapImage);
+  const mapImage = getImage(data.strapiGlobal.footer.mapImage.localFile);
 
   const socials = [
     { id: 1, icon: FiFacebook, href: "https://facebook.com" },
