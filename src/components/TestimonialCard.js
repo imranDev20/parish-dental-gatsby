@@ -11,16 +11,17 @@ const TestimonialCard = ({ testimonial }) => {
 
   return (
     <>
-      <div className="p-2 border border-primary/10 rounded-full">
-        <div className="rounded-full overflow-hidden w-28 h-28">
-          <GatsbyImage
-            imgClassName="w-full h-full object-cover"
-            image={getImage(testimonialAvatar?.localFile)}
-            alt={testimonialAvatar?.alternativeText}
-          />
-        </div>
+      <div className="p-1 border rounded-full">
+        <GatsbyImage
+          objectFit="cover"
+          imgClassName="h-full"
+          className="h-28 w-28 rounded-full overflow-hidden"
+          image={getImage(testimonialAvatar?.localFile)}
+          alt={testimonialAvatar?.alternativeText}
+        />
       </div>
-      <h3 className="text-[27px] mt-5 text-primary font-semibold">
+
+      <h3 className="text-[27px] mt-5 text-primary font-semibold text-center">
         {testimonialTitle}
       </h3>
       <p className="text-center my-5 text-neutral-500 leading-8">
