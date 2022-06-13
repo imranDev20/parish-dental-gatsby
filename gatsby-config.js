@@ -130,6 +130,9 @@ const strapiConfig = {
           footer: {
             populate: "*",
           },
+          contactInfo: {
+            populate: "*",
+          },
         },
       },
     },

@@ -33,8 +33,6 @@ const Testimonials = () => {
 
   const testimonialData = data?.strapiPage?.blocks[4]?.testimonialBlock;
 
-  console.log(testimonialData);
-
   return (
     <section className="my-24">
       <div className="container px-10 mx-auto ">
@@ -49,8 +47,8 @@ const Testimonials = () => {
         <Swiper
           spaceBetween={50}
           slidesPerView={3}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
         >
           {testimonialData.map((testimonial) => (
             <SwiperSlide

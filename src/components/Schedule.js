@@ -1,15 +1,28 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
 const Schedule = () => {
-  const schedule = [
-    { id: 1, day: "Sunday", time: "8AM-7PM" },
-    { id: 2, day: "Monday", time: "8AM-7PM" },
-    { id: 3, day: "Tuesday", time: "8AM-7PM" },
-    { id: 4, day: "Wednesday", time: "8AM-7PM" },
-    { id: 5, day: "Thursday", time: "8AM-7PM" },
-    { id: 6, day: "Friday", time: "8AM-7PM" },
-    { id: 7, day: "Saturday", time: "8AM-7PM" },
-  ];
+  const data = useStaticQuery(graphql`
+    query ScheduleQuery {
+      strapiSchedule {
+        scheduleDayTime {
+          day
+          time
+          strapi_id
+        }
+      }
+      strapiGlobal {
+        contactInfo {
+          phone
+        }
+      }
+    }
+  `);
+
+  console.log(data);
+
+  const schedule = data?.strapiSchedule?.scheduleDayTime;
+  const phone = data?.strapiGlobal?.contactInfo?.phone;
 
   return (
     <aside className="bg-rose-50 rounded pt-10 flex flex-col justify-between">
@@ -20,7 +33,7 @@ const Schedule = () => {
       <div className="px-10">
         {schedule.map((item) => (
           <div
-            key={item.id}
+            key={item.strapi_id}
             className="flex justify-between items-center text-gray-600 my-5 font-light"
           >
             <span>{item.day}</span>
@@ -35,9 +48,9 @@ const Schedule = () => {
       </div>
       <a
         className="bg-primary w-full block rounded-b text-center py-6 text-white"
-        href="tel:+654/4715-167"
+        href={`tel:${phone}`}
       >
-        Call Us: +654/4715-167
+        Call Us: {phone}
       </a>
     </aside>
   );
