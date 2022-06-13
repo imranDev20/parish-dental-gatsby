@@ -19,8 +19,6 @@ const Schedule = () => {
     }
   `);
 
-  console.log(data);
-
   const schedule = data?.strapiSchedule?.scheduleDayTime;
   const phone = data?.strapiGlobal?.contactInfo?.phone;
 

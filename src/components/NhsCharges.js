@@ -21,6 +21,8 @@ const NhsCharges = () => {
 
   // Over Engineering the simple card to show red cross and green tick
 
+  console.log(data);
+
   const nhsCards = data?.allStrapiNhsPrice?.nodes;
   const fullArray = nhsCards[2]?.nhsFeatures?.map((elem) => elem?.nhsFeature);
 

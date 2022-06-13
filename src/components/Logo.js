@@ -1,12 +1,34 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
 const Logo = ({ isFooter }) => {
+  const data = useStaticQuery(graphql`
+    query LogoQuery {
+      strapiGlobal {
+        logo {
+          alternativeText
+          ext
+          localFile {
+            url
+            publicURL
+            childrenImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  console.log(data?.strapiGlobal?.logo?.localFile?.publicURL);
   return (
-    <h1
-      className={`font-semibold text-3xl ${
-        isFooter ? `text-white` : `text-primary`
-      }`}
-    ></h1>
+    <div className="w-16 h-16">
+      <img
+        className="w-full h-full object-contain"
+        src={data?.strapiGlobal?.logo?.localFile?.publicURL}
+        alt=""
+      />
+    </div>
   );
 };
 

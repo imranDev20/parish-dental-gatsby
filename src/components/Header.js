@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React, { useState, useEffect } from "react";
 import Burger from "./Burger";
 import Logo from "./Logo";

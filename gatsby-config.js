@@ -133,6 +133,9 @@ const strapiConfig = {
           contactInfo: {
             populate: "*",
           },
+          logo: {
+            populate: "*",
+          },
         },
       },
     },
