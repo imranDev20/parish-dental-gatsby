@@ -49,6 +49,12 @@ const strapiConfig = {
                   },
                 },
               },
+              testimonialHeader: {
+                populate: "*",
+              },
+              dentistHeader: {
+                populate: "*",
+              },
             },
           },
         },
@@ -118,6 +124,34 @@ const strapiConfig = {
         },
       },
     },
+
+    {
+      singularName: `dentist`,
+      queryParams: {
+        populate: {
+          image: "*",
+          images: "*",
+          dentistProfilePic: {
+            populate: "*",
+          },
+        },
+      },
+    },
+    {
+      singularName: `service`,
+      queryParams: {
+        populate: {
+          image: "*",
+          images: "*",
+          serviceImage: {
+            populate: "*",
+          },
+          serviceIcon: {
+            populate: "*",
+          },
+        },
+      },
+    },
   ],
   singleTypes: [
     `schedule`,
@@ -134,6 +168,9 @@ const strapiConfig = {
             populate: "*",
           },
           logo: {
+            populate: "*",
+          },
+          socials: {
             populate: "*",
           },
         },

@@ -1,6 +1,13 @@
 import React from "react";
 import Logo from "../components/Logo";
-import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
+import {
+  FiFacebook,
+  FiTwitter,
+  FiInstagram,
+  FiMapPin,
+  FiPhone,
+  FiMail,
+} from "react-icons/fi";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -18,6 +25,11 @@ const Footer = () => {
   const data = useStaticQuery(graphql`
     query FooterQuery {
       strapiGlobal {
+        contactInfo {
+          address
+          email
+          phone
+        }
         footer {
           mapImage {
             alternativeText
@@ -28,16 +40,30 @@ const Footer = () => {
             }
           }
         }
+        socials {
+          facebookLink
+          instagramLink
+          twitterLink
+        }
+      }
+      strapiSchedule {
+        scheduleDayTime {
+          day
+          time
+        }
       }
     }
   `);
 
-  const mapImage = getImage(data.strapiGlobal.footer.mapImage.localFile);
+  const mapImage = getImage(data?.strapiGlobal?.footer?.mapImage?.localFile);
+  const contact = data?.strapiGlobal?.contactInfo;
+
+  const socialLinks = data?.strapiGlobal?.socials;
 
   const socials = [
-    { id: 1, icon: FiFacebook, href: "https://facebook.com" },
-    { id: 2, icon: FiTwitter, href: "https://facebook.com" },
-    { id: 3, icon: FiInstagram, href: "https://facebook.com" },
+    { id: 1, icon: FiFacebook, href: socialLinks.facebookLink },
+    { id: 2, icon: FiTwitter, href: socialLinks.instagramLink },
+    { id: 3, icon: FiInstagram, href: socialLinks.twitterLink },
   ];
 
   return (
@@ -45,7 +71,7 @@ const Footer = () => {
       <div className="container mx-auto px-10 grid-cols-1 sm:grid-cols-2 grid lg:grid-cols-4 gap-16 text-white">
         <div>
           <Logo isFooter />
-          <p className="my-10">
+          <p className="my-10 font-light">
             This is AllSmiles, a place dedicated to clear, white & perfect
             smiles
           </p>
@@ -55,8 +81,8 @@ const Footer = () => {
               const SocialIconComponent = social.icon;
               return (
                 <a
-                  key={social.id}
-                  href="https://facebook.com"
+                  key={social?.id}
+                  href={social?.href}
                   className="bg-white hover:bg-secondary w-10 h-10 rounded-md flex justify-center items-center mr-5 group transition-colors"
                 >
                   <SocialIconComponent className="text-primary group-hover:text-white transition-colors" />
@@ -67,7 +93,7 @@ const Footer = () => {
         </div>
 
         <div className="">
-          <h3 className="font-medium text-xl mb-2">Work Hours</h3>
+          <h3 className="font-medium text-xl mb-7">Work Hours</h3>
           <div>
             {schedule?.map((item) => (
               <div className="flex justify-between my-2" key={item.id}>
@@ -78,8 +104,25 @@ const Footer = () => {
           </div>
         </div>
         <div className="">
-          <h3 className="font-medium text-xl mb-2">Contact Info</h3>
-          <div></div>
+          <h3 className="font-medium text-xl mb-7">Contact Info</h3>
+
+          <div className="flex items-center mb-7">
+            <FiMapPin className="mr-2 w-1/12 text-xl" />{" "}
+            <span className="w-11/12 font-light">{contact.address}</span>
+          </div>
+
+          <a
+            href={`mailto:${contact?.email}`}
+            className="flex items-center  mb-7"
+          >
+            <FiMail className="mr-2 w-1/12 text-xl" />{" "}
+            <span className="font-light">{contact.email}</span>
+          </a>
+
+          <a href={`tel:${contact?.phone}`} className="flex items-center  mb-7">
+            <FiPhone className="mr-2 w-1/12 text-xl" />{" "}
+            <span className="font-light">{contact.phone}</span>
+          </a>
         </div>
         <div>
           <a

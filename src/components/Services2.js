@@ -1,8 +1,40 @@
 import React from "react";
 import SectionHeader from "./SectionHeader";
 import { GiPlagueDoctorProfile } from "react-icons/gi";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Services2 = () => {
+  const data = useStaticQuery(graphql`
+    query Services2Query {
+      allStrapiService {
+        nodes {
+          serviceText
+          serviceName
+
+          serviceImage {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 400, placeholder: BLURRED)
+              }
+            }
+          }
+
+          serviceIcon {
+            alternativeText
+            localFile {
+              publicURL
+              url
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const services = data?.allStrapiService?.nodes;
+
   return (
     <section className="bg-rose-50 py-24">
       <div className="container px-10 mx-auto ">
@@ -12,24 +44,27 @@ const Services2 = () => {
           description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-            <div key={n} className=" rounded-lg overflow-hidden">
+          {services.map((service, index) => (
+            <div key={index} className=" rounded-lg overflow-hidden">
               <div>
-                <img
-                  src="https://img.freepik.com/free-photo/woman-patient-dentist_1303-9365.jpg?w=2000"
-                  alt=""
+                <GatsbyImage
+                  image={getImage(service?.serviceImage?.localFile)}
+                  alt={service?.serviceImage?.alternativeText}
                 />
               </div>
               <div className="bg-white  p-5 relative">
-                <div className="absolute top-0 -translate-y-1/2 px-6 py-6 bg-white rounded shadow">
-                  <GiPlagueDoctorProfile className="text-secondary text-4xl" />
+                <div className="absolute top-0 -translate-y-1/2  bg-white rounded shadow w-20 h-20 p-3">
+                  <img
+                    className="object-contain"
+                    src={service?.serviceIcon?.localFile?.url}
+                    alt=""
+                  />
                 </div>
                 <h5 className="text-2xl text-primary font-medium mt-10">
-                  Surgery
+                  {service?.serviceName}
                 </h5>
                 <p className="text-neutral-500 my-2 mx-auto text-base leading-8">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Debitis, optio!
+                  {service?.serviceText}
                 </p>
               </div>
             </div>
