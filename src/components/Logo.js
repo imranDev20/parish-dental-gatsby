@@ -20,7 +20,6 @@ const Logo = ({ isFooter }) => {
     }
   `);
 
-  console.log(data?.strapiGlobal?.logo?.localFile?.publicURL);
   return (
     <div className="w-16 h-16">
       <img

@@ -55,6 +55,9 @@ const strapiConfig = {
               dentistHeader: {
                 populate: "*",
               },
+              homeFormImage: {
+                populate: "*",
+              },
             },
           },
         },

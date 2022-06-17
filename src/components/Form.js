@@ -2,7 +2,7 @@ import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast } from "react-toastify";
 
-const Form = ({ inputBg, isPricing, price, service }) => {
+const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
   const [state, handleSubmit] = useForm("mlezzdzv");
 
   // if (state.succeeded) {
@@ -192,7 +192,7 @@ const Form = ({ inputBg, isPricing, price, service }) => {
         type="submit"
         disabled={state.submitting}
       >
-        Send Request
+        {submitButtonText ? submitButtonText : "Send Request"}
       </button>
     </form>
   );

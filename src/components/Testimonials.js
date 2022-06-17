@@ -25,6 +25,11 @@ const Testimonials = () => {
               testimonialTitle
               strapi_id
             }
+            testimonialHeader {
+              headerSubtitle
+              headerText
+              headerTitle
+            }
           }
         }
       }
@@ -32,15 +37,18 @@ const Testimonials = () => {
   `);
 
   const testimonialData = data?.strapiPage?.blocks[4]?.testimonialBlock;
+  const testimonialHeader = data?.strapiPage?.blocks[4]?.testimonialHeader;
+
+  console.log(testimonialHeader);
 
   return (
     <section className="my-24">
       <div className="container px-10 mx-auto ">
         <div className="mb-20">
           <SectionHeader
-            subTitle="Our dear clients"
-            mainTitle="What People Say"
-            description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
+            subTitle={testimonialHeader?.headerSubtitle}
+            mainTitle={testimonialHeader?.headerTitle}
+            description={testimonialHeader?.headerText}
           />
         </div>
 

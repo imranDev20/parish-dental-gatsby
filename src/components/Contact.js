@@ -6,22 +6,21 @@ import { BgImage } from "gbimage-bridge";
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
-    query {
+    query ContactQuery {
       strapiPage(title: { eq: "Home" }) {
         id
         blocks {
-          ... on STRAPI__COMPONENT_HOME_ABOUT {
+          ... on STRAPI__COMPONENT_HOME_HOME_CONTACT_FORM {
             id
-            aboutSubtitle
-            aboutText
-            aboutTitle
-            aboutBg {
+            homeFormButton
+            homeFormTitle
+            homeFormText
+            homeFormImage {
               localFile {
                 childImageSharp {
                   gatsbyImageData
                 }
               }
-              alternativeText
             }
           }
         }
@@ -29,7 +28,10 @@ const Contact = () => {
     }
   `);
 
-  const image = getImage(data?.strapiPage?.blocks[3]?.aboutBg?.localFile);
+  const image = getImage(data?.strapiPage?.blocks[6]?.homeFormImage?.localFile);
+  const contactHeader = data?.strapiPage?.blocks[6];
+
+  console.log(contactHeader);
 
   return (
     <section className="w-full bg-background relative min-h-[600px] mb-[1000px] sm:mb-[800px] lg:mb-0">
@@ -44,13 +46,15 @@ const Contact = () => {
 
         <div className="w-full lg:w-1/2  pl-0 lg:pl-10 py-20 lg:py-36 relative">
           <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
-            Request An Appointment
+            {contactHeader?.homeFormTitle}
           </h2>
           <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
-            Te veritus tractatos delicatissimi qui, justo diceret mentitum ut
-            sit. Qui sed reque dicam, qui veri nullam vituperatoribus in.
+            {contactHeader?.homeFormText}
           </p>
-          <Form inputBg="bg-background" />
+          <Form
+            submitButtonText={contactHeader?.homeFormButton}
+            inputBg="bg-background"
+          />
           <svg
             className="absolute hidden lg:block top-0 -left-28 w-28 h-full z-10"
             width="100%"

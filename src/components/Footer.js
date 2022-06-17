@@ -66,6 +66,9 @@ const Footer = () => {
     { id: 3, icon: FiInstagram, href: socialLinks.twitterLink },
   ];
 
+  const scheduleData = data?.strapiSchedule?.scheduleDayTime;
+  console.log(scheduleData);
+
   return (
     <footer className="w-full bg-primary py-20">
       <div className="container mx-auto px-10 grid-cols-1 sm:grid-cols-2 grid lg:grid-cols-4 gap-16 text-white">
@@ -95,8 +98,8 @@ const Footer = () => {
         <div className="">
           <h3 className="font-medium text-xl mb-7">Work Hours</h3>
           <div>
-            {schedule?.map((item) => (
-              <div className="flex justify-between my-2" key={item.id}>
+            {scheduleData?.map((item, index) => (
+              <div className="flex justify-between my-2" key={index}>
                 <span className="font-light">{item.day}</span>
                 <span className="font-light">{item.time}</span>
               </div>
