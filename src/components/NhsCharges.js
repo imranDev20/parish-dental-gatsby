@@ -27,7 +27,7 @@ const NhsCharges = () => {
   const fullArray = nhsCards[2]?.nhsFeatures?.map((elem) => elem?.nhsFeature);
 
   return (
-    <section className="w-full bg-rose-50">
+    <section className="w-full bg-backgroundSecondary">
       <div className="container mx-auto px-10  py-24">
         <SectionHeader
           subTitle="demo subtitle"

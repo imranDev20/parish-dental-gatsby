@@ -157,6 +157,7 @@ const Hero = () => {
                             ))}
                           </motion.span>
                         </h2>
+
                         <motion.button
                           onClick={() => (modalOpen ? close() : open())}
                           initial={{
@@ -173,7 +174,7 @@ const Hero = () => {
                             duration: 0.7,
                             delay: 0.12,
                           }}
-                          className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary px-4 py-4 text-white  mt-4"
+                          className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors "
                         >
                           Appointment
                         </motion.button>

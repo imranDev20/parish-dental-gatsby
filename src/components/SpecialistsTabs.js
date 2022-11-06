@@ -49,7 +49,7 @@ const SpecialistsTabs = () => {
     },
   ];
   return (
-    <section className="w-full py-28 bg-rose-50">
+    <section className="w-full py-28 bg-backgroundSecondary">
       <div className="container mx-auto px-10">
         <Tabs className="specialists-tab">
           <TabList className="flex flex-col lg:flex-row justify-between text-center lg:border-b-2 lg:border-secondary/20 relative">

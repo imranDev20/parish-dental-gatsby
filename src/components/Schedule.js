@@ -23,7 +23,7 @@ const Schedule = () => {
   const phone = data?.strapiGlobal?.contactInfo?.phone;
 
   return (
-    <aside className="bg-rose-50 rounded pt-10 flex flex-col justify-between">
+    <aside className="bg-backgroundSecondary rounded pt-10 flex flex-col justify-between">
       <h3 className="text-center text-primary text-3xl font-medium">
         Working Hours
       </h3>

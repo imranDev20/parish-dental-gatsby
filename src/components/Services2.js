@@ -36,7 +36,7 @@ const Services2 = () => {
   const services = data?.allStrapiService?.nodes;
 
   return (
-    <section className="bg-rose-50 py-24">
+    <section className="bg-backgroundSecondary py-24">
       <div className="container px-10 mx-auto ">
         <SectionHeader
           subTitle="this is subtitle"

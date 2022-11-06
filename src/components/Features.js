@@ -1,5 +1,6 @@
 import React from "react";
 import Schedule from "./Schedule";
+import NhsLogo from "../images/nhs.svg";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -52,7 +53,7 @@ const Features = () => {
   return (
     <section className="container mx-auto px-10 grid grid-cols-1  lg:grid-cols-3 my-32 gap-10">
       <div>
-        <Link to={`/blogs/${featuredBlog?.slug}`}>
+        {/* <Link to={`/blogs/${featuredBlog?.slug}`}>
           <GatsbyImage
             className="mb-10 h-[230px]"
             imgClassName="rounded w-full h-full object-cover"
@@ -74,12 +75,23 @@ const Features = () => {
           to={`/blogs/${featuredBlog?.slug}`}
         >
           Read More
-        </Link>
+        </Link> */}
+        <img src={NhsLogo} alt="" />
+        <h3 className="text-primary font-semibold text-3xl my-7">
+          Offering NHS dental treatment here
+        </h3>
+        <a
+          target="_blank"
+          className="text-neutral-500 hover:text-secondary transition-colors"
+          href="https://www.nhs.uk/nhs-services/dentists/dental-costs/"
+        >
+          Check NHS Prices
+        </a>
       </div>
       <div>
-        <div className="max-h-[230px] overflow-hidden rounded mb-10">
+        <div className="max-h-[250px] overflow-hidden rounded mb-10">
           <GatsbyImage
-            className="mb-10 h-[230px]"
+            className="mb-10 h-[250px]"
             imgClassName="rounded w-full h-full object-cover"
             image={gatsbyFeatureImage}
             alt={featureImage?.alternativeText}

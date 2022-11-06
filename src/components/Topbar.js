@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
+import { FiMapPin, FiPhone, FiMail, FiClock } from "react-icons/fi";
 
 const Topbar = () => {
   const data = useStaticQuery(graphql`
@@ -22,8 +22,8 @@ const Topbar = () => {
   return (
     <div className="bg-primary text-white py-3 text-sm font-light hidden lg:block">
       <div className="flex justify-between container mx-auto px-10">
-        <div>
-          <span>{topbarSchedule}</span>
+        <div className="flex items-center">
+          <FiClock className="mr-2" /> <span>{topbarSchedule}</span>
         </div>
         <div className="flex">
           <a
