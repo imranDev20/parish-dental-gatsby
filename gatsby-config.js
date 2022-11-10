@@ -185,10 +185,10 @@ const strapiConfig = {
 module.exports = {
   trailingSlash: "never",
   siteMetadata: {
-    title: `S&B Dental`,
+    title: `Parish Dental`,
     description: `Blazing fast modern site generator for React`,
-    siteUrl: `https://sb-dental.co.uk`,
-    author: `Imran Kabir`,
+    siteUrl: `https://parishdental.co.uk`,
+    author: `Hassan Bhojani`,
   },
   plugins: [
     "gatsby-plugin-image",
@@ -202,7 +202,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/Icon-parish.svg",
       },
     },
     {
@@ -234,6 +234,13 @@ module.exports = {
     //     display: "swap",
     //   },
     // },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
     {
       resolve: "@slixites/gatsby-plugin-google-fonts",
       options: {

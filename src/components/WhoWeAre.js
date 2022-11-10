@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Modal from "./Modal";
 import Form from "./Form";
-import { NormalButton } from "./Button";
+import { LinkButton, NormalButton } from "./Button";
 
 const WhoWeAre = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const close = () => {
-    setModalOpen(false);
-  };
-  const open = () => {
-    setModalOpen(true);
-  };
+  // const [modalOpen, setModalOpen] = useState(false);
+  // const close = () => {
+  //   setModalOpen(false);
+  // };
+  // const open = () => {
+  //   setModalOpen(true);
+  // };
   return (
     <>
       <section className="my-24">
@@ -31,23 +31,25 @@ const WhoWeAre = () => {
               About Us
             </h2>
             <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-              cupiditate officia inventore aliquam fuga magni in odit error
-              tenetur eveniet! Corporis consectetur pariatur saepe repellat
-              ipsam, harum vitae quis fugiat.
+              At Parish Dental we hold a strong ethos in delivering the best
+              dental care possible for all of our patients. We believe a healthy
+              and happy smile is true to one’s nature in expression of
+              themselves and we are committed to making sure all of our patients
+              can be confident and satisfied with the care they receive from the
+              moment they walk through our doors. We uphold community values and
+              believe we have an important responsibility in serving our
+              community to the best our ability.
             </p>
             <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              cupiditate accusantium totam quaerat sed, fuga explicabo
-              doloremque cum temporibus
+              We appreciate no two patients are the same and are committed to
+              delivering care and treatment tailored to fulfil the dental care
+              you deserve. Dentistry is a fundamental aspect of any individual
+              well being and we are determined to ensure excellence no matter
+              what your needs may be.
             </p>
-            <NormalButton
-              onClick={() => (modalOpen ? close() : open())}
-              variant="blue"
-              className="px-4 py-5"
-            >
-              Appointment
-            </NormalButton>
+            <LinkButton to="/services" variant="blue" className="px-4 py-5">
+              Our Services
+            </LinkButton>
           </div>
         </div>
       </section>
@@ -56,7 +58,7 @@ const WhoWeAre = () => {
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {modalOpen && (
+        {/* {modalOpen && (
           <Modal
             modalOpen={modalOpen}
             handleClose={close}
@@ -64,7 +66,7 @@ const WhoWeAre = () => {
           >
             <Form />
           </Modal>
-        )}
+        )} */}
       </AnimatePresence>
     </>
   );

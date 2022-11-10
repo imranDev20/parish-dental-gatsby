@@ -35,12 +35,12 @@ const Navigation = ({ open }) => {
         </Link>
       ))}
       <Link
-        to="/blogs"
+        to="/meet-the-team"
         partiallyActive={true}
         activeClassName={`border-b-[3px] lg:border-b-0 border-b-secondary border-t-0 lg:border-t-[3px] lg:border-t-secondary`}
         className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
       >
-        Blogs
+        Meet the Team
       </Link>
     </nav>
   );

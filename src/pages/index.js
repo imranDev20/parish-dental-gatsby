@@ -28,8 +28,8 @@ const IndexPage = () => {
       <About />
       <Testimonials />
       <CallToAction bgColor="bg-primary" />
-      <SpecialistsTabs />
-      <Team />
+      {/* <SpecialistsTabs /> */}
+      {/* <Team /> */}
       <Contact />
       <Blog />
     </Layout>

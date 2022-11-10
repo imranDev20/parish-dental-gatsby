@@ -1,35 +1,24 @@
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
+import ReactMarkdown from "react-markdown";
+import { BsStarFill } from "react-icons/bs";
 
 const TestimonialCard = ({ testimonial }) => {
-  const {
-    testimonialAvatar,
-    testimonialTitle,
-    testimonialText,
-    testimonialName,
-  } = testimonial;
+  const { title, description, rating } = testimonial;
 
   return (
     <>
-      <div className="p-1 border rounded-full">
-        <GatsbyImage
-          objectFit="cover"
-          imgClassName="h-full"
-          className="h-28 w-28 rounded-full overflow-hidden"
-          image={getImage(testimonialAvatar?.localFile)}
-          alt={testimonialAvatar?.alternativeText}
-        />
+      <div className="flex my-3">
+        {new Array(rating).fill(1)?.map((r, i) => (
+          <BsStarFill key={i} className="text-orange-400 mx-1" />
+        ))}
       </div>
-
-      <h3 className="text-[27px] mt-5 text-primary font-semibold text-center">
-        {testimonialTitle}
+      <h3 className="text-[27px] my-5 text-primary font-semibold text-center">
+        {title}
       </h3>
-      <p className="text-center my-5 text-neutral-500 leading-8">
-        {testimonialText}
+      <p className="text-center my-5 text-neutral-500 leading-8 max-w-4xl">
+        <ReactMarkdown>{description.description}</ReactMarkdown>
       </p>
-      <h5 className="uppercase tracking-[0.2em] text-sm text-secondary font-medium">
-        {testimonialName}
-      </h5>
     </>
   );
 };

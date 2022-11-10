@@ -79,3 +79,31 @@ h6 {
 ::-webkit-calendar-picker-indicator {
   @apply filter opacity-60;
 }
+
+.reviews-carousel .swiper-wrapper {
+  @apply mb-5;
+}
+
+.reviews-carousel .swiper-pagination-bullet {
+  @apply !opacity-100 !mx-3 transition-all;
+}
+
+.reviews-carousel .swiper-pagination-bullet:nth-child(1) {
+  @apply bg-secondary;
+}
+
+.reviews-carousel .swiper-pagination-bullet:nth-child(2) {
+  @apply bg-background;
+}
+
+.reviews-carousel .swiper-pagination-bullet:nth-child(3) {
+  @apply bg-primary;
+}
+
+.reviews-carousel .swiper-pagination-bullet:nth-child(4) {
+  @apply bg-backgroundSecondary;
+}
+
+.reviews-carousel .swiper-pagination-bullet-active {
+  @apply scale-[2.0];
+}

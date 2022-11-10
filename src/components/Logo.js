@@ -21,7 +21,7 @@ const Logo = ({ isFooter }) => {
   `);
 
   return (
-    <div className="w-16 h-16">
+    <div className="w-64 ">
       <img
         className="w-full h-full object-contain"
         src={data?.strapiGlobal?.logo?.localFile?.publicURL}

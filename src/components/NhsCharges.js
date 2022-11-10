@@ -5,14 +5,24 @@ import SectionHeader from "./SectionHeader";
 
 const NhsCharges = () => {
   const data = useStaticQuery(graphql`
-    query NhsQuery {
-      allStrapiNhsPrice {
-        nodes {
-          cardPrice
-          cardTitle
-          strapi_id
-          nhsFeatures {
-            nhsFeature
+    query NHSQuery {
+      contentfulPages(title: { eq: "Pricing" }) {
+        id
+        blocks {
+          ... on ContentfulSections {
+            id
+            mainTitle
+            subtitle
+            description {
+              description
+            }
+          }
+          ... on ContentfulNhsFeatures {
+            id
+            price
+            services
+            title
+            contentful_id
           }
         }
       }
@@ -23,32 +33,36 @@ const NhsCharges = () => {
 
   console.log(data);
 
-  const nhsCards = data?.allStrapiNhsPrice?.nodes;
-  const fullArray = nhsCards[2]?.nhsFeatures?.map((elem) => elem?.nhsFeature);
+  const header = data?.contentfulPages?.blocks[0];
+  const nhsCards = data?.contentfulPages?.blocks?.slice(1, 4);
+  console.log(nhsCards);
+
+  const fullArray = nhsCards[2]?.services?.map((elem) => elem);
+
+  console.log(fullArray);
 
   return (
     <section className="w-full bg-backgroundSecondary">
       <div className="container mx-auto px-10  py-24">
         <SectionHeader
-          subTitle="demo subtitle"
-          mainTitle="NHS Dental Fees"
-          description="Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link."
+          subTitle={header?.subtitle}
+          mainTitle={header?.mainTitle}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 mt-16">
           {nhsCards?.map((nhsCard) => {
-            const cardFeaturesArray = nhsCard?.nhsFeatures?.map(
-              (element) => element?.nhsFeature
+            const cardServicesArray = nhsCard?.services?.map(
+              (element) => element
             );
             const remainingArray = fullArray?.filter(
-              (f) => !cardFeaturesArray?.includes(f)
+              (f) => !cardServicesArray?.includes(f)
             );
             return (
               <NhsCard
-                key={nhsCard?.strapi_id}
-                title={nhsCard?.cardTitle}
-                price={nhsCard?.cardPrice}
-                features={cardFeaturesArray}
+                key={nhsCard?.contentful_id}
+                title={nhsCard?.title}
+                price={nhsCard?.price}
+                features={cardServicesArray}
                 remaining={remainingArray}
               />
             );

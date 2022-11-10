@@ -1,52 +1,56 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const Services = () => {
   const data = useStaticQuery(graphql`
     query HomeServicesQuery {
-      strapiPage(title: { eq: "Home" }) {
-        blocks {
-          ... on STRAPI__COMPONENT_HOME_HOME_SERVICES {
-            homeServiceBlock {
-              serviceImage {
-                localFile {
-                  publicURL
-                  url
-                }
-                strapi_id
-              }
-              serviceName
-              serviceText
-              strapi_id
-            }
+      allContentfulServices {
+        nodes {
+          name
+          contentful_id
+          description {
+            description
+          }
+          icon {
+            url
+            title
           }
         }
       }
     }
   `);
 
-  const services = data.strapiPage?.blocks[2].homeServiceBlock;
+  const services = data.allContentfulServices.nodes;
+  console.log(services);
 
   return (
     <section className="container mx-auto px-10 grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-32">
-      {services.map((service) => (
-        <div key={service?.strapi_id} className="flex my-3 items-start">
-          <div className="w-3/12 mr-3">
-            <img
-              className="w-full object-contain"
-              src={service?.serviceImage?.localFile.publicURL}
-              alt={service?.serviceImage?.alternativeText}
-            />
-          </div>
+      {services.map((service) => {
+        console.log(service.icon.publicUrl);
+        return (
+          <div key={service?.contentful_id} className="flex my-3 items-start">
+            <div className="w-3/12 mr-3">
+              <img
+                className="w-full object-contain"
+                src={service.icon.url}
+                alt={service?.icon.title}
+              />
+            </div>
 
-          <div className="w-9/12">
-            <h3 className="text-primary font-medium text-xl mb-3">
-              {service?.serviceName}
-            </h3>
-            <p className="text-neutral-500">{service?.serviceText}</p>
+            <div className="w-9/12">
+              <h3 className="text-primary font-medium text-xl mb-3">
+                {service?.name}
+              </h3>
+              <p className="text-neutral-500">
+                <ReactMarkdown>
+                  {service?.description.description}
+                </ReactMarkdown>
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </section>
   );
 };

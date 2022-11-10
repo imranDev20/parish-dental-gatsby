@@ -6,26 +6,35 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Services2 = () => {
   const data = useStaticQuery(graphql`
-    query Services2Query {
-      allStrapiService {
+    query ServicesPageQuery {
+      allContentfulServices {
         nodes {
-          serviceText
-          serviceName
-
-          serviceImage {
-            alternativeText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 400, placeholder: BLURRED)
-              }
-            }
+          name
+          description {
+            description
           }
-
-          serviceIcon {
-            alternativeText
-            localFile {
-              publicURL
-              url
+          image {
+            id
+            gatsbyImage(width: 400, placeholder: BLURRED)
+            title
+          }
+          icon {
+            publicUrl
+            title
+            url
+          }
+          contentful_id
+        }
+      }
+      contentfulPages(title: { eq: "Services" }) {
+        id
+        blocks {
+          ... on ContentfulSections {
+            id
+            mainTitle
+            subtitle
+            description {
+              description
             }
           }
         }
@@ -33,38 +42,39 @@ const Services2 = () => {
     }
   `);
 
-  const services = data?.allStrapiService?.nodes;
-
+  const services = data?.allContentfulServices?.nodes;
+  const header = data?.contentfulPages?.blocks[0];
+  console.log(header);
   return (
     <section className="bg-backgroundSecondary py-24">
       <div className="container px-10 mx-auto ">
         <SectionHeader
-          subTitle="this is subtitle"
-          mainTitle="Example Title"
-          description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
+          subTitle={header?.subtitle}
+          mainTitle={header?.mainTitle}
+          description={header?.description?.description}
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
           {services.map((service, index) => (
             <div key={index} className=" rounded-lg overflow-hidden">
               <div>
                 <GatsbyImage
-                  image={getImage(service?.serviceImage?.localFile)}
-                  alt={service?.serviceImage?.alternativeText}
+                  image={service?.image?.gatsbyImage}
+                  alt={service?.image?.title}
                 />
               </div>
               <div className="bg-white  p-5 relative">
                 <div className="absolute top-0 -translate-y-1/2  bg-white rounded shadow w-20 h-20 p-3">
                   <img
                     className="object-contain"
-                    src={service?.serviceIcon?.localFile?.url}
+                    src={service?.icon?.url}
                     alt=""
                   />
                 </div>
                 <h5 className="text-2xl text-primary font-medium mt-10">
-                  {service?.serviceName}
+                  {service?.name}
                 </h5>
                 <p className="text-neutral-500 my-2 mx-auto text-base leading-8">
-                  {service?.serviceText}
+                  {service?.description?.description}
                 </p>
               </div>
             </div>

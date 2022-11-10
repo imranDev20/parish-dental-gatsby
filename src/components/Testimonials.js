@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SectionHeader from "./SectionHeader";
 import TestimonialCard from "./TestimonialCard";
@@ -7,28 +8,25 @@ import TestimonialCard from "./TestimonialCard";
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
     query TestimonialQuery {
-      strapiPage(strapi_id: { eq: 1 }) {
+      contentfulPages(title: { eq: "Home" }) {
+        id
+        contentful_id
         blocks {
-          ... on STRAPI__COMPONENT_HOME_TESTIMONIAL {
+          ... on ContentfulReviews {
             id
-            testimonialBlock {
-              testimonialAvatar {
-                alternativeText
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData
-                  }
-                }
-              }
-              testimonialName
-              testimonialText
-              testimonialTitle
-              strapi_id
+            description {
+              description
             }
-            testimonialHeader {
-              headerSubtitle
-              headerText
-              headerTitle
+            title
+            rating
+            contentful_id
+          }
+          ... on ContentfulSections {
+            id
+            mainTitle
+            subtitle
+            description {
+              description
             }
           }
         }
@@ -36,32 +34,33 @@ const Testimonials = () => {
     }
   `);
 
-  const testimonialData = data?.strapiPage?.blocks[4]?.testimonialBlock;
-  const testimonialHeader = data?.strapiPage?.blocks[4]?.testimonialHeader;
+  console.log(data);
 
-  console.log(testimonialHeader);
+  const headerData = data?.contentfulPages?.blocks[4];
+  const testimonialData = data?.contentfulPages.blocks.slice(5, 9);
 
   return (
     <section className="my-24">
       <div className="container px-10 mx-auto ">
         <div className="mb-20">
           <SectionHeader
-            subTitle={testimonialHeader?.headerSubtitle}
-            mainTitle={testimonialHeader?.headerTitle}
-            description={testimonialHeader?.headerText}
+            subTitle={headerData?.subtitle}
+            mainTitle={headerData.mainTitle}
           />
         </div>
 
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
-          // onSlideChange={() => console.log("slide change")}
-          // onSwiper={(swiper) => console.log(swiper)}
+          autoplay
+          modules={[Pagination]}
+          className="reviews-carousel"
+          pagination={{ clickable: true }}
         >
           {testimonialData.map((testimonial) => (
             <SwiperSlide
-              key={testimonial?.strapi_id}
-              className="!max-h-[85vh] flex flex-col items-center"
+              key={testimonial?.contentful_id}
+              className="flex flex-col items-center"
             >
               <TestimonialCard testimonial={testimonial} />
             </SwiperSlide>

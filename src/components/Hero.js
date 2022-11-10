@@ -65,13 +65,12 @@ const Hero = () => {
             modules={[EffectFade, Navigation, Pagination]}
             effect="fade"
             spaceBetween={50}
+            touchRatio={0}
             autoplay
             initialSlide={0}
             navigation
             pagination={{ clickable: true }}
             slidesPerView={1}
-            // onSlideChange={() => setAnimate(true)}
-            // onSwiper={(swiper) => console.log(swiper)}
             className="hero-carousel min-h-[500px]"
           >
             {heroContents?.map((heroContent) => {
