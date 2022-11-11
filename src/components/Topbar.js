@@ -5,43 +5,50 @@ import { FiMapPin, FiPhone, FiMail, FiClock } from "react-icons/fi";
 const Topbar = () => {
   const data = useStaticQuery(graphql`
     query TopbarQuery {
-      strapiGlobal {
-        contactInfo {
-          address
-          email
+      allContentfulGlobal {
+        nodes {
           phone
+          email
+
+          logo {
+            url
+            title
+          }
+          address
+          workHours
         }
-        scheduleText
       }
     }
   `);
 
-  const topbarContact = data?.strapiGlobal?.contactInfo;
-  const topbarSchedule = data?.strapiGlobal?.scheduleText;
+  // const topbarContact = data?.strapiGlobal?.contactInfo;
+  // const topbarSchedule = data?.strapiGlobal?.scheduleText;'
+
+  const topbarData = data?.allContentfulGlobal.nodes[0];
 
   return (
     <div className="bg-primary text-white py-3 text-sm font-light hidden lg:block">
       <div className="flex justify-between container mx-auto px-10">
         <div className="flex items-center">
-          <FiClock className="mr-2" /> <span>{topbarSchedule}</span>
+          <FiClock className="mr-2" /> <span>{topbarData?.workHours}</span>
         </div>
         <div className="flex">
           <a
-            href={`tel:${topbarContact?.phone}`}
+            href={`tel:${topbarData?.phone}`}
             className="px-4 flex items-center"
           >
             <FiPhone className="mr-2" />
-            {topbarContact?.phone}
+            {topbarData?.phone}
           </a>
           <a
             href="mailto:allsmiles@qodeinteractive.com"
             className="px-4 flex items-center"
           >
             <FiMail className="mr-2" />
-            {topbarContact?.email}
+            {topbarData?.email}
           </a>
           <div className="pl-4 flex items-center">
-            <FiMapPin className="mr-2" /> {topbarContact.address}
+            <FiMapPin className="mr-2" /> {topbarData?.address}
           </div>
         </div>
       </div>

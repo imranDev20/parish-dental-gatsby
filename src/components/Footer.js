@@ -14,26 +14,25 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query FooterQuery {
-      strapiGlobal {
-        contactInfo {
-          address
-          email
+      allContentfulGlobal {
+        nodes {
+          socials
           phone
-        }
-        footer {
-          mapImage {
-            alternativeText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 360)
-              }
-            }
+          email
+          logoWhite {
+            url
+            title
           }
-        }
-        socials {
-          facebookLink
-          instagramLink
-          twitterLink
+          logo {
+            url
+            title
+          }
+          address
+          footerDescription
+          mapPicture {
+            title
+            gatsbyImageData(width: 400, placeholder: BLURRED)
+          }
         }
       }
       allContentfulSchedule(sort: { order: ASC, fields: scheduleId }) {
@@ -46,28 +45,24 @@ const Footer = () => {
     }
   `);
 
-  const mapImage = getImage(data?.strapiGlobal?.footer?.mapImage?.localFile);
-  const contact = data?.strapiGlobal?.contactInfo;
+  console.log(data);
 
-  const socialLinks = data?.strapiGlobal?.socials;
+  const footerData = data?.allContentfulGlobal?.nodes[0];
+  const scheduleData = data?.allContentfulSchedule?.nodes;
 
   const socials = [
-    { id: 1, icon: FiFacebook, href: socialLinks.facebookLink },
-    { id: 2, icon: FiTwitter, href: socialLinks.instagramLink },
-    { id: 3, icon: FiInstagram, href: socialLinks.twitterLink },
+    // { id: 1, icon: FiFacebook, href: socialLinks.facebookLink },
+    { id: 2, icon: FiInstagram, href: footerData?.socials[0] },
+    // { id: 3, icon: FiTwitter, href: socialLinks.twitterLink },
   ];
-
-  const scheduleData = data?.allContentfulSchedule?.nodes;
 
   return (
     <footer className="w-full bg-primary py-20">
       <div className="container mx-auto px-10 grid-cols-1 sm:grid-cols-2 grid lg:grid-cols-4 gap-16 text-white">
         <div>
           <Logo isFooter />
-          <p className="my-10 font-light">
-            This is AllSmiles, a place dedicated to clear, white & perfect
-            smiles
-          </p>
+
+          <p className="my-10 font-light">{footerData?.footerDescription}</p>
 
           <div className="flex items-center my-5">
             {socials.map((social) => {
@@ -101,32 +96,35 @@ const Footer = () => {
 
           <div className="flex items-center mb-7">
             <FiMapPin className="mr-2 w-1/12 text-xl" />{" "}
-            <span className="w-11/12 font-light">{contact.address}</span>
+            <span className="w-11/12 font-light">{footerData?.address}</span>
           </div>
 
           <a
-            href={`mailto:${contact?.email}`}
+            href={`mailto:${footerData?.email}`}
             className="flex items-center  mb-7"
           >
             <FiMail className="mr-2 w-1/12 text-xl" />{" "}
-            <span className="font-light">{contact.email}</span>
+            <span className="font-light">{footerData.email}</span>
           </a>
 
-          <a href={`tel:${contact?.phone}`} className="flex items-center  mb-7">
+          <a
+            href={`tel:${footerData?.phone}`}
+            className="flex items-center  mb-7"
+          >
             <FiPhone className="mr-2 w-1/12 text-xl" />{" "}
-            <span className="font-light">{contact.phone}</span>
+            <span className="font-light">{footerData.phone}</span>
           </a>
         </div>
         <div>
           <a
-            href="https://www.google.com/maps?ll=52.946335,-1.189357&z=14&t=m&hl=en&gl=US&mapclient=embed&q=31+Wollaton+Hall+Dr+Lenton+Nottingham+NG8+1AF+UK"
+            href="https://www.google.com/maps/place/Parish+Dental+Practise,+7-9+Branch+Rd,+Armley,+Leeds+LS12+3AQ,+UK/@53.7977826,-1.5875803,19.7z/data=!4m5!3m4!1s0x48795ec462f517e1:0xad3e66b54778e8ef!8m2!3d53.7978077!4d-1.5874348?hl=en"
             target="_blank"
           >
             <GatsbyImage
-              image={mapImage}
+              image={footerData?.mapPicture?.gatsbyImageData}
               className="h-full w-full"
               imgClassName="w-full h-full object-cover rounded"
-              alt="31 Wollaton Hall Dr Lenton Nottingham NG8 1AF UK"
+              alt={footerData?.mapPicture?.title}
             />
           </a>
         </div>

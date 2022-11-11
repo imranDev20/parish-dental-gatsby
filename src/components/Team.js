@@ -6,20 +6,25 @@ import TeamCard from "./TeamCard";
 const Team = () => {
   const data = useStaticQuery(graphql`
     query DentistQuery {
-      allStrapiDentist {
+      allContentfulTeam(sort: { fields: memberId, order: ASC }) {
         nodes {
-          dentistDegree
-          dentistDesignation
-          dentistName
+          designation
+          gdc
+          name
+          contentful_id
+          photo {
+            gatsbyImageData(width: 400, placeholder: BLURRED)
+          }
         }
       }
-      strapiPage(strapi_id: { eq: 1 }) {
+      contentfulPages(title: { eq: "Meet The Team" }) {
+        id
         blocks {
-          ... on STRAPI__COMPONENT_HOME_DENTIST {
-            dentistHeader {
-              headerSubtitle
-              headerText
-              headerTitle
+          ... on ContentfulSections {
+            mainTitle
+            subtitle
+            description {
+              description
             }
           }
         }
@@ -27,27 +32,31 @@ const Team = () => {
     }
   `);
 
-  const dentists = data?.allStrapiDentist?.nodes;
+  console.log(data);
 
-  const header = data?.strapiPage?.blocks[5]?.dentistHeader;
+  const dentists = data?.allContentfulTeam?.nodes;
+  const header = data?.contentfulPages?.blocks[0];
+
+  console.log(header);
 
   return (
     <section className="my-24">
       <div className="container px-10 mx-auto ">
         <div className="my-10">
           <SectionHeader
-            subTitle={header.headerSubtitle}
-            mainTitle={header.headerTitle}
-            description={header.headerText}
+            subTitle={header?.subtitle}
+            mainTitle={header?.mainTitle}
+            description={header?.description?.description}
           />
         </div>
         <div className="my-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {dentists?.map((dentist, index) => (
             <TeamCard
               key={index}
-              name={dentist?.dentistName}
-              position={dentist?.dentistDesignation}
-              degree={dentist?.dentistDegree}
+              name={dentist?.name}
+              image={dentist?.photo?.gatsbyImageData}
+              position={dentist?.designation}
+              gdc={dentist?.gdc}
             />
           ))}
         </div>

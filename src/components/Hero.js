@@ -42,7 +42,11 @@ const Hero = () => {
             contentful_id
             slideImage {
               title
-              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+              gatsbyImageData(
+                placeholder: BLURRED
+                layout: FULL_WIDTH
+                width: 1500
+              )
             }
           }
         }
@@ -70,7 +74,7 @@ const Hero = () => {
             slidesPerView={1}
             className="hero-carousel min-h-[500px]"
           >
-            {heroContents?.map((heroContent) => {
+            {heroContents?.map((heroContent, index) => {
               const image = heroContent?.slideImage?.gatsbyImageData;
               const titleTextArray = heroContent?.slideTitle?.split(" ");
               const half = Math.ceil(titleTextArray?.length / 2);
@@ -159,29 +163,33 @@ const Hero = () => {
                           </motion.span>
                         </h2>
 
-                        <motion.button
-                          onClick={() => (modalOpen ? close() : open())}
-                          initial={{
-                            opacity: 0,
-                            x: -100,
-                          }}
-                          animate={{
-                            opacity: isActive ? 1 : 0,
-                            x: isActive ? 0 : -100,
-                          }}
-                          transition={{
-                            type: "tween",
-                            stiffness: 100,
-                            duration: 0.7,
-                            delay: 0.12,
-                          }}
-                          className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors "
-                        >
-                          Appointment
-                        </motion.button>
+                        {index === 1 ? (
+                          <Link to="/pricing">
+                            <motion.div
+                              onClick={() => (modalOpen ? close() : open())}
+                              initial={{
+                                opacity: 0,
+                                x: -100,
+                              }}
+                              animate={{
+                                opacity: isActive ? 1 : 0,
+                                x: isActive ? 0 : -100,
+                              }}
+                              transition={{
+                                type: "tween",
+                                stiffness: 100,
+                                duration: 0.7,
+                                delay: 0.12,
+                              }}
+                              className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
+                            >
+                              See Prices
+                            </motion.div>
+                          </Link>
+                        ) : null}
 
-                        <Link to="/pricing">
-                          <motion.div
+                        {index === 0 ? (
+                          <motion.button
                             onClick={() => (modalOpen ? close() : open())}
                             initial={{
                               opacity: 0,
@@ -197,11 +205,11 @@ const Hero = () => {
                               duration: 0.7,
                               delay: 0.12,
                             }}
-                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-white hover:bg-secondary  px-4 py-4 text-primary hover:text-white ml-7 mt-4 transition-colors "
+                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
                           >
-                            See Prices
-                          </motion.div>
-                        </Link>
+                            Appointment
+                          </motion.button>
+                        ) : null}
                       </div>
                     </>
                   )}
@@ -209,16 +217,7 @@ const Hero = () => {
               );
             })}
           </Swiper>
-        ) : (
-          <div className="flex justify-center items-center w-full h-screen">
-            <ClipLoader
-              color={"#25277e"}
-              loading={data ? true : false}
-              css={override}
-              size={150}
-            />
-          </div>
-        )}
+        ) : null}
       </section>
       <AnimatePresence
         initial={false}
