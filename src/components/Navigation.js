@@ -4,17 +4,19 @@ import React from "react";
 const Navigation = ({ open }) => {
   const data = useStaticQuery(graphql`
     query NavQuery {
-      allStrapiPage(sort: { fields: strapi_id, order: ASC }) {
+      allContentfulNavigation(sort: { order: ASC, fields: pageId }) {
         nodes {
           slug
-          title
-          strapi_id
+          label
+          id
+          pageId
         }
       }
     }
   `);
 
-  const routes = data?.allStrapiPage?.nodes;
+  console.log(data);
+  const routes = data?.allContentfulNavigation?.nodes;
 
   return (
     <nav
@@ -26,22 +28,14 @@ const Navigation = ({ open }) => {
     >
       {routes.map((route) => (
         <Link
-          key={route?.strapi_id}
+          key={route?.pageId}
           activeClassName={`border-b-[3px] lg:border-b-0 border-b-secondary border-t-0 lg:border-t-[3px] lg:border-t-secondary`}
           className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
           to={route?.slug === "home" ? `/` : `/${route?.slug}`}
         >
-          {route?.title}
+          {route?.label}
         </Link>
       ))}
-      <Link
-        to="/meet-the-team"
-        partiallyActive={true}
-        activeClassName={`border-b-[3px] lg:border-b-0 border-b-secondary border-t-0 lg:border-t-[3px] lg:border-t-secondary`}
-        className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
-      >
-        Meet the Team
-      </Link>
     </nav>
   );
 };

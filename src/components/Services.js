@@ -22,12 +22,10 @@ const Services = () => {
   `);
 
   const services = data.allContentfulServices.nodes;
-  console.log(services);
 
   return (
     <section className="container mx-auto px-10 grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-32">
       {services.map((service) => {
-        console.log(service.icon.publicUrl);
         return (
           <div key={service?.contentful_id} className="flex my-3 items-start">
             <div className="w-3/12 mr-3">
@@ -42,11 +40,9 @@ const Services = () => {
               <h3 className="text-primary font-medium text-xl mb-3">
                 {service?.name}
               </h3>
-              <p className="text-neutral-500">
-                <ReactMarkdown>
-                  {service?.description.description}
-                </ReactMarkdown>
-              </p>
+              <ReactMarkdown className="text-neutral-500">
+                {service?.description.description}
+              </ReactMarkdown>
             </div>
           </div>
         );

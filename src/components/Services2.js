@@ -1,8 +1,7 @@
 import React from "react";
 import SectionHeader from "./SectionHeader";
-import { GiPlagueDoctorProfile } from "react-icons/gi";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Services2 = () => {
   const data = useStaticQuery(graphql`
@@ -44,7 +43,7 @@ const Services2 = () => {
 
   const services = data?.allContentfulServices?.nodes;
   const header = data?.contentfulPages?.blocks[0];
-  console.log(header);
+
   return (
     <section className="bg-backgroundSecondary py-24">
       <div className="container px-10 mx-auto ">

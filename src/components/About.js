@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import { convertToBgImage } from "gbimage-bridge";
 import ReactMarkdown from "react-markdown";
 import BackgroundImage from "gatsby-background-image";
-import { getImage } from "gatsby-plugin-image";
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -28,8 +27,6 @@ const About = () => {
     }
   `);
 
-  console.log(data);
-
   const image = data?.contentfulPages?.blocks[3].image.gatsbyImage;
   const bgImage = convertToBgImage(image);
 
@@ -45,11 +42,9 @@ const About = () => {
           <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
             {aboutContents?.mainTitle}
           </h2>
-          <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
-            <ReactMarkdown>
-              {aboutContents?.description.description}
-            </ReactMarkdown>
-          </p>
+          <ReactMarkdown className="text-neutral-500 mx-auto my-5 text-base leading-8">
+            {aboutContents?.description.description}
+          </ReactMarkdown>
           <svg
             className="absolute hidden lg:block top-0 -right-28 w-28 h-full z-10"
             width="100%"

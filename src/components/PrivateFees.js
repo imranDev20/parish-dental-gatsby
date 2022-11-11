@@ -1,20 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { AnimatePresence } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
 const PrivateFees = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [service, setService] = useState("");
-  const [price, setPrice] = useState("");
-
-  const close = () => {
-    setModalOpen(false);
-  };
-  const open = () => {
-    setModalOpen(true);
-  };
-
   const data = useStaticQuery(graphql`
     query PrivateFeeQuery {
       contentfulPages(title: { eq: "Pricing" }) {
@@ -39,10 +27,7 @@ const PrivateFees = () => {
     }
   `);
 
-  console.log(data);
-
   const privateFee = data?.contentfulPages?.blocks?.slice(5);
-  console.log(privateFee);
 
   const header = data?.contentfulPages?.blocks[4];
 
@@ -60,7 +45,7 @@ const PrivateFees = () => {
             {privateFee.map((service, index) => {
               return (
                 <div key={index} className="flex justify-between items-center">
-                  <div className="flex justify-between items-center w-full">
+                  <div className="flex justify-between items-center w-full border-b">
                     <h5 className="text-base lg:text-xl text-neutral-500 my-4 w-3/5 max-w-[600px] ">
                       {service?.service}
                     </h5>

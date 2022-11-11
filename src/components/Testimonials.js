@@ -1,9 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import { Pagination } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SectionHeader from "./SectionHeader";
 import TestimonialCard from "./TestimonialCard";
+
+import "swiper/css";
+import "swiper/css/autoplay";
 
 const Testimonials = () => {
   const data = useStaticQuery(graphql`
@@ -34,8 +37,6 @@ const Testimonials = () => {
     }
   `);
 
-  console.log(data);
-
   const headerData = data?.contentfulPages?.blocks[4];
   const testimonialData = data?.contentfulPages.blocks.slice(5, 9);
 
@@ -53,7 +54,7 @@ const Testimonials = () => {
           spaceBetween={50}
           slidesPerView={1}
           autoplay
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           className="reviews-carousel"
           pagination={{ clickable: true }}
         >

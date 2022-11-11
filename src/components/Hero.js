@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper";
-import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { AnimatePresence, motion } from "framer-motion";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -32,22 +32,17 @@ const Hero = () => {
 
   const data = useStaticQuery(graphql`
     query HeroQuery {
-      strapiPage(title: { eq: "Home" }) {
+      contentfulPages(title: { eq: "Home" }) {
         id
         blocks {
-          ... on STRAPI__COMPONENT_HOME_HERO {
-            slides {
-              slideImage {
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(width: 1920, placeholder: BLURRED)
-                  }
-                }
-                alternativeText
-              }
-              slideSubtitle
-              slideTitle
-              strapi_id
+          ... on ContentfulHero {
+            id
+            slideTitle
+            slideSubtitle
+            contentful_id
+            slideImage {
+              title
+              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
             }
           }
         }
@@ -55,7 +50,9 @@ const Hero = () => {
     }
   `);
 
-  const heroContents = data?.strapiPage?.blocks[0]?.slides;
+  const heroContents = data?.contentfulPages?.blocks.slice(0, 2);
+
+  console.log(heroContents);
 
   return (
     <>
@@ -74,14 +71,19 @@ const Hero = () => {
             className="hero-carousel min-h-[500px]"
           >
             {heroContents?.map((heroContent) => {
-              const image = getImage(heroContent?.slideImage?.localFile);
+              const image = heroContent?.slideImage?.gatsbyImageData;
               const titleTextArray = heroContent?.slideTitle?.split(" ");
               const half = Math.ceil(titleTextArray?.length / 2);
               const firstHalf = titleTextArray?.splice(0, half);
               const secondHalf = titleTextArray?.splice(-half);
 
+              console.log(image);
+
               return (
-                <SwiperSlide key={heroContent?.strapi_id} className="relative">
+                <SwiperSlide
+                  key={heroContent?.contentful_id}
+                  className="relative"
+                >
                   {({ isActive }) => (
                     // Additonal styles in global.css
                     <>
@@ -90,7 +92,7 @@ const Hero = () => {
                         loading="eager"
                         className="h-[90vh] min-h-[500px] w-full"
                         imgClassName="w-full h-full object-cover"
-                        alt={heroContent?.slideImage?.alternativeText}
+                        alt={heroContent?.slideImage?.title}
                       />
                       <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-0 lg:left-[10%] -translate-x-[-10%] ">
                         <motion.h3
@@ -195,7 +197,7 @@ const Hero = () => {
                               duration: 0.7,
                               delay: 0.12,
                             }}
-                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-white px-4 py-4 text-primary ml-7 mt-4"
+                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-white hover:bg-secondary  px-4 py-4 text-primary hover:text-white ml-7 mt-4 transition-colors "
                           >
                             See Prices
                           </motion.div>

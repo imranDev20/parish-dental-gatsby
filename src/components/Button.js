@@ -20,8 +20,6 @@ export const LinkButton = ({ children, to, className, variant }) => {
 };
 
 export const NormalButton = ({ children, onClick, className, variant }) => {
-  console.log();
-
   return (
     <button
       className={`${[...classNames]} ${className} ${

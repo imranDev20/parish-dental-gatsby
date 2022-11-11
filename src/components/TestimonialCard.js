@@ -1,4 +1,3 @@
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { BsStarFill } from "react-icons/bs";
@@ -16,9 +15,9 @@ const TestimonialCard = ({ testimonial }) => {
       <h3 className="text-[27px] my-5 text-primary font-semibold text-center">
         {title}
       </h3>
-      <p className="text-center my-5 text-neutral-500 leading-8 max-w-4xl">
-        <ReactMarkdown>{description.description}</ReactMarkdown>
-      </p>
+      <ReactMarkdown className="text-center my-5 text-neutral-500 leading-8 max-w-4xl">
+        {description.description}
+      </ReactMarkdown>
     </>
   );
 };

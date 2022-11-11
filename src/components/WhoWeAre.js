@@ -1,17 +1,7 @@
-import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
-import Modal from "./Modal";
-import Form from "./Form";
-import { LinkButton, NormalButton } from "./Button";
+import React from "react";
+import { LinkButton } from "./Button";
 
 const WhoWeAre = () => {
-  // const [modalOpen, setModalOpen] = useState(false);
-  // const close = () => {
-  //   setModalOpen(false);
-  // };
-  // const open = () => {
-  //   setModalOpen(true);
-  // };
   return (
     <>
       <section className="my-24">
@@ -53,21 +43,6 @@ const WhoWeAre = () => {
           </div>
         </div>
       </section>
-      <AnimatePresence
-        initial={false}
-        exitBeforeEnter={true}
-        onExitComplete={() => null}
-      >
-        {/* {modalOpen && (
-          <Modal
-            modalOpen={modalOpen}
-            handleClose={close}
-            title="Book a service!!!"
-          >
-            <Form />
-          </Modal>
-        )} */}
-      </AnimatePresence>
     </>
   );
 };

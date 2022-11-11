@@ -4,11 +4,11 @@ import React from "react";
 const Schedule = () => {
   const data = useStaticQuery(graphql`
     query ScheduleQuery {
-      strapiSchedule {
-        scheduleDayTime {
+      allContentfulSchedule(sort: { order: ASC, fields: scheduleId }) {
+        nodes {
           day
+          contentful_id
           time
-          strapi_id
         }
       }
       strapiGlobal {
@@ -19,7 +19,7 @@ const Schedule = () => {
     }
   `);
 
-  const schedule = data?.strapiSchedule?.scheduleDayTime;
+  const schedule = data?.allContentfulSchedule?.nodes;
   const phone = data?.strapiGlobal?.contactInfo?.phone;
 
   return (
@@ -31,7 +31,7 @@ const Schedule = () => {
       <div className="px-10">
         {schedule.map((item) => (
           <div
-            key={item.strapi_id}
+            key={item.contentful_id}
             className="flex justify-between items-center text-gray-600 my-5 font-light"
           >
             <span>{item.day}</span>

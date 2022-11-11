@@ -31,15 +31,10 @@ const NhsCharges = () => {
 
   // Over Engineering the simple card to show red cross and green tick
 
-  console.log(data);
-
   const header = data?.contentfulPages?.blocks[0];
   const nhsCards = data?.contentfulPages?.blocks?.slice(1, 4);
-  console.log(nhsCards);
 
   const fullArray = nhsCards[2]?.services?.map((elem) => elem);
-
-  console.log(fullArray);
 
   return (
     <section className="w-full bg-backgroundSecondary">
@@ -47,6 +42,7 @@ const NhsCharges = () => {
         <SectionHeader
           subTitle={header?.subtitle}
           mainTitle={header?.mainTitle}
+          description={header?.description?.description}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 mt-16">

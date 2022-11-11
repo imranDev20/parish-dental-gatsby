@@ -18,7 +18,7 @@ SB Dental is an UK based dental clinic. SB dental offers.
 ## Technologies used
 
 - Gatsby.js
-- Strapi CMS
+- Contentful CMS
 - Formspree
 - Framer motion
 - React intersection observer

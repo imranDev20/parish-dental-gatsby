@@ -12,16 +12,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Footer = () => {
-  const schedule = [
-    { id: 1, day: "Sunday", time: "8AM-7PM" },
-    { id: 2, day: "Monday", time: "8AM-7PM" },
-    { id: 3, day: "Tuesday", time: "8AM-7PM" },
-    { id: 4, day: "Wednesday", time: "8AM-7PM" },
-    { id: 5, day: "Thursday", time: "8AM-7PM" },
-    { id: 6, day: "Friday", time: "8AM-7PM" },
-    { id: 7, day: "Saturday", time: "8AM-7PM" },
-  ];
-
   const data = useStaticQuery(graphql`
     query FooterQuery {
       strapiGlobal {
@@ -46,9 +36,10 @@ const Footer = () => {
           twitterLink
         }
       }
-      strapiSchedule {
-        scheduleDayTime {
+      allContentfulSchedule(sort: { order: ASC, fields: scheduleId }) {
+        nodes {
           day
+          contentful_id
           time
         }
       }
@@ -66,8 +57,7 @@ const Footer = () => {
     { id: 3, icon: FiInstagram, href: socialLinks.twitterLink },
   ];
 
-  const scheduleData = data?.strapiSchedule?.scheduleDayTime;
-  console.log(scheduleData);
+  const scheduleData = data?.allContentfulSchedule?.nodes;
 
   return (
     <footer className="w-full bg-primary py-20">

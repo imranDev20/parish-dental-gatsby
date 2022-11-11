@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "./Form";
 import { graphql, useStaticQuery } from "gatsby";
-import { BgImage, convertToBgImage } from "gbimage-bridge";
+import { convertToBgImage } from "gbimage-bridge";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import BackgroundImage from "gatsby-background-image";
 
@@ -29,7 +29,6 @@ const Contact = () => {
   `);
 
   const contactData = data.contentfulPages.blocks[9];
-  console.log(contactData);
   const image = convertToBgImage(contactData.image.gatsbyImage);
 
   return (
@@ -50,11 +49,9 @@ const Contact = () => {
           <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
             {contactData?.mainTitle}
           </h2>
-          <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
-            <ReactMarkdown>
-              {contactData?.description.description}
-            </ReactMarkdown>
-          </p>
+          <ReactMarkdown className="text-neutral-500 mx-auto my-5 text-base leading-8">
+            {contactData?.description.description}
+          </ReactMarkdown>
           <Form submitButtonText="Send" inputBg="bg-background" />
           <svg
             className="absolute hidden lg:block top-0 -left-28 w-28 h-full z-10"

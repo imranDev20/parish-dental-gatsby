@@ -3,7 +3,6 @@ import loadable from "@loadable/component";
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { motion } from "framer-motion";
 const Footer = loadable(() => import("./Footer"));
 
 const Layout = ({ children }) => {

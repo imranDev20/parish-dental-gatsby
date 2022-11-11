@@ -22,7 +22,6 @@ const ContactPageForm = () => {
     }
   `);
 
-  console.log(data);
   const contactData = data?.contentfulPages.blocks[3];
   return (
     <section className="container mx-auto px-10 flex flex-col lg:flex-row items-center my-24">
