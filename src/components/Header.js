@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header className="">
       <Topbar />
-      <div className="flex justify-between items-center container mx-auto px-10 py-6 lg:py-0">
+      <div className="flex justify-between items-center container mx-auto px-2 lg:px-10 py-6 lg:py-0">
         <Logo />
         <Burger open={open} setOpen={setOpen} />
         <Navigation open={open} />

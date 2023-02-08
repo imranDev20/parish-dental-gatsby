@@ -2,186 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const strapiConfig = {
-  apiURL: process.env.STRAPI_API_URL,
-  accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [
-    {
-      singularName: `page`,
-      queryParams: {
-        populate: {
-          image: "*",
-          images: "*",
-          blocks: {
-            populate: {
-              image: "*",
-              images: "*",
-              slides: {
-                image: "*",
-                images: "*",
-                populate: "*",
-              },
-              featureImage: {
-                image: "*",
-                images: "*",
-                populate: "*",
-              },
-              featuredBlog: {
-                populate: "*",
-              },
-              featurePoints: {
-                populate: "*",
-              },
-              aboutBg: {
-                populate: "*",
-              },
-              homeServiceBlock: {
-                populate: {
-                  serviceImage: {
-                    populate: "*",
-                  },
-                },
-              },
-              testimonialBlock: {
-                populate: {
-                  testimonialAvatar: {
-                    populate: "*",
-                  },
-                },
-              },
-              testimonialHeader: {
-                populate: "*",
-              },
-              dentistHeader: {
-                populate: "*",
-              },
-              homeFormImage: {
-                populate: "*",
-              },
-            },
-          },
-        },
-      },
-    },
-    {
-      singularName: `nhs-price`,
-      queryParams: {
-        populate: {
-          image: "*",
-          images: "*",
-          nhsFeatures: {
-            populate: "*",
-          },
-        },
-      },
-    },
-    {
-      singularName: `private-fee`,
-      queryParams: {
-        populate: {
-          image: "*",
-          images: "*",
-          servicesDetailed: {
-            populate: "*",
-          },
-        },
-      },
-    },
-    {
-      singularName: `blog`,
-      queryParams: {
-        populate: {
-          image: "*",
-          images: "*",
-          category: {
-            populate: "*",
-          },
-          author: {
-            populate: "*",
-          },
-        },
-      },
-    },
-    {
-      singularName: `category`,
-      queryParams: {
-        populate: {
-          image: "*",
-          images: "*",
-          blogs: {
-            populate: "*",
-          },
-        },
-      },
-    },
-
-    {
-      singularName: `author`,
-      queryParams: {
-        populate: {
-          image: "*",
-          images: "*",
-          avatar: {
-            populate: "*",
-          },
-        },
-      },
-    },
-
-    {
-      singularName: `dentist`,
-      queryParams: {
-        populate: {
-          image: "*",
-          images: "*",
-          dentistProfilePic: {
-            populate: "*",
-          },
-        },
-      },
-    },
-    {
-      singularName: `service`,
-      queryParams: {
-        populate: {
-          image: "*",
-          images: "*",
-          serviceImage: {
-            populate: "*",
-          },
-          serviceIcon: {
-            populate: "*",
-          },
-        },
-      },
-    },
-  ],
-  singleTypes: [
-    `schedule`,
-    {
-      singularName: "global",
-      queryParams: {
-        image: "*",
-        images: "*",
-        populate: {
-          footer: {
-            populate: "*",
-          },
-          contactInfo: {
-            populate: "*",
-          },
-          logo: {
-            populate: "*",
-          },
-          socials: {
-            populate: "*",
-          },
-        },
-      },
-    },
-  ],
-};
-
 module.exports = {
   trailingSlash: "never",
   siteMetadata: {
@@ -195,10 +15,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     `gatsby-plugin-postcss`,
-    {
-      resolve: `gatsby-source-strapi`,
-      options: strapiConfig,
-    },
+
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -260,7 +77,7 @@ module.exports = {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         // Setting a color is optional.
-        color: `#ea580c`,
+        color: `#FF48A4`,
         // Disable the loading spinner.
         showSpinner: false,
       },

@@ -1,26 +1,37 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
 const ContactInfo = () => {
+  const data = useStaticQuery(graphql`
+    query ContactPageQuery {
+      allContentfulGlobal {
+        nodes {
+          phone
+          email
+
+          address
+        }
+      }
+    }
+  `);
+
+  const contactData = data?.allContentfulGlobal?.nodes[0];
+  console.log(contactData);
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-36 container px-10 mx-auto text-center">
-      {[0, 1, 2, 3].map((n) => (
-        <div key={n}>
-          <div className="mb-10">
-            <h5 className="text-primary text-2xl font-medium mb-2">
-              Emergency Phone
-            </h5>
-            <a
-              href="mailto:415-205-5550"
-              className="text-sm text-neutral-500 my-1"
-            >
-              415-205-5550
-            </a>
-            <p className="text-sm text-neutral-500 my-1">
-              Call us Anytime 24/7
-            </p>
-          </div>
-        </div>
-      ))}
+    <section className="mt-20 container px-10 mx-auto text-center">
+      <h2 className="text-center text-3xl my-2 capitalize font-semibold text-primary">
+        Address
+      </h2>
+      <p className="text-secondary my-2">{contactData?.address}</p>
+      <a
+        className="text-secondary my-2 block"
+        href={`mailto:${contactData?.email}`}
+      >
+        {contactData?.email}
+      </a>
+      <a className="text-secondary my-2" href={`tel:${contactData?.phone}`}>
+        {contactData?.phone}
+      </a>
     </section>
   );
 };

@@ -11,8 +11,8 @@ const Schedule = () => {
           time
         }
       }
-      strapiGlobal {
-        contactInfo {
+      allContentfulGlobal {
+        nodes {
           phone
         }
       }
@@ -20,7 +20,7 @@ const Schedule = () => {
   `);
 
   const schedule = data?.allContentfulSchedule?.nodes;
-  const phone = data?.strapiGlobal?.contactInfo?.phone;
+  const phone = data?.allContentfulGlobal?.nodes[0].phone;
 
   return (
     <aside className="bg-backgroundSecondary rounded pt-10 flex flex-col justify-between">

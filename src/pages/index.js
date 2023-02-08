@@ -9,7 +9,6 @@ const About = loadable(() => import("../components/About"));
 const Services = loadable(() => import("../components/Services"));
 const Testimonials = loadable(() => import("../components/Testimonials"));
 const Contact = loadable(() => import("../components/Contact"));
-const Blog = loadable(() => import("../components/Blog"));
 const CallToAction = loadable(() => import("../components/CallToAction"));
 
 // markup
@@ -29,7 +28,7 @@ const IndexPage = () => {
       {/* <SpecialistsTabs /> */}
       {/* <Team /> */}
       <Contact />
-      <Blog />
+      {/* <Blog /> */}
     </Layout>
   );
 };

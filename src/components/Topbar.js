@@ -21,9 +21,6 @@ const Topbar = () => {
     }
   `);
 
-  // const topbarContact = data?.strapiGlobal?.contactInfo;
-  // const topbarSchedule = data?.strapiGlobal?.scheduleText;'
-
   const topbarData = data?.allContentfulGlobal.nodes[0];
 
   return (
