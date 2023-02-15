@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../global/SectionHeader";
 
 const PrivateFees = () => {
   const data = useStaticQuery(graphql`
@@ -37,7 +37,6 @@ const PrivateFees = () => {
         <div className="py-24 mx-auto container px-10 ">
           <SectionHeader
             mainTitle={header?.mainTitle}
-            subTitle={header?.subtitle}
             description={header?.description?.description}
           />
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 
 const classNames = [
-  `tracking-[0.2em] uppercase font-medium rounded-md inline-block text-xs`,
+  `tracking-[0.2em] uppercase font-medium rounded-md inline-block text-xs transition-colors`,
 ];
 export const LinkButton = ({ children, to, className, variant }) => {
   return (
@@ -23,8 +23,8 @@ export const NormalButton = ({ children, onClick, className, variant }) => {
   return (
     <button
       className={`${[...classNames]} ${className} ${
-        variant === "blue" && "bg-primary text-white"
-      } ${variant === "orange" && "bg-secondary text-white"}`}
+        variant === "blue" && "bg-primary text-white hover:bg-secondary "
+      } ${variant === "orange" && "bg-secondary text-white"} `}
       onClick={onClick}
     >
       {children}

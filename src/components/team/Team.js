@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../global/SectionHeader";
 import TeamCard from "./TeamCard";
 
 const Team = () => {

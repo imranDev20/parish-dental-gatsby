@@ -5,15 +5,14 @@ import { EffectFade, Navigation, Pagination } from "swiper";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { AnimatePresence, motion } from "framer-motion";
 import { css } from "@emotion/react";
-import ClipLoader from "react-spinners/ClipLoader";
-import Modal from "./Modal";
-import Form from "./Form";
+import Form from "../global/Form";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import MyModal from "./MyDialog";
 
 const override = css`
   display: block;
@@ -22,14 +21,7 @@ const override = css`
 `;
 
 const Hero = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const close = () => {
-    setModalOpen(false);
-  };
-  const open = () => {
-    setModalOpen(true);
-  };
-
+  const [isOpen, setIsOpen] = useState(false);
   const data = useStaticQuery(graphql`
     query HeroQuery {
       contentfulPages(title: { eq: "Home" }) {
@@ -55,8 +47,6 @@ const Hero = () => {
   `);
 
   const heroContents = data?.contentfulPages?.blocks.slice(0, 2);
-
-  console.log(heroContents);
 
   return (
     <>
@@ -166,7 +156,6 @@ const Hero = () => {
                         {index === 1 ? (
                           <Link to="/pricing">
                             <motion.div
-                              onClick={() => (modalOpen ? close() : open())}
                               initial={{
                                 opacity: 0,
                                 x: -100,
@@ -190,7 +179,7 @@ const Hero = () => {
 
                         {index === 0 ? (
                           <motion.button
-                            onClick={() => (modalOpen ? close() : open())}
+                            onClick={() => setIsOpen(!isOpen)}
                             initial={{
                               opacity: 0,
                               x: -100,
@@ -219,21 +208,7 @@ const Hero = () => {
           </Swiper>
         ) : null}
       </section>
-      <AnimatePresence
-        initial={false}
-        exitBeforeEnter={true}
-        onExitComplete={() => null}
-      >
-        {modalOpen && (
-          <Modal
-            modalOpen={modalOpen}
-            handleClose={close}
-            title="Request an appointment!!!"
-          >
-            <Form />
-          </Modal>
-        )}
-      </AnimatePresence>
+      <MyModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 };

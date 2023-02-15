@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import Form from "../components/Form";
+import Form from "../components/global/Form";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const ContactPageForm = () => {

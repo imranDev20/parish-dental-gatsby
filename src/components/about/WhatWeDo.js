@@ -1,9 +1,9 @@
 import React from "react";
-import SectionHeader from "./SectionHeader";
 import Masonry from "react-masonry-css";
-import "../styles/masonry.css";
+import "../../styles/masonry.css";
 import { graphql, useStaticQuery } from "gatsby";
 import ImageZoom from "./ImageZoom";
+import SectionHeader from "../global/SectionHeader";
 
 const WhatWeDo = () => {
   const data = useStaticQuery(graphql`

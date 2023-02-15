@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import { LinkButton } from "./Button";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { LinkButton } from "../global/Button";
 
 const WhoWeAre = () => {
   const data = useStaticQuery(graphql`
@@ -26,7 +26,6 @@ const WhoWeAre = () => {
     }
   `);
 
-  console.log(data);
   const whoWeAreData = data?.contentfulPages?.blocks[0];
   return (
     <>

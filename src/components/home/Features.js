@@ -1,8 +1,9 @@
 import React from "react";
-import Schedule from "./Schedule";
+
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { BsArrowRight } from "react-icons/bs";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Schedule from "./Schedule";
 
 const Features = () => {
   const data = useStaticQuery(graphql`

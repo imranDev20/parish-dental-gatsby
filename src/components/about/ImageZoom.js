@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import "../styles/image-zoom.css";
+import "../../styles/image-zoom.css";
 import { Controlled as ControlledZoom } from "react-medium-image-zoom";
 
 const wrapperStyle = {

@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import NhsCard from "./NhsCard";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../global/SectionHeader";
 
 const NhsCharges = () => {
   const data = useStaticQuery(graphql`
@@ -40,7 +40,6 @@ const NhsCharges = () => {
     <section className="w-full bg-backgroundSecondary">
       <div className="container mx-auto px-10  py-24">
         <SectionHeader
-          subTitle={header?.subtitle}
           mainTitle={header?.mainTitle}
           description={header?.description?.description}
         />

@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/Layout";
-import Team from "../components/Team";
+import Layout from "../components/global/Layout";
+import Team from "../components/team/Team";
 
 const MeetTheTeamPage = () => {
   return (

@@ -1,9 +1,10 @@
 import React from "react";
-import Layout from "../components/Layout";
-import PageHeader from "../components/PageHeader";
-import Seo from "../components/Seo";
-import WhatWeDo from "../components/WhatWeDo";
-import WhoWeAre from "../components/WhoWeAre";
+import Faq from "../components/about/Faq";
+import WhatWeDo from "../components/about/WhatWeDo";
+import WhoWeAre from "../components/about/WhoWeAre";
+import Layout from "../components/global/Layout";
+import PageHeader from "../components/global/PageHeader";
+import Seo from "../components/global/Seo";
 
 const AboutPage = () => {
   return (
@@ -11,7 +12,7 @@ const AboutPage = () => {
       <Seo title="About" />
       <PageHeader pageTitle="About" />
       <WhoWeAre />
-      {/* <WhyChooseUs /> */}
+      <Faq />
       <WhatWeDo />
     </Layout>
   );

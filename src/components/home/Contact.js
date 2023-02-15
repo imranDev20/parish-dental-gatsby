@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./Form";
+import Form from "../global/Form";
 import { graphql, useStaticQuery } from "gatsby";
 import { convertToBgImage } from "gbimage-bridge";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";

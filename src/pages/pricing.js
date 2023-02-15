@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../components/Layout";
-import Seo from "../components/Seo";
-import PageHeader from "../components/PageHeader";
-import NhsCharges from "../components/NhsCharges";
-import PrivateFees from "../components/PrivateFees";
+import Layout from "../components/global/Layout";
+import Seo from "../components/global/Seo";
+import PageHeader from "../components/global/PageHeader";
+import NhsCharges from "../components/pricing/NhsCharges";
+import PrivateFees from "../components/pricing/PrivateFees";
 
 const PricingPage = () => {
   return (

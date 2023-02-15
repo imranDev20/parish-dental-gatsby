@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../global/SectionHeader";
 import TestimonialCard from "./TestimonialCard";
 
 import "swiper/css";

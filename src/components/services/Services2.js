@@ -1,7 +1,7 @@
 import React from "react";
-import SectionHeader from "./SectionHeader";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import SectionHeader from "../global/SectionHeader";
 
 const Services2 = () => {
   const data = useStaticQuery(graphql`

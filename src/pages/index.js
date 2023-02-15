@@ -1,15 +1,16 @@
 import * as React from "react";
-import Layout from "../components/Layout";
+import Layout from "../components/global/Layout";
 import loadable from "@loadable/component";
-import Seo from "../components/Seo";
-import Hero from "../components/Hero";
-// const Hero = loadable(() => import("../components/Hero"));
-const Features = loadable(() => import("../components/Features"));
-const About = loadable(() => import("../components/About"));
-const Services = loadable(() => import("../components/Services"));
-const Testimonials = loadable(() => import("../components/Testimonials"));
-const Contact = loadable(() => import("../components/Contact"));
-const CallToAction = loadable(() => import("../components/CallToAction"));
+import Seo from "../components/global/Seo";
+import Hero from "../components/home/Hero";
+import Message from "../components/Message";
+import Achievements from "../components/home/Achievements";
+import MyModal from "../components/home/MyDialog";
+const Features = loadable(() => import("../components/home/Features"));
+const About = loadable(() => import("../components/home/About"));
+const Services = loadable(() => import("../components/home/Services"));
+const Testimonials = loadable(() => import("../components/home/Testimonials"));
+const Contact = loadable(() => import("../components//home/Contact"));
 
 // markup
 const IndexPage = () => {
@@ -23,12 +24,12 @@ const IndexPage = () => {
       <Features />
       <Services />
       <About />
+      <Achievements />
       <Testimonials />
-      <CallToAction bgColor="bg-primary" />
-      {/* <SpecialistsTabs /> */}
-      {/* <Team /> */}
       <Contact />
+
       {/* <Blog /> */}
+      {/* <Message /> */}
     </Layout>
   );
 };
