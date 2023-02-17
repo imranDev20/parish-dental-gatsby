@@ -8,6 +8,7 @@ import Seo from "../components/global/Seo";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import "../styles/blog-details.css";
+import BlogsSidebar from "../components/BlogsSidebar";
 
 const options = {
   renderMark: {
@@ -33,6 +34,7 @@ const options = {
       return (
         <GatsbyImage
           className="my-7"
+          imgClassName="rounded"
           image={getImage(gatsbyImageData)}
           alt={description}
         />
@@ -51,7 +53,10 @@ const BlogDetails = ({ data, pageContext }) => {
     category,
     featuredImage,
     blogBody,
+    authors,
   } = data.contentfulBlog;
+
+  console.log(pageContext);
 
   const prev = pageContext?.prev
     ? {
@@ -80,12 +85,9 @@ const BlogDetails = ({ data, pageContext }) => {
             image={featuredImage.gatsbyImage}
           />
           {/* Date Category */}
-          {/* <p className="uppercase text-secondary font-medium tracking-[0.13em] text-sm mt-7 mb-3">
-            {createdAt},{" "}
-            <Link to={`/blogs/categories/${category?.slug}`}>
-              {category?.name}
-            </Link>
-          </p> */}
+          <p className="uppercase text-secondary font-medium tracking-[0.13em] text-sm mt-7 mb-3">
+            {createdAt}
+          </p>
           {/* Content */}
           <h1 className="text-5xl font-semibold text-primary mb-5">{title}</h1>
 
@@ -102,9 +104,11 @@ const BlogDetails = ({ data, pageContext }) => {
             </div> */}
             <div>
               <h3 className="text-primary text-2xl font-medium mb-2">
-                {/* {author.name} */}
+                {authors?.name}
               </h3>
-              {/* <p className="text-neutral-500 leading-7">{author.about}</p> */}
+              <p className="text-neutral-500 leading-7">
+                {authors?.description}
+              </p>
             </div>
           </div>
 
@@ -116,7 +120,7 @@ const BlogDetails = ({ data, pageContext }) => {
                   <FiChevronLeft className="mr-2 text-xl" />
                   Previous
                 </span>
-                {/* <h3 className="text-neutral-500">{prev.title}</h3> */}
+                <h3 className="text-neutral-500">{prev.title}</h3>
               </Link>
             )}
             {next && (
@@ -125,12 +129,14 @@ const BlogDetails = ({ data, pageContext }) => {
                   Next
                   <FiChevronRight className="ml-2 text-xl" />
                 </span>
-                {/* <h3>{next.title}</h3> */}
+                <h3 className="text-neutral-500">{next.title}</h3>
               </Link>
             )}
           </div>
         </div>
-        <div className="w-full lg:w-1/5">{/* <BlogsSidebar /> */}</div>
+        <div className="w-full lg:w-1/5">
+          <BlogsSidebar />
+        </div>
       </section>
     </Layout>
   );
@@ -144,8 +150,12 @@ export const query = graphql`
       slug
       title
       category
-      createdAt(formatString: "DD MMMM YYYY", locale: "en-GB")
-      updatedAt(formatString: "DD MMMM YYYY", locale: "en-GB")
+      authors {
+        name
+        description
+      }
+      createdAt(formatString: "DD MMMM, YYYY", locale: "en-GB")
+      updatedAt(formatString: "DD MMMM, YYYY", locale: "en-GB")
       excerpt {
         excerpt
       }
@@ -158,7 +168,7 @@ export const query = graphql`
             contentful_id
             title
             description
-            gatsbyImageData(width: 600, placeholder: BLURRED, height: 400)
+            gatsbyImageData(width: 1000, placeholder: BLURRED, height: 400)
             __typename
           }
         }

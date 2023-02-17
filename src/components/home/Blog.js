@@ -18,8 +18,15 @@ const Blog = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 my-10">
             {blogs.map((blog) => {
-              const { id, slug, title, excerpt, featuredImage, createdAt } =
-                blog;
+              const {
+                id,
+                slug,
+                title,
+                excerpt,
+                featuredImage,
+                createdAt,
+                category,
+              } = blog;
 
               return (
                 <BlogCard
@@ -29,6 +36,7 @@ const Blog = () => {
                   excerpt={excerpt.excerpt}
                   slug={slug}
                   createdAt={createdAt}
+                  category={category}
                 />
               );
             })}

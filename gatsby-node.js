@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             slug
+            title
           }
         }
       }
@@ -26,12 +27,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-
-  //   data.allStrapiCategory.nodes.forEach((node) => {
-  //     actions.createPage({
-  //       path: "/blogs/categories/" + node?.slug,
-  //       component: path.resolve("./src/templates/categories.js"),
-  //       context: { slug: node?.slug },
-  //     });
-  //   });
 };

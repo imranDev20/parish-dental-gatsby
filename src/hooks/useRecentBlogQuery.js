@@ -8,11 +8,12 @@ const useRecentBlogQuery = () => {
           id
           slug
           title
-          createdAt(formatString: "DD MMMM YYYY", locale: "en-GB")
-          updatedAt(formatString: "DD MMMM YYYY", locale: "en-GB")
+          createdAt(formatString: "DD MMMM, YYYY", locale: "en-GB")
+          updatedAt(formatString: "DD MMMM, YYYY", locale: "en-GB")
           excerpt {
             excerpt
           }
+          category
           featuredImage {
             gatsbyImage(width: 400, placeholder: BLURRED)
           }

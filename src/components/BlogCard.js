@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 
-const BlogCard = ({ image, title, excerpt, slug, createdAt }) => {
+const BlogCard = ({ image, title, excerpt, slug, createdAt, category }) => {
   return (
     <div className="my-7">
       <Link to={`/blogs/${slug}`}>

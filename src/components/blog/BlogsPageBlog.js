@@ -22,7 +22,7 @@ const BlogsPageBlog = ({
       </Link>
 
       <p className="uppercase text-secondary font-medium tracking-[0.13em] text-sm mt-10 mb-3">
-        {createdAt},{" "}
+        {createdAt}
         {/* <Link to={`/blogs/categories/${category?.slug}`}>{category?.name}</Link> */}
       </p>
       <Link to={`/blogs/${slug}`}>
