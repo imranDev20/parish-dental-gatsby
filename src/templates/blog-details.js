@@ -5,11 +5,53 @@ import React from "react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import Layout from "../components/global/Layout";
 import Seo from "../components/global/Seo";
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import "../styles/blog-details.css";
 
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+  },
+  renderNode: {
+    [INLINES.HYPERLINK]: (node, children) => {
+      const { uri } = node.data;
+      return (
+        <a href={uri} className="underline">
+          {children}
+        </a>
+      );
+    },
+    [BLOCKS.HEADING_2]: (node, children) => {
+      return <h2>{children}</h2>;
+    },
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      return <p className="text-neutral-500  leading-8">{children}</p>;
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const { gatsbyImageData, description } = node.data.target;
+      return (
+        <GatsbyImage
+          className="my-7"
+          image={getImage(gatsbyImageData)}
+          alt={description}
+        />
+      );
+    },
+  },
+};
+
 const BlogDetails = ({ data, pageContext }) => {
-  const { id, slug, title, createdAt, updatedAt, category, featuredImage } =
-    data.contentfulBlog;
+  const {
+    id,
+    slug,
+    title,
+    createdAt,
+    updatedAt,
+    category,
+    featuredImage,
+    blogBody,
+  } = data.contentfulBlog;
 
   const prev = pageContext?.prev
     ? {
@@ -46,10 +88,8 @@ const BlogDetails = ({ data, pageContext }) => {
           </p> */}
           {/* Content */}
           <h1 className="text-5xl font-semibold text-primary mb-5">{title}</h1>
-          {/* <div
-            className="text-neutral-500 leading-8 blog-content"
-            dangerouslySetInnerHTML={{ __html: content?.data?.content }}
-          /> */}
+
+          <div>{renderRichText(blogBody, options)}</div>
           {/* Author Area */}
           <div className="rounded-lg mt-20 bg-background p-16 flex flex-col lg:flex-row items-center text-center lg:text-left">
             {/* <div className="">
@@ -111,6 +151,18 @@ export const query = graphql`
       }
       featuredImage {
         gatsbyImage(width: 400, placeholder: BLURRED)
+      }
+      blogBody {
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            title
+            description
+            gatsbyImageData(width: 600, placeholder: BLURRED, height: 400)
+            __typename
+          }
+        }
+        raw
       }
     }
   }
