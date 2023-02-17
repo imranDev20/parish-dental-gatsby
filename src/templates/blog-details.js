@@ -94,14 +94,14 @@ const BlogDetails = ({ data, pageContext }) => {
           <div>{renderRichText(blogBody, options)}</div>
           {/* Author Area */}
           <div className="rounded-lg mt-20 bg-background p-16 flex flex-col lg:flex-row items-center text-center lg:text-left">
-            {/* <div className="">
+            <div className="">
               <GatsbyImage
-                image={getImage(author.avatar.localFile)}
+                image={authors.avatar.gatsbyImageData}
                 className="w-28 h-28 mb-5 lg:mb-0 lg:mr-10 rounded-full"
                 imgClassName="w-full h-full object-cover"
-                alt={author.name}
+                alt={authors.name}
               />
-            </div> */}
+            </div>
             <div>
               <h3 className="text-primary text-2xl font-medium mb-2">
                 {authors?.name}
@@ -153,6 +153,9 @@ export const query = graphql`
       authors {
         name
         description
+        avatar {
+          gatsbyImageData
+        }
       }
       createdAt(formatString: "DD MMMM, YYYY", locale: "en-GB")
       updatedAt(formatString: "DD MMMM, YYYY", locale: "en-GB")

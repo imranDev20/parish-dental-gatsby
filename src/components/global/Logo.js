@@ -28,6 +28,12 @@ const Logo = ({ isFooter }) => {
         src={isFooter ? logoData?.logoWhite?.url : logoData?.logo?.url}
         alt={isFooter ? logoData?.logoWhite?.title : logoData.logo.title}
       />
+
+      {/* <img
+        className="w-full h-full object-contain"
+        src={logoData?.logo?.url}
+        alt={logoData.logo.title}
+      /> */}
     </div>
   );
 };

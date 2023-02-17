@@ -21,8 +21,8 @@ const BlogPage = () => {
         mainTitle="Read Latest Articles"
         description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
       />
-      <div className="container mx-auto flex mt-16 px-10">
-        <div className="w-9/12 pr-10">
+      <div className="container mx-auto  mt-16 px-10">
+        <div className="w-full lg:w-7/12 mx-auto">
           {blogs.map((blog) => {
             const {
               id,
@@ -45,14 +45,14 @@ const BlogPage = () => {
             );
           })}
         </div>
-        <div className="w-3/12 ">
+        {/* <div className="w-full lg:w-3/12 ">
           <h3 className="text-primary font-semibold text-2xl mb-5">
             Recent Blogs
           </h3>
           {recentBlogs.map((blog, index) => {
             return <RecentBlogs key={index} blog={blog} />;
           })}
-        </div>
+        </div> */}
       </div>
     </Layout>
   );

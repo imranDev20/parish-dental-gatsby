@@ -37,7 +37,7 @@ const Hero = () => {
               gatsbyImageData(
                 placeholder: BLURRED
                 layout: FULL_WIDTH
-                width: 1500
+                width: 1920
               )
             }
           }

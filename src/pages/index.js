@@ -4,13 +4,13 @@ import loadable from "@loadable/component";
 import Seo from "../components/global/Seo";
 import Hero from "../components/home/Hero";
 import Message from "../components/Message";
-import Achievements from "../components/home/Achievements";
-import MyModal from "../components/home/MyDialog";
+const Achievements = loadable(() => import("../components/home/Achievements"));
 const Features = loadable(() => import("../components/home/Features"));
 const About = loadable(() => import("../components/home/About"));
 const Services = loadable(() => import("../components/home/Services"));
 const Testimonials = loadable(() => import("../components/home/Testimonials"));
 const Contact = loadable(() => import("../components//home/Contact"));
+const Cta = loadable(() => import("../components//home/Cta"));
 const Blog = loadable(() => import("../components/home/Blog"));
 
 // markup
@@ -22,6 +22,7 @@ const IndexPage = () => {
         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
       />
       <Hero />
+      <Cta />
       <Features />
       <Services />
       <About />
