@@ -46,6 +46,9 @@ const BlogPage = () => {
           })}
         </div>
         <div className="w-3/12 ">
+          <h3 className="text-primary font-semibold text-2xl mb-5">
+            Recent Blogs
+          </h3>
           {recentBlogs.map((blog, index) => {
             return <RecentBlogs key={index} blog={blog} />;
           })}

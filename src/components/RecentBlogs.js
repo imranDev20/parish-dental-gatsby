@@ -19,8 +19,11 @@ const RecentBlogs = ({ blog }) => {
       <p className="text-neutral-500 text-sm leading-6">
         {blog.excerpt.length > 70
           ? blog.excerpt.excerpt.substring(0, 70) + "..."
-          : blog.excerpt.excerpt}
-        <Link className="text-primary font-medium " to={`/blogs/${blog.slug}`}>
+          : blog.excerpt.excerpt}{" "}
+        <Link
+          className="text-secondary font-medium "
+          to={`/blogs/${blog.slug}`}
+        >
           Read More
         </Link>
       </p>
