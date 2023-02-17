@@ -16,7 +16,7 @@ const ContactInfo = () => {
   `);
 
   const contactData = data?.allContentfulGlobal?.nodes[0];
-  console.log(contactData);
+
   return (
     <section className="mt-20 container px-10 mx-auto text-center">
       <h2 className="text-center text-3xl my-2 capitalize font-semibold text-primary">

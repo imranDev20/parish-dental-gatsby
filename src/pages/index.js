@@ -11,6 +11,7 @@ const About = loadable(() => import("../components/home/About"));
 const Services = loadable(() => import("../components/home/Services"));
 const Testimonials = loadable(() => import("../components/home/Testimonials"));
 const Contact = loadable(() => import("../components//home/Contact"));
+const Blog = loadable(() => import("../components/home/Blog"));
 
 // markup
 const IndexPage = () => {
@@ -28,7 +29,7 @@ const IndexPage = () => {
       <Testimonials />
       <Contact />
 
-      {/* <Blog /> */}
+      <Blog />
       {/* <Message /> */}
     </Layout>
   );

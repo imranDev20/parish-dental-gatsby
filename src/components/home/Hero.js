@@ -71,8 +71,6 @@ const Hero = () => {
               const firstHalf = titleTextArray?.splice(0, half);
               const secondHalf = titleTextArray?.splice(-half);
 
-              console.log(image);
-
               return (
                 <SwiperSlide
                   key={heroContent?.contentful_id}

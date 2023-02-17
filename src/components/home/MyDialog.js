@@ -43,11 +43,11 @@ export default function MyModal({ isOpen, setIsOpen }) {
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-xl font-medium leading-6 text-gray-900 flex justify-between mb-7"
+                    className="text-xl font-medium leading-6  flex justify-between mb-7 text-secondary"
                   >
                     Request an Appointment
                     <button
-                      className="hover:text-primary transition-colors duration-300"
+                      className="hover:text-primary transition-colors duration-300 text-gray-600"
                       onClick={() => setIsOpen(!isOpen)}
                     >
                       <FaTimes />

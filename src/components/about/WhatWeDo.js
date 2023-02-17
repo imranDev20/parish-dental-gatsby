@@ -40,7 +40,7 @@ const WhatWeDo = () => {
 
   const galleryImages = data?.contentfulPages?.blocks[1]?.fullsizeImage;
   // const galleryImagesFull = data?.contentfulPages?.blocks[1]?.fullsizeImage;
-  console.log(galleryImages);
+
   return (
     <section className="w-full my-24">
       <SectionHeader subTitle="What We Do" mainTitle="Some of Our Works" />

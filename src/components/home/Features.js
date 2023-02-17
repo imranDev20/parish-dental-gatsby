@@ -36,12 +36,8 @@ const Features = () => {
     }
   `);
 
-  console.log(data);
-
   const { features, featuresImage, nhsImage, title } =
     data?.contentfulPages?.blocks[2];
-
-  console.log(features);
 
   return (
     <section className="container mx-auto px-10 grid grid-cols-1  lg:grid-cols-3 my-32 gap-10">

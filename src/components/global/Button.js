@@ -19,11 +19,19 @@ export const LinkButton = ({ children, to, className, variant }) => {
   );
 };
 
-export const NormalButton = ({ children, onClick, className, variant }) => {
+export const NormalButton = ({
+  children,
+  onClick,
+  className,
+  variant,
+  ...props
+}) => {
   return (
     <button
+      {...props}
       className={`${[...classNames]} ${className} ${
-        variant === "blue" && "bg-primary text-white hover:bg-secondary "
+        variant === "blue" &&
+        "bg-primary text-white hover:bg-secondary disabled:cursor-not-allowed disabled:bg-primary/75 disabled:hover:bg-primary/75"
       } ${variant === "orange" && "bg-secondary text-white"} `}
       onClick={onClick}
     >

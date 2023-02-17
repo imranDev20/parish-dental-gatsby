@@ -101,43 +101,43 @@
 // };
 // export default BlogDetails;
 
-// export const query = graphql`
-//   query BlogDetailsQuery($slug: String) {
-//     strapiBlog(slug: { eq: $slug }) {
-//       strapi_id
-//       title
-//       createdAt(fromNow: true, locale: "GB", formatString: "DD MMMM YYYY")
-//       category {
-//         name
-//         slug
-//         strapi_id
-//       }
-//       updatedAt
-//       content {
-//         data {
-//           content
-//         }
-//       }
-//       author {
-//         name
-//         slug
-//         about
-//         avatar {
-//           localFile {
-//             childImageSharp {
-//               gatsbyImageData(width: 240, placeholder: BLURRED)
-//             }
-//           }
-//         }
-//       }
-//       image {
-//         alternativeText
-//         localFile {
-//           childImageSharp {
-//             gatsbyImageData
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query BlogDetailsQuery($slug: String) {
+    strapiBlog(slug: { eq: $slug }) {
+      strapi_id
+      title
+      createdAt(fromNow: true, locale: "GB", formatString: "DD MMMM YYYY")
+      category {
+        name
+        slug
+        strapi_id
+      }
+      updatedAt
+      content {
+        data {
+          content
+        }
+      }
+      author {
+        name
+        slug
+        about
+        avatar {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 240, placeholder: BLURRED)
+            }
+          }
+        }
+      }
+      image {
+        alternativeText
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+`;

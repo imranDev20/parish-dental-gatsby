@@ -32,12 +32,8 @@ const Team = () => {
     }
   `);
 
-  console.log(data);
-
   const dentists = data?.allContentfulTeam?.nodes;
   const header = data?.contentfulPages?.blocks[0];
-
-  console.log(header);
 
   return (
     <section className="my-24">

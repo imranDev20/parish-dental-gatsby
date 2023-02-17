@@ -15,7 +15,6 @@ const Navigation = ({ open }) => {
     }
   `);
 
-  console.log(data);
   const routes = data?.allContentfulNavigation?.nodes;
 
   return (

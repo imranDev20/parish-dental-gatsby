@@ -1,9 +1,9 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const useBlogQuery = () => {
+const useRecentBlogQuery = () => {
   const data = useStaticQuery(graphql`
-    query BlogQuery {
-      allContentfulBlog(sort: { fields: createdAt, order: DESC }) {
+    query RecentBlogQuery {
+      allContentfulBlog(limit: 3, sort: { fields: createdAt, order: DESC }) {
         nodes {
           id
           slug
@@ -23,4 +23,4 @@ const useBlogQuery = () => {
   return data?.allContentfulBlog?.nodes;
 };
 
-export default useBlogQuery;
+export default useRecentBlogQuery;

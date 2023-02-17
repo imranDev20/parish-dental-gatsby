@@ -15,8 +15,6 @@ const ImageZoom = (props) => {
     setIsZoomed(shouldZoom);
   }, []);
 
-  console.log(isZoomed);
-
   return (
     <ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
       <GatsbyImage style={wrapperStyle} {...props} />

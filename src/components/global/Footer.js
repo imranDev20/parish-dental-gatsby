@@ -45,8 +45,6 @@ const Footer = () => {
     }
   `);
 
-  console.log(data);
-
   const footerData = data?.allContentfulGlobal?.nodes[0];
   const scheduleData = data?.allContentfulSchedule?.nodes;
 
