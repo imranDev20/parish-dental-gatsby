@@ -29,7 +29,7 @@ const Navigation = ({ open }) => {
         <Link
           key={route?.pageId}
           activeClassName={`border-b-[3px] lg:border-b-0 border-b-secondary border-t-0 lg:border-t-[3px] lg:border-t-secondary`}
-          className="nav-item px-6 py-8 inline-block uppercase tracking-[0.2em] text-sm text-primary font-medium border-t-[3px] border-transparent"
+          className="nav-item px-4 py-8 inline-block uppercase tracking-[0.1em] text-sm text-primary border-t-[3px] border-transparent font-semibold"
           to={route?.slug === "home" ? `/` : `/${route?.slug}`}
         >
           {route?.label}

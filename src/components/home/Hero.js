@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination } from "swiper";
+import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { AnimatePresence, motion } from "framer-motion";
 import { css } from "@emotion/react";
@@ -9,6 +9,7 @@ import Form from "../global/Form";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -37,7 +38,8 @@ const Hero = () => {
               gatsbyImageData(
                 placeholder: BLURRED
                 layout: FULL_WIDTH
-                width: 1920
+                width: 2560
+                breakpoints: [750, 1080, 1366, 1920]
               )
             }
           }
@@ -53,22 +55,29 @@ const Hero = () => {
       <section className="w-full">
         {data ? (
           <Swiper
-            modules={[EffectFade, Navigation, Pagination]}
+            modules={[EffectFade, Navigation, Pagination, Autoplay]}
             effect="fade"
             spaceBetween={50}
-            touchRatio={0}
-            autoplay
+            // touchRatio={0}
+            // autoplay
+            autoplay={{
+              // disableOnInteraction: false,
+              delay: 5000,
+              // pauseOnMouseEnter: true,
+            }}
+            loop={true}
             initialSlide={0}
             navigation
             pagination={{ clickable: true }}
             slidesPerView={1}
-            className="hero-carousel min-h-[500px]"
+            className="hero-carousel sm:min-h-[500px]"
           >
             {heroContents?.map((heroContent, index) => {
               const image = heroContent?.slideImage?.gatsbyImageData;
               const titleTextArray = heroContent?.slideTitle?.split(" ");
               const half = Math.ceil(titleTextArray?.length / 2);
               const firstHalf = titleTextArray?.splice(0, half);
+
               const secondHalf = titleTextArray?.splice(-half);
 
               return (
@@ -82,7 +91,7 @@ const Hero = () => {
                       <GatsbyImage
                         image={image}
                         loading="eager"
-                        className="h-[90vh] min-h-[500px] w-full"
+                        className="max-h-[350px] sm:max-h-screen h-[90vh] sm:min-h-[500px] w-full"
                         imgClassName="w-full h-full object-cover"
                         alt={heroContent?.slideImage?.title}
                       />

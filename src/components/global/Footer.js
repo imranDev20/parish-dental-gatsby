@@ -9,7 +9,8 @@ import {
   FiMail,
 } from "react-icons/fi";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import AssociationImage from "../../images/IMG_20210907_002730_422.jpg";
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -56,12 +57,10 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-primary py-20">
-      <div className="container mx-auto px-10 grid-cols-1 sm:grid-cols-2 grid lg:grid-cols-4 gap-16 text-white">
+      <div className="container mx-auto px-10 grid-cols-1 sm:grid-cols-2 grid lg:grid-cols-4 gap-16 text-white mb-12">
         <div>
           <Logo isFooter />
-
           <p className="my-10 font-light">{footerData?.footerDescription}</p>
-
           <div className="flex items-center my-5">
             {socials.map((social) => {
               const SocialIconComponent = social.icon;
@@ -75,6 +74,16 @@ const Footer = () => {
                 </a>
               );
             })}
+          </div>
+          <div className="mt-10 flex items-center">
+            <div className="font-light mr-2">In association with:</div>
+            <a target="_blank" href="https://instagram.com/grow_with_sayed">
+              <StaticImage
+                width={50}
+                className="rounded-full"
+                src="../../images/IMG_20210907_002730_422.jpg"
+              />
+            </a>
           </div>
         </div>
 
@@ -126,6 +135,9 @@ const Footer = () => {
             />
           </a>
         </div>
+      </div>
+      <div className="text-center text-white">
+        Copyright @ {new Date().getFullYear()} Parish Dental
       </div>
     </footer>
   );

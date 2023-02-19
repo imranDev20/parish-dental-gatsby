@@ -29,7 +29,6 @@ const IndexPage = () => {
       <Achievements />
       <Testimonials />
       <Contact />
-
       <Blog />
       {/* <Message /> */}
     </Layout>

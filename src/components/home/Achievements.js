@@ -8,7 +8,8 @@ import SmileIcon from "../../images/icons/smile.svg";
 
 const Achievements = () => {
   const [ref, inView] = useInView({
-    threshold: 0.2,
+    // threshold: 0.2,
+    threshold: 0,
     triggerOnce: true,
   });
 
@@ -31,11 +32,11 @@ const Achievements = () => {
     },
   ];
   return (
-    <section className="bg-secondary py-16">
-      <div className="container mx-auto px-10 grid grid-cols-4">
+    <section className="bg-secondary py-16 relative z-10">
+      <div className="container mx-auto px-10 grid md:grid-cols-2 lg:grid-cols-4">
         {achievements.map((item) => {
           return (
-            <div key={item.id} className="flex flex-col items-center">
+            <div key={item.id} className="flex flex-col items-center mb-10">
               <img className=" w-12 mb-5" src={item.icon} />
 
               <CountUp

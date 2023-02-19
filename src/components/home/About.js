@@ -33,7 +33,7 @@ const About = () => {
   const aboutContents = data.contentfulPages.blocks[3];
 
   return (
-    <section className="w-full bg-background relative min-h-[600px] mb-[800px] sm:mb-[600px] lg:mb-0">
+    <section className="w-full bg-background relative min-h-[600px] mb-[400px] sm:mb-[600px] lg:mb-0">
       <div className="container mx-auto flex flex-col lg:flex-row  px-10 justify-between ">
         <div className="w-full lg:w-1/2 lg:pr-10  py-20 lg:py-36 relative">
           <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
@@ -58,9 +58,9 @@ const About = () => {
           </svg>
         </div>
         <div className="w-full lg:w-1/2 h-full">
-          <div className="absolute block right-0 bg-red-50 w-full lg:w-1/2 h-full">
-            <BackgroundImage className="h-full" {...bgImage}>
-              <div className="h-full"></div>
+          <div className="absolute block right-0  w-full lg:w-1/2 h-full">
+            <BackgroundImage className="h-2/4 sm:h-2/3 lg:h-full" {...bgImage}>
+              <div className="h-2/4 sm:h-2/3 lg:h-full"></div>
             </BackgroundImage>
           </div>
         </div>

@@ -32,12 +32,16 @@ const Contact = () => {
   const image = convertToBgImage(contactData.image.gatsbyImage);
 
   return (
-    <section className="w-full bg-background relative min-h-[600px] mb-[1000px] sm:mb-[800px] lg:mb-0">
+    <section className="w-full bg-background relative min-h-[600px] mb-[600px] sm:mb-[800px] lg:mb-0">
       <div className="container mx-auto flex flex-col-reverse lg:flex-row  px-10 justify-between ">
         <div className="w-full lg:w-1/2 ">
-          <div className="absolute block left-0 bg-red-50 w-full lg:w-1/2 h-full">
-            <BackgroundImage className="h-full" {...image} fadeIn="soft">
-              <div className="h-full"></div>
+          <div className="absolute block left-0  w-full lg:w-1/2 h-full">
+            <BackgroundImage
+              className="h-2/4 sm:h-2/3 lg:h-full"
+              {...image}
+              fadeIn="soft"
+            >
+              <div className="h-2/4 sm:h-2/3 lg:h-full"></div>
             </BackgroundImage>
           </div>
         </div>
