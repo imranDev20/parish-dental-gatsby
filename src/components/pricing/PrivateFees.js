@@ -8,12 +8,6 @@ const PrivateFees = () => {
       contentfulPages(title: { eq: "Pricing" }) {
         id
         blocks {
-          ... on ContentfulPrivatePrice {
-            id
-            contentful_id
-            price
-            service
-          }
           ... on ContentfulSections {
             id
             mainTitle
@@ -24,12 +18,31 @@ const PrivateFees = () => {
           }
         }
       }
+      allContentfulPrivatePrice(sort: { order: ASC, fields: privateFeeId }) {
+        nodes {
+          privateFeeId
+          service
+          price
+          category
+        }
+      }
     }
   `);
 
-  const privateFee = data?.contentfulPages?.blocks?.slice(5);
+  const privateFee = data?.allContentfulPrivatePrice.nodes;
+  const categories = privateFee.map((item) => item.category);
+  const uniqueItems = [...new Set(categories)];
+  const unique = uniqueItems.map((item) => categories.indexOf(item));
 
   const header = data?.contentfulPages?.blocks[4];
+
+  var regexTest =
+    /(?=.)\£(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)?(\.[0-9]{1,2})?/;
+
+  console.log(regexTest.test("computer £5,000.00"));
+  console.log(regexTest.test("£5,000.00"));
+  console.log(regexTest.test("£5,000.00 that was computer price"));
+  console.log(regexTest.test("computer 5,000.00"));
 
   return (
     <>
@@ -41,18 +54,37 @@ const PrivateFees = () => {
           />
 
           <div className="mt-3">
-            {privateFee.map((service, index) => {
+            {privateFee.map((fee, index) => {
+              const numRegx = /\d+/;
+              const priceWithPound = fee?.price?.replaceAll(
+                fee?.price.match(numRegx),
+                `£${fee?.price.match(numRegx)}`
+              );
+
               return (
-                <div key={index} className="flex justify-between items-center">
-                  <div className="flex justify-between items-center w-full border-b">
-                    <h5 className="text-base lg:text-xl text-neutral-500 my-4 w-3/5 max-w-[600px] ">
-                      {service?.service}
-                    </h5>
-                    <p className="text-base lg:text-lg text-secondary font-medium w-1/5">
-                      {service?.price}
-                    </p>
+                <React.Fragment key={fee.privateFeeId}>
+                  {unique.includes(index) ? (
+                    <h3 className="text-primary font-semibold text-2xl mt-8 mb-2">
+                      {fee.category}
+                    </h3>
+                  ) : null}
+
+                  <div
+                    key={fee.privateFeeId}
+                    className="flex justify-between items-center"
+                  >
+                    <div className="flex justify-between items-center w-full border-b">
+                      <h5 className="text-base lg:text-xl text-neutral-500 my-4 w-3/5 max-w-[600px] ">
+                        {fee?.service}
+                      </h5>
+                      <p className="text-base lg:text-lg text-secondary font-medium w-1/5">
+                        {regexTest.test(fee?.price)
+                          ? fee?.price
+                          : priceWithPound}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </React.Fragment>
               );
             })}
           </div>

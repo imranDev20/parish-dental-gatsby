@@ -8,7 +8,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 export default function Faq() {
   const data = useStaticQuery(graphql`
     query FaqQuery {
-      allContentfulFaq {
+      allContentfulFaq(sort: { order: ASC, fields: faqId }) {
         nodes {
           title
           faqId
@@ -46,14 +46,14 @@ export default function Faq() {
   const section = data?.contentfulPages.blocks[2];
 
   return (
-    <section className="container mx-auto px-10 flex flex-col lg:flex-row">
+    <section className="container mx-auto px-10 flex flex-col lg:flex-row mb-20">
       <div className="w-full lg:w-1/2 bg-white mb-5">
         <h2 className="text-4xl text-primary font-semibold mb-5 mt-2">
           {section.mainTitle}
         </h2>
-        <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
+        {/* <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
           {section.description.description}
-        </p>
+        </p> */}
         {faqs.map((faq, index) => (
           <Disclosure>
             {({ open }) => (

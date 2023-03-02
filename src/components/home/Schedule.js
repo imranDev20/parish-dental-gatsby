@@ -28,17 +28,17 @@ const Schedule = () => {
         Working Hours
       </h3>
 
-      <div className="px-10">
+      <div className="px-5 lg:px-10">
         {schedule.map((item) => (
           <div
             key={item.contentful_id}
             className="flex justify-between items-center text-gray-600 my-5 font-light"
           >
             <span>{item.day}</span>
-            {[0, 1, 2, 3, 4, 5, 6, 7].map((n) => (
+            {[0, 1, 2, 3, 4].map((n) => (
               <div key={n} className="w-1 h-px bg-secondary"></div>
             ))}
-            <span className="before:content-[''] before:bg-gradient-to-r before:bg-bottom before:bg-[length:200px_100px] before:bg-repeat-x">
+            <span className="before:content-[''] before:bg-gradient-to-r before:bg-bottom before:bg-[length:200px_100px] before:bg-repeat-x whitespace-nowrap">
               {item.time}
             </span>
           </div>

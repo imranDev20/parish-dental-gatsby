@@ -76,10 +76,11 @@ const Footer = () => {
             })}
           </div>
           <div className="mt-10 flex items-center">
-            <div className="font-light mr-2">In association with:</div>
+            <div className="font-light mr-2">Website Built By:</div>
             <a target="_blank" href="https://instagram.com/grow_with_sayed">
               <StaticImage
                 width={50}
+                alt="Unimax"
                 className="rounded-full"
                 src="../../images/IMG_20210907_002730_422.jpg"
               />

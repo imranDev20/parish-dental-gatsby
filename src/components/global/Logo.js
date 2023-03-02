@@ -22,18 +22,12 @@ const Logo = ({ isFooter }) => {
   const logoData = data?.allContentfulGlobal?.nodes[0];
 
   return (
-    <div className="w-64 ">
+    <div className=" w-72">
       <img
         className="w-full h-full object-contain"
         src={isFooter ? logoData?.logoWhite?.url : logoData?.logo?.url}
         alt={isFooter ? logoData?.logoWhite?.title : logoData.logo.title}
       />
-
-      {/* <img
-        className="w-full h-full object-contain"
-        src={logoData?.logo?.url}
-        alt={logoData.logo.title}
-      /> */}
     </div>
   );
 };

@@ -14,13 +14,13 @@ const Achievements = () => {
   });
 
   const achievements = [
-    { id: 1, title: "Dentists", icon: DentistIcon, number: 12, symbol: "+" },
-    { id: 2, title: "Staffs", icon: StaffIcon, number: 28, symbol: "+" },
+    { id: 1, title: "Dentists", icon: DentistIcon, number: 5, symbol: "" },
+    { id: 2, title: "Staffs", icon: StaffIcon, number: 16, symbol: "+" },
     {
       id: 3,
       title: "Years of Experience",
       icon: ExperienceIcon,
-      number: 5,
+      number: 25,
       symbol: "+",
     },
     {

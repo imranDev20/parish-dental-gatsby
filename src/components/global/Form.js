@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { NormalButton } from "./Button";
 import axios from "axios";
@@ -23,6 +23,7 @@ const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
   const toastId = React.useRef(null);
   const {
     register,
+    control,
     handleSubmit,
     watch,
     formState: { errors },
@@ -30,6 +31,7 @@ const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
 
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [type, setType] = useState("text");
 
   const notify = () => {
     if (!toast.isActive(toastId.current)) {
@@ -128,25 +130,23 @@ const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
         <div className="grid grid-cols-2 gap-3">
           <div>
             <input
-              type="date"
-              placeholder="Date"
+              type="text"
+              placeholder="Date of Birth - DD/MM/YYYY"
               className={`${inputClasses}`}
-              {...register("date")}
+              {...register("dob")}
             />
-            <Error name="date" errors={errors} />
+
+            <Error name="dob" errors={errors} />
           </div>
 
           <div>
-            <select
-              placeholder="Select a time"
+            <input
+              placeholder="Your address..."
               className={`${inputClasses}`}
-              {...register("time")}
-            >
-              <option value="Morning">Morning</option>
-              <option value="Afternoon">Afternoon</option>
-              <option value="Evening">Evening</option>
-            </select>
-            <Error name="time" errors={errors} />
+              {...register("address")}
+            />
+
+            <Error name="address" errors={errors} />
           </div>
         </div>
 

@@ -13,7 +13,7 @@ const AboutPage = () => {
       <PageHeader pageTitle="About" />
       <WhoWeAre />
       <Faq />
-      <WhatWeDo />
+      {/* <WhatWeDo /> */}
     </Layout>
   );
 };
