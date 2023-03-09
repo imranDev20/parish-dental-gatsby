@@ -151,7 +151,7 @@ const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
         </div>
 
         <textarea
-          placeholder="Messages..."
+          placeholder="What type of appointment/ treatment do you feel you require?"
           rows={5}
           className={`${inputClasses}`}
           {...register("message")}
