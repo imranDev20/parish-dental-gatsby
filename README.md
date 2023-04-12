@@ -4,16 +4,16 @@
   </a>
 </p>
 <h1 align="center">
- SB DENTAL
+ Parish Dental
 </h1>
 
 # Live
 
-[Live site link:] (https://sb-dental.netlify.app)
+[Live site link:] (https://parishdental.co.uk)
 
 ## About us
 
-SB Dental is an UK based dental clinic. SB dental offers.
+Parish Dental is an UK based dental clinic.
 
 ## Technologies used
 
@@ -22,3 +22,4 @@ SB Dental is an UK based dental clinic. SB dental offers.
 - Formspree
 - Framer motion
 - React intersection observer
+- Nodemailer
