@@ -20,6 +20,22 @@ const Layout = ({ children }) => {
         type="text/javascript"
         src="//js.hs-scripts.com/27046288.js"
       /> */}
+
+      <Script
+        id="first-unique-id"
+        dangerouslySetInnerHTML={{
+          __html: `(function(d, w, c) {
+          w.ChatraID = '${process.env.CHATRA_ID}';
+          var s = d.createElement('script');
+          w[c] = w[c] || function() {
+              (w[c].q = w[c].q || []).push(arguments);
+          };
+          s.async = true;
+          s.src = 'https://call.chatra.io/chatra.js';
+          if (d.head) d.head.appendChild(s);
+      })(document, window, 'Chatra');`,
+        }}
+      />
     </>
   );
 };
