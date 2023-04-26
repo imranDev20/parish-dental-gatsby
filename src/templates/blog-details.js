@@ -10,7 +10,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import "../styles/blog-details.css";
 import BlogsSidebar from "../components/BlogsSidebar";
 
-const options = {
+export const options = {
   renderMark: {
     [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
   },
@@ -26,6 +26,13 @@ const options = {
     [BLOCKS.HEADING_2]: (node, children) => {
       return <h2>{children}</h2>;
     },
+    [BLOCKS.HEADING_3]: (node, children) => {
+      return (
+        <h3 className="text-primary text-2xl mt-10 font-semibold">
+          {children}
+        </h3>
+      );
+    },
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <p className="text-neutral-500  leading-8">{children}</p>;
     },
@@ -39,6 +46,17 @@ const options = {
           alt={description}
         />
       );
+    },
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      return (
+        <p className="text-neutral-500  leading-8 mt-4 mb-2">{children}</p>
+      );
+    },
+    [BLOCKS.OL_LIST]: (node, children) => {
+      return <ol className="text-neutral-500 list-decimal ml-5">{children}</ol>;
+    },
+    [BLOCKS.UL_LIST]: (node, children) => {
+      return <ul className="text-neutral-500 list-disc ml-20">{children}</ul>;
     },
   },
 };
@@ -89,7 +107,9 @@ const BlogDetails = ({ data, pageContext }) => {
             {createdAt}
           </p>
           {/* Content */}
-          <h1 className="text-5xl font-semibold text-primary mb-5">{title}</h1>
+          <h1 className="text-5xl font-semibold text-primary mb-5 leading-[1.2]">
+            {title}
+          </h1>
 
           <div>{renderRichText(blogBody, options)}</div>
           {/* Author Area */}
@@ -166,15 +186,15 @@ export const query = graphql`
         gatsbyImage(width: 400, placeholder: BLURRED)
       }
       blogBody {
-        references {
-          ... on ContentfulAsset {
-            contentful_id
-            title
-            description
-            gatsbyImageData(width: 1000, placeholder: BLURRED, height: 400)
-            __typename
-          }
-        }
+        # references {
+        #   ... on ContentfulAsset {
+        #     contentful_id
+        #     title
+        #     description
+        #     gatsbyImageData(width: 1000, placeholder: BLURRED, height: 400)
+        #     __typename
+        #   }
+        # }
         raw
       }
     }

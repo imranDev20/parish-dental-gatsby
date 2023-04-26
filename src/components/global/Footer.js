@@ -8,9 +8,9 @@ import {
   FiPhone,
   FiMail,
 } from "react-icons/fi";
-import { graphql, useStaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import AssociationImage from "../../images/IMG_20210907_002730_422.jpg";
+import { navPages, policyPages } from "../../common/constant";
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -75,28 +75,39 @@ const Footer = () => {
               );
             })}
           </div>
-          <div className="mt-10 flex items-center">
-            <div className="font-light mr-2">Website Built By:</div>
-            <a target="_blank" href="https://instagram.com/grow_with_sayed">
-              <StaticImage
-                width={50}
-                alt="Unimax"
-                className="rounded-full"
-                src="../../images/IMG_20210907_002730_422.jpg"
-              />
-            </a>
-          </div>
         </div>
 
         <div className="">
-          <h3 className="font-medium text-xl mb-7">Work Hours</h3>
-          <div>
-            {scheduleData?.map((item, index) => (
+          <h3 className="font-medium text-xl mb-7">Quick Links</h3>
+          <div className="flex justify-between">
+            <div>
+              {navPages.map((item) => (
+                <Link
+                  key={item.id}
+                  className="font-light block mb-3"
+                  to={item.route}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            <div>
+              {policyPages.map((item) => (
+                <Link
+                  key={item.id}
+                  className="font-light block mb-3"
+                  to={item.route}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            {/* {scheduleData?.map((item, index) => (
               <div className="flex justify-between my-2" key={index}>
                 <span className="font-light">{item.day}</span>
                 <span className="font-light">{item.time}</span>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
         <div className="">

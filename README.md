@@ -23,3 +23,6 @@ Parish Dental is an UK based dental clinic.
 - Framer motion
 - React intersection observer
 - Nodemailer
+
+
+We are using Gatsby File System Route API for the policy page generation. Please, populate the slug field in contentful if you want to generate any page with the file system route api. Otherwise leave empty.

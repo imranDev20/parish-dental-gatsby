@@ -4,6 +4,7 @@ import loadable from "@loadable/component";
 import Seo from "../components/global/Seo";
 import Hero from "../components/home/Hero";
 import Message from "../components/Message";
+import HomeBanner from "../components/home/HomeBanner";
 const Achievements = loadable(() => import("../components/home/Achievements"));
 const Features = loadable(() => import("../components/home/Features"));
 const About = loadable(() => import("../components/home/About"));
@@ -23,6 +24,7 @@ const IndexPage = () => {
       />
       <Hero />
       <Cta />
+      <HomeBanner />
       <Features />
       <Services />
       <About />

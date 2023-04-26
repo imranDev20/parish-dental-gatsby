@@ -13,15 +13,10 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <ToastContainer />
       <Footer />
-      {/* <Script
-        defer
-        async
-        id="hs-script-loader"
-        type="text/javascript"
-        src="//js.hs-scripts.com/27046288.js"
-      /> */}
 
       <Script
+        async
+        defer
         id="first-unique-id"
         dangerouslySetInnerHTML={{
           __html: `(function(d, w, c) {
@@ -36,6 +31,14 @@ const Layout = ({ children }) => {
       })(document, window, 'Chatra');`,
         }}
       />
+
+      <Script
+        async
+        defer
+        id="setmore_script"
+        type="text/javascript"
+        src="https://my.setmore.com/webapp/js/src/others/setmore_iframe.js"
+      ></Script>
     </>
   );
 };
