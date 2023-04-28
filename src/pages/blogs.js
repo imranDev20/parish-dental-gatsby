@@ -19,7 +19,7 @@ const BlogPage = () => {
         // subTitle="Dental Practice"
         className="mt-16"
         mainTitle="Read Latest Articles"
-        description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
+        description="Discover the latest news and insights on oral health, cosmetic dentistry, and more at Parish Dental's blog. Stay informed and improve your smile!"
       />
       <div className="container mx-auto  mt-16 px-10">
         <div className="w-full lg:w-7/12 mx-auto">

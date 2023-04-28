@@ -14,6 +14,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import MyModal from "./MyDialog";
+import { BsFillCalendar2DateFill } from "react-icons/bs";
 
 const override = css`
   display: block;
@@ -37,9 +38,11 @@ const Hero = () => {
               title
               gatsbyImageData(
                 placeholder: BLURRED
-                layout: FULL_WIDTH
+
                 width: 2560
                 breakpoints: [750, 1080, 1366, 1920]
+                cropFocus: TOP
+                layout: FULL_WIDTH
               )
             }
           }
@@ -161,7 +164,7 @@ const Hero = () => {
                         </h2>
 
                         {index === 1 ? (
-                          <Link to="/pricing">
+                          <a href="https://booking.setmore.com/scheduleappointment/932f19c8-6989-4716-93c5-c73ac31d511b">
                             <motion.div
                               initial={{
                                 opacity: 0,
@@ -177,11 +180,12 @@ const Hero = () => {
                                 duration: 0.7,
                                 delay: 0.12,
                               }}
-                              className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
+                              className="tracking-[0.2em] uppercase text-xs font-medium rounded  bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors  inline-flex items-center"
                             >
-                              See Prices
+                              <BsFillCalendar2DateFill className="mr-2" />
+                              Book Now
                             </motion.div>
-                          </Link>
+                          </a>
                         ) : null}
 
                         {index === 0 ? (

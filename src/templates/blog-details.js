@@ -127,7 +127,7 @@ const BlogDetails = ({ data, pageContext }) => {
                 {authors?.name}
               </h3>
               <p className="text-neutral-500 leading-7">
-                {authors?.description}
+                {authors?.description?.description}
               </p>
             </div>
           </div>
@@ -172,7 +172,9 @@ export const query = graphql`
       category
       authors {
         name
-        description
+        description {
+          description
+        }
         avatar {
           gatsbyImageData
         }

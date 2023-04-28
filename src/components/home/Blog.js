@@ -13,7 +13,7 @@ const Blog = () => {
           <SectionHeader
             // subTitle="Dental Practice"
             mainTitle="Read Latest Articles"
-            description="In sea viderer delicatissimi, urbanitas sententiae quo blandit maiorum euripidis."
+            description="Discover the latest news and insights on oral health, cosmetic dentistry, and more at Parish Dental's blog. Stay informed and improve your smile!"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 my-10">
