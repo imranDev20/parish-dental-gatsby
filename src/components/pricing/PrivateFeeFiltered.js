@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { useEffect } from "react";
+import { customSlugify } from "../../common/utils";
 
 const PrivateFeeFiltered = ({ category }) => {
   const data = useStaticQuery(graphql`
@@ -19,6 +20,7 @@ const PrivateFeeFiltered = ({ category }) => {
   const categories = privateFees.map((item) => item.category);
   const uniqueItems = [...new Set(categories)];
   const unique = uniqueItems.map((item) => categories.indexOf(item));
+  const id = customSlugify(category);
 
   var regexTest =
     /(?=.)\£(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+)?(\.[0-9]{1,2})?/;
@@ -29,13 +31,13 @@ const PrivateFeeFiltered = ({ category }) => {
   //   console.log(regexTest.test("computer 5,000.00"));
 
   return (
-    <>
+    <div id={id}>
       <h3 className="text-primary font-semibold text-2xl mt-8 mb-2">
         {category}
       </h3>
       {privateFees
         .filter((val) => val.category === category)
-        .map((fee, index) => {
+        .map((fee) => {
           const numRegx = /\d+/;
           const priceWithPound = fee?.price?.replaceAll(
             fee?.price.match(numRegx),
@@ -44,12 +46,6 @@ const PrivateFeeFiltered = ({ category }) => {
 
           return (
             <React.Fragment key={fee.privateFeeId}>
-              {/* {unique.includes(index) ? (
-                <h3 className="text-primary font-semibold text-2xl mt-8 mb-2">
-                  {fee.category}
-                </h3>
-              ) : null} */}
-
               <div
                 key={fee.privateFeeId}
                 className="flex justify-between items-center"
@@ -66,7 +62,7 @@ const PrivateFeeFiltered = ({ category }) => {
             </React.Fragment>
           );
         })}
-    </>
+    </div>
   );
 };
 

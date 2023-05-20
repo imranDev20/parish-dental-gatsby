@@ -112,25 +112,6 @@ const BlogDetails = ({ data, pageContext }) => {
           </h1>
 
           <div>{renderRichText(blogBody, options)}</div>
-          {/* Author Area */}
-          <div className="rounded-lg mt-20 bg-background p-16 flex flex-col lg:flex-row items-center text-center lg:text-left">
-            <div className="">
-              <GatsbyImage
-                image={authors.avatar.gatsbyImageData}
-                className="w-28 h-28 mb-5 lg:mb-0 lg:mr-10 rounded-full"
-                imgClassName="w-full h-full object-cover"
-                alt={authors.name}
-              />
-            </div>
-            <div>
-              <h3 className="text-primary text-2xl font-medium mb-2">
-                {authors?.name}
-              </h3>
-              <p className="text-neutral-500 leading-7">
-                {authors?.description?.description}
-              </p>
-            </div>
-          </div>
 
           {/* Next Previous Button */}
           <div className="flex justify-between mt-16">

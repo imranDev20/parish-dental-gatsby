@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../components/global/Layout";
 import Seo from "../components/global/Seo";
 import PageHeader from "../components/global/PageHeader";
 import NhsCharges from "../components/pricing/NhsCharges";
 import PrivateFees from "../components/pricing/PrivateFees";
 
-const PricingPage = () => {
+const PricingPage = ({ location }) => {
+  useEffect(() => {}, []);
+
+  useEffect(() => {
+    const scrollToDiv = () => {
+      const hash = location.hash;
+
+      const divElement = document.getElementById(hash.slice(1));
+      if (divElement) {
+        divElement.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    scrollToDiv();
+  }, []);
+
   return (
     <Layout>
       <Seo title="Pricing" />

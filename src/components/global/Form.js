@@ -19,7 +19,14 @@ const Error = ({ errors, name }) => {
   );
 };
 
-const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
+const Form = ({
+  inputBg,
+  isPricing,
+  price,
+  service,
+  submitButtonText,
+  oneCol,
+}) => {
   const toastId = React.useRef(null);
   const {
     register,
@@ -80,7 +87,9 @@ const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="contact" />
-        <div className="grid grid-cols-2 gap-3">
+        <div
+          className={`grid ${oneCol ? "grid-cols-1" : "grid-cols-2"}  gap-3`}
+        >
           <div>
             <input
               placeholder="First Name"
@@ -100,7 +109,9 @@ const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div
+          className={`grid ${oneCol ? "grid-cols-1" : "grid-cols-2"}  gap-3`}
+        >
           <div>
             <input
               placeholder="Phone"
@@ -127,7 +138,9 @@ const Form = ({ inputBg, isPricing, price, service, submitButtonText }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div
+          className={`grid ${oneCol ? "grid-cols-1" : "grid-cols-2"}  gap-3`}
+        >
           <div>
             <input
               type="text"

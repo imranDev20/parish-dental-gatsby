@@ -75,6 +75,18 @@ const Footer = () => {
               );
             })}
           </div>
+
+          <div className="mt-10 flex items-center">
+            <div className="font-light mr-2 text-sm">Website Built By:</div>
+            <a target="_blank" href="https://instagram.com/grow_with_sayed">
+              <StaticImage
+                width={35}
+                alt="Unimax"
+                className="rounded-full"
+                src="../../images/IMG_20210907_002730_422.jpg"
+              />
+            </a>
+          </div>
         </div>
 
         <div className="">

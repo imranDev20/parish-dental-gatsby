@@ -5,7 +5,6 @@ import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { AnimatePresence, motion } from "framer-motion";
 import { css } from "@emotion/react";
-import Form from "../global/Form";
 
 // Import Swiper styles
 import "swiper/css";
@@ -24,39 +23,35 @@ const override = css`
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const data = useStaticQuery(graphql`
+  const { heroes } = useStaticQuery(graphql`
     query HeroQuery {
-      contentfulPages(title: { eq: "Home" }) {
-        id
-        blocks {
-          ... on ContentfulHero {
-            id
-            slideTitle
-            slideSubtitle
-            contentful_id
-            slideImage {
-              title
-              gatsbyImageData(
-                placeholder: BLURRED
-
-                width: 2560
-                breakpoints: [750, 1080, 1366, 1920]
-                cropFocus: TOP
-                layout: FULL_WIDTH
-              )
-            }
+      heroes: allContentfulHero(sort: { fields: createdAt, order: ASC }) {
+        nodes {
+          id
+          slideTitle
+          slideSubtitle
+          contentful_id
+          slideImage {
+            title
+            gatsbyImageData(
+              placeholder: BLURRED
+              width: 2560
+              breakpoints: [750, 1080, 1366, 1920]
+              cropFocus: TOP
+              layout: FULL_WIDTH
+            )
           }
         }
       }
     }
   `);
 
-  const heroContents = data?.contentfulPages?.blocks.slice(0, 2);
+  const heroContents = heroes.nodes;
 
   return (
     <>
       <section className="w-full">
-        {data ? (
+        {heroContents ? (
           <Swiper
             modules={[EffectFade, Navigation, Pagination, Autoplay]}
             effect="fade"
@@ -162,6 +157,30 @@ const Hero = () => {
                             ))}
                           </motion.span>
                         </h2>
+
+                        {index === 2 ? (
+                          <motion.button
+                            initial={{
+                              opacity: 0,
+                              x: -100,
+                            }}
+                            animate={{
+                              opacity: isActive ? 1 : 0,
+                              x: isActive ? 0 : -100,
+                            }}
+                            transition={{
+                              type: "tween",
+                              stiffness: 100,
+                              duration: 0.7,
+                              delay: 0.12,
+                            }}
+                            className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
+                          >
+                            <Link to="/services/facial-aesthetics">
+                              Learn More
+                            </Link>
+                          </motion.button>
+                        ) : null}
 
                         {index === 1 ? (
                           <a href="https://booking.setmore.com/scheduleappointment/932f19c8-6989-4716-93c5-c73ac31d511b">

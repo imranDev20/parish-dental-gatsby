@@ -34,7 +34,6 @@ const Layout = ({ children }) => {
 
       <Script
         async
-        defer
         id="setmore_script"
         type="text/javascript"
         src="https://my.setmore.com/webapp/js/src/others/setmore_iframe.js"
