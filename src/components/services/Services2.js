@@ -38,11 +38,14 @@ const Services2 = () => {
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
           {services.map((service, index) => {
-            const isLast = services.length - 1 === index;
             return (
               <Link
                 key={index}
-                to={isLast ? customSlugify(service?.name) : undefined}
+                to={
+                  index === 4 || index === 5
+                    ? customSlugify(service?.name)
+                    : undefined
+                }
               >
                 <div className="rounded-lg overflow-hidden shadow-lg">
                   <div>
@@ -51,7 +54,7 @@ const Services2 = () => {
                       alt={service?.image?.title}
                     />
                   </div>
-                  <div className="bg-white  p-5 relative">
+                  <div className="bg-white  p-5 relative pr-3">
                     <div className="absolute top-0 -translate-y-1/2  bg-white rounded shadow w-20 h-20 p-3">
                       <img
                         className="object-contain"

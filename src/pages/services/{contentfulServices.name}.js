@@ -4,13 +4,17 @@ import { graphql } from "gatsby";
 import { customSlugify } from "../../common/utils";
 import FacialAesthetics from "../../components/services/FacialAesthetics";
 import NotFoundPage from "../404";
+import DomiciliaryCare from "../../components/services/DomiciliaryCare";
 
 const ServicesSinglePage = ({ data }) => {
   const { name } = data.contentfulServices;
   const slug = customSlugify(name);
+
+  console.log(slug);
   return (
     <Layout>
       {slug === "facial-aesthetics" ? <FacialAesthetics /> : <NotFoundPage />}
+      {slug === "domiciliary-care" ? <DomiciliaryCare /> : <NotFoundPage />}
     </Layout>
   );
 };
