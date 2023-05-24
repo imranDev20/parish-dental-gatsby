@@ -38,7 +38,6 @@ const Form = ({
 
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [type, setType] = useState("text");
 
   const notify = () => {
     if (!toast.isActive(toastId.current)) {
@@ -56,7 +55,7 @@ const Form = ({
     }
   };
 
-  const url = `${process.env.EMAIL_SERVER}/contact`;
+  const url = `${process.env.EMAIL_SERVER}/appointment`;
 
   const onSubmit = (data) => {
     setIsLoading(true);

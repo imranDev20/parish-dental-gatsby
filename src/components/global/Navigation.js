@@ -8,18 +8,12 @@ import {
 } from "react-icons/bs";
 import { Menu, Transition } from "@headlessui/react";
 import useServicesQuery from "../../hooks/useServicesQuery";
-import { customSlugify } from "../../common/utils";
+import { customSlugify, serviceLink } from "../../common/utils";
 
 const Navigation = ({ open }) => {
   const services = useServicesQuery();
   return (
-    <nav
-      className={`fixed lg:static bg-white lg:bg-white top-0 ${
-        open ? "right-0" : "-right-full"
-      }  flex flex-col justify-center items-center lg:flex-row w-full h-screen lg:h-auto lg:w-auto z-10  ${
-        open ? "opacity-100" : "opacity-0"
-      } lg:opacity-100 transition-all duration-300 py-20 lg:py-0`}
-    >
+    <nav className={`bg-white items-center z-10 hidden lg:flex`}>
       {navPages.map((page) => {
         if (page.route === "/services") {
           return (
@@ -48,11 +42,8 @@ const Navigation = ({ open }) => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to={
-                              index === 4 || index === 5
-                                ? `/services/${customSlugify(service.name)}`
-                                : "/services"
-                            }
+                            target={index === 6 ? "_blank" : "_self"}
+                            to={serviceLink(index, service)}
                             className={`${
                               active
                                 ? "bg-secondary text-white"

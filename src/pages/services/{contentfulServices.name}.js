@@ -10,7 +10,6 @@ const ServicesSinglePage = ({ data }) => {
   const { name } = data.contentfulServices;
   const slug = customSlugify(name);
 
-  console.log(slug);
   return (
     <Layout>
       {slug === "facial-aesthetics" ? <FacialAesthetics /> : <NotFoundPage />}

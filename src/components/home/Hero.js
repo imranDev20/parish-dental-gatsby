@@ -202,7 +202,7 @@ const Hero = () => {
                               className="tracking-[0.2em] uppercase text-xs font-medium rounded  bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors  inline-flex items-center"
                             >
                               <BsFillCalendar2DateFill className="mr-2" />
-                              Book Now
+                              Book - £35
                             </motion.div>
                           </a>
                         ) : null}

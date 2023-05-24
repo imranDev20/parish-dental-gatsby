@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import SectionHeader from "../global/SectionHeader";
 import slugify from "slugify";
-import { customSlugify } from "../../common/utils";
+import { customSlugify, serviceLink } from "../../common/utils";
 import useServicesQuery from "../../hooks/useServicesQuery";
 
 const Services2 = () => {
@@ -40,12 +40,9 @@ const Services2 = () => {
           {services.map((service, index) => {
             return (
               <Link
+                target={index === 6 ? "_blank" : "_self"}
                 key={index}
-                to={
-                  index === 4 || index === 5
-                    ? customSlugify(service?.name)
-                    : undefined
-                }
+                to={serviceLink(index, service)}
               >
                 <div className="rounded-lg overflow-hidden shadow-lg">
                   <div>

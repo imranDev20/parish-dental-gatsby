@@ -3,26 +3,29 @@ import Burger from "./Burger";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Topbar from "./Topbar";
+import Drawer from "./Drawer";
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
-    if (open) {
+    if (openDrawer) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "visible";
     }
-  }, [open]);
+  }, [openDrawer]);
 
   return (
-    <header className="">
+    <header>
       <Topbar />
       <div className="flex justify-between items-center container mx-auto px-2 lg:px-5 xl:px-10 py-6 lg:py-0">
         <Logo />
-        <Burger open={open} setOpen={setOpen} />
-        <Navigation open={open} />
+        <Burger open={openDrawer} setOpen={setOpenDrawer} />
+        <Navigation />
       </div>
+
+      <Drawer open={openDrawer} setOpen={setOpenDrawer} />
     </header>
   );
 };

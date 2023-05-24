@@ -21,6 +21,8 @@ import ProfhiloImage from "../../images/profhilo.png";
 import CareQualityImage from "../../images/care-quality-com.svg";
 
 import Seo from "../global/Seo";
+import QueriesForm from "../global/QueriesForm";
+import AestheticsPageTestimonial from "./AestheticsPageTestimonial";
 
 const FacialAesthetics = () => {
   const aesthetics = [
@@ -121,22 +123,22 @@ const FacialAesthetics = () => {
         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
       />
       <PageHeader pageTitle="Facial Aesthetics" />
-      <section className="bg-gradient-to-b from-backgroundSecondary to-white py-10">
+      <div className="bg-gradient-to-b from-backgroundSecondary to-white py-10">
         <div
           className={`container mx-auto flex flex-col lg:flex-row px-10 items-start relative mb-20`}
         >
-          <div className="w-full lg:w-2/3  pr-0 lg:pr-7">
-            <StaticImage
-              src="../../images/anti-aging.jpeg"
-              layout="fullWidth"
-              aspectRatio={9 / 11}
-              placeholder="blurred"
-              imgClassName="rounded"
-              className="rounded-lg"
-            />
-            <div>
+          <article className="w-full lg:w-2/3  pr-0 lg:pr-7">
+            <section>
+              <StaticImage
+                src="../../images/anti-aging.jpeg"
+                layout="fullWidth"
+                aspectRatio={15 / 13}
+                placeholder="blurred"
+                imgClassName="rounded"
+                className="rounded-lg"
+              />
               <h1 className="text-4xl text-primary font-semibold mt-10 mb-2 leading-[1.3]">
-                Enhance Your Natural Beauty with Facial Aesthetics at Leeds'
+                Unveil Your Natural Beauty with Facial Aesthetics at Leeds'
                 <span className="relative pb-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-secondary">
                   {" "}
                   Award-Winning{" "}
@@ -161,9 +163,9 @@ const FacialAesthetics = () => {
                 techniques and products, ensuring that you receive the best
                 possible care and results.
               </p>
-            </div>
+            </section>
 
-            <div>
+            <section>
               <h2 className="text-3xl text-primary font-semibold mt-10">
                 Our Facial Aesthetics services encompass a wide range of options
               </h2>
@@ -215,9 +217,9 @@ const FacialAesthetics = () => {
                   <FaLongArrowAltRight className="text-lg ml-2" />
                 </Link>
               </div>
-            </div>
+            </section>
 
-            <div>
+            <section>
               <h2 className="text-3xl text-primary font-semibold mt-10 mb-6">
                 Our Commitment to Excellence: Utilizing the Finest Quality
                 Products
@@ -235,9 +237,9 @@ const FacialAesthetics = () => {
                 <img src={HaDermaImage} alt="" width={180} />
                 <img src={ProfhiloImage} alt="" />
               </div>
-            </div>
+            </section>
 
-            <div className="mt-16">
+            <section className="mt-16">
               <h2 className="text-3xl text-primary font-semibold mt-10 mb-6">
                 Facial Aesthetics Treatment FAQ
               </h2>
@@ -266,99 +268,131 @@ const FacialAesthetics = () => {
                   </ul>
                 </div>
               </div>
+            </section>
 
-              <div className="bg-background my-4 rounded-lg  p-4">
-                <h3 className="text-xl text-primary font-semibold mb-3">
-                  Things to Know:
-                </h3>
+            <section>
+              <h2 className="text-3xl text-primary font-semibold mt-10 mb-6">
+                How we are keeping you safe
+              </h2>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className="pr:0 lg:pr-10">
-                    <h5 className="text-neutral-500 font-semibold text-lg mt-3 flex items-center">
-                      <FaBirthdayCake className="mr-2 text-secondary" />
-                      Age Limit
-                    </h5>
-                    <p className="text-neutral-500  my-1 text-base leading-8 text">
-                      For the well-being and safety of our patients, we kindly
-                      request that all individuals seeking treatment with us be
-                      at least 18 years old.
-                    </p>
-                  </div>
-
-                  <div className="pl-0 lg:pl-10">
-                    <h5 className="text-neutral-500 font-semibold text-lg mt-3 flex items-center">
-                      <FaUserShield className="mr-2 text-secondary" />
-                      Privacy Policy
-                    </h5>
-                    <p className="text-neutral-500  my-1 text-base leading-8 ">
-                      We prioritize confidentiality and data protection,
-                      ensuring your personal information remains secure and
-                      handled with utmost care.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <h2 className="text-3xl text-primary font-semibold mt-10 mb-6">
-              How we are keeping you safe
-            </h2>
-
-            <StaticImage src="../../images/gloves.jpg" className="rounded-lg" />
-
-            <p className="text-neutral-500 mx-auto my-3 text-base leading-8 mt-6  text-justify">
-              At Parish Dental, your safety and well-being are our top priority.
-              We understand the concerns that come with receiving facial
-              aesthetics services during these uncertain times, and we want to
-              assure you that we have taken every necessary precaution to keep
-              our clinic a safe and healthy environment for you.
-            </p>
-
-            <div className="lg:float-right flex justify-center">
               <StaticImage
-                className="ml-0 lg:ml-6 my-3"
-                src="../../images/care-quality-commission.png"
-                width={350}
+                src="../../images/gloves.jpg"
+                className="rounded-lg"
               />
-            </div>
 
-            <p className="text-neutral-500 mx-auto my-3 text-base leading-8  text-justify">
-              As a regulated clinic under the Care Quality Commission (CQC), we
-              adhere to strict guidelines and protocols to ensure that our
-              clinic is clean, sterile, and sanitized. Our staff members are
-              trained in the latest safety procedures, including the use of
-              personal protective equipment and the proper handling and disposal
-              of hazardous materials. We also prioritize social distancing
-              guidelines and limit the number of patients we see at any given
-              time to reduce the risk of exposure.
-            </p>
+              <p className="text-neutral-500 mx-auto my-3 text-base leading-8 mt-6  text-justify">
+                At Parish Dental, your safety and well-being are our top
+                priority. We understand the concerns that come with receiving
+                facial aesthetics services during these uncertain times, and we
+                want to assure you that we have taken every necessary precaution
+                to keep our clinic a safe and healthy environment for you.
+              </p>
 
-            <p className="text-neutral-500 mx-auto my-3 text-base leading-8  text-justify">
-              Rest assured that by choosing Parish Dental, you are choosing a
-              clinic that meets the rigorous standards set by the CQC for
-              quality and safety. We are committed to providing you with
-              exceptional care in a secure and regulated environment. Your
-              health and peace of mind are of utmost importance to us."
-            </p>
+              <div className="lg:float-right flex justify-center">
+                <StaticImage
+                  className="ml-0 lg:ml-6 my-3"
+                  src="../../images/care-quality-commission.png"
+                  width={350}
+                />
+              </div>
 
-            <p className="text-neutral-500 mx-auto my-3 text-base leading-8  text-justify">
-              If you're interested in our Facial Aesthetics services, contact us
-              today to schedule a consultation. Our team will be happy to answer
-              any questions you may have and help you achieve the look you
-              desire.
-            </p>
-          </div>
+              <p className="text-neutral-500 mx-auto my-3 text-base leading-8  text-justify">
+                As a regulated clinic under the Care Quality Commission (CQC),
+                we adhere to strict guidelines and protocols to ensure that our
+                clinic is clean, sterile, and sanitized. Our staff members are
+                trained in the latest safety procedures, including the use of
+                personal protective equipment and the proper handling and
+                disposal of hazardous materials. We also prioritize social
+                distancing guidelines and limit the number of patients we see at
+                any given time to reduce the risk of exposure.
+              </p>
 
-          <div className="w-full lg:w-1/3 bg-white p-7 rounded-lg shadow-lg sticky top-5">
+              <p className="text-neutral-500 mx-auto my-3 text-base leading-8  text-justify">
+                Rest assured that by choosing Parish Dental, you are choosing a
+                clinic that meets the rigorous standards set by the CQC for
+                quality and safety. We are committed to providing you with
+                exceptional care in a secure and regulated environment. Your
+                health and peace of mind are of utmost importance to us."
+              </p>
+
+              <p className="text-neutral-500 mx-auto my-3 text-base leading-8  text-justify">
+                If you're interested in our Facial Aesthetics services, contact
+                us today to schedule a consultation. Our team will be happy to
+                answer any questions you may have and help you achieve the look
+                you desire.
+              </p>
+            </section>
+          </article>
+
+          <aside className="w-full lg:w-1/3 bg-white p-7 rounded-lg shadow-lg sticky top-5">
             <h3 className="text-xl font-semibold text-primary mb-3">
               Request an Appointment
             </h3>
             <Form oneCol />
+          </aside>
+        </div>
+
+        {/* Things to know */}
+        <div className="bg-background my-4 rounded-lg  p-4 relative z-10">
+          <div className="pt-10 pb-24 container mx-auto  px-10 flex">
+            <div className="grid grid-cols-1 lg:grid-cols-3">
+              <div className="pr:0 lg:pr-10">
+                <h3 className="text-3xl text-primary font-semibold mb-3">
+                  Things to Know:
+                </h3>
+                <p className="text-neutral-500 text-base leading-8  text-justify">
+                  Discover important details to ensure a smooth and comfortable
+                  dental experience.
+                </p>
+              </div>
+              <div className="pr:0 lg:pr-10">
+                <h5 className="text-neutral-500 font-semibold text-lg mt-3 flex items-center">
+                  <FaBirthdayCake className="mr-2 text-secondary" />
+                  Age Limit
+                </h5>
+                <p className="text-neutral-500  my-1 text-base leading-8 text">
+                  For the well-being and safety of our patients, we kindly
+                  request that all individuals seeking treatment with us be at
+                  least 18 years old.
+                </p>
+              </div>
+
+              <div className="pl-0 lg:pl-10">
+                <h5 className="text-neutral-500 font-semibold text-lg mt-3 flex items-center">
+                  <FaUserShield className="mr-2 text-secondary" />
+                  Privacy Policy
+                </h5>
+                <p className="text-neutral-500  my-1 text-base leading-8 ">
+                  We prioritize confidentiality and data protection, ensuring
+                  your personal information remains secure and handled with
+                  utmost care.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <HomeBanner />
-      </section>
+        <div className="-mt-20 container mx-auto  flex flex-col lg:flex-row  z-10 relative bg-white rounded-lg shadow-lg">
+          <div className="w-full lg:w-1/2 relative ">
+            <StaticImage
+              src="../../images/positive-girl-dentist.jpeg"
+              layout="fullWidth"
+              placeholder="blurred"
+              className="h-full rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg  relative before:content-[''] before:absolute before:w-full before:h-full before:left-0 before:top-0 before:bg-secondary/90 before:z-20 min-h-[600px]"
+            />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full z-50 px-10">
+              <AestheticsPageTestimonial />
+            </div>
+          </div>
+          <div className="w-full lg:w-1/2 px-7 py-20">
+            <h2 className="text-3xl text-primary font-semibold mb-7">
+              Get in Touch with Parish Dental Practice
+            </h2>
+
+            <QueriesForm />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

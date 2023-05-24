@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { convertToBgImage } from "gbimage-bridge";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import BackgroundImage from "gatsby-background-image";
+import QueriesForm from "../global/QueriesForm";
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
@@ -48,15 +49,18 @@ const Contact = () => {
 
         <div className="w-full lg:w-1/2  pl-0 lg:pl-10 py-20 lg:py-36 relative">
           <h3 className="uppercase text-secondary font-medium tracking-[0.2em] text-sm">
-            {contactData?.subtitle}
+            Contact Us
           </h3>
           <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
-            {contactData?.mainTitle}
+            Get In Touch
           </h2>
-          <ReactMarkdown className="text-neutral-500 mx-auto my-5 text-base leading-8">
-            {contactData?.description.description}
-          </ReactMarkdown>
-          <Form submitButtonText="Send" inputBg="bg-background" />
+          <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
+            Have a question or need more information? Feel free to reach out to
+            us using the enquiries form below. Our team is here to assist you
+            and provide prompt responses to your queries. We value your interest
+            and look forward to hearing from you.
+          </p>
+          <QueriesForm />
           <svg
             className="absolute hidden lg:block top-0 -left-28 w-28 h-full z-10"
             width="100%"

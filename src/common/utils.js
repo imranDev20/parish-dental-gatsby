@@ -15,3 +15,13 @@ export function customSlugify(text) {
 
   return slug;
 }
+
+export function serviceLink(index, service) {
+  if (index === 4 || index === 5) {
+    return `/services/${customSlugify(service.name)}`;
+  } else if (index === 6) {
+    return "https://emergency247dentist.co.uk/";
+  } else {
+    return "/services";
+  }
+}

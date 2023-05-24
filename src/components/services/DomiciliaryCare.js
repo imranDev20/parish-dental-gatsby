@@ -1,7 +1,132 @@
 import React from "react";
+import Seo from "../global/Seo";
+import PageHeader from "../global/PageHeader";
+import Form from "../global/Form";
+import HomeBanner from "../home/HomeBanner";
+import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const DomiciliaryCare = () => {
-  return <div>DomiciliaryCare</div>;
+  const points = [
+    "Unique mobile dental service",
+    "Working with 200+ care homes",
+    "Make your home oral-health CQC-compliant",
+    " NHS partners",
+    "The very latest mobile dental equipment",
+    "Hundreds of satisfied patients",
+    "Attract more residents",
+    "Engage carers and improve staff retention",
+  ];
+
+  return (
+    <>
+      <Seo
+        title="Dociliary Care"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+      />
+
+      <PageHeader pageTitle="Dociliary Care" />
+      <div className="bg-gradient-to-b from-backgroundSecondary to-white py-10">
+        <div
+          className={`container mx-auto flex flex-col lg:flex-row px-10 items-start relative mb-20`}
+        >
+          <article className="w-full lg:w-2/3  pr-0 lg:pr-7">
+            <section>
+              <StaticImage
+                src="../../images/domiciliary-van.jpg"
+                layout="fullWidth"
+                aspectRatio={15 / 13}
+                placeholder="blurred"
+                imgClassName="rounded"
+                className="rounded-lg"
+                transformOptions={{
+                  cropFocus: "center",
+                }}
+              />
+              <h1 className="text-4xl text-primary font-semibold mt-10 mb-2 leading-[1.3]">
+                Experience Convenient Mobile Dental Care with Comprehensive
+                Dentistry Delivered to Your Doorstep
+              </h1>
+
+              <p className="text-neutral-500  text-base leading-8 text-justify mx-auto my-3">
+                Parish Dental Mobile is a unique dental service that can deliver
+                a full range of dental services directly to your home, care home
+                or work place. By taking advantage of years of experience in
+                delivering both traditional and mobile dentistry and embracing
+                new technology we are able to provide the very latest in
+                dentistry ensuring the very best in dental health.
+              </p>
+              <p className="text-secondary  font-semibold leading-8 text-justify mx-auto my-3">
+                At each visit we bring the dentist to you.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-primary text-xl font-semibold mt-7">
+                Concerned about your residents' dental needs? <br /> We Are The
+                Dentists That Come To You.
+              </h3>
+
+              <ul className="mt-3 list-disc list-inside">
+                {points.map((item, index) => (
+                  <li
+                    className="text-neutral-500  text-base leading-8 "
+                    key={index}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-3xl text-primary font-semibold mt-10 mb-3">
+                We Come to You
+              </h2>
+              <p className="text-neutral-500  text-base leading-8 text-justify mx-auto my-3">
+                We have a modern, well-equipped van that allows us to visit you
+                at your home, care home, or workplace.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-3xl text-primary font-semibold mt-10 mb-3">
+                Location
+              </h2>
+              <p className="text-neutral-500  text-base leading-8 text-justify mx-auto my-3">
+                Parish Dental Mobile visits patients across the UK.
+              </p>
+            </section>
+
+            <section>
+              <p className="text-neutral-500 text-xl font-semibold mt-7">
+                Let us look after your dental health. Call us on{" "}
+                <a href="tel:08081694546" className="text-secondary">
+                  0808 169 4546{" "}
+                </a>
+                or{" "}
+                <Link to="#appointment" className="text-secondary">
+                  make an appointment.
+                </Link>
+              </p>
+            </section>
+          </article>
+
+          <aside
+            id="appointment"
+            className="w-full lg:w-1/3 bg-white p-7 rounded-lg shadow-lg sticky top-5  mt-10 lg:mt-0"
+          >
+            <h3 className="text-xl font-semibold text-primary mb-3">
+              Request an Appointment
+            </h3>
+            <Form oneCol />
+          </aside>
+        </div>
+
+        <HomeBanner />
+      </div>
+    </>
+  );
 };
 
 export default DomiciliaryCare;

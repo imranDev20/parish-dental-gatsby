@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import loadable from "@loadable/component";
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Script } from "gatsby";
+import Drawer from "./Drawer";
 const Footer = loadable(() => import("./Footer"));
 
 const Layout = ({ children }) => {
