@@ -32,13 +32,6 @@ const Layout = ({ children }) => {
       })(document, window, 'Chatra');`,
         }}
       />
-
-      <Script
-        async
-        id="setmore_script"
-        type="text/javascript"
-        src="https://my.setmore.com/webapp/js/src/others/setmore_iframe.js"
-      ></Script>
     </>
   );
 };

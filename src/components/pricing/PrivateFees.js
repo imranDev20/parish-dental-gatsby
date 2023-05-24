@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import SectionHeader from "../global/SectionHeader";
 import PrivateFeeFiltered from "./PrivateFeeFiltered";
 
@@ -27,7 +27,6 @@ const PrivateFees = () => {
   return (
     <>
       <section className="w-full bg-white">
-        <Link to="#facial-aesthetics">Button</Link>
         <div className="py-24 mx-auto container px-10 ">
           <SectionHeader
             mainTitle={header?.mainTitle}
