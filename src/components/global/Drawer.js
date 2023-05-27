@@ -6,6 +6,7 @@ import { Link } from "gatsby";
 import { customSlugify, serviceLink } from "../../common/utils";
 import useServicesQuery from "../../hooks/useServicesQuery";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
+import BookingButton from "./BookingButton";
 
 const Drawer = ({ open, setOpen }) => {
   const [isServices, setIsServices] = useState(false);
@@ -59,6 +60,7 @@ const Drawer = ({ open, setOpen }) => {
               <Link
                 activeClassName="text-secondary"
                 className="py-2 text-neutral-500 leading-8"
+                target={index === 6 ? "_blank" : "_self"}
                 to={serviceLink(index, service)}
               >
                 {service.name}
@@ -66,14 +68,9 @@ const Drawer = ({ open, setOpen }) => {
             ))
           : null}
 
-        <a
-          className="mt-10 w-32 flex items-center bg-secondary rounded px-3 py-2 text-white"
-          id="Setmore_button_iframe"
-          href="https://booking.setmore.com/scheduleappointment/932f19c8-6989-4716-93c5-c73ac31d511b"
-        >
-          <BsFillCalendar2DateFill className="mr-2" />
-          Book Now
-        </a>
+        <div className="mt-10">
+          <BookingButton />
+        </div>
       </div>
     </div>
   );

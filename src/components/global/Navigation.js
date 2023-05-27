@@ -9,6 +9,7 @@ import {
 import { Menu, Transition } from "@headlessui/react";
 import useServicesQuery from "../../hooks/useServicesQuery";
 import { customSlugify, serviceLink } from "../../common/utils";
+import BookingButton from "./BookingButton";
 
 const Navigation = ({ open }) => {
   const services = useServicesQuery();
@@ -88,15 +89,9 @@ const Navigation = ({ open }) => {
         }
       })}
 
-      <a
-        className="ml-4 w-32 flex items-center bg-secondary rounded px-3 py-2 text-white"
-        id="Setmore_button_iframe"
-        href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02"
-        target="_blank"
-      >
-        <BsFillCalendar2DateFill className="mr-2" />
-        Book Now
-      </a>
+      <div className="ml-4">
+        <BookingButton />
+      </div>
     </nav>
   );
 };
