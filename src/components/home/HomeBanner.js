@@ -32,7 +32,8 @@ const HomeBanner = () => {
           <a
             className="mt-5 block w-32"
             id="Setmore_button_iframe"
-            href="https://booking.setmore.com/scheduleappointment/932f19c8-6989-4716-93c5-c73ac31d511b"
+            href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02"
+            target="_blank"
           >
             <img
               border="none"

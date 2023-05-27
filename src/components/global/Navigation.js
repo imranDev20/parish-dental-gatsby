@@ -91,7 +91,8 @@ const Navigation = ({ open }) => {
       <a
         className="ml-4 w-32 flex items-center bg-secondary rounded px-3 py-2 text-white"
         id="Setmore_button_iframe"
-        href="https://booking.setmore.com/scheduleappointment/932f19c8-6989-4716-93c5-c73ac31d511b"
+        href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02"
+        target="_blank"
       >
         <BsFillCalendar2DateFill className="mr-2" />
         Book Now

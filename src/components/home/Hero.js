@@ -183,7 +183,10 @@ const Hero = () => {
                         ) : null}
 
                         {index === 1 ? (
-                          <a href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02">
+                          <a
+                            href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02"
+                            target="_blank"
+                          >
                             <motion.div
                               initial={{
                                 opacity: 0,
