@@ -1,10 +1,11 @@
 import React from "react";
-import Faq from "../components/about/Faq";
-import WhatWeDo from "../components/about/WhatWeDo";
-import WhoWeAre from "../components/about/WhoWeAre";
+import loadable from "@loadable/component";
 import Layout from "../components/global/Layout";
 import PageHeader from "../components/global/PageHeader";
 import Seo from "../components/global/Seo";
+
+const Faq = loadable(() => import("../components/about/Faq"));
+const WhoWeAre = loadable(() => import("../components/about/WhoWeAre"));
 
 const AboutPage = () => {
   return (
@@ -13,7 +14,6 @@ const AboutPage = () => {
       <PageHeader pageTitle="About" />
       <WhoWeAre />
       <Faq />
-      {/* <WhatWeDo /> */}
     </Layout>
   );
 };

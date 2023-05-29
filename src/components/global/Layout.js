@@ -5,11 +5,53 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Script } from "gatsby";
 import Drawer from "./Drawer";
+import { ThemeProvider } from "@material-tailwind/react";
 const Footer = loadable(() => import("./Footer"));
 
 const Layout = ({ children }) => {
+  const theme = {
+    input: {
+      styles: {
+        base: {
+          input: {
+            color: "text-gray-400 focus:!border-secondary",
+          },
+          label: {
+            color:
+              "peer-focus:text-white  peer-focus:after:!border-secondary peer-focus:before:!border-secondary after:border-secondary",
+          },
+        },
+      },
+    },
+    textarea: {
+      styles: {
+        base: {
+          textarea: {
+            color: "text-gray-400 focus:border-secondary",
+          },
+          label: {
+            color:
+              "peer-focus:text-white  peer-focus:after:!border-secondary peer-focus:before:!border-secondary after:border-secondary",
+          },
+        },
+      },
+    },
+    button: {
+      styles: {
+        base: {
+          initial: {
+            color: "text-secondary focus:ring-secondary/20 border-secondary",
+          },
+          fullWidth: {
+            color: "text-secondary focus:ring-secondary/20 border-secondary",
+          },
+        },
+      },
+    },
+  };
+
   return (
-    <>
+    <ThemeProvider value={theme}>
       <Header />
       <main>{children}</main>
       <ToastContainer />
@@ -32,7 +74,11 @@ const Layout = ({ children }) => {
       })(document, window, 'Chatra');`,
         }}
       />
-    </>
+      <Script
+        type="text/javascript"
+        src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
+      ></Script>
+    </ThemeProvider>
   );
 };
 

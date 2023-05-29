@@ -47,7 +47,7 @@ const Features = () => {
           <h3 className="text-primary font-semibold text-3xl my-2">{title}</h3>
           <a
             target="_blank"
-            className="text-neutral-500 hover:text-secondary transition-colors flex items-center"
+            className="text-gray-500 hover:text-secondary transition-colors flex items-center"
             href="https://www.nhs.uk/nhs-services/dentists/dental-costs/"
           >
             Check NHS Prices <BsArrowRight className="ml-2" />
@@ -66,7 +66,7 @@ const Features = () => {
           </h3>
           <a
             target="_blank"
-            className="text-neutral-500 hover:text-secondary transition-colors flex items-center"
+            className="text-gray-500 hover:text-secondary transition-colors flex items-center"
             href="https://www.cqc.org.uk/location/1-343682922"
           >
             Check Our Profile <BsArrowRight className="ml-2" />
@@ -85,7 +85,7 @@ const Features = () => {
         </div>
         <div>
           {features?.map((point, index) => (
-            <p key={index} className="my-3 text-neutral-500 flex items-center">
+            <p key={index} className="my-3 text-gray-500 flex items-center">
               <span className="text-secondary font-medium text-xl mr-3">+</span>
               {point}
             </p>

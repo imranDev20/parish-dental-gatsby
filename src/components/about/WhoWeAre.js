@@ -41,7 +41,7 @@ const WhoWeAre = () => {
             <h2 className="text-4xl text-primary font-semibold mb-5 mt-2">
               {whoWeAreData?.mainTitle}
             </h2>
-            <ReactMarkdown className="text-neutral-500 mx-auto my-5 text-base leading-8">
+            <ReactMarkdown className="text-gray-500 mx-auto my-5 text-base leading-8">
               {whoWeAreData?.description?.description}
             </ReactMarkdown>
             <LinkButton to="/services" variant="blue" className="px-4 py-5">

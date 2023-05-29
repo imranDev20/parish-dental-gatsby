@@ -1,8 +1,6 @@
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import { AiOutlineCheck } from "react-icons/ai";
-import { NormalButton } from "../global/Button";
-import { Script } from "gatsby";
 import BookingButton from "../global/BookingButton";
 
 const HomeBanner = () => {
@@ -13,7 +11,7 @@ const HomeBanner = () => {
           <h3 className="text-primary font-bold text-2xl mb-4">
             Making Private Dentistry <br /> More Affordable
           </h3>
-          <ul className=" text-neutral-500 text-lg">
+          <ul className=" text-gray-500 text-lg">
             <li className="flex items-center">
               <AiOutlineCheck className="mr-2 text-primary" /> New Fee Structure
             </li>

@@ -36,7 +36,7 @@ const ContactPageForm = () => {
         <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
           {contactData?.subtitle}
         </h2>
-        <ReactMarkdown className="text-neutral-500 mx-auto my-5 text-base leading-8">
+        <ReactMarkdown className="text-gray-500 mx-auto my-5 text-base leading-8">
           {contactData?.description?.description}
         </ReactMarkdown>
         <QueriesForm inputBg="bg-white" />

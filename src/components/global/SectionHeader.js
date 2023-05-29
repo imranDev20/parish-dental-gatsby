@@ -10,7 +10,7 @@ const SectionHeader = ({ subTitle, mainTitle, description, className }) => {
       <h2 className="text-center text-5xl my-2 capitalize font-semibold text-primary">
         {mainTitle}
       </h2>
-      <ReactMarkdown className="text-neutral-500 max-w-4xl text-center mx-auto my-5 text-lg">
+      <ReactMarkdown className="text-gray-500 max-w-4xl text-center mx-auto my-5 text-lg">
         {description ? description : null}
       </ReactMarkdown>
     </div>

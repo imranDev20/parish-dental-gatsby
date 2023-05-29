@@ -23,8 +23,8 @@ const TestimonialCard = ({ testimonial, white }) => {
         {title}
       </h3>
       <ReactMarkdown
-        className={`text-center my-5 text-neutral-500 leading-8 max-w-4xl ${
-          white ? "text-white" : "text-neutral-500"
+        className={`text-center my-5 text-gray-500 leading-8 max-w-4xl ${
+          white ? "text-white" : "text-gray-500"
         }`}
       >
         {description.description ? description.description : description}

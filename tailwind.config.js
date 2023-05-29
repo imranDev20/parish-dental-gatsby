@@ -1,9 +1,12 @@
 let plugin = require("tailwindcss/plugin");
+const withMT = require("@material-tailwind/react/utils/withMT");
 
-module.exports = {
+module.exports = withMT({
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/tailwind-datepicker-react/dist/**/*.js",
+    "./src/pages/**/*.{js,jsx,ts,tsx}",
+    "path-to-your-node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
+    "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
 
   theme: {
@@ -16,6 +19,19 @@ module.exports = {
         secondary: "#FF48A4",
         background: "#EBFCFA",
         backgroundSecondary: "#FFF3F9",
+
+        customPink: {
+          50: "#FF48A4",
+          100: "#FF48A4",
+          200: "#FF48A4",
+          300: "#FF48A4",
+          400: "#FF48A4",
+          500: "#FF48A4",
+          600: "#FF48A4",
+          700: "#FF48A4",
+          800: "#FF48A4",
+          900: "#FF48A4",
+        },
       },
     },
   },
@@ -26,4 +42,4 @@ module.exports = {
       addVariant("third", "&:nth-child(3)");
     }),
   ],
-};
+});

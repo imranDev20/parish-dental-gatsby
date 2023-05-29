@@ -48,7 +48,7 @@ const DomiciliaryCare = () => {
                 Dentistry Delivered to Your Doorstep
               </h1>
 
-              <p className="text-neutral-500  text-base leading-8 text-justify mx-auto my-3">
+              <p className="text-gray-500  text-base leading-8 text-justify mx-auto my-3">
                 Parish Dental Mobile is a unique dental service that can deliver
                 a full range of dental services directly to your home, care home
                 or work place. By taking advantage of years of experience in
@@ -70,7 +70,7 @@ const DomiciliaryCare = () => {
               <ul className="mt-3 list-disc list-inside">
                 {points.map((item, index) => (
                   <li
-                    className="text-neutral-500  text-base leading-8 "
+                    className="text-gray-500  text-base leading-8 "
                     key={index}
                   >
                     {item}
@@ -83,7 +83,7 @@ const DomiciliaryCare = () => {
               <h2 className="text-3xl text-primary font-semibold mt-10 mb-3">
                 We Come to You
               </h2>
-              <p className="text-neutral-500  text-base leading-8 text-justify mx-auto my-3">
+              <p className="text-gray-500  text-base leading-8 text-justify mx-auto my-3">
                 We have a modern, well-equipped van that allows us to visit you
                 at your home, care home, or workplace.
               </p>
@@ -93,13 +93,13 @@ const DomiciliaryCare = () => {
               <h2 className="text-3xl text-primary font-semibold mt-10 mb-3">
                 Location
               </h2>
-              <p className="text-neutral-500  text-base leading-8 text-justify mx-auto my-3">
+              <p className="text-gray-500  text-base leading-8 text-justify mx-auto my-3">
                 Parish Dental Mobile visits patients across the UK.
               </p>
             </section>
 
             <section>
-              <p className="text-neutral-500 text-xl font-semibold mt-7">
+              <p className="text-gray-500 text-xl font-semibold mt-7">
                 Let us look after your dental health. Call us on{" "}
                 <a href="tel:08081694546" className="text-secondary">
                   0808 169 4546{" "}

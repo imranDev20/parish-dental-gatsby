@@ -34,7 +34,7 @@ const Drawer = ({ open, setOpen }) => {
               if (page.name === "Services") {
                 return (
                   <div
-                    className="py-2 items-center flex justify-between cursor-pointer text-neutral-500 leading-8"
+                    className="py-2 items-center flex justify-between cursor-pointer text-gray-500 leading-8"
                     onClick={(e) => setIsServices(true)}
                   >
                     {page.name} <FaChevronRight className="ml-2 text-xl" />
@@ -46,7 +46,7 @@ const Drawer = ({ open, setOpen }) => {
                 <Link
                   activeClassName="text-secondary"
                   to={page.route}
-                  className="py-2 text-neutral-500 leading-8"
+                  className="py-2 text-gray-500 leading-8"
                   onClick={(e) => console.log(e)}
                 >
                   {page.name}
@@ -59,7 +59,7 @@ const Drawer = ({ open, setOpen }) => {
           ? services.map((service, index) => (
               <Link
                 activeClassName="text-secondary"
-                className="py-2 text-neutral-500 leading-8"
+                className="py-2 text-gray-500 leading-8"
                 target={index === 6 ? "_blank" : "_self"}
                 to={serviceLink(index, service)}
               >

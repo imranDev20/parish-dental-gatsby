@@ -78,7 +78,7 @@ const Form = ({
   };
 
   const inputClasses = [
-    `${inputBg} px-4 outline-none ring-2 ring-primary/10 focus:ring-2 focus:ring-primary/40 rounded  my-2 transition-all w-full text-neutral-400 focus:text-neutral-600 py-2`,
+    `${inputBg} px-4 outline-none ring-2 ring-primary/10 focus:ring-2 focus:ring-primary/40 rounded  my-2 transition-all w-full text-gray-400 focus:text-gray-600 py-2`,
   ];
 
   return (

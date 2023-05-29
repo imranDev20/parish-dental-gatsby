@@ -74,7 +74,7 @@ h6 {
 }
 
 ::-webkit-datetime-edit-fields-wrapper {
-  @apply text-neutral-400 focus:text-neutral-600;
+  @apply text-gray-400 focus:text-gray-600;
 }
 ::-webkit-calendar-picker-indicator {
   @apply filter opacity-60;

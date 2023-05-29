@@ -51,7 +51,7 @@ export default function Faq() {
         <h2 className="text-4xl text-primary font-semibold mb-5 mt-2">
           {section.mainTitle}
         </h2>
-        {/* <p className="text-neutral-500 mx-auto my-5 text-base leading-8">
+        {/* <p className="text-gray-500 mx-auto my-5 text-base leading-8">
           {section.description.description}
         </p> */}
         {faqs.map((faq, index) => (
@@ -73,7 +73,7 @@ export default function Faq() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 text-sm text-gray-500 bg-background">
-                  <ReactMarkdown className="text-neutral-500 mx-auto py-3  text-base leading-8">
+                  <ReactMarkdown className="text-gray-500 mx-auto py-3  text-base leading-8">
                     {faq.description.description}
                   </ReactMarkdown>
                 </Disclosure.Panel>

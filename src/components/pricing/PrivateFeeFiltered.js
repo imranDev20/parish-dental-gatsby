@@ -51,7 +51,7 @@ const PrivateFeeFiltered = ({ category }) => {
                 className="flex justify-between items-center"
               >
                 <div className="flex justify-between items-center w-full border-b">
-                  <h5 className="text-base lg:text-xl text-neutral-500 my-4 w-3/5 max-w-[600px] ">
+                  <h5 className="text-base lg:text-xl text-gray-500 my-4 w-3/5 max-w-[600px] ">
                     {fee?.service}
                   </h5>
                   <p className="text-base lg:text-lg text-secondary font-medium w-1/5">

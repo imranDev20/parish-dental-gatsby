@@ -42,7 +42,7 @@ const About = () => {
           <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
             {aboutContents?.mainTitle}
           </h2>
-          <ReactMarkdown className="text-neutral-500 mx-auto my-5 text-base leading-8">
+          <ReactMarkdown className="text-gray-500 mx-auto my-5 text-base leading-8">
             {aboutContents?.description.description}
           </ReactMarkdown>
           <svg

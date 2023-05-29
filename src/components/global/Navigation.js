@@ -1,14 +1,10 @@
 import { Link } from "gatsby";
 import React, { Fragment } from "react";
 import { navPages } from "../../common/constant";
-import {
-  BsCheck,
-  BsChevronCompactDown,
-  BsFillCalendar2DateFill,
-} from "react-icons/bs";
+import { BsChevronCompactDown } from "react-icons/bs";
 import { Menu, Transition } from "@headlessui/react";
 import useServicesQuery from "../../hooks/useServicesQuery";
-import { customSlugify, serviceLink } from "../../common/utils";
+import { serviceLink } from "../../common/utils";
 import BookingButton from "./BookingButton";
 
 const Navigation = ({ open }) => {

@@ -28,7 +28,7 @@ const Services = () => {
               >
                 <h3>{service?.name}</h3>
               </Link>
-              <ReactMarkdown className="text-neutral-500">
+              <ReactMarkdown className="text-gray-500">
                 {service?.description.description}
               </ReactMarkdown>
             </div>

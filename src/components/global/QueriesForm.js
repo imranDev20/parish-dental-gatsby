@@ -34,7 +34,7 @@ const QueriesForm = ({ inputBg, oneCol }) => {
 
   const notify = () => {
     if (!toast.isActive(toastId.current)) {
-      toastId.current = toast.success("Appointment request successful!", {
+      toastId.current = toast.success("Message sent successfully!", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
