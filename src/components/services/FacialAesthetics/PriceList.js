@@ -76,7 +76,7 @@ const PriceList = () => {
   return (
     <section className="container mx-auto px-10 mt-28">
       <h2 className="text-4xl text-center font-semibold mb-16">
-        Facial Aesthetics Price List
+        Aesthetics Price List
       </h2>
       <div className="flex flex-wrap ">
         {prices.map((price) => (

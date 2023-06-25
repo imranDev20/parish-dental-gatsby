@@ -14,9 +14,7 @@ const Contact = () => {
       <div className="container mx-auto px-10 grid lg:grid-cols-2 absolute top-1/2 -translate-y-1/2">
         <div></div>
         <div className="py-10 bg-[#1E1E1E] p-9 rounded-lg">
-          <h2 className="text-3xl font-semibold">
-            Have Questions? <br /> Contact Us
-          </h2>
+          <h2 className="text-3xl font-semibold">Contact Us</h2>
           <QueriesFormDark />
         </div>
       </div>

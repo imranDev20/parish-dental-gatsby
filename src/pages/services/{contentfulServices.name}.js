@@ -5,6 +5,7 @@ import { customSlugify } from "../../common/utils";
 import FacialAesthetics from "../../components/services/FacialAesthetics";
 import NotFoundPage from "../404";
 import DomiciliaryCare from "../../components/services/DomiciliaryCare";
+import Whitening from "../../components/services/Whitening/Whitening";
 
 const ServicesSinglePage = ({ data }) => {
   const { name } = data.contentfulServices;
@@ -12,8 +13,9 @@ const ServicesSinglePage = ({ data }) => {
 
   return (
     <Layout>
-      {slug === "facial-aesthetics" ? <FacialAesthetics /> : <NotFoundPage />}
+      {slug === "aesthetics" ? <FacialAesthetics /> : <NotFoundPage />}
       {slug === "domiciliary-care" ? <DomiciliaryCare /> : <NotFoundPage />}
+      {slug === "whitening" ? <Whitening /> : <NotFoundPage />}
     </Layout>
   );
 };

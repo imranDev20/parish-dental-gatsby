@@ -55,7 +55,7 @@ const Form = ({
     }
   };
 
-  const url = `${process.env.EMAIL_SERVER}/appointment`;
+  const url = `${process.env.SERVER_URL}/appointment`;
 
   const onSubmit = (data) => {
     setIsLoading(true);

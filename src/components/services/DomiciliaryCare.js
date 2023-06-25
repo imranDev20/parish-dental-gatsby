@@ -49,15 +49,12 @@ const DomiciliaryCare = () => {
               </h1>
 
               <p className="text-gray-500  text-base leading-8 text-justify mx-auto my-3">
-                Parish Dental Mobile is a unique dental service that can deliver
-                a full range of dental services directly to your home, care home
-                or work place. By taking advantage of years of experience in
-                delivering both traditional and mobile dentistry and embracing
-                new technology we are able to provide the very latest in
-                dentistry ensuring the very best in dental health.
-              </p>
-              <p className="text-secondary  font-semibold leading-8 text-justify mx-auto my-3">
-                At each visit we bring the dentist to you.
+                Parish Dental Mobile is a unique dental service that enables our
+                patients to access a full range of dental services from the
+                comfort of their own home. With many combined years of dental
+                experience in both traditional and mobile dentistry along with
+                the latest technology and equipment we guarantee our patients
+                the upmost satisfactory service.
               </p>
             </section>
 
@@ -84,8 +81,8 @@ const DomiciliaryCare = () => {
                 We Come to You
               </h2>
               <p className="text-gray-500  text-base leading-8 text-justify mx-auto my-3">
-                We have a modern, well-equipped van that allows us to visit you
-                at your home, care home, or workplace.
+                We have a modern, well-equipped mobile surgery  that allows us
+                to visit you in the comfort of your own home.
               </p>
             </section>
 

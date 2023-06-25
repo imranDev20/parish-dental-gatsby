@@ -14,7 +14,7 @@ const AestheticsServices = () => {
       name: "Botox",
       icon: BotoxIcon,
       description:
-        "Botox is a non-surgical treatment that smooths out wrinkles and fine lines, giving you a more youthful and rejuvenated appearance.",
+        "Botox is a non-surgical treatment that smooths out wrinkles and fine lines, giving you a more youthful appearance.",
     },
     {
       id: 2,
@@ -55,7 +55,7 @@ const AestheticsServices = () => {
   return (
     <section className="container mx-auto px-10 mt-28">
       <h2 className="text-4xl text-center font-semibold mb-16">
-        Facial Aesthetics Treatments
+        Aesthetics Treatments
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {aesthetics.map((item) => (

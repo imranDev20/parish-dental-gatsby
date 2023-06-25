@@ -55,7 +55,7 @@ export default function Faq() {
           {section.description.description}
         </p> */}
         {faqs.map((faq, index) => (
-          <Disclosure>
+          <Disclosure key={index}>
             {({ open }) => (
               <>
                 <Disclosure.Button

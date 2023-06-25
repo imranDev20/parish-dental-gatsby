@@ -22,6 +22,25 @@ module.exports = {
         icon: "src/images/Icon-parish.svg",
       },
     },
+
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: [
+          "Balance",
+          "BalanceTransaction",
+          "Product",
+          "Price",
+          "ApplicationFee",
+          "Sku",
+          "Subscription",
+        ],
+        secretKey:
+          "sk_test_51NMBsXLhiqOmfmWIGIsm5mfXrRrolKG9IW0ZBxfQCR7397d5YawONzvWIDc0YMnT8wwSh2UZQX0JryNWUHcI6Uqy00u9eYGeyR",
+        downloadFiles: true,
+      },
+    },
+
     {
       resolve: "gatsby-background-image",
       options: {

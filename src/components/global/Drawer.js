@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { navPages } from "../../common/constant";
-import Logo from "./Logo";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Link } from "gatsby";
-import { customSlugify, serviceLink } from "../../common/utils";
+import { serviceLink } from "../../common/utils";
 import useServicesQuery from "../../hooks/useServicesQuery";
-import { BsFillCalendar2DateFill } from "react-icons/bs";
 import BookingButton from "./BookingButton";
 
 const Drawer = ({ open, setOpen }) => {
@@ -34,6 +32,7 @@ const Drawer = ({ open, setOpen }) => {
               if (page.name === "Services") {
                 return (
                   <div
+                    key={page.id}
                     className="py-2 items-center flex justify-between cursor-pointer text-gray-500 leading-8"
                     onClick={(e) => setIsServices(true)}
                   >
@@ -44,6 +43,7 @@ const Drawer = ({ open, setOpen }) => {
 
               return (
                 <Link
+                  key={page.id}
                   activeClassName="text-secondary"
                   to={page.route}
                   className="py-2 text-gray-500 leading-8"
@@ -58,6 +58,7 @@ const Drawer = ({ open, setOpen }) => {
         {isServices
           ? services.map((service, index) => (
               <Link
+                key={index}
                 activeClassName="text-secondary"
                 className="py-2 text-gray-500 leading-8"
                 target={index === 6 ? "_blank" : "_self"}

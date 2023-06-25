@@ -14,11 +14,11 @@ const KeepingSafe = () => {
           </h2>
 
           <p className="leading-8 text-gray-400">
-            At Parish Dental, your safety is paramount. We prioritize your
+            At Parish Dental, your safety is paramount. We prioritise your
             well-being and have implemented stringent measures to create a safe
             and healthy environment. As a regulated clinic under the Care
             Quality Commission (CQC), we adhere to rigorous guidelines for
-            cleanliness, sterilization, and staff training. Our team is equipped
+            cleanliness, sterilisation, and staff training. Our team is equipped
             with the latest safety procedures and personal protective equipment.
             We maintain social distancing and limit patient numbers to ensure
             minimal risk of exposure. By choosing Parish Dental, you can trust

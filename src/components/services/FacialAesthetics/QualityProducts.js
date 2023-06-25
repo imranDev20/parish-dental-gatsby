@@ -10,12 +10,11 @@ const QualityProducts = () => {
       <div className=" container px-10 mx-auto flex flex-col lg:flex-row mt-28">
         <div className=" w-full lg:w-1/2">
           <h2 className="text-4xl font-semibold mb-10">
-            We exclusively utilize premium-grade products of exceptional quality
+            We exclusively utilise premium-grade products of exceptional quality
           </h2>
           <p className="leading-8 text-gray-400">
-            Experience the epitome of luxury and excellence with our facial
-            aesthetics services, where we employ solely the finest quality
-            products to ensure exceptional results and utmost satisfaction
+            Experience excellence with our Aesthetics services, where we use
+            only the finest products to ensure exceptional results each time.
           </p>
         </div>
         <div className="w-full lg:w-1/2 flex flex-wrap p-3 pt-0 mt-10 lg:mt-0">

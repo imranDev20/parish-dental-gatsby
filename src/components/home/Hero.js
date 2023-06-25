@@ -176,9 +176,7 @@ const Hero = () => {
                             }}
                             className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
                           >
-                            <Link to="/services/facial-aesthetics">
-                              Learn More
-                            </Link>
+                            <Link to="/services/aesthetics">Learn More</Link>
                           </motion.button>
                         ) : null}
 

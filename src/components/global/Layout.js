@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import loadable from "@loadable/component";
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Script } from "gatsby";
-import Drawer from "./Drawer";
-import { ThemeProvider } from "@material-tailwind/react";
+import { Button, IconButton, ThemeProvider } from "@material-tailwind/react";
+import { BsArrowUp } from "react-icons/bs";
+import { CartProvider } from "use-shopping-cart";
 const Footer = loadable(() => import("./Footer"));
 
 const Layout = ({ children }) => {
@@ -39,16 +40,40 @@ const Layout = ({ children }) => {
     button: {
       styles: {
         base: {
-          initial: {
-            color: "text-secondary focus:ring-secondary/20 border-secondary",
-          },
-          fullWidth: {
-            color: "text-secondary focus:ring-secondary/20 border-secondary",
-          },
+          // initial: {
+          //   color: "text-secondary focus:ring-secondary/20 border-secondary",
+          // },
+          // fullWidth: {
+          //   color: "text-secondary focus:ring-secondary/20 border-secondary",
+          // },
         },
       },
     },
   };
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 500) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <ThemeProvider value={theme}>
@@ -78,6 +103,24 @@ const Layout = ({ children }) => {
         type="text/javascript"
         src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
       ></Script>
+      <a
+        className={`mt-0 lg:mt-7 flex justify-center lg:justify-start fixed top-0 z-50 transition-all ${
+          isVisible ? "block" : "hidden"
+        }`}
+        href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02"
+        target="_blank"
+      >
+        <Button
+          className=" bg-secondary hover:shadow-white/20 text-white"
+          size="lg"
+        >
+          Book Now
+        </Button>
+      </a>
+
+      <IconButton onClick={scrollToTop} className={`!fixed bottom-10 left-5`}>
+        <BsArrowUp />
+      </IconButton>
     </ThemeProvider>
   );
 };

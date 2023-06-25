@@ -42,7 +42,7 @@ const PrivateFees = () => {
             <PrivateFeeFiltered category="Crown & Bridge" />
             <PrivateFeeFiltered category="Dentures" />
             <PrivateFeeFiltered category="Prevention" />
-            <PrivateFeeFiltered category="Facial Aesthetics" />
+            <PrivateFeeFiltered category="Aesthetics" />
             <PrivateFeeFiltered category="Other Items" />
           </div>
         </div>

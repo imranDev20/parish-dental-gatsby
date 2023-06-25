@@ -48,7 +48,7 @@ const QueriesForm = ({ inputBg, oneCol }) => {
     }
   };
 
-  const url = `${process.env.EMAIL_SERVER}/contact`;
+  const url = `${process.env.SERVER_URL}/contact`;
 
   const onSubmit = (data) => {
     setIsLoading(true);

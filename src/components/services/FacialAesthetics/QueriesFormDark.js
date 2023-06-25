@@ -48,7 +48,7 @@ const QueriesFormDark = () => {
   };
 
   const onSubmit = (data) => {
-    const url = `${process.env.EMAIL_SERVER}/contact`;
+    const url = `${process.env.SERVER_URL}/contact`;
 
     setIsLoading(true);
     axios({
@@ -161,7 +161,12 @@ const QueriesFormDark = () => {
 
       <p className="text-red-600 text-sm mb-4">{errorMessage}</p>
 
-      <Button fullWidth type="submit" variant="outlined">
+      <Button
+        fullWidth
+        type="submit"
+        variant="outlined"
+        className="text-secondary focus:ring-secondary/20 border-secondary"
+      >
         Submit
       </Button>
     </form>

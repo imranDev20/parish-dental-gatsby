@@ -9,6 +9,7 @@ import BookingButton from "./BookingButton";
 
 const Navigation = ({ open }) => {
   const services = useServicesQuery();
+
   return (
     <nav className={`bg-white items-center z-10 hidden lg:flex`}>
       {navPages.map((page) => {
@@ -35,7 +36,7 @@ const Navigation = ({ open }) => {
               >
                 <Menu.Items className="absolute left-1/2 -translate-x-1/2  mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {services.map((service, index) => (
-                    <div className="px-1 py-1" key={service.id}>
+                    <div className="px-1 py-1" key={index}>
                       <Menu.Item>
                         {({ active }) => (
                           <Link

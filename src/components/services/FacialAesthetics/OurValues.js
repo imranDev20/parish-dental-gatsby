@@ -19,12 +19,12 @@ const OurValues = () => {
       description:
         "Our unwavering commitment lies in using the utmost quality products, with no room for compromise.",
     },
-    {
-      icon: EleganceIcon,
-      title: "Natural Elegance",
-      description:
-        'Embracing the philosophy of "less is more", our focus is on achieving naturally beautiful results.',
-    },
+    // {
+    //   icon: EleganceIcon,
+    //   title: "Natural Elegance",
+    //   description:
+    //     'Embracing the philosophy of "less is more", our focus is on achieving naturally beautiful results.',
+    // },
     {
       icon: CommitmentIcon,
       title: "Wholehearted Commitment",
@@ -35,7 +35,7 @@ const OurValues = () => {
   return (
     <section className="container mx-auto px-10 mt-28">
       <h2 className="text-4xl text-center font-semibold mb-16">Our Values</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-7">
         {points.map((item) => (
           <div className="px-2 py-5 rounded-md flex flex-col items-center ">
             <img src={item.icon} alt={item.title} width={70} className="mb-5" />

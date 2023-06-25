@@ -17,7 +17,7 @@ const AestheticsBanner = () => {
         </h3>
         <div className="border-b mb-10 max-w-[300px] mx-auto"></div>
         <h1 className="font-bold text-5xl lg:text-8xl mb-5 whitespace-nowrap">
-          Seeking Perfection
+          Seeking Perfection?
         </h1>
         <p className="text-lg lg:text-2xl">
           The Award-Winning Leeds Dental and Aesthetics Clinic
@@ -28,7 +28,7 @@ const AestheticsBanner = () => {
           target="_blank"
         >
           <Button className="mt-12 bg-secondary hover:shadow-secondary/50">
-            Book a Consultation
+            Book Now
           </Button>
         </a>
       </div>

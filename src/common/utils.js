@@ -4,11 +4,14 @@ export function customSlugify(text) {
   if (!text || text === "") {
     return;
   }
-  const slug = slugify(text, {
+
+  const newStr = text.replace(/(\d+)/g, " $1");
+
+  const slug = slugify(newStr, {
     replacement: "-",
     remove: undefined,
     lower: true,
-    strict: false,
+    strict: true,
     locale: "vi",
     trim: true,
   });
@@ -17,7 +20,7 @@ export function customSlugify(text) {
 }
 
 export function serviceLink(index, service) {
-  if (index === 4 || index === 5) {
+  if (index === 3 || index === 4 || index === 5) {
     return `/services/${customSlugify(service.name)}`;
   } else if (index === 6) {
     return "https://emergency247dentist.co.uk/";

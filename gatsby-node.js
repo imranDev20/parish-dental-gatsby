@@ -12,6 +12,11 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allStripeProduct {
+        nodes {
+          id
+        }
+      }
     }
   `);
 

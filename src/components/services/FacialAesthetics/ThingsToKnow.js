@@ -18,13 +18,12 @@ const ThingsToKnow = () => {
             <FaBirthdayCake className="text-secondary mr-2" /> Age Limit
           </h4>
           <p className="leading-8 text-gray-400">
-            For the well-being and safety of our patients, we kindly request
-            that all individuals seeking treatment with us be at least 18 years
-            old.
+            For the well-being and safety of our patients, all individuals
+            seeking treatment with us MUST be at least 18 years of age.
           </p>
         </div>
 
-        <div className="pr-4 mt-10 lg:mt-0">
+        {/* <div className="pr-4 mt-10 lg:mt-0">
           <h4 className="text-xl font-semibold mb-5 flex items-center">
             <FaUserShield className="text-secondary mr-2" /> Privacy Policy
           </h4>
@@ -33,7 +32,7 @@ const ThingsToKnow = () => {
             that all individuals seeking treatment with us be at least 18 years
             old.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -21,56 +21,10 @@ import ThingsToKnow from "./FacialAesthetics/ThingsToKnow";
 import TreatmentFaq from "./FacialAesthetics/TreatmentFaq";
 
 const FacialAesthetics = () => {
-  const faqInfo = [
-    {
-      id: 1,
-      text: "30 Min Procedure",
-      icon: "",
-    },
-    {
-      id: 2,
-      text: "Recovery few days",
-      icon: "",
-    },
-    {
-      id: 3,
-      text: "No of treatments: 1+",
-      icon: "",
-    },
-    {
-      id: 4,
-      text: "Lasts 3-6 months",
-      icon: "",
-    },
-  ];
-
-  const faqRisk = [
-    {
-      id: 1,
-      text: "Redness at injection site",
-      icon: "",
-    },
-    {
-      id: 2,
-      text: "Headaches",
-      icon: "",
-    },
-    {
-      id: 3,
-      text: "Minor bruising",
-      icon: "",
-    },
-    {
-      id: 4,
-      text: "Risks are RARE",
-      icon: "",
-    },
-  ];
-
   return (
     <>
       <Seo
-        title="Facial Aesthetics"
+        title="Aesthetics"
         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
       />
       <div className="bg-[#1E1E1E] text-white">
