@@ -8,7 +8,6 @@ import useProductsQuery from "../../hooks/useProductsQuery";
 
 const ShopPage = () => {
   const [selected, setSelected] = useState("");
-
   const { products, prices } = useProductsQuery();
 
   const uniqueCategory = products.nodes?.filter(
@@ -16,8 +15,6 @@ const ShopPage = () => {
       index ===
       self.findIndex((t) => t.metadata.category === obj.metadata.category)
   );
-
-  console.log(uniqueCategory);
 
   return (
     <Layout>

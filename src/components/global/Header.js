@@ -4,8 +4,9 @@ import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Topbar from "./Topbar";
 import Drawer from "./Drawer";
+import { Button } from "@material-tailwind/react";
 
-const Header = () => {
+const Header = ({ open, setOpen }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
@@ -23,6 +24,7 @@ const Header = () => {
         <Logo />
         <Burger open={openDrawer} setOpen={setOpenDrawer} />
         <Navigation />
+        <Button onClick={() => setOpen(true)}>hi</Button>
       </div>
 
       <Drawer open={openDrawer} setOpen={setOpenDrawer} />

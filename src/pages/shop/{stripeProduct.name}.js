@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import Layout from "../../components/global/Layout";
 import { Button } from "@material-tailwind/react";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, graphql } from "gatsby";
 import Seo from "../../components/global/Seo";
 import { FiChevronRight } from "react-icons/fi";
 import useProductsQuery from "../../hooks/useProductsQuery";
 import getStripe from "../../utils/stripe";
 import { formatPrice } from "../../utils/functions";
-import { useShoppingCart } from "use-shopping-cart";
+import { customSlugify } from "../../common/utils";
 
 const ProductSinglePage = ({ data }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const { prices } = useProductsQuery();
 
-  const { name, images, metadata, default_price, localFiles } =
+  const { name, images, metadata, default_price, localFiles, description, id } =
     data.stripeProduct;
 
   const price = prices.nodes.find((price) => price.id === default_price);
@@ -35,7 +35,7 @@ const ProductSinglePage = ({ data }) => {
         allowedCountries: ["GB"],
       },
       successUrl: `${window.location.origin}/payment-successfull/`,
-      cancelUrl: `${window.location.origin}/advanced`,
+      cancelUrl: `${window.location.origin}/shop/${customSlugify(name)}`,
     });
 
     if (error) {
@@ -84,7 +84,7 @@ const ProductSinglePage = ({ data }) => {
             <div className="flex mt-3 items-center">
               <button
                 onClick={() => {
-                  if (count > 0) {
+                  if (count > 1) {
                     setCount((count) => count - 1);
                   }
                 }}
@@ -108,7 +108,7 @@ const ProductSinglePage = ({ data }) => {
 
           <div className="mt-5">
             <Button
-              onClick={handleSubmit}
+              onClick
               className="bg-[#263338] hover:shadow-[#263338]/20 w-64"
               size="lg"
             >
@@ -131,6 +131,7 @@ export const query = graphql`
       id
       name
       images
+      description
       default_price
       metadata {
         category

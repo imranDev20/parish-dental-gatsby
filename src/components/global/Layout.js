@@ -6,7 +6,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { Script } from "gatsby";
 import { Button, IconButton, ThemeProvider } from "@material-tailwind/react";
 import { BsArrowUp } from "react-icons/bs";
-import { CartProvider } from "use-shopping-cart";
+
+import { Drawer, Typography } from "@material-tailwind/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+
 const Footer = loadable(() => import("./Footer"));
 
 const Layout = ({ children }) => {
@@ -52,6 +55,8 @@ const Layout = ({ children }) => {
   };
 
   const [isVisible, setIsVisible] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const closeDrawer = () => setOpen(false);
 
   const handleScroll = () => {
     if (window.scrollY > 500) {
@@ -77,7 +82,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider value={theme}>
-      <Header />
+      <Header open={open} setOpen={setOpen} />
       <main>{children}</main>
       <ToastContainer />
       <Footer />
@@ -121,6 +126,34 @@ const Layout = ({ children }) => {
       <IconButton onClick={scrollToTop} className={`!fixed bottom-10 left-5`}>
         <BsArrowUp />
       </IconButton>
+
+      <Drawer
+        open={open}
+        onClose={closeDrawer}
+        className="p-4"
+        placement="right"
+      >
+        <div className="mb-6 flex items-center justify-between">
+          <Typography variant="h5" color="blue-gray">
+            Shopping Cart
+          </Typography>
+
+          <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
+            <XMarkIcon strokeWidth={2} className="h-5 w-5" />
+          </IconButton>
+        </div>
+
+        <Typography color="gray" className="mb-8 pr-4 font-normal">
+          Material Tailwind features multiple React and HTML components, all
+          written with Tailwind CSS classes and Material Design guidelines.
+        </Typography>
+        <div className="flex gap-2">
+          <Button size="sm">Get Started</Button>
+          <Button size="sm" variant="outlined">
+            Documentation
+          </Button>
+        </div>
+      </Drawer>
     </ThemeProvider>
   );
 };
