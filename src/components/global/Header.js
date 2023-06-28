@@ -4,7 +4,9 @@ import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Topbar from "./Topbar";
 import Drawer from "./Drawer";
-import { Button } from "@material-tailwind/react";
+import { Badge, Button, IconButton } from "@material-tailwind/react";
+import { CartContext } from "../../context/CartContext";
+import { BsCart3 } from "react-icons/bs";
 
 const Header = ({ open, setOpen }) => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -22,9 +24,26 @@ const Header = ({ open, setOpen }) => {
       <Topbar />
       <div className="flex justify-between items-center container mx-auto px-2 lg:px-5 xl:px-10 py-6 lg:py-0">
         <Logo />
-        <Burger open={openDrawer} setOpen={setOpenDrawer} />
-        <Navigation />
-        <Button onClick={() => setOpen(true)}>hi</Button>
+
+        <div className="flex items-center">
+          <Navigation />
+          <CartContext.Consumer>
+            {({ cart, setCart }) => {
+              return (
+                <Badge content={cart && cart.length?.toString()} withBorder>
+                  <IconButton
+                    variant="text"
+                    className="rounded-full ml-5"
+                    onClick={() => setOpen(true)}
+                  >
+                    <BsCart3 className="text-lg" />
+                  </IconButton>
+                </Badge>
+              );
+            }}
+          </CartContext.Consumer>
+          <Burger open={openDrawer} setOpen={setOpenDrawer} />
+        </div>
       </div>
 
       <Drawer open={openDrawer} setOpen={setOpenDrawer} />

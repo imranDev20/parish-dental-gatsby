@@ -98,8 +98,8 @@ const DomiciliaryCare = () => {
             <section>
               <p className="text-gray-500 text-xl font-semibold mt-7">
                 Let us look after your dental health. Call us on{" "}
-                <a href="tel:08081694546" className="text-secondary">
-                  0808 169 4546{" "}
+                <a href="tel:01132638509" className="text-secondary">
+                  0113 263 8509{" "}
                 </a>
                 or{" "}
                 <Link to="#appointment" className="text-secondary">

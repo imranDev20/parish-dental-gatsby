@@ -1,14 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import loadable from "@loadable/component";
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Script } from "gatsby";
-import { Button, IconButton, ThemeProvider } from "@material-tailwind/react";
+import {
+  Button,
+  IconButton,
+  List,
+  ListItem,
+  ListItemPrefix,
+  Spinner,
+  ThemeProvider,
+} from "@material-tailwind/react";
 import { BsArrowUp } from "react-icons/bs";
 
 import { Drawer, Typography } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { CartContext } from "../../context/CartContext";
+import CartItem from "../cart/CartItem";
+import getStripe from "../../utils/stripe";
+import { customSlugify } from "../../common/utils";
 
 const Footer = loadable(() => import("./Footer"));
 
@@ -56,6 +69,8 @@ const Layout = ({ children }) => {
 
   const [isVisible, setIsVisible] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = useState(false);
+
   const closeDrawer = () => setOpen(false);
 
   const handleScroll = () => {
@@ -79,6 +94,35 @@ const Layout = ({ children }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const { cart } = useContext(CartContext);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    const lineItems = cart.map((item) => ({
+      price: item.priceId,
+      quantity: item.quantity,
+    }));
+
+    const stripe = await getStripe();
+    const { error } = await stripe.redirectToCheckout({
+      mode: "payment",
+      lineItems: lineItems,
+      billingAddressCollection: "required",
+      shippingAddressCollection: {
+        allowedCountries: ["GB"],
+      },
+      successUrl: `${window.location.origin}/payment-successfull/`,
+      cancelUrl: `${window.location.origin}/shop/`,
+    });
+
+    if (error) {
+      console.warn("Error:", error);
+      setLoading(false);
+    }
+  };
 
   return (
     <ThemeProvider value={theme}>
@@ -142,17 +186,32 @@ const Layout = ({ children }) => {
             <XMarkIcon strokeWidth={2} className="h-5 w-5" />
           </IconButton>
         </div>
-
-        <Typography color="gray" className="mb-8 pr-4 font-normal">
-          Material Tailwind features multiple React and HTML components, all
-          written with Tailwind CSS classes and Material Design guidelines.
-        </Typography>
-        <div className="flex gap-2">
-          <Button size="sm">Get Started</Button>
-          <Button size="sm" variant="outlined">
-            Documentation
-          </Button>
+        <div>
+          {cart && cart.length > 0
+            ? cart.map((cartItem, index) => (
+                <CartItem
+                  cartItem={cartItem}
+                  index={index}
+                  key={cartItem.name}
+                />
+              ))
+            : null}
         </div>
+
+        {cart.length === 0 ? (
+          <Typography>There are no items in the cart</Typography>
+        ) : (
+          <div className="flex justify-center mt-16">
+            <Button
+              onClick={handleSubmit}
+              className="flex items-center"
+              disabled={loading}
+            >
+              {loading && <Spinner className="mr-3 h-4 w-4" />}
+              Checkout
+            </Button>
+          </div>
+        )}
       </Drawer>
     </ThemeProvider>
   );

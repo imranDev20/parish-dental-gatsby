@@ -39,12 +39,12 @@ const Whitening = () => {
       <Range />
       <Faq />
 
-      <Button
+      {/* <Button
         className={`bg-white hover:shadow-white/20 text-[#263338] `}
         size="lg"
       >
         Book an Appointment
-      </Button>
+      </Button> */}
     </>
   );
 };

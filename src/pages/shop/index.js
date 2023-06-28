@@ -5,6 +5,7 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import { customSlugify } from "../../common/utils";
 import { GatsbyImage } from "gatsby-plugin-image";
 import useProductsQuery from "../../hooks/useProductsQuery";
+import Seo from "../../components/global/Seo";
 
 const ShopPage = () => {
   const [selected, setSelected] = useState("");
@@ -18,6 +19,10 @@ const ShopPage = () => {
 
   return (
     <Layout>
+      <Seo
+        title="Shop"
+        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+      />
       <div className="container mx-auto px-10 flex flex-col lg:flex-row my-16">
         <div className=" w-full lg:w-1/6">
           <div className="border-b">
