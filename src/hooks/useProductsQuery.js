@@ -12,7 +12,7 @@ const useProductsQuery = () => {
             url
             id
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, height: 300, layout: FIXED)
+              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
             }
           }
           metadata {

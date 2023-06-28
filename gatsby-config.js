@@ -35,8 +35,7 @@ module.exports = {
           "Sku",
           "Subscription",
         ],
-        secretKey:
-          "sk_test_51NMBsXLhiqOmfmWIGIsm5mfXrRrolKG9IW0ZBxfQCR7397d5YawONzvWIDc0YMnT8wwSh2UZQX0JryNWUHcI6Uqy00u9eYGeyR",
+        secretKey: process.env.GATSBY_STRIPE_SECRET_KEY,
         downloadFiles: true,
       },
     },
