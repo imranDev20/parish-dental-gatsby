@@ -45,6 +45,18 @@ export const CartProvider = ({ children }) => {
     setCart(tempCart);
   };
 
+  const handleUpdateCart = (index, type) => {
+    const tempCart = [...cart];
+
+    if (type === "decr" && cart[index].quantity > 1) {
+      cart[index].quantity = cart[index].quantity - 1;
+    } else if (type === "incr") {
+      cart[index].quantity = cart[index].quantity + 1;
+    }
+
+    setCart(tempCart);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -52,6 +64,7 @@ export const CartProvider = ({ children }) => {
         setCart,
         handleAddToCart,
         handleDeleteFromCart,
+        handleUpdateCart,
       }}
     >
       {children}

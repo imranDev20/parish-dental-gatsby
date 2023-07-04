@@ -4,23 +4,12 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { CartContext } from "../../context/CartContext";
 
 const CartItem = ({ cartItem, index }) => {
-  const { cart, setCart, handleDeleteFromCart } = useContext(CartContext);
+  const { cart, setCart, handleDeleteFromCart, handleUpdateCart } =
+    useContext(CartContext);
 
   const setToStateCount = (value) => {
     const tempCart = [...cart];
     cart[index].quantity = value;
-
-    setCart(tempCart);
-  };
-
-  const handleMinus = () => {
-    const tempCart = [...cart];
-
-    console.log(typeof cart[index].quantity);
-
-    if (cart[index].quantity > 1) {
-      cart[index].quantity = cart[index].quantity - 1;
-    }
 
     setCart(tempCart);
   };
@@ -36,7 +25,7 @@ const CartItem = ({ cartItem, index }) => {
         <div className="flex items-center mt-3">
           <div className="flex  items-center">
             <button
-              onClick={handleMinus}
+              onClick={() => handleUpdateCart(index, "decr")}
               className="border border-r-0 w-6  text-2xl  rounded-l text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
             >
               -
@@ -56,7 +45,7 @@ const CartItem = ({ cartItem, index }) => {
               className="border  py-1 w-12 text-center text-gray-600"
             />
             <button
-              // onClick={() => handleUpdateCart(cartItem, index, "incr")}
+              onClick={() => handleUpdateCart(index, "incr")}
               className="border border-l-0 w-6 text-2xl  rounded-r text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
             >
               +
