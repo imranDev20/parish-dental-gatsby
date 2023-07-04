@@ -33,7 +33,7 @@ const Header = ({ open, setOpen }) => {
                 <Badge content={cart && cart.length?.toString()} withBorder>
                   <IconButton
                     variant="text"
-                    className="rounded-full ml-5"
+                    className="rounded-full ml-2"
                     onClick={() => setOpen(true)}
                   >
                     <BsCart3 className="text-lg" />

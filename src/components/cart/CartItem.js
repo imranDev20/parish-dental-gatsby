@@ -4,8 +4,26 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { CartContext } from "../../context/CartContext";
 
 const CartItem = ({ cartItem, index }) => {
-  const { cart, setCart, handleDeleteFromCart, handleUpdateCart } =
-    useContext(CartContext);
+  const { cart, setCart, handleDeleteFromCart } = useContext(CartContext);
+
+  const setToStateCount = (value) => {
+    const tempCart = [...cart];
+    cart[index].quantity = value;
+
+    setCart(tempCart);
+  };
+
+  const handleMinus = () => {
+    const tempCart = [...cart];
+
+    console.log(typeof cart[index].quantity);
+
+    if (cart[index].quantity > 1) {
+      cart[index].quantity = cart[index].quantity - 1;
+    }
+
+    setCart(tempCart);
+  };
 
   return (
     <div className="flex items-center mb-5">
@@ -18,21 +36,28 @@ const CartItem = ({ cartItem, index }) => {
         <div className="flex items-center mt-3">
           <div className="flex  items-center">
             <button
-              onClick={() => handleDeleteFromCart(index)}
-              className="border border-r-0 px-2 text-2xl  rounded-l text-gray-500"
+              onClick={handleMinus}
+              className="border border-r-0 w-6  text-2xl  rounded-l text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
             >
               -
             </button>
             <input
-              value={cartItem.quantity}
-              onChange={(e) =>
-                handleUpdateCart(cartItem, index, parseInt(e.target.value))
-              }
-              className="border  py-1 w-10 text-center text-gray-600"
+              type="number"
+              value={parseInt(cart[index].quantity)}
+              onChange={(e) => {
+                if (e.target.value !== "") {
+                  const value = parseInt(e.target.value);
+
+                  if (value !== 0) {
+                    setToStateCount(value);
+                  }
+                }
+              }}
+              className="border  py-1 w-12 text-center text-gray-600"
             />
             <button
-              onClick={() => handleUpdateCart(cartItem, index)}
-              className="border border-l-0 px-2 text-2xl text-gray-500"
+              // onClick={() => handleUpdateCart(cartItem, index, "incr")}
+              className="border border-l-0 w-6 text-2xl  rounded-r text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
             >
               +
             </button>

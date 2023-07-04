@@ -7,9 +7,6 @@ import { Script } from "gatsby";
 import {
   Button,
   IconButton,
-  List,
-  ListItem,
-  ListItemPrefix,
   Spinner,
   ThemeProvider,
 } from "@material-tailwind/react";
@@ -17,11 +14,10 @@ import { BsArrowUp } from "react-icons/bs";
 
 import { Drawer, Typography } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { GatsbyImage } from "gatsby-plugin-image";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../cart/CartItem";
 import getStripe from "../../utils/stripe";
-import { customSlugify } from "../../common/utils";
+import { BiSolidPhoneCall } from "react-icons/bi";
 
 const Footer = loadable(() => import("./Footer"));
 
@@ -165,6 +161,13 @@ const Layout = ({ children }) => {
         >
           Book Now
         </Button>
+      </a>
+
+      <a
+        href="tel:01132638509"
+        className="fixed top-1/2 -translate-y-1/2 right-0 z-[1000] bg-secondary w-12 h-20 flex justify-center items-center rounded-l-lg shadow border border-white"
+      >
+        <BiSolidPhoneCall className="text-2xl text-white" />
       </a>
 
       <IconButton onClick={scrollToTop} className={`!fixed bottom-10 left-5`}>

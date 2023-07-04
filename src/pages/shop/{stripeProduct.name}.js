@@ -36,6 +36,7 @@ const ProductSinglePage = ({ data }) => {
 
   useEffect(() => {
     const itemInCart = cart.find((cartItem) => cartItem.name === name);
+
     if (itemInCart) {
       setCount(itemInCart.quantity);
     }
@@ -73,8 +74,6 @@ const ProductSinglePage = ({ data }) => {
     quantity: count,
     image: localFiles ? localFiles[0]?.childImageSharp.gatsbyImageData : "",
   };
-
-  console.log(cart);
 
   const descToPoints = description?.split(".");
 
@@ -151,18 +150,25 @@ const ProductSinglePage = ({ data }) => {
                     setCount((count) => count - 1);
                   }
                 }}
-                className="border border-r-0 px-2 text-2xl py-1 rounded-l text-gray-500"
+                className="border border-r-0 w-8 text-2xl py-1 rounded-l text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
               >
                 -
               </button>
               <input
+                type="number"
                 value={count}
-                onChange={(e) => setCount(parseInt(e.target.value))}
+                onChange={(e) => {
+                  if (e.target.value !== "") {
+                    setCount(parseInt(e.target.value));
+                  }
+
+                  console.log(e.target.value);
+                }}
                 className="border  py-2 w-20 text-center text-gray-600"
               />
               <button
                 onClick={() => setCount((count) => count + 1)}
-                className="border border-l-0 px-2 text-2xl py-1 text-gray-500"
+                className="border border-l-0 w-8 text-2xl py-1 text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
               >
                 +
               </button>
@@ -171,6 +177,7 @@ const ProductSinglePage = ({ data }) => {
 
           <div className="mt-5">
             <Button
+              disabled={count === 0}
               onClick={() => handleAddToCart(product, count)}
               className="bg-[#263338] hover:shadow-[#263338]/20 w-64"
               size="lg"
