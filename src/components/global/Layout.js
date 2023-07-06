@@ -5,12 +5,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Script } from "gatsby";
 import {
+  Badge,
   Button,
   IconButton,
   Spinner,
   ThemeProvider,
 } from "@material-tailwind/react";
-import { BsArrowUp } from "react-icons/bs";
+import { BsArrowUp, BsCart3 } from "react-icons/bs";
 
 import { Drawer, Typography } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -163,12 +164,23 @@ const Layout = ({ children }) => {
         </Button>
       </a>
 
-      <a
-        href="tel:01132638509"
-        className="fixed top-1/2 -translate-y-1/2 right-0 z-[1000] bg-secondary w-12 h-20 flex justify-center items-center rounded-l-lg shadow border border-white"
-      >
-        <BiSolidPhoneCall className="text-2xl text-white" />
-      </a>
+      <div className="fixed top-1/2 -translate-y-1/2 left-0 z-[1000] bg-secondary w-12 h-20 flex justify-center items-center rounded-r-lg shadow border border-white">
+        <CartContext.Consumer>
+          {({ cart }) => {
+            return (
+              <Badge content={cart && cart.length?.toString()} withBorder>
+                <IconButton
+                  variant="text"
+                  className="rounded-full ml-2"
+                  onClick={() => setOpen(true)}
+                >
+                  <BsCart3 className="text-lg text-white" />
+                </IconButton>
+              </Badge>
+            );
+          }}
+        </CartContext.Consumer>
+      </div>
 
       <IconButton onClick={scrollToTop} className={`!fixed bottom-10 left-5`}>
         <BsArrowUp />

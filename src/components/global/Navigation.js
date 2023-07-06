@@ -11,7 +11,7 @@ const Navigation = ({ open }) => {
   const services = useServicesQuery();
 
   return (
-    <nav className={`bg-white items-center z-10 hidden lg:flex`}>
+    <nav className={`bg-white items-center z-10 hidden xl:flex`}>
       {navPages.map((page) => {
         if (page.route === "/services") {
           return (
@@ -76,7 +76,7 @@ const Navigation = ({ open }) => {
             <Link
               partiallyActive={page.route !== "/" ? true : false}
               key={page.id}
-              activeClassName={`border-b-[3px] lg:border-b-0 border-b-secondary border-t-0 lg:border-t-[3px] lg:border-t-secondary`}
+              activeClassName={`border-b-[3px] xl:border-b-0 border-b-secondary border-t-0 xl:border-t-[3px] xl:border-t-secondary`}
               className="nav-item px-3 py-8 inline-block uppercase  text-sm text-primary border-t-[3px] border-transparent font-semibold"
               to={page.route}
             >

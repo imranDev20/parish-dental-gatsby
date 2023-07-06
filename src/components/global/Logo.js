@@ -22,7 +22,7 @@ const Logo = ({ isFooter }) => {
   const logoData = data?.allContentfulGlobal?.nodes[0];
 
   return (
-    <div className="w-36 md:w-72">
+    <div className="w-48 lg:w-56">
       <img
         className="w-full h-full object-contain"
         src={isFooter ? logoData?.logoWhite?.url : logoData?.logo?.url}

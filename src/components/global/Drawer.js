@@ -12,7 +12,7 @@ const Drawer = ({ open, setOpen }) => {
 
   return (
     <div
-      className={`block lg:hidden fixed top-0  w-screen bg-white h-screen z-10 ${
+      className={`block xl:hidden fixed top-0  w-screen bg-white h-screen z-10 ${
         open ? "left-0 opacity-100" : "-left-[110%] opacity-0"
       } transition-all duration-500`}
     >

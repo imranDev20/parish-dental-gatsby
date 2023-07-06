@@ -7,7 +7,7 @@ const Burger = ({ open, setOpen }) => {
       tabIndex={0}
       onClick={() => setOpen(!open)}
       onKeyDown={() => setOpen(!open)}
-      className={`flex lg:hidden w-5 md:w-8 h-4 md:h-6 right-4 justify-between flex-col flex-nowrap z-20 cursor-pointer ml-5`}
+      className={`flex xl:hidden w-5 md:w-8 h-4 md:h-6 right-4 justify-between flex-col flex-nowrap z-20 cursor-pointer ml-5`}
     >
       {[0, 1, 2].map((n) => (
         <div
