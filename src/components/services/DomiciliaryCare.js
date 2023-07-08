@@ -32,17 +32,27 @@ const DomiciliaryCare = () => {
         >
           <article className="w-full lg:w-2/3  pr-0 lg:pr-7">
             <section>
-              <StaticImage
+              {/* <StaticImage
                 src="../../images/domiciliary-van.jpg"
                 layout="fullWidth"
-                aspectRatio={15 / 13}
+              
                 placeholder="blurred"
                 imgClassName="rounded"
                 className="rounded-lg"
                 transformOptions={{
                   cropFocus: "center",
                 }}
-              />
+              /> */}
+
+              <iframe
+                width="100%"
+                height="500"
+                src="https://www.youtube.com/embed/lebQf5sdnLU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
               <h1 className="text-4xl text-primary font-semibold mt-10 mb-2 leading-[1.3]">
                 Experience Convenient Mobile Dental Care with Comprehensive
                 Dentistry Delivered to Your Doorstep
