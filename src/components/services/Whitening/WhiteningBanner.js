@@ -37,7 +37,7 @@ const WhiteningBanner = () => {
       </div>
 
       <svg
-        className="h-[300px] absolute -bottom-[120px] right-0 z-10 "
+        className=" h-[300px] absolute -bottom-[120px] right-0 z-10 banner-triangle"
         style={{ transform: "rotateX(135deg)" }}
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"

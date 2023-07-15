@@ -119,3 +119,13 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.banner-triangle {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .banner-triangle {
+    display: block;
+  }
+}
