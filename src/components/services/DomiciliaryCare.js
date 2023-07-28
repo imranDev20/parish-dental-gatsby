@@ -21,11 +21,11 @@ const DomiciliaryCare = () => {
   return (
     <>
       <Seo
-        title="Dociliary Care"
+        title="Domiciliary Care"
         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
       />
 
-      <PageHeader pageTitle="Dociliary Care" />
+      <PageHeader pageTitle="Domiciliary Care" />
       <div className="bg-gradient-to-b from-backgroundSecondary to-white py-10">
         <div
           className={`container mx-auto flex flex-col lg:flex-row px-10 items-start relative mb-20`}
