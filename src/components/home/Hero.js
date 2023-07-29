@@ -35,10 +35,10 @@ const Hero = () => {
             title
             gatsbyImageData(
               placeholder: BLURRED
-              width: 2560
-              breakpoints: [750, 1080, 1366, 1920]
-              cropFocus: TOP
-              layout: FULL_WIDTH
+              # width: 2560
+              # breakpoints: [750, 1080, 1366, 1920]
+              # cropFocus: TOP
+              # layout: FULL_WIDTH
             )
           }
         }

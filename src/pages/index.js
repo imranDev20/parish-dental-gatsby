@@ -1,17 +1,16 @@
 import * as React from "react";
 import Layout from "../components/global/Layout";
-import loadable from "@loadable/component";
 import Seo from "../components/global/Seo";
 import Hero from "../components/home/Hero";
 import HomeBanner from "../components/home/HomeBanner";
 import Achievements from "../components/home/Achievements";
 import Features from "../components/home/Features";
 import About from "../components/home/About";
-const Services = loadable(() => import("../components/home/Services"));
-const Testimonials = loadable(() => import("../components/home/Testimonials"));
-const Contact = loadable(() => import("../components//home/Contact"));
-const Cta = loadable(() => import("../components//home/Cta"));
-const Blog = loadable(() => import("../components/home/Blog"));
+import Services from "../components/home/Services";
+import Testimonials from "../components/home/Testimonials";
+import Contact from "../components//home/Contact";
+import Cta from "../components//home/Cta";
+import Blog from "../components/home/Blog";
 
 // markup
 const IndexPage = () => {
