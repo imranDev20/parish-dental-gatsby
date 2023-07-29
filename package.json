@@ -19,12 +19,10 @@
     "@emotion/react": "^11.9.0",
     "@headlessui/react": "^1.7.10",
     "@hookform/error-message": "^2.0.1",
-    "@loadable/component": "^5.15.2",
     "@material-tailwind/react": "^2.0.1",
     "@slixites/gatsby-plugin-google-fonts": "^1.1.1",
     "@stripe/stripe-js": "^1.54.1",
     "axios": "^1.3.3",
-    "dayjs": "^1.11.6",
     "framer-motion": "^6.3.3",
     "gatsby": "^4.12.1",
     "gatsby-background-image": "^1.6.0",
@@ -51,9 +49,7 @@
     "react-markdown": "^8.0.3",
     "react-toastify": "^9.0.1",
     "slugify": "^1.6.6",
-    "swiper": "^8.1.3",
-    "use-shopping-cart": "^3.1.8",
-    "uuid": "^9.0.0"
+    "swiper": "^8.1.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",
