@@ -50,7 +50,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="w-full">
+      {/* <section className="w-full">
         <Swiper
           modules={[EffectFade, Navigation, Pagination, Autoplay]}
           effect="fade"
@@ -237,7 +237,7 @@ const Hero = () => {
           })}
         </Swiper>
       </section>
-      <MyModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <MyModal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
     </>
   );
 };
