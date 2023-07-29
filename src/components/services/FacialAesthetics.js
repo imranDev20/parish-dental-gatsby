@@ -1,12 +1,4 @@
 import React from "react";
-import {
-  FaBirthdayCake,
-  FaLongArrowAltRight,
-  FaUserShield,
-} from "react-icons/fa";
-
-import CareQualityImage from "../../images/care-quality-com.svg";
-
 import Seo from "../global/Seo";
 import AestheticsBanner from "./FacialAesthetics/AestheticsBanner";
 import AestheticsServices from "./FacialAesthetics/AestheticsServices";
@@ -15,7 +7,6 @@ import OurValues from "./FacialAesthetics/OurValues";
 import PriceList from "./FacialAesthetics/PriceList";
 import AestheticsTestimonial from "./FacialAesthetics/AestheticsTestimonial";
 import Contact from "./FacialAesthetics/Contact";
-import { Button } from "@material-tailwind/react";
 import KeepingSafe from "./FacialAesthetics/KeepingSafe";
 import ThingsToKnow from "./FacialAesthetics/ThingsToKnow";
 import TreatmentFaq from "./FacialAesthetics/TreatmentFaq";
