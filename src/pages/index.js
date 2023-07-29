@@ -20,15 +20,15 @@ const IndexPage = () => {
         title="24 Hours Emergency Dentist in Leeds | Private Affordable Dentistry"
         description="Looking for 24 Hours Emergency Dentist in Leeds? Visit Parish Dental Today! We have more than 25 Years of Experience and offer same day treatment."
       />
-      {/* <Hero /> */}
+      <Hero />
       <Cta />
       <HomeBanner />
       <Features />
       <Services />
-      {/* <About /> */}
+      <About />
       <Achievements />
-      {/* <Testimonials /> */}
-      {/* <Contact /> */}
+      <Testimonials />
+      <Contact />
       <Blog />
       {/* <Message /> */}
     </Layout>
