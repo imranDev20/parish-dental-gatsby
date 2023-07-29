@@ -2,12 +2,8 @@ import React from "react";
 import Layout from "../components/global/Layout";
 import PageHeader from "../components/global/PageHeader";
 import Seo from "../components/global/Seo";
-import loadable from "@loadable/component";
-
-const Faq = loadable(() => import("../components/about/Faq"));
-const WhoWeAre = loadable(() => import("../components/about/WhoWeAre"));
-// import Faq from "../components/about/Faq";
-// import WhoWeAre from "../components/about/WhoWeAre";
+import Faq from "../components/about/Faq";
+import WhoWeAre from "../components/about/WhoWeAre";
 
 const AboutPage = () => {
   return (
