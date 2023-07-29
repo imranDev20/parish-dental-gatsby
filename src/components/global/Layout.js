@@ -126,6 +126,8 @@ const Layout = ({ children }) => {
       <Footer />
 
       <Script
+        async
+        defer
         strategy="post-hydrate"
         id="first-unique-id"
         dangerouslySetInnerHTML={{

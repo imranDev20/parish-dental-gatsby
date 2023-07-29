@@ -18,7 +18,7 @@ const WhoWeAre = () => {
               description
             }
             image {
-              gatsbyImageData(width: 600)
+              gatsbyImageData(width: 600, placeholder: BLURRED)
             }
           }
         }
