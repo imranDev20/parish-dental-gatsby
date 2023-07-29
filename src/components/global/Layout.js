@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import loadable from "@loadable/component";
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,8 +18,7 @@ import { CartContext } from "../../context/CartContext";
 import CartItem from "../cart/CartItem";
 import getStripe from "../../utils/stripe";
 import { BiSolidPhoneCall } from "react-icons/bi";
-
-const Footer = loadable(() => import("./Footer"));
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const theme = {
