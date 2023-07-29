@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import PageHeader from "../components/global/PageHeader";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const options = {
   renderMark: {
