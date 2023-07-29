@@ -5,8 +5,8 @@ require("dotenv").config({
 module.exports = {
   trailingSlash: "never",
   siteMetadata: {
-    title: `Parish Dental`,
-    description: `Blazing fast modern site generator for React`,
+    title: `24 Hours Emergency Dentist in Leeds | Private Affordable Dentistry`,
+    description: `Looking for 24 Hours Emergency Dentist in Leeds? Visit Parish Dental Today! We have more than 25 Years of Experience and offer same day treatment.`,
     siteUrl: `https://parishdental.co.uk`,
     author: `Hassan Bhojani`,
   },

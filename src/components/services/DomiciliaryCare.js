@@ -21,8 +21,8 @@ const DomiciliaryCare = () => {
   return (
     <>
       <Seo
-        title="Domiciliary Care"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        title="Best Domiciliary Care Service in Leeds | Book Mobile Dentist"
+        description="Experience Convenient Mobile Dental Care and Best Domiciliary Care Service in Leeds with Our Comprehensive Dentistry Delivered to Your Doorstep!"
       />
 
       <PageHeader pageTitle="Domiciliary Care" />

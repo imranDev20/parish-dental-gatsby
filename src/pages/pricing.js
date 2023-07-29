@@ -23,7 +23,10 @@ const PricingPage = ({ location }) => {
 
   return (
     <Layout>
-      <Seo title="Pricing" />
+      <Seo
+        title="Transparent and Affordable Dental Pricing at Parish Dental"
+        description=" Discover our affordable dental pricing at Parish Dental. We believe in transparent costs for all our dental treatments, including general dentistry, cosmetic procedures, and more!"
+      />
       <PageHeader pageTitle="Pricing" />
       <NhsCharges />
       <PrivateFees />

@@ -10,7 +10,10 @@ const WhoWeAre = loadable(() => import("../components/about/WhoWeAre"));
 const AboutPage = () => {
   return (
     <Layout>
-      <Seo title="About" />
+      <Seo
+        title="Get to Know More About Parish Dental | Who We Are"
+        description="Get to know more about Parish Dental in the Leeds. Our team of dentists is committed to delivering high-quality dental services at affordable prices. Discover more about us!"
+      />
       <PageHeader pageTitle="About" />
       <WhoWeAre />
       <Faq />

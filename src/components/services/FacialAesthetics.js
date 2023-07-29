@@ -24,8 +24,8 @@ const FacialAesthetics = () => {
   return (
     <>
       <Seo
-        title="Aesthetics"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        title="Best Aesthetics Clinic in Leeds | Guaranteed Perfect Treatment"
+        description="Seeking Perfection for Aesthetics treatments? Visit the Award-Winning and the best Aesthetics Clinic in Leeds, Parish Dental!"
       />
       <div className="bg-[#1E1E1E] text-white">
         <AestheticsBanner />

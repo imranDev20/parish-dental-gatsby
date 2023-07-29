@@ -18,8 +18,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo
-        title="Home"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        title="24 Hours Emergency Dentist in Leeds | Private Affordable Dentistry"
+        description="Looking for 24 Hours Emergency Dentist in Leeds? Visit Parish Dental Today! We have more than 25 Years of Experience and offer same day treatment."
       />
       <Hero />
       <Cta />
