@@ -14,30 +14,14 @@ import HomeBanner from "../components/home/HomeBanner";
 // import Cta from "../components//home/Cta";
 // import Blog from "../components/home/Blog";
 
-const Achievements = loadable(() => import("../components/home/Achievements"), {
-  fallback: <div>Loading...</div>,
-});
-const Features = loadable(() => import("../components/home/Features"), {
-  fallback: <div>Loading...</div>,
-});
-const About = loadable(() => import("../components/home/About"), {
-  fallback: <div>Loading...</div>,
-});
-const Services = loadable(() => import("../components/home/Services"), {
-  fallback: <div>Loading...</div>,
-});
-const Testimonials = loadable(() => import("../components/home/Testimonials"), {
-  fallback: <div>Loading...</div>,
-});
-const Contact = loadable(() => import("../components//home/Contact"), {
-  fallback: <div>Loading...</div>,
-});
-const Cta = loadable(() => import("../components//home/Cta"), {
-  fallback: <div>Loading...</div>,
-});
-const Blog = loadable(() => import("../components/home/Blog"), {
-  fallback: <div>Loading...</div>,
-});
+const Achievements = loadable(() => import("../components/home/Achievements"));
+const Features = loadable(() => import("../components/home/Features"));
+const About = loadable(() => import("../components/home/About"));
+const Services = loadable(() => import("../components/home/Services"));
+const Testimonials = loadable(() => import("../components/home/Testimonials"));
+const Contact = loadable(() => import("../components//home/Contact"));
+const Cta = loadable(() => import("../components//home/Cta"));
+const Blog = loadable(() => import("../components/home/Blog"));
 
 // markup
 const IndexPage = () => {
