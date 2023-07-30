@@ -4,11 +4,11 @@ import loadable from "@loadable/component";
 import Layout from "../components/global/Layout";
 import PageHeader from "../components/global/PageHeader";
 import Seo from "../components/global/Seo";
-// import Faq from "../components/about/Faq";
-// import WhoWeAre from "../components/about/WhoWeAre";
+import Faq from "../components/about/Faq";
+import WhoWeAre from "../components/about/WhoWeAre";
 
-const Faq = loadable(() => import("../components/about/Faq"));
-const WhoWeAre = loadable(() => import("../components/about/WhoWeAre"));
+// const Faq = loadable(() => import("../components/about/Faq"));
+// const WhoWeAre = loadable(() => import("../components/about/WhoWeAre"));
 
 const AboutPage = () => {
   return (

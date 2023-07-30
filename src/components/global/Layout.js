@@ -21,8 +21,8 @@ import getStripe from "../../utils/stripe";
 
 import "react-toastify/dist/ReactToastify.css";
 
-const Footer = loadable(() => import("./Footer"));
-// import Footer from "./Footer";
+// const Footer = loadable(() => import("./Footer"));
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const theme = {
