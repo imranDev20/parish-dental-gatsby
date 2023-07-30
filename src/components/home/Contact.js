@@ -15,7 +15,11 @@ const Contact = () => {
           ... on ContentfulSections {
             id
             image {
-              gatsbyImage(placeholder: BLURRED, width: 700)
+              gatsbyImage(
+                placeholder: BLURRED
+                width: 720
+                breakpoints: [320, 480, 540, 720]
+              )
             }
             mainTitle
             subtitle

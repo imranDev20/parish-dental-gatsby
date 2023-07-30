@@ -19,7 +19,11 @@ const About = () => {
               description
             }
             image {
-              gatsbyImage(placeholder: BLURRED, width: 700)
+              gatsbyImage(
+                placeholder: BLURRED
+                width: 720
+                breakpoints: [320, 480, 540, 720]
+              )
             }
           }
         }

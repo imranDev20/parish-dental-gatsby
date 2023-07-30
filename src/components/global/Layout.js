@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
+import loadable from "@loadable/component";
+
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Script } from "gatsby";
 import {
   Badge,
@@ -17,7 +18,11 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../cart/CartItem";
 import getStripe from "../../utils/stripe";
-import Footer from "./Footer";
+
+import "react-toastify/dist/ReactToastify.css";
+
+const Footer = loadable(() => import("./Footer"));
+// import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const theme = {
@@ -127,7 +132,6 @@ const Layout = ({ children }) => {
 
       <Script
         async
-        defer
         id="first-unique-id"
         dangerouslySetInnerHTML={{
           __html: `(function(d, w, c) {
@@ -142,10 +146,7 @@ const Layout = ({ children }) => {
       })(document, window, 'Chatra');`,
         }}
       />
-      <Script
-        type="text/javascript"
-        src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
-      ></Script>
+
       <a
         className={`mt-0 lg:mt-7 flex justify-center lg:justify-start fixed top-0 z-50 transition-all ${
           isVisible ? "block" : "hidden"
