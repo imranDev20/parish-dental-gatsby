@@ -2,7 +2,6 @@ import React from "react";
 import Form from "../global/Form";
 import { graphql, useStaticQuery } from "gatsby";
 import { convertToBgImage } from "gbimage-bridge";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import BackgroundImage from "gatsby-background-image";
 import QueriesForm from "../global/QueriesForm";
 

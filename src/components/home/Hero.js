@@ -3,8 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { AnimatePresence, motion } from "framer-motion";
-import { css } from "@emotion/react";
+import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -14,12 +13,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import MyModal from "./MyDialog";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
