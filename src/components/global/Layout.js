@@ -17,7 +17,6 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../cart/CartItem";
 import getStripe from "../../utils/stripe";
-import { BiSolidPhoneCall } from "react-icons/bi";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
