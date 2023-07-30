@@ -53,10 +53,10 @@ const Hero = () => {
             // autoplay
             autoplay={{
               // disableOnInteraction: false,
-              delay: 5000,
+              delay: 10000,
               // pauseOnMouseEnter: true,
             }}
-            loop={true}
+            // loop={true}
             initialSlide={0}
             navigation
             pagination={{ clickable: true }}
@@ -65,6 +65,7 @@ const Hero = () => {
           >
             {heroContents?.map((heroContent, index) => {
               const image = heroContent?.slideImage?.gatsbyImageData;
+
               const titleTextArray = heroContent?.slideTitle?.split(" ");
               const half = Math.ceil(titleTextArray?.length / 2);
               const firstHalf = titleTextArray?.splice(0, half);
@@ -86,6 +87,7 @@ const Hero = () => {
                         imgClassName="w-full h-full object-cover"
                         alt={heroContent?.slideImage?.title}
                       />
+                      <div class="swiper-lazy-preloader"></div>
                       <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-0 lg:left-[10%] -translate-x-[-10%] ">
                         <motion.h3
                           initial={{
