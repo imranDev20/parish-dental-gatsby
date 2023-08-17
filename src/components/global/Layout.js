@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import loadable from "@loadable/component";
 
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";

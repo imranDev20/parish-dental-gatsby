@@ -1,13 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
-import {
-  FiFacebook,
-  FiTwitter,
-  FiInstagram,
-  FiMapPin,
-  FiPhone,
-  FiMail,
-} from "react-icons/fi";
+import { FiInstagram, FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { navPages, policyPages } from "../../common/constant";
@@ -47,7 +40,6 @@ const Footer = () => {
   `);
 
   const footerData = data?.allContentfulGlobal?.nodes[0];
-  const scheduleData = data?.allContentfulSchedule?.nodes;
 
   const socials = [
     // { id: 1, icon: FiFacebook, href: socialLinks.facebookLink },
@@ -78,7 +70,11 @@ const Footer = () => {
 
           <div className="mt-10 flex items-center">
             <div className="font-light mr-2 text-sm">Website Built By:</div>
-            <a target="_blank" href="https://instagram.com/grow_with_sayed">
+            <a
+              target="_blank"
+              href="https://instagram.com/grow_with_sayed"
+              rel="noreferrer"
+            >
               <StaticImage
                 width={35}
                 alt="Unimax"
@@ -150,6 +146,7 @@ const Footer = () => {
           <a
             href="https://www.google.com/maps/place/Parish+Dental+Practise,+7-9+Branch+Rd,+Armley,+Leeds+LS12+3AQ,+UK/@53.7977826,-1.5875803,19.7z/data=!4m5!3m4!1s0x48795ec462f517e1:0xad3e66b54778e8ef!8m2!3d53.7978077!4d-1.5874348?hl=en"
             target="_blank"
+            rel="noreferrer"
           >
             <GatsbyImage
               image={footerData?.mapPicture?.gatsbyImageData}

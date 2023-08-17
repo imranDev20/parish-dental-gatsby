@@ -7,6 +7,7 @@ const BookingButton = ({ children }) => {
       className="w-32 flex items-center bg-secondary rounded px-3 py-2 text-white"
       href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02"
       target="_blank"
+      rel="noreferrer"
     >
       <BsFillCalendar2DateFill className="mr-2" />
       {children ? children : "Book Now"}

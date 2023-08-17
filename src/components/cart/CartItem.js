@@ -1,5 +1,5 @@
 import { GatsbyImage } from "gatsby-plugin-image";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 import { CartContext } from "../../context/CartContext";
 

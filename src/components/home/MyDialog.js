@@ -1,8 +1,13 @@
 import React from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
 import Form from "../global/Form";
 import { FaTimes } from "react-icons/fa";
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
 
 export default function MyModal({ isOpen, setIsOpen }) {
   function closeModal() {
@@ -15,53 +20,36 @@ export default function MyModal({ isOpen, setIsOpen }) {
 
   return (
     <>
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
+      <Dialog open={isOpen} handler={openModal}>
+        <DialogHeader>Its a simple dialog.</DialogHeader>
+        <DialogBody divider>
+          The key to more success is to have a lot of pillows. Put it this way,
+          it took me twenty five years to get these plants, twenty five years of
+          blood sweat and tears, and I&apos;m never giving up, I&apos;m just
+          getting started. I&apos;m up to something. Fan luv.
+        </DialogBody>
+        <DialogFooter>
+          <Button
+            variant="text"
+            color="red"
+            onClick={openModal}
+            className="mr-1"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
-
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h3"
-                    className="text-xl font-medium leading-6  flex justify-between mb-7 text-secondary"
-                  >
-                    Request an Appointment
-                    <button
+            <span>Cancel</span>
+          </Button>
+          <Button variant="gradient" color="green" onClick={openModal}>
+            <span>Confirm</span>
+          </Button>
+        </DialogFooter>
+      </Dialog>
+    </>
+  );
+}
+{
+  /* <button
                       className="hover:text-primary transition-colors duration-300 text-gray-600"
                       onClick={() => setIsOpen(!isOpen)}
                     >
                       <FaTimes />
-                    </button>
-                  </Dialog.Title>
-                  <div className="mt-2">
-                    <Form />
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition>
-    </>
-  );
+                    </button> */
 }

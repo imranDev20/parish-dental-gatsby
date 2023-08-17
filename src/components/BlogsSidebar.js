@@ -1,5 +1,3 @@
-import { graphql, useStaticQuery, Link } from "gatsby";
-
 import React from "react";
 import useRecentBlogQuery from "../hooks/useRecentBlogQuery";
 import RecentBlogs from "./RecentBlogs";

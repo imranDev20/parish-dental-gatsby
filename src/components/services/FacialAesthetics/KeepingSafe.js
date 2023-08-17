@@ -1,6 +1,4 @@
 import React from "react";
-
-import "swiper/css";
 import { StaticImage } from "gatsby-plugin-image";
 import CareQualityImage from "../../../images/care-quality-com.svg";
 

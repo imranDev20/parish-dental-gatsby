@@ -1,5 +1,5 @@
 import React from "react";
-import { Disclosure, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { FiChevronDown } from "react-icons/fi";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { graphql, useStaticQuery } from "gatsby";
