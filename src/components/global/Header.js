@@ -4,12 +4,10 @@ import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Topbar from "./Topbar";
 import Drawer from "./Drawer";
-import { Badge, Button, IconButton } from "@material-tailwind/react";
-import { CartContext } from "../../context/CartContext";
-import { BsCart3 } from "react-icons/bs";
+import Button from "@material-tailwind/react";
 import { BiSolidPhone } from "react-icons/bi";
 
-const Header = ({ open, setOpen }) => {
+const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
@@ -33,13 +31,13 @@ const Header = ({ open, setOpen }) => {
             href="tel:01132638509"
             className="mr-2  font-medium text-gray-600 ml-3 block xl:hidden "
           >
-            <Button
+            {/* <Button
               variant="outlined"
               className=" flex items-center text-sm px-1.5 whitespace-nowrap"
             >
               <BiSolidPhone className="mr-2 text-xl text-secondary" />
               0113 263 8509
-            </Button>
+            </Button> */}
           </a>
 
           <Burger open={openDrawer} setOpen={setOpenDrawer} />

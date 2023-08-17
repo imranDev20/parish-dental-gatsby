@@ -4,15 +4,6 @@ import loadable from "@loadable/component";
 import Layout from "../components/global/Layout";
 import Seo from "../components/global/Seo";
 import Hero from "../components/home/Hero";
-// const Cta = loadable(() => import("../components//home/Cta"));
-// const HomeBanner = loadable(() => import("../components//home/HomeBanner"));
-// const Achievements = loadable(() => import("../components//home/Achievements"));
-// const Features = loadable(() => import("../components//home/Features"));
-// const About = loadable(() => import("../components//home/About"));
-// const Services = loadable(() => import("../components//home/Services"));
-// const Testimonials = loadable(() => import("../components//home/Testimonials"));
-// const Contact = loadable(() => import("../components//home/Contact"));
-// const Blog = loadable(() => import("../components//home/Blog"));
 import Cta from "../components//home/Cta";
 import HomeBanner from "../components/home/HomeBanner";
 import Achievements from "../components/home/Achievements";
@@ -22,6 +13,16 @@ import Services from "../components/home/Services";
 import Testimonials from "../components/home/Testimonials";
 import Contact from "../components//home/Contact";
 import Blog from "../components/home/Blog";
+
+// const Cta = loadable(() => import("../components//home/Cta"));
+// const HomeBanner = loadable(() => import("../components//home/HomeBanner"));
+// const Achievements = loadable(() => import("../components//home/Achievements"));
+// const Features = loadable(() => import("../components//home/Features"));
+// const About = loadable(() => import("../components//home/About"));
+// const Services = loadable(() => import("../components//home/Services"));
+// const Testimonials = loadable(() => import("../components//home/Testimonials"));
+// const Contact = loadable(() => import("../components//home/Contact"));
+// const Blog = loadable(() => import("../components//home/Blog"));
 
 // markup
 const IndexPage = () => {

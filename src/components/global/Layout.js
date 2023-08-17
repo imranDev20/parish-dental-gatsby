@@ -14,7 +14,7 @@ import {
 import { BsArrowUp, BsCart3 } from "react-icons/bs";
 
 import { Drawer, Typography } from "@material-tailwind/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+// import { XMarkIcon } from "@heroicons/react/24/outline";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../cart/CartItem";
 import getStripe from "../../utils/stripe";
@@ -196,7 +196,7 @@ const Layout = ({ children }) => {
           </Typography>
 
           <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
-            <XMarkIcon strokeWidth={2} className="h-5 w-5" />
+            {/* <XMarkIcon strokeWidth={2} className="h-5 w-5" /> */}
           </IconButton>
         </div>
         <div>

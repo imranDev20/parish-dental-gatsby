@@ -27,7 +27,6 @@ const Hero = () => {
           slideImage {
             title
             gatsbyImageData(
-              placeholder: BLURRED
               width: 1920
               breakpoints: [540, 720, 1366, 1920]
               # cropFocus: TOP
@@ -82,6 +81,7 @@ const Hero = () => {
                     <>
                       <GatsbyImage
                         image={image}
+                        loading="eager"
                         className="max-h-[350px] sm:max-h-screen h-[90vh] sm:min-h-[500px] w-full"
                         imgClassName="w-full h-full object-cover"
                         alt={heroContent?.slideImage?.title}
