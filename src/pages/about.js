@@ -3,7 +3,7 @@ import Layout from "../components/global/Layout";
 import PageHeader from "../components/global/PageHeader";
 import Faq from "../components/about/Faq";
 import WhoWeAre from "../components/about/WhoWeAre";
-import SEO from "../components/global/SEO";
+import DynamicSeo from "../components/global/DynamicSeo";
 
 // const Faq = loadable(() => import("../components/about/Faq"));
 // const WhoWeAre = loadable(() => import("../components/about/WhoWeAre"));
@@ -22,7 +22,7 @@ export default AboutPage;
 
 export function Head() {
   return (
-    <SEO
+    <DynamicSeo
       title="Get to Know More About Parish Dental | Who We Are"
       description="Get to know more about Parish Dental in the Leeds. Our team of dentists is committed to delivering high-quality dental services at affordable prices. Discover more about us!"
     />

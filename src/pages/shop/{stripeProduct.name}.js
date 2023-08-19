@@ -19,7 +19,7 @@ import CartIcon from "../../images/icons/cart.svg";
 import TeethIcon from "../../images/icons/teeth.svg";
 import WhiteTeethIcon from "../../images/icons/white-teeth.svg";
 import ClinicIcon from "../../images/icons/clinic.svg";
-import SEO from "../../components/global/SEO";
+import DynamicSeo from "../../components/global/DynamicSeo";
 
 const ProductSinglePage = ({ data }) => {
   const [count, setCount] = useState(1);
@@ -264,7 +264,7 @@ export const query = graphql`
 `;
 
 export const Head = ({ data }) => (
-  <SEO
+  <DynamicSeo
     title={data.stripeProduct.name}
     description={data.stripeProduct.metadata.summary}
   />

@@ -5,7 +5,7 @@ import PageHeader from "../components/global/PageHeader";
 import SectionHeader from "../components/global/SectionHeader";
 import useBlogQuery from "../hooks/useBlogQuery";
 import useRecentBlogQuery from "../hooks/useRecentBlogQuery";
-import SEO from "../components/global/SEO";
+import DynamicSeo from "../components/global/DynamicSeo";
 
 const BlogPage = () => {
   const blogs = useBlogQuery();
@@ -52,7 +52,7 @@ const BlogPage = () => {
 export default BlogPage;
 
 export const Head = () => (
-  <SEO
+  <DynamicSeo
     title="Our Dental Blog | Stay Informed with Parish Dental Updates"
     description="Stay informed about the latest dental trends, tips, and news with our dental blog. Parish Dental provides valuable insights to help you maintain excellent oral health."
   />

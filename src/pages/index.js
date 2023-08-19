@@ -10,7 +10,7 @@ import Services from "../components/home/Services";
 import Testimonials from "../components/home/Testimonials";
 import Contact from "../components//home/Contact";
 import Blog from "../components/home/Blog";
-import SEO from "../components/global/SEO";
+import DynamicSeo from "../components/global/DynamicSeo";
 
 const IndexPage = () => {
   return (
@@ -32,7 +32,7 @@ const IndexPage = () => {
 export default IndexPage;
 
 export const Head = () => (
-  <SEO
+  <DynamicSeo
     title="24 Hours Emergency Dentist in Leeds | Private Affordable Dentistry"
     description="Looking for 24 Hours Emergency Dentist in Leeds? Visit Parish
     Dental Today! We have more than 25 Years of Experience and offer same day

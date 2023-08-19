@@ -5,7 +5,7 @@ import { customSlugify } from "../../common/utils";
 import { GatsbyImage } from "gatsby-plugin-image";
 import useProductsQuery from "../../hooks/useProductsQuery";
 import PageHeader from "../../components/global/PageHeader";
-import SEO from "../../components/global/SEO";
+import DynamicSeo from "../../components/global/DynamicSeo";
 
 const ShopPage = () => {
   const [selected, setSelected] = useState("");
@@ -89,7 +89,7 @@ const ShopPage = () => {
 export default ShopPage;
 
 export const Head = () => (
-  <SEO
+  <DynamicSeo
     title="Explore Oral Care Products at the Parish Dental Shop"
     description="Discover a range of quality oral care products at the Parish Dental Shop. From toothbrushes to dental accessories, enhance your oral hygiene routine with our curated selection. Browse and shop now."
   />

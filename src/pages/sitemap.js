@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import PageHeader from "../components/global/PageHeader";
 import useBlogQuery from "../hooks/useBlogQuery";
 import { navPages, policyPages } from "../common/constant";
-import SEO from "../components/global/SEO";
+import DynamicSeo from "../components/global/DynamicSeo";
 
 const Sitemap = () => {
   const blogs = useBlogQuery();
@@ -54,7 +54,7 @@ export default Sitemap;
 
 export function Head() {
   return (
-    <SEO
+    <DynamicSeo
       title="Navigate Parish Dental Practice with Our Sitemap"
       description="Explore the layout of Parish Dental Practice through our sitemap. Easily find information about our services, treatments, and more. Streamline your visit with our organized website structure."
     />
