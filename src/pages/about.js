@@ -5,9 +5,6 @@ import Faq from "../components/about/Faq";
 import WhoWeAre from "../components/about/WhoWeAre";
 import DynamicSeo from "../components/global/DynamicSeo";
 
-// const Faq = loadable(() => import("../components/about/Faq"));
-// const WhoWeAre = loadable(() => import("../components/about/WhoWeAre"));
-
 const AboutPage = () => {
   return (
     <Layout>

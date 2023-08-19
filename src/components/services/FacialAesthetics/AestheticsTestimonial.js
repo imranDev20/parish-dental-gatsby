@@ -48,7 +48,7 @@ const AestheticsTestimonial = () => {
           <h2 className="text-4xl font-semibold mb-12">What Our Clients Say</h2>
 
           <div className="w-full">
-            <Swiper
+            {/* <Swiper
               modules={[Autoplay]}
               spaceBetween={50}
               slidesPerView={1}
@@ -71,7 +71,7 @@ const AestheticsTestimonial = () => {
                   </div>
                 </SwiperSlide>
               ))}
-            </Swiper>
+            </Swiper> */}
           </div>
         </div>
       </div>

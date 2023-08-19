@@ -43,7 +43,7 @@ const Hero = () => {
   return (
     <>
       <section className="w-full">
-        <Swiper
+        {/* <Swiper
           modules={[EffectFade, Navigation, Pagination, Autoplay]}
           effect="fade"
           spaceBetween={50}
@@ -229,7 +229,7 @@ const Hero = () => {
               </SwiperSlide>
             );
           })}
-        </Swiper>
+        </Swiper> */}
       </section>
       <MyModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
