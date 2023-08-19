@@ -23,7 +23,11 @@ const Hero = () => {
           contentful_id
           slideImage {
             title
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData(
+              placeholder: BLURRED
+              width: 1920
+              breakpoints: [540, 720, 1366, 1920]
+            )
           }
         }
       }
