@@ -35,7 +35,7 @@ export const options = {
 
 const PolicyPageTemplates = ({ data }) => {
   const { title, pageBody, slug } = data.contentfulPages;
-  console.log(title);
+
   return (
     <Layout>
       <PageHeader pageTitle={title} />

@@ -3,6 +3,7 @@ import Layout from "../components/global/Layout";
 import PageHeader from "../components/global/PageHeader";
 import NhsCharges from "../components/pricing/NhsCharges";
 import PrivateFees from "../components/pricing/PrivateFees";
+import SEO from "../components/global/SEO";
 
 const PricingPage = ({ location }) => {
   useEffect(() => {}, []);
@@ -33,12 +34,9 @@ export default PricingPage;
 
 export function Head() {
   return (
-    <>
-      <title>Transparent and Affordable Dental Pricing at Parish Dental</title>
-      <meta
-        name="description"
-        content="Discover our affordable dental pricing at Parish Dental. We believe in transparent costs for all our dental treatments, including general dentistry, cosmetic procedures, and more!"
-      />
-    </>
+    <SEO
+      title="Transparent and Affordable Dental Pricing at Parish Dental"
+      description="Discover our affordable dental pricing at Parish Dental. We believe in transparent costs for all our dental treatments, including general dentistry, cosmetic procedures, and more!"
+    />
   );
 }

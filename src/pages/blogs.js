@@ -5,6 +5,7 @@ import PageHeader from "../components/global/PageHeader";
 import SectionHeader from "../components/global/SectionHeader";
 import useBlogQuery from "../hooks/useBlogQuery";
 import useRecentBlogQuery from "../hooks/useRecentBlogQuery";
+import SEO from "../components/global/SEO";
 
 const BlogPage = () => {
   const blogs = useBlogQuery();
@@ -12,10 +13,6 @@ const BlogPage = () => {
 
   return (
     <Layout>
-      {/* <Seo
-        title="Our Dental Blog | Stay Informed with Parish Dental Updates"
-        description="Stay informed about the latest dental trends, tips, and news with our dental blog. Parish Dental provides valuable insights to help you maintain excellent oral health."
-      /> */}
       <PageHeader pageTitle="Blog" />
       <SectionHeader
         // subTitle="Dental Practice"
@@ -47,17 +44,16 @@ const BlogPage = () => {
             );
           })}
         </div>
-        {/* <div className="w-full lg:w-3/12 ">
-          <h3 className="text-primary font-semibold text-2xl mb-5">
-            Recent Blogs
-          </h3>
-          {recentBlogs.map((blog, index) => {
-            return <RecentBlogs key={index} blog={blog} />;
-          })}
-        </div> */}
       </div>
     </Layout>
   );
 };
 
 export default BlogPage;
+
+export const Head = () => (
+  <SEO
+    title="Our Dental Blog | Stay Informed with Parish Dental Updates"
+    description="Stay informed about the latest dental trends, tips, and news with our dental blog. Parish Dental provides valuable insights to help you maintain excellent oral health."
+  />
+);

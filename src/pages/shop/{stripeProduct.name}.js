@@ -19,14 +19,15 @@ import CartIcon from "../../images/icons/cart.svg";
 import TeethIcon from "../../images/icons/teeth.svg";
 import WhiteTeethIcon from "../../images/icons/white-teeth.svg";
 import ClinicIcon from "../../images/icons/clinic.svg";
+import SEO from "../../components/global/SEO";
 
 const ProductSinglePage = ({ data }) => {
   const [count, setCount] = useState(1);
   const { prices } = useProductsQuery();
   const { cart, handleAddToCart } = useContext(CartContext);
 
-  const { name, images, metadata, default_price, localFiles, description, id } =
-    data.stripeProduct;
+  const { name, metadata, default_price, localFiles, description, id } =
+    data?.stripeProduct;
 
   const price = prices.nodes.find((price) => price.id === default_price);
 
@@ -37,31 +38,6 @@ const ProductSinglePage = ({ data }) => {
       setCount(itemInCart.quantity);
     }
   }, []);
-
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   // setLoading(true);
-
-  //   const stripe = await getStripe();
-  //   const { error } = await stripe.redirectToCheckout({
-  //     mode: "payment",
-  //     lineItems: [
-  //       { price: "price_1NMC6zLhiqOmfmWIPCogz2Vh", quantity: 2 },
-  //       { price: "price_1NMC1XLhiqOmfmWIheknTAwF", quantity: 3 },
-  //     ],
-  //     billingAddressCollection: "required",
-  //     shippingAddressCollection: {
-  //       allowedCountries: ["GB"],
-  //     },
-  //     successUrl: `${window.location.origin}/payment-successfull/`,
-  //     cancelUrl: `${window.location.origin}/shop/`,
-  //   });
-
-  //   if (error) {
-  //     console.warn("Error:", error);
-  //     // setLoading(false);
-  //   }
-  // };
 
   const product = {
     name,
@@ -286,3 +262,10 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => (
+  <SEO
+    title={data.stripeProduct.name}
+    description={data.stripeProduct.metadata.summary}
+  />
+);
