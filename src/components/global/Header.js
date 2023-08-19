@@ -9,14 +9,6 @@ import { Button } from "@material-tailwind/react";
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  useEffect(() => {
-    if (openDrawer) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
-    }
-  }, [openDrawer]);
-
   return (
     <header>
       <Topbar />

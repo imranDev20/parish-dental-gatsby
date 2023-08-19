@@ -5,31 +5,38 @@ import {
   AccordionBody,
   Typography,
   Drawer,
-  Button,
   IconButton,
   List,
   ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
 } from "@material-tailwind/react";
 import { navPages } from "../../common/constant";
 import { Link } from "gatsby";
-import { customSlugify, serviceLink } from "../../common/utils";
+import { customSlugify } from "../../common/utils";
 import useServicesQuery from "../../hooks/useServicesQuery";
 import BookingButton from "./BookingButton";
-import { FiChevronRight } from "react-icons/fi";
 import { HiChevronDown } from "react-icons/hi2";
 import Logo from "./Logo";
+import { useLocation } from "@reach/router";
 
 const MobileMenu = ({ open, setOpen }) => {
   const [accordionOpen, setAccordionOpen] = useState(0);
   const services = useServicesQuery();
 
-  useEffect(() => {}, []);
+  const location = useLocation();
 
   const handleAccordionOpen = (value) =>
     setAccordionOpen(accordionOpen === value ? 0 : value);
+
+  useEffect(() => {
+    const serviceSlugs = services.map((service) => customSlugify(service.name));
+    const currentLocationSplit = location.pathname.split("/");
+    const currentLocation =
+      currentLocationSplit[currentLocationSplit.length - 1];
+
+    if (serviceSlugs.includes(currentLocation)) {
+      handleAccordionOpen(1);
+    }
+  }, []);
 
   const closeDrawer = () => setOpen(false);
 
@@ -69,6 +76,7 @@ const MobileMenu = ({ open, setOpen }) => {
           if (page.name === "Services") {
             return (
               <Accordion
+                key={page.id}
                 open={accordionOpen === 1}
                 icon={
                   <HiChevronDown
@@ -95,6 +103,7 @@ const MobileMenu = ({ open, setOpen }) => {
                   <List className="p-0">
                     {services.map((service) => (
                       <Link
+                        key={service.id}
                         to={`/services/${customSlugify(service.name)}`}
                         activeClassName="bg-blue-gray-50 rounded-lg"
                       >
@@ -115,7 +124,11 @@ const MobileMenu = ({ open, setOpen }) => {
           }
 
           return (
-            <Link to={page.route} activeClassName="bg-blue-gray-50 rounded-lg">
+            <Link
+              to={page.route}
+              activeClassName="bg-blue-gray-50 rounded-lg"
+              key={page.id}
+            >
               <ListItem>
                 <Typography color="blue-gray" className="mr-auto font-normal">
                   {page.name}

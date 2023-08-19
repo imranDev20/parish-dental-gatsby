@@ -1,9 +1,7 @@
 import React from "react";
-import Seo from "../global/Seo";
 import PageHeader from "../global/PageHeader";
 import Form from "../global/Form";
 import HomeBanner from "../home/HomeBanner";
-import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
 const DomiciliaryCare = () => {
@@ -20,11 +18,6 @@ const DomiciliaryCare = () => {
 
   return (
     <>
-      <Seo
-        title="Best Domiciliary Care Service in Leeds | Book Mobile Dentist"
-        description="Experience Convenient Mobile Dental Care and Best Domiciliary Care Service in Leeds with Our Comprehensive Dentistry Delivered to Your Doorstep!"
-      />
-
       <PageHeader pageTitle="Domiciliary Care" />
       <div className="bg-gradient-to-b from-backgroundSecondary to-white py-10">
         <div

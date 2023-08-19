@@ -1,10 +1,8 @@
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
-
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import Layout from "../components/global/Layout";
-import Seo from "../components/global/Seo";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import "../styles/blog-details.css";
@@ -90,7 +88,7 @@ const BlogDetails = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <Seo title={title} />
+      {/* <Seo title={title} /> */}
       <section className="container mx-auto px-10 flex flex-col lg:flex-row my-16">
         <div className="w-full lg:w-4/5 lg:pr-10">
           {/* Blog Image section */}

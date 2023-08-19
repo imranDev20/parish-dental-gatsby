@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.1",
-    "@hookform/error-message": "^2.0.1",
     "@emotion/react": "^11.11.1",
+    "@hookform/error-message": "^2.0.1",
     "@material-tailwind/react": "^2.1.0",
     "@slixites/gatsby-plugin-google-fonts": "^1.1.1",
     "@stripe/stripe-js": "^2.1.0",
@@ -51,14 +51,7 @@
     "swiper": "^8.4.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.10",
-    "@babel/eslint-parser": "^7.22.10",
     "autoprefixer": "^10.4.15",
-    "eslint": "^8.47.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-webpack-plugin": "^4.0.1",
-    "gatsby-plugin-eslint": "^4.0.4",
     "gatsby-plugin-postcss": "^6.11.0",
     "postcss": "^8.4.28",
     "tailwindcss": "^3.3.3"

@@ -9,15 +9,11 @@ import {
 } from "@material-tailwind/react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, graphql } from "gatsby";
-import Seo from "../../components/global/Seo";
 import { FiChevronRight } from "react-icons/fi";
 import useProductsQuery from "../../hooks/useProductsQuery";
-import getStripe from "../../utils/stripe";
 import { formatPrice } from "../../utils/functions";
-import { customSlugify } from "../../common/utils";
 import { CartContext } from "../../context/CartContext";
 import { BsCheck } from "react-icons/bs";
-
 import DentalAppointmentIcon from "../../images/icons/dental-appointment.svg";
 import CartIcon from "../../images/icons/cart.svg";
 import TeethIcon from "../../images/icons/teeth.svg";
@@ -103,10 +99,10 @@ const ProductSinglePage = ({ data }) => {
 
   return (
     <Layout>
-      <Seo
+      {/* <Seo
         title={name}
         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-      />
+      /> */}
       <section className="flex flex-col lg:flex-row justify-between container px-10 mx-auto mt-10">
         <GatsbyImage
           className="w-full lg:w-2/5"

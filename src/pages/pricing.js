@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Layout from "../components/global/Layout";
-import Seo from "../components/global/Seo";
 import PageHeader from "../components/global/PageHeader";
 import NhsCharges from "../components/pricing/NhsCharges";
 import PrivateFees from "../components/pricing/PrivateFees";
@@ -23,10 +22,6 @@ const PricingPage = ({ location }) => {
 
   return (
     <Layout>
-      <Seo
-        title="Transparent and Affordable Dental Pricing at Parish Dental"
-        description=" Discover our affordable dental pricing at Parish Dental. We believe in transparent costs for all our dental treatments, including general dentistry, cosmetic procedures, and more!"
-      />
       <PageHeader pageTitle="Pricing" />
       <NhsCharges />
       <PrivateFees />
@@ -35,3 +30,15 @@ const PricingPage = ({ location }) => {
 };
 
 export default PricingPage;
+
+export function Head() {
+  return (
+    <>
+      <title>Transparent and Affordable Dental Pricing at Parish Dental</title>
+      <meta
+        name="description"
+        content="Discover our affordable dental pricing at Parish Dental. We believe in transparent costs for all our dental treatments, including general dentistry, cosmetic procedures, and more!"
+      />
+    </>
+  );
+}

@@ -23,6 +23,7 @@ const Navigation = ({ open }) => {
         if (page.route === "/services") {
           return (
             <Menu
+              key={page.id}
               allowHover
               animate={{
                 mount: { y: 0 },
@@ -48,7 +49,10 @@ const Navigation = ({ open }) => {
               <MenuList>
                 {services.map((service) => {
                   return (
-                    <Link to={`/services/${customSlugify(service.name)}`}>
+                    <Link
+                      to={`/services/${customSlugify(service.name)}`}
+                      key={service.id}
+                    >
                       <MenuItem
                         className={`uppercase  text-sm text-primary font-semibold hover:text-secondary`}
                       >

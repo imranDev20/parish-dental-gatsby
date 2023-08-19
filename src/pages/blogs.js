@@ -1,13 +1,10 @@
-import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import BlogsPageBlog from "../components/blog/BlogsPageBlog";
 import Layout from "../components/global/Layout";
 import PageHeader from "../components/global/PageHeader";
 import SectionHeader from "../components/global/SectionHeader";
-import RecentBlogs from "../components/RecentBlogs";
 import useBlogQuery from "../hooks/useBlogQuery";
 import useRecentBlogQuery from "../hooks/useRecentBlogQuery";
-import Seo from "../components/global/Seo";
 
 const BlogPage = () => {
   const blogs = useBlogQuery();
@@ -15,10 +12,10 @@ const BlogPage = () => {
 
   return (
     <Layout>
-      <Seo
+      {/* <Seo
         title="Our Dental Blog | Stay Informed with Parish Dental Updates"
         description="Stay informed about the latest dental trends, tips, and news with our dental blog. Parish Dental provides valuable insights to help you maintain excellent oral health."
-      />
+      /> */}
       <PageHeader pageTitle="Blog" />
       <SectionHeader
         // subTitle="Dental Practice"
