@@ -50,7 +50,7 @@ const Testimonials = () => {
           />
         </div>
 
-        <Swiper
+        {/* <Swiper
           spaceBetween={50}
           slidesPerView={1}
           autoplay
@@ -66,7 +66,7 @@ const Testimonials = () => {
               <TestimonialCard testimonial={testimonial} />
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
       </div>
     </section>
   );

@@ -23,7 +23,7 @@ const Services = () => {
             <div className="w-9/12">
               <Link
                 className="text-primary font-medium text-xl mb-3 hover:text-secondary transition-colors"
-                to={serviceLink(index, service)}
+                to={`/services/${customSlugify(service.name)}`}
                 target={index === 6 ? "_blank" : "_self"}
               >
                 <h3>{service?.name}</h3>

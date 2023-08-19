@@ -3,22 +3,11 @@ import Burger from "./Burger";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Topbar from "./Topbar";
-import Drawer from "./Drawer";
-import { Badge, Button, IconButton } from "@material-tailwind/react";
-import { CartContext } from "../../context/CartContext";
-import { BsCart3 } from "react-icons/bs";
-import { BiSolidPhone } from "react-icons/bi";
+import MobileMenu from "./MobileMenu";
+import { Button } from "@material-tailwind/react";
 
-const Header = ({ open, setOpen }) => {
+const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
-
-  useEffect(() => {
-    if (openDrawer) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
-    }
-  }, [openDrawer]);
 
   return (
     <header>
@@ -37,7 +26,6 @@ const Header = ({ open, setOpen }) => {
               variant="outlined"
               className=" flex items-center text-sm px-1.5 whitespace-nowrap"
             >
-              <BiSolidPhone className="mr-2 text-xl text-secondary" />
               0113 263 8509
             </Button>
           </a>
@@ -46,7 +34,7 @@ const Header = ({ open, setOpen }) => {
         </div>
       </div>
 
-      <Drawer open={openDrawer} setOpen={setOpenDrawer} />
+      <MobileMenu open={openDrawer} setOpen={setOpenDrawer} />
     </header>
   );
 };

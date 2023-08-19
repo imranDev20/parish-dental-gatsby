@@ -1,9 +1,33 @@
 import React from "react";
-import { Disclosure, Transition } from "@headlessui/react";
-import { FiChevronDown } from "react-icons/fi";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
+
+function Icon({ id, open }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+      className={`${
+        id === open ? "rotate-180" : ""
+      } h-5 w-5 transition-transform`}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
 
 export default function Faq() {
   const data = useStaticQuery(graphql`
@@ -41,6 +65,9 @@ export default function Faq() {
     }
   `);
 
+  const [open, setOpen] = React.useState(0);
+  const handleOpen = (value) => setOpen(open === value ? 0 : value);
+
   const faqs = data?.allContentfulFaq?.nodes;
 
   const section = data?.contentfulPages.blocks[2];
@@ -55,31 +82,19 @@ export default function Faq() {
           {section.description.description}
         </p> */}
         {faqs.map((faq, index) => (
-          <Disclosure key={index}>
-            {({ open }) => (
-              <>
-                <Disclosure.Button
-                  className={`${index === 0 ? "rounded-t" : "rounded-none"} ${
-                    index === faqs.length - 1 && !open
-                      ? "rounded-b"
-                      : "rounded-none"
-                  } flex w-full justify-between  bg-secondary px-4  text-left text-sm font-medium text-white hover:bg-secondary focus:outline-none focus-visible:ring focus-visible:bg-secondary focus-visible:ring-opacity-75 py-4 border-b border-b-[#ff80c0]`}
-                >
-                  <span>{faq.title}</span>
-                  <FiChevronDown
-                    className={`text-white ${
-                      open ? "rotate-180 transform" : ""
-                    } h-5 w-5 text-purple-500 transition-all`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 text-sm text-gray-500 bg-background">
-                  <ReactMarkdown className="text-gray-500 mx-auto py-3  text-base leading-8">
-                    {faq.description.description}
-                  </ReactMarkdown>
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
+          <Accordion
+            open={open === index + 1}
+            icon={<Icon id={index + 1} open={open} />}
+          >
+            <AccordionHeader onClick={() => handleOpen(index + 1)}>
+              {faq.title}
+            </AccordionHeader>
+            <AccordionBody>
+              <ReactMarkdown className="text-gray-600 font-normal mx-auto py-3  text-base leading-8">
+                {faq.description.description}
+              </ReactMarkdown>
+            </AccordionBody>
+          </Accordion>
         ))}
       </div>
       <div className="w-full lg:w-1/2 px-0 lg:px-5 ">

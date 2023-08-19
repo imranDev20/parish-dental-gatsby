@@ -19,20 +19,11 @@ const Error = ({ errors, name }) => {
   );
 };
 
-const Form = ({
-  inputBg,
-  isPricing,
-  price,
-  service,
-  submitButtonText,
-  oneCol,
-}) => {
+const Form = ({ inputBg, oneCol, isModal }) => {
   const toastId = React.useRef(null);
   const {
     register,
-    control,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -83,7 +74,7 @@ const Form = ({
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} id="myForm">
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="contact" />
         <div
@@ -127,7 +118,7 @@ const Form = ({
               {...register("email", {
                 pattern: {
                   value:
-                    /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/i,
+                    /^([a-zA-Z0-9_.-]+)@([a-zA-Z0-9-]+)(\.[a-zA-Z]{2,5}){1,2}$/i,
                   message: "Invalid email address",
                 },
                 required: "Email is required",

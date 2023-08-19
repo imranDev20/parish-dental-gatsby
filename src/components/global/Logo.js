@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
 const Logo = ({ isFooter }) => {
@@ -23,11 +23,13 @@ const Logo = ({ isFooter }) => {
 
   return (
     <div className="w-48 lg:w-56">
-      <img
-        className="w-full h-full object-contain"
-        src={isFooter ? logoData?.logoWhite?.url : logoData?.logo?.url}
-        alt={isFooter ? logoData?.logoWhite?.title : logoData.logo.title}
-      />
+      <Link to="/">
+        <img
+          className="w-full h-full object-contain"
+          src={isFooter ? logoData?.logoWhite?.url : logoData?.logo?.url}
+          alt={isFooter ? logoData?.logoWhite?.title : logoData.logo.title}
+        />
+      </Link>
     </div>
   );
 };

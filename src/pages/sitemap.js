@@ -1,21 +1,20 @@
 import React from "react";
 import Layout from "../components/global/Layout";
-import Seo from "../components/global/Seo";
 import { Link } from "gatsby";
-
 import PageHeader from "../components/global/PageHeader";
 import useBlogQuery from "../hooks/useBlogQuery";
 import { navPages, policyPages } from "../common/constant";
+import DynamicSeo from "../components/global/DynamicSeo";
 
 const Sitemap = () => {
   const blogs = useBlogQuery();
 
   return (
     <Layout>
-      <Seo
+      {/* <Seo
         title="Sitemap"
         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-      />
+      /> */}
       <PageHeader pageTitle="Sitemap" />
       <div className="container mx-auto my-10">
         <h3 className="text-2xl text-gray-500 font-semibold">Pages:</h3>
@@ -52,3 +51,12 @@ const Sitemap = () => {
 };
 
 export default Sitemap;
+
+export function Head() {
+  return (
+    <DynamicSeo
+      title="Navigate Parish Dental Practice with Our Sitemap"
+      description="Explore the layout of Parish Dental Practice through our sitemap. Easily find information about our services, treatments, and more. Streamline your visit with our organized website structure."
+    />
+  );
+}

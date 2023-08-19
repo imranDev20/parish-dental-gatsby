@@ -55,14 +55,3 @@ const WhiteningBanner = () => {
 };
 
 export default WhiteningBanner;
-
-// #hero .slide:after {
-//     content: ' ';
-//     background-image: linear-gradient(180deg,rgba(0,0,0,1) 0%,rgba(247,25,136,0) 100%);
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     opacity: .25;
-//     left: 0;
-// }

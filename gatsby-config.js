@@ -12,7 +12,6 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     `gatsby-plugin-postcss`,
 
@@ -40,13 +39,6 @@ module.exports = {
       },
     },
 
-    {
-      resolve: "gatsby-background-image",
-      options: {
-        // add your own characters to escape, replacing the default ':/'
-        specialChars: "/:",
-      },
-    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
