@@ -1,9 +1,8 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
