@@ -1,16 +1,17 @@
 import React, { Fragment, useState } from "react";
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+} from "pure-react-carousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
+
 import { GatsbyImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import MyModal from "./MyDialog";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
 
@@ -43,6 +44,26 @@ const Hero = () => {
   return (
     <>
       <section className="w-full">
+        <CarouselProvider
+          naturalSlideWidth={100}
+          naturalSlideHeight={125}
+          totalSlides={3}
+        >
+          <Slider>
+            {heroContents.map((heroContent, index) => {
+              const image = heroContent?.slideImage?.gatsbyImageData;
+
+              return (
+                <Slide index={index}>
+                  <GatsbyImage image={image} alt={heroContent.slideTitle} />
+                </Slide>
+              );
+            })}
+
+            {/* <Slide index={1}>I am the second Slide.</Slide>
+            <Slide index={2}>I am the third Slide.</Slide> */}
+          </Slider>
+        </CarouselProvider>
         {/* <Swiper
           modules={[EffectFade, Navigation, Pagination, Autoplay]}
           effect="fade"
