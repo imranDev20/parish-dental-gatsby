@@ -20,10 +20,6 @@ const ServicesSinglePage = ({ data }) => {
   ) {
     return (
       <Layout>
-        {/* <Seo
-          title={`${name} | Parish Dental`}
-          description="Looking for Teeth Whitening Treatment in Leeds? Buy our latest teeth whitening strips and gels and secure a brilliantly radiant smile."
-        /> */}
         <section className="relative after:content[''] after:h-full after:w-full after:absolute after:left-0 after:top-0 after:bg-black/40">
           <GatsbyImage className="h-[60vh] " image={image.gatsbyImageData} />
           <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-bold text-7xl z-10 text-center">

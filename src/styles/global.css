@@ -129,3 +129,21 @@ input[type="number"] {
     display: block;
   }
 }
+
+.fade-animation {
+  transition: opacity 1500ms;
+}
+
+.hide {
+  transition: opacity 1500ms;
+  opacity: 0;
+}
+
+.show {
+  transition: opacity 1500ms;
+  opacity: 1;
+}
+
+.focusRing___1airF.carousel__slide-focus-ring {
+  outline: none !important;
+}

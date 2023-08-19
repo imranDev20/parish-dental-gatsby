@@ -1,19 +1,15 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import {
   CarouselProvider,
   Slider,
-  Slide,
   ButtonBack,
   ButtonNext,
+  DotGroup,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { useStaticQuery, graphql, Link } from "gatsby";
-
-import { GatsbyImage } from "gatsby-plugin-image";
-import { motion } from "framer-motion";
-
+import { useStaticQuery, graphql } from "gatsby";
 import MyModal from "./MyDialog";
-import { BsFillCalendar2DateFill } from "react-icons/bs";
+import HeroSlide from "./HeroSlide";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,12 +23,7 @@ const Hero = () => {
           contentful_id
           slideImage {
             title
-            gatsbyImageData(
-              width: 1920
-              breakpoints: [540, 720, 1366, 1920]
-              # cropFocus: TOP
-              # layout: FULL_WIDTH
-            )
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
@@ -45,24 +36,32 @@ const Hero = () => {
     <>
       <section className="w-full">
         <CarouselProvider
+          dragEnabled={false}
           naturalSlideWidth={100}
-          naturalSlideHeight={125}
           totalSlides={3}
         >
-          <Slider>
+          <Slider classNameAnimation="fade-animation">
             {heroContents.map((heroContent, index) => {
-              const image = heroContent?.slideImage?.gatsbyImageData;
-
               return (
-                <Slide index={index}>
-                  <GatsbyImage image={image} alt={heroContent.slideTitle} />
-                </Slide>
+                <HeroSlide
+                  key={heroContent.id}
+                  heroContent={heroContent}
+                  index={index}
+                />
               );
             })}
-
-            {/* <Slide index={1}>I am the second Slide.</Slide>
-            <Slide index={2}>I am the third Slide.</Slide> */}
           </Slider>
+          <ButtonBack>Back</ButtonBack>
+          <ButtonNext>Next</ButtonNext>
+
+          <div>
+            <DotGroup
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            />
+          </div>
         </CarouselProvider>
         {/* <Swiper
           modules={[EffectFade, Navigation, Pagination, Autoplay]}
