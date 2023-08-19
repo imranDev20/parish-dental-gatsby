@@ -1,15 +1,18 @@
-import React, { useState } from "react";
-import {
-  CarouselProvider,
-  Slider,
-  ButtonBack,
-  ButtonNext,
-  DotGroup,
-} from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
-import { useStaticQuery, graphql } from "gatsby";
+import React, { Fragment, useState } from "react";
+import { useStaticQuery, graphql, Link } from "gatsby";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import MyModal from "./MyDialog";
-import HeroSlide from "./HeroSlide";
+import { BsFillCalendar2DateFill } from "react-icons/bs";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,35 +38,7 @@ const Hero = () => {
   return (
     <>
       <section className="w-full">
-        <CarouselProvider
-          dragEnabled={false}
-          naturalSlideWidth={100}
-          totalSlides={3}
-        >
-          <Slider classNameAnimation="fade-animation">
-            {heroContents.map((heroContent, index) => {
-              return (
-                <HeroSlide
-                  key={heroContent.id}
-                  heroContent={heroContent}
-                  index={index}
-                />
-              );
-            })}
-          </Slider>
-          <ButtonBack>Back</ButtonBack>
-          <ButtonNext>Next</ButtonNext>
-
-          <div>
-            <DotGroup
-              style={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            />
-          </div>
-        </CarouselProvider>
-        {/* <Swiper
+        <Swiper
           modules={[EffectFade, Navigation, Pagination, Autoplay]}
           effect="fade"
           spaceBetween={50}
@@ -107,90 +82,18 @@ const Hero = () => {
                     />
                     <div class="swiper-lazy-preloader"></div>
                     <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-0 lg:left-[10%] -translate-x-[-10%] ">
-                      <motion.h3
-                        initial={{
-                          opacity: 0,
-                          x: -100,
-                        }}
-                        animate={{
-                          opacity: isActive ? 1 : 0,
-                          x: isActive ? 0 : -100,
-                        }}
-                        transition={{
-                          type: "tween",
-                          stiffness: 100,
-                          duration: 0.7,
-                        }}
-                        className="tracking-[0.2em] uppercase bg-secondary text-white text-xs lg:text-sm px-3 py-2 inline-block rounded"
-                      >
+                      <h3 className="tracking-[0.2em] uppercase bg-secondary text-white text-xs lg:text-sm px-3 py-2 inline-block rounded">
                         {heroContent?.slideSubtitle}
-                      </motion.h3>
+                      </h3>
 
                       <h2 className="text-3xl sm:text-4xl md:text-6xl text-primary font-semibold capitalize my-2">
-                        <motion.span
-                          initial={{
-                            opacity: 0,
-                            x: -100,
-                          }}
-                          animate={{
-                            opacity: isActive ? 1 : 0,
-                            x: isActive ? 0 : -100,
-                          }}
-                          transition={{
-                            type: "tween",
-                            stiffness: 100,
-                            duration: 0.7,
-                            delay: 0.05,
-                          }}
-                          className="inline-block bg-white my-1 px-3 py-2 rounded"
-                        >
-                          {firstHalf?.map((word, i) => (
-                            <Fragment key={i}>{word} </Fragment>
-                          ))}
-                        </motion.span>
-                        <motion.span
-                          initial={{
-                            opacity: 0,
-                            x: -100,
-                          }}
-                          animate={{
-                            opacity: isActive ? 1 : 0,
-                            x: isActive ? 0 : -100,
-                          }}
-                          transition={{
-                            type: "tween",
-                            stiffness: 100,
-                            duration: 0.7,
-                            delay: 0.1,
-                          }}
-                          className="bg-white inline-block my-1 px-3 py-2 rounded "
-                        >
-                          {secondHalf?.map((word, i) => (
-                            <Fragment key={i}>{word} </Fragment>
-                          ))}
-                        </motion.span>
+                        {heroContent.slideTitle}
                       </h2>
 
                       {index === 2 ? (
-                        <motion.button
-                          initial={{
-                            opacity: 0,
-                            x: -100,
-                          }}
-                          animate={{
-                            opacity: isActive ? 1 : 0,
-                            x: isActive ? 0 : -100,
-                          }}
-                          transition={{
-                            type: "tween",
-                            stiffness: 100,
-                            duration: 0.7,
-                            delay: 0.12,
-                          }}
-                          className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
-                        >
+                        <button className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors">
                           <Link to="/services/aesthetics">Learn More</Link>
-                        </motion.button>
+                        </button>
                       ) : null}
 
                       {index === 1 ? (
@@ -198,50 +101,20 @@ const Hero = () => {
                           href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02"
                           target="_blank"
                         >
-                          <motion.div
-                            initial={{
-                              opacity: 0,
-                              x: -100,
-                            }}
-                            animate={{
-                              opacity: isActive ? 1 : 0,
-                              x: isActive ? 0 : -100,
-                            }}
-                            transition={{
-                              type: "tween",
-                              stiffness: 100,
-                              duration: 0.7,
-                              delay: 0.12,
-                            }}
-                            className="tracking-[0.2em] uppercase text-xs font-medium rounded  bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors  inline-flex items-center"
-                          >
+                          <div className="tracking-[0.2em] uppercase text-xs font-medium rounded  bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors  inline-flex items-center">
                             <BsFillCalendar2DateFill className="mr-2" />
                             Book - £35
-                          </motion.div>
+                          </div>
                         </a>
                       ) : null}
 
                       {index === 0 ? (
-                        <motion.button
+                        <button
                           onClick={() => setIsOpen(!isOpen)}
-                          initial={{
-                            opacity: 0,
-                            x: -100,
-                          }}
-                          animate={{
-                            opacity: isActive ? 1 : 0,
-                            x: isActive ? 0 : -100,
-                          }}
-                          transition={{
-                            type: "tween",
-                            stiffness: 100,
-                            duration: 0.7,
-                            delay: 0.12,
-                          }}
                           className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
                         >
                           Appointment
-                        </motion.button>
+                        </button>
                       ) : null}
                     </div>
                   </>
@@ -249,7 +122,7 @@ const Hero = () => {
               </SwiperSlide>
             );
           })}
-        </Swiper> */}
+        </Swiper>{" "}
       </section>
       <MyModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
