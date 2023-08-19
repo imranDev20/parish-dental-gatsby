@@ -88,6 +88,7 @@ module.exports = {
       options: {
         // Setting a color is optional.
         color: `#FF48A4`,
+
         // Disable the loading spinner.
         showSpinner: false,
       },

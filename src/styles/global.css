@@ -15,10 +15,6 @@ h6 {
   @apply font-['Catamaran'];
 }
 
-.specialists-tab .react-tabs__tab--selected {
-  @apply border-b-2 border-secondary mb-[-2px];
-}
-
 .hero-carousel .swiper-button-prev {
   @apply !text-primary bg-white p-6 rounded transition-colors !left-10 !hidden;
 }
@@ -146,4 +142,39 @@ input[type="number"] {
 
 .focusRing___1airF.carousel__slide-focus-ring {
   outline: none !important;
+}
+
+#nprogress .bar {
+  height: 3px !important;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+  @apply transition-all;
+}
+
+.carousel__dot.carousel__dot--0 {
+  @apply bg-secondary;
+}
+
+.carousel__dot.carousel__dot--1 {
+  @apply bg-background;
+}
+
+.carousel__dot.carousel__dot--2 {
+  @apply bg-primary;
+}
+
+.carousel__dot.carousel__dot--selected {
+  width: 15px;
+  height: 15px;
 }
