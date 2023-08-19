@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -28,7 +29,8 @@ const Hero = () => {
             gatsbyImageData(
               width: 1920
               breakpoints: [540, 720, 1366, 1920]
-              placeholder: BLURRED
+              # cropFocus: TOP
+              # layout: FULL_WIDTH
             )
           }
         }
@@ -85,18 +87,90 @@ const Hero = () => {
                     />
                     <div class="swiper-lazy-preloader"></div>
                     <div className="max-w-sm sm:max-w-lg md:max-w-2xl absolute top-1/2 -translate-y-1/2 left-0 lg:left-[10%] -translate-x-[-10%] ">
-                      <h3 className="tracking-[0.2em] uppercase bg-secondary text-white text-xs lg:text-sm px-3 py-2 inline-block rounded">
+                      <motion.h3
+                        initial={{
+                          opacity: 0,
+                          x: -100,
+                        }}
+                        animate={{
+                          opacity: isActive ? 1 : 0,
+                          x: isActive ? 0 : -100,
+                        }}
+                        transition={{
+                          type: "tween",
+                          stiffness: 100,
+                          duration: 0.7,
+                        }}
+                        className="tracking-[0.2em] uppercase bg-secondary text-white text-xs lg:text-sm px-3 py-2 inline-block rounded"
+                      >
                         {heroContent?.slideSubtitle}
-                      </h3>
+                      </motion.h3>
 
                       <h2 className="text-3xl sm:text-4xl md:text-6xl text-primary font-semibold capitalize my-2">
-                        {heroContent.slideTitle}
+                        <motion.span
+                          initial={{
+                            opacity: 0,
+                            x: -100,
+                          }}
+                          animate={{
+                            opacity: isActive ? 1 : 0,
+                            x: isActive ? 0 : -100,
+                          }}
+                          transition={{
+                            type: "tween",
+                            stiffness: 100,
+                            duration: 0.7,
+                            delay: 0.05,
+                          }}
+                          className="inline-block bg-white my-1 px-3 py-2 rounded"
+                        >
+                          {firstHalf?.map((word, i) => (
+                            <Fragment key={i}>{word} </Fragment>
+                          ))}
+                        </motion.span>
+                        <motion.span
+                          initial={{
+                            opacity: 0,
+                            x: -100,
+                          }}
+                          animate={{
+                            opacity: isActive ? 1 : 0,
+                            x: isActive ? 0 : -100,
+                          }}
+                          transition={{
+                            type: "tween",
+                            stiffness: 100,
+                            duration: 0.7,
+                            delay: 0.1,
+                          }}
+                          className="bg-white inline-block my-1 px-3 py-2 rounded "
+                        >
+                          {secondHalf?.map((word, i) => (
+                            <Fragment key={i}>{word} </Fragment>
+                          ))}
+                        </motion.span>
                       </h2>
 
                       {index === 2 ? (
-                        <button className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors">
+                        <motion.button
+                          initial={{
+                            opacity: 0,
+                            x: -100,
+                          }}
+                          animate={{
+                            opacity: isActive ? 1 : 0,
+                            x: isActive ? 0 : -100,
+                          }}
+                          transition={{
+                            type: "tween",
+                            stiffness: 100,
+                            duration: 0.7,
+                            delay: 0.12,
+                          }}
+                          className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
+                        >
                           <Link to="/services/aesthetics">Learn More</Link>
-                        </button>
+                        </motion.button>
                       ) : null}
 
                       {index === 1 ? (
@@ -104,20 +178,50 @@ const Hero = () => {
                           href="https://uk.dentalhub.online/soe/new/Parish%20Dental?pid=UKDRP02"
                           target="_blank"
                         >
-                          <div className="tracking-[0.2em] uppercase text-xs font-medium rounded  bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors  inline-flex items-center">
+                          <motion.div
+                            initial={{
+                              opacity: 0,
+                              x: -100,
+                            }}
+                            animate={{
+                              opacity: isActive ? 1 : 0,
+                              x: isActive ? 0 : -100,
+                            }}
+                            transition={{
+                              type: "tween",
+                              stiffness: 100,
+                              duration: 0.7,
+                              delay: 0.12,
+                            }}
+                            className="tracking-[0.2em] uppercase text-xs font-medium rounded  bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors  inline-flex items-center"
+                          >
                             <BsFillCalendar2DateFill className="mr-2" />
                             Book - £35
-                          </div>
+                          </motion.div>
                         </a>
                       ) : null}
 
                       {index === 0 ? (
-                        <button
+                        <motion.button
                           onClick={() => setIsOpen(!isOpen)}
+                          initial={{
+                            opacity: 0,
+                            x: -100,
+                          }}
+                          animate={{
+                            opacity: isActive ? 1 : 0,
+                            x: isActive ? 0 : -100,
+                          }}
+                          transition={{
+                            type: "tween",
+                            stiffness: 100,
+                            duration: 0.7,
+                            delay: 0.12,
+                          }}
                           className="tracking-[0.2em] uppercase text-xs font-medium rounded inline-block bg-primary hover:bg-secondary px-4 py-4 text-white  mt-4 transition-colors"
                         >
                           Appointment
-                        </button>
+                        </motion.button>
                       ) : null}
                     </div>
                   </>
@@ -125,7 +229,7 @@ const Hero = () => {
               </SwiperSlide>
             );
           })}
-        </Swiper>{" "}
+        </Swiper>
       </section>
       <MyModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
