@@ -19,7 +19,7 @@ const Error = ({ errors, name }) => {
   );
 };
 
-const Form = ({ inputBg, oneCol }) => {
+const Form = ({ inputBg, oneCol, isModal }) => {
   const toastId = React.useRef(null);
   const {
     register,
@@ -74,7 +74,7 @@ const Form = ({ inputBg, oneCol }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} id="myForm">
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="contact" />
         <div

@@ -42,7 +42,7 @@ const Services2 = () => {
               <Link
                 target={index === 6 ? "_blank" : "_self"}
                 key={index}
-                to={serviceLink(index, service)}
+                to={`/services/${customSlugify(service.name)}`}
               >
                 <div className="rounded-lg overflow-hidden shadow-lg">
                   <div>

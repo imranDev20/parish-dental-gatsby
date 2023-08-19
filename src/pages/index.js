@@ -1,6 +1,4 @@
 import * as React from "react";
-import loadable from "@loadable/component";
-
 import Layout from "../components/global/Layout";
 import Seo from "../components/global/Seo";
 import Hero from "../components/home/Hero";

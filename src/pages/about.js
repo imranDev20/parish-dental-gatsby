@@ -1,6 +1,4 @@
 import React from "react";
-import loadable from "@loadable/component";
-
 import Layout from "../components/global/Layout";
 import PageHeader from "../components/global/PageHeader";
 import Seo from "../components/global/Seo";

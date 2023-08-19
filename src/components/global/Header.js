@@ -3,9 +3,8 @@ import Burger from "./Burger";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import Topbar from "./Topbar";
-import Drawer from "./Drawer";
+import MobileMenu from "./MobileMenu";
 import { Button } from "@material-tailwind/react";
-import { BiSolidPhone } from "react-icons/bi";
 
 const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -43,7 +42,7 @@ const Header = () => {
         </div>
       </div>
 
-      <Drawer open={openDrawer} setOpen={setOpenDrawer} />
+      <MobileMenu open={openDrawer} setOpen={setOpenDrawer} />
     </header>
   );
 };

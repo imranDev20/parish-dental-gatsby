@@ -9,23 +9,6 @@ import Types from "./Types";
 import { Button } from "@material-tailwind/react";
 
 const Whitening = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleScroll = () => {
-    if (window.scrollY > 500) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       <Seo
@@ -38,13 +21,6 @@ const Whitening = () => {
       <ProductsBanner />
       <Range />
       <Faq />
-
-      {/* <Button
-        className={`bg-white hover:shadow-white/20 text-[#263338] `}
-        size="lg"
-      >
-        Book an Appointment
-      </Button> */}
     </>
   );
 };

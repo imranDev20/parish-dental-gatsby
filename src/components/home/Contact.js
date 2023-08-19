@@ -1,8 +1,5 @@
 import React from "react";
-import Form from "../global/Form";
 import { graphql, useStaticQuery } from "gatsby";
-import { convertToBgImage } from "gbimage-bridge";
-import BackgroundImage from "gatsby-background-image";
 import QueriesForm from "../global/QueriesForm";
 
 const Contact = () => {
@@ -33,20 +30,19 @@ const Contact = () => {
   `);
 
   const contactData = data.contentfulPages.blocks[9];
-  const image = convertToBgImage(contactData.image.gatsbyImage);
 
   return (
     <section className="w-full bg-background relative min-h-[600px] mb-[600px] sm:mb-[800px] lg:mb-0">
       <div className="container mx-auto flex flex-col-reverse lg:flex-row  px-10 justify-between ">
         <div className="w-full lg:w-1/2 ">
           <div className="absolute block left-0  w-full lg:w-1/2 h-full">
-            <BackgroundImage
+            {/* <BackgroundImage
               className="h-2/4 sm:h-2/3 lg:h-full"
               {...image}
               fadeIn="soft"
             >
               <div className="h-2/4 sm:h-2/3 lg:h-full"></div>
-            </BackgroundImage>
+            </BackgroundImage> */}
           </div>
         </div>
 

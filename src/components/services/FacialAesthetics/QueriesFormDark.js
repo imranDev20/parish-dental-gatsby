@@ -1,11 +1,9 @@
 import { Button, Input, Textarea } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import Loader from "../../global/Loader";
 import { ErrorMessage } from "@hookform/error-message";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { NormalButton } from "../../global/Button";
 
 const Error = ({ errors, name }) => {
   return (
@@ -84,6 +82,7 @@ const QueriesFormDark = () => {
                   label="First Name"
                   variant="standard"
                   fullWidth
+                  color="white"
                 />
                 <Error name="firstName" errors={errors} />
               </>
@@ -102,6 +101,7 @@ const QueriesFormDark = () => {
                   label="Last Name"
                   variant="standard"
                   fullWidth
+                  color="white"
                 />
                 <Error name="lastName" errors={errors} />
               </>
@@ -118,7 +118,13 @@ const QueriesFormDark = () => {
             rules={{ required: "Phone number is required" }}
             render={({ field }) => (
               <>
-                <Input {...field} label="Phone" variant="standard" fullWidth />
+                <Input
+                  {...field}
+                  label="Phone"
+                  variant="standard"
+                  fullWidth
+                  color="white"
+                />
                 <Error name="phone" errors={errors} />
               </>
             )}
@@ -138,7 +144,13 @@ const QueriesFormDark = () => {
             }}
             render={({ field }) => (
               <>
-                <Input {...field} label="Email" variant="standard" fullWidth />
+                <Input
+                  {...field}
+                  label="Email"
+                  variant="standard"
+                  fullWidth
+                  color="white"
+                />
                 <Error name="email" errors={errors} />
               </>
             )}
@@ -152,7 +164,16 @@ const QueriesFormDark = () => {
           control={control}
           render={({ field }) => (
             <>
-              <Textarea {...field} label="Message" variant="standard" />
+              <Textarea
+                {...field}
+                label="Message"
+                variant="standard"
+                className="focus:!border-white"
+                labelProps={{
+                  className:
+                    "!text-white peer-focus:text-white  peer-focus:after:!border-white peer-focus:before:!border-white after:border-white",
+                }}
+              />
               <Error name="message" errors={errors} />
             </>
           )}
@@ -165,7 +186,7 @@ const QueriesFormDark = () => {
         fullWidth
         type="submit"
         variant="outlined"
-        className="text-secondary focus:ring-secondary/20 border-secondary"
+        className="text-white focus:ring-secondary/20 border-white"
       >
         Submit
       </Button>

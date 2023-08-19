@@ -1,8 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { convertToBgImage } from "gbimage-bridge";
 import ReactMarkdown from "react-markdown";
-import BackgroundImage from "gatsby-background-image";
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -32,7 +30,6 @@ const About = () => {
   `);
 
   const image = data?.contentfulPages?.blocks[3].image.gatsbyImage;
-  const bgImage = convertToBgImage(image);
 
   const aboutContents = data.contentfulPages.blocks[3];
 
@@ -63,9 +60,9 @@ const About = () => {
         </div>
         <div className="w-full lg:w-1/2 h-full">
           <div className="absolute block right-0  w-full lg:w-1/2 h-full">
-            <BackgroundImage className="h-2/4 sm:h-2/3 lg:h-full" {...bgImage}>
+            {/* <BackgroundImage className="h-2/4 sm:h-2/3 lg:h-full" {...bgImage}>
               <div className="h-2/4 sm:h-2/3 lg:h-full"></div>
-            </BackgroundImage>
+            </BackgroundImage> */}
           </div>
         </div>
       </div>
