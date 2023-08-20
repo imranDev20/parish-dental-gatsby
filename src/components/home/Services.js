@@ -1,8 +1,8 @@
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import React from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import useServicesQuery from "../../hooks/useServicesQuery";
-import { customSlugify, serviceLink } from "../../common/utils";
+import { customSlugify } from "../../common/utils";
 
 const Services = () => {
   const services = useServicesQuery();
@@ -14,7 +14,8 @@ const Services = () => {
           <div key={service?.contentful_id} className="flex my-3 items-start">
             <div className="w-3/12 mr-3">
               <img
-                className="w-full object-contain"
+                width={80}
+                height={80}
                 src={service.icon.url}
                 alt={service?.icon.title}
               />
