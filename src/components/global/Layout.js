@@ -1151,25 +1151,6 @@ const Layout = ({ children }) => {
       <ToastContainer />
       <Footer />
 
-      <Script
-        async
-        id="chatra-bot"
-        defer
-        strategy="idle"
-        dangerouslySetInnerHTML={{
-          __html: `(function(d, w, c) {
-          w.ChatraID = '${process.env.GATSBY_CHATRA_ID}';
-          var s = d.createElement('script');
-          w[c] = w[c] || function() {
-              (w[c].q = w[c].q || []).push(arguments);
-          };
-          s.async = true;
-          s.src = 'https://call.chatra.io/chatra.js';
-          if (d.head) d.head.appendChild(s);
-      })(document, window, 'Chatra');`,
-        }}
-      />
-
       <a
         className={`mt-0 lg:mt-7 flex justify-center lg:justify-start fixed top-0 z-50 transition-all ${
           isVisible ? "block" : "hidden"

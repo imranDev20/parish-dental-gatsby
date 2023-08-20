@@ -14,6 +14,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-preact`,
 
     {
       resolve: "gatsby-plugin-manifest",
@@ -50,17 +51,7 @@ module.exports = {
 
       __key: "images",
     },
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       `open sans\:300,400,500,600,700,800`,
-    //       `catamaran\:100,200,300,400,500,600,700,800,900`, // you can also specify font weights and styles
-    //     ],
-    //     preconnect: true,
-    //     display: "swap",
-    //   },
-    // },
+
     {
       resolve: `gatsby-source-contentful`,
       options: {
