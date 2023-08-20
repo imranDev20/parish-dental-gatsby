@@ -14,8 +14,6 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-preact`,
-
     {
       resolve: "gatsby-plugin-manifest",
       options: {
