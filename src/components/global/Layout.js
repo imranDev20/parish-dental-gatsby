@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import Header from "./Header";
 import { ToastContainer } from "react-toastify";
 import { Script } from "gatsby";
@@ -11,60 +10,15 @@ import {
   ThemeProvider,
 } from "@material-tailwind/react";
 import { BsArrowUp, BsCart3 } from "react-icons/bs";
-
+import { HiOutlineXMark } from "react-icons/hi2";
 import { Drawer, Typography } from "@material-tailwind/react";
-// import { XMarkIcon } from "@heroicons/react/24/outline";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../cart/CartItem";
 import getStripe from "../../utils/stripe";
-
 import "react-toastify/dist/ReactToastify.css";
-
-// const Footer = loadable(() => import("./Footer"));
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
-  // const theme = {
-  //   input: {
-  //     styles: {
-  //       base: {
-  //         input: {
-  //           color: "text-gray-400 focus:!border-secondary",
-  //         },
-  //         label: {
-  //           color:
-  //             "peer-focus:text-white  peer-focus:after:!border-secondary peer-focus:before:!border-secondary after:border-secondary",
-  //         },
-  //       },
-  //     },
-  //   },
-  //   textarea: {
-  //     styles: {
-  //       base: {
-  //         textarea: {
-  //           color: "text-gray-400 focus:border-secondary",
-  //         },
-  //         label: {
-  //           color:
-  //             "peer-focus:text-white  peer-focus:after:!border-secondary peer-focus:before:!border-secondary after:border-secondary",
-  //         },
-  //       },
-  //     },
-  //   },
-  //   button: {
-  //     styles: {
-  //       base: {
-  //         // initial: {
-  //         //   color: "text-secondary focus:ring-secondary/20 border-secondary",
-  //         // },
-  //         // fullWidth: {
-  //         //   color: "text-secondary focus:ring-secondary/20 border-secondary",
-  //         // },
-  //       },
-  //     },
-  //   },
-  // };
-
   const theme = {
     input: {
       defaultProps: {
@@ -1201,6 +1155,7 @@ const Layout = ({ children }) => {
         async
         id="chatra-bot"
         defer
+        strategy="idle"
         dangerouslySetInnerHTML={{
           __html: `(function(d, w, c) {
           w.ChatraID = '${process.env.GATSBY_CHATRA_ID}';
@@ -1264,7 +1219,7 @@ const Layout = ({ children }) => {
           </Typography>
 
           <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
-            {/* <XMarkIcon strokeWidth={2} className="h-5 w-5" /> */}
+            <HiOutlineXMark />
           </IconButton>
         </div>
         <div>
