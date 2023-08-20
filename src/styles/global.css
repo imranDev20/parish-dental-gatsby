@@ -140,7 +140,7 @@ input[type="number"] {
   opacity: 1;
 }
 
-.focusRing___1airF.carousel__slide-focus-ring {
+.hero-carousel .focusRing___1airF.carousel__slide-focus-ring {
   outline: none !important;
 }
 
@@ -148,7 +148,7 @@ input[type="number"] {
   height: 3px !important;
 }
 
-.carousel__dot {
+.hero-carousel .carousel__dot {
   width: 10px;
   height: 10px;
   margin-left: 8px;
@@ -162,11 +162,11 @@ input[type="number"] {
   @apply transition-all;
 }
 
-.carousel__dot.carousel__dot--0 {
+.hero-carousel .carousel__dot.carousel__dot--0 {
   @apply bg-secondary;
 }
 
-.carousel__dot.carousel__dot--1 {
+.hero-carousel .carousel__dot.carousel__dot--1 {
   @apply bg-background;
 }
 
@@ -174,7 +174,7 @@ input[type="number"] {
   @apply bg-primary;
 }
 
-.carousel__dot.carousel__dot--selected {
+.hero-carousel .carousel__dot.carousel__dot--selected {
   width: 15px;
   height: 15px;
 }

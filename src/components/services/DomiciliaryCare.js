@@ -51,7 +51,7 @@ const DomiciliaryCare = () => {
                 Dentistry Delivered to Your Doorstep
               </h1>
 
-              <p className="text-gray-500  text-base leading-8 text-justify mx-auto my-3">
+              <p className="text-gray-600  text-base leading-8 text-justify mx-auto my-3">
                 Parish Dental Mobile is a unique dental service that enables our
                 patients to access a full range of dental services from the
                 comfort of their own home. With many combined years of dental
@@ -70,7 +70,7 @@ const DomiciliaryCare = () => {
               <ul className="mt-3 list-disc list-inside">
                 {points.map((item, index) => (
                   <li
-                    className="text-gray-500  text-base leading-8 "
+                    className="text-gray-600  text-base leading-8 "
                     key={index}
                   >
                     {item}
@@ -83,7 +83,7 @@ const DomiciliaryCare = () => {
               <h2 className="text-3xl text-primary font-semibold mt-10 mb-3">
                 We Come to You
               </h2>
-              <p className="text-gray-500  text-base leading-8 text-justify mx-auto my-3">
+              <p className="text-gray-600  text-base leading-8 text-justify mx-auto my-3">
                 We have a modern, well-equipped mobile surgery  that allows us
                 to visit you in the comfort of your own home.
               </p>
@@ -93,13 +93,13 @@ const DomiciliaryCare = () => {
               <h2 className="text-3xl text-primary font-semibold mt-10 mb-3">
                 Location
               </h2>
-              <p className="text-gray-500  text-base leading-8 text-justify mx-auto my-3">
+              <p className="text-gray-600  text-base leading-8 text-justify mx-auto my-3">
                 Parish Dental Mobile visits patients across the UK.
               </p>
             </section>
 
             <section>
-              <p className="text-gray-500 text-xl font-semibold mt-7">
+              <p className="text-gray-600 text-xl font-semibold mt-7">
                 Let us look after your dental health. Call us on{" "}
                 <a href="tel:01132638509" className="text-secondary">
                   0113 263 8509{" "}

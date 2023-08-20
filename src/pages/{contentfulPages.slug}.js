@@ -22,13 +22,13 @@ export const options = {
       return <h2>{children}</h2>;
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      return <p className="text-gray-500  leading-8 mt-4 mb-2">{children}</p>;
+      return <p className="text-gray-600  leading-8 mt-4 mb-2">{children}</p>;
     },
     [BLOCKS.OL_LIST]: (node, children) => {
-      return <ol className="text-gray-500 list-decimal ml-10">{children}</ol>;
+      return <ol className="text-gray-600 list-decimal ml-10">{children}</ol>;
     },
     [BLOCKS.UL_LIST]: (node, children) => {
-      return <ul className="text-gray-500 list-disc ml-20">{children}</ul>;
+      return <ul className="text-gray-600 list-disc ml-20">{children}</ul>;
     },
   },
 };

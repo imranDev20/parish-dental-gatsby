@@ -43,7 +43,7 @@ const Hero = () => {
           dragEnabled={false}
           naturalSlideWidth={100}
           totalSlides={3}
-          className="relative"
+          className="relative hero-carousel"
         >
           <Slider classNameAnimation="fade-animation">
             {heroContents.map((heroContent, index) => {

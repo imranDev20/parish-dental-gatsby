@@ -17,7 +17,7 @@ const Sitemap = () => {
       /> */}
       <PageHeader pageTitle="Sitemap" />
       <div className="container mx-auto my-10">
-        <h3 className="text-2xl text-gray-500 font-semibold">Pages:</h3>
+        <h3 className="text-2xl text-gray-600 font-semibold">Pages:</h3>
         <ul className="ml-10 list-disc">
           {navPages.map((item) => (
             <li className="my-1 text-primary underline">
@@ -35,7 +35,7 @@ const Sitemap = () => {
           ))}
         </ul>
 
-        <h3 className="text-2xl text-gray-500 font-semibold mt-10">Blogs:</h3>
+        <h3 className="text-2xl text-gray-600 font-semibold mt-10">Blogs:</h3>
         <ul className="ml-10 list-disc">
           {blogs.map((item) => (
             <li className="my-1 text-primary underline">

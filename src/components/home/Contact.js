@@ -53,7 +53,7 @@ const Contact = () => {
           <h2 className="text-4xl my-2 capitalize font-semibold text-primary">
             Get In Touch
           </h2>
-          <p className="text-gray-500 mx-auto my-5 text-base leading-8">
+          <p className="text-gray-600 mx-auto my-5 text-base leading-8">
             Have a question or need more information? Feel free to reach out to
             us using the enquiries form below. Our team is here to assist you
             and provide prompt responses to your queries. We value your interest

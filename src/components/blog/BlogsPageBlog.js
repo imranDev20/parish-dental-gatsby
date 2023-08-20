@@ -28,7 +28,7 @@ const BlogsPageBlog = ({
       <Link to={`/blogs/${slug}`}>
         <h3 className="text-4xl font-semibold text-primary mb-5">{title}</h3>
       </Link>
-      <p className="text-gray-500 mt-3 mb-8 leading-8">{excerpt}</p>
+      <p className="text-gray-600 mt-3 mb-8 leading-8">{excerpt}</p>
       <Link
         to={`/blogs/${slug}`}
         className="uppercase text-sm text-primary font-medium tracking-[.2em]"

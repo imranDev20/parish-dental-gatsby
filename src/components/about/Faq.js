@@ -78,7 +78,7 @@ export default function Faq() {
         <h2 className="text-4xl text-primary font-semibold mb-5 mt-2">
           {section.mainTitle}
         </h2>
-        {/* <p className="text-gray-500 mx-auto my-5 text-base leading-8">
+        {/* <p className="text-gray-600 mx-auto my-5 text-base leading-8">
           {section.description.description}
         </p> */}
         {faqs.map((faq, index) => (

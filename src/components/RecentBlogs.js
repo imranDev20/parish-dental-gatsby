@@ -16,7 +16,7 @@ const RecentBlogs = ({ blog }) => {
       <Link to={`/blogs/${blog.slug}`}>
         <h3 className="text-primary font-medium text-xl mt-2">{blog.title}</h3>
       </Link>
-      <p className="text-gray-500 text-sm leading-6">
+      <p className="text-gray-600 text-sm leading-6">
         {blog.excerpt.length > 70
           ? blog.excerpt.excerpt.substring(0, 70) + "..."
           : blog.excerpt.excerpt}{" "}

@@ -32,7 +32,7 @@ export const options = {
       );
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      return <p className="text-gray-500  leading-8">{children}</p>;
+      return <p className="text-gray-600  leading-8">{children}</p>;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { gatsbyImageData, description } = node.data.target;
@@ -46,13 +46,13 @@ export const options = {
       );
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      return <p className="text-gray-500  leading-8 mt-4 mb-2">{children}</p>;
+      return <p className="text-gray-600  leading-8 mt-4 mb-2">{children}</p>;
     },
     [BLOCKS.OL_LIST]: (node, children) => {
-      return <ol className="text-gray-500 list-decimal ml-5">{children}</ol>;
+      return <ol className="text-gray-600 list-decimal ml-5">{children}</ol>;
     },
     [BLOCKS.UL_LIST]: (node, children) => {
-      return <ul className="text-gray-500 list-disc ml-20">{children}</ul>;
+      return <ul className="text-gray-600 list-disc ml-20">{children}</ul>;
     },
   },
 };
@@ -117,7 +117,7 @@ const BlogDetails = ({ data, pageContext }) => {
                   <FiChevronLeft className="mr-2 text-xl" />
                   Previous
                 </span>
-                <h3 className="text-gray-500">{prev.title}</h3>
+                <h3 className="text-gray-600">{prev.title}</h3>
               </Link>
             )}
             {next && (
@@ -126,7 +126,7 @@ const BlogDetails = ({ data, pageContext }) => {
                   Next
                   <FiChevronRight className="ml-2 text-xl" />
                 </span>
-                <h3 className="text-gray-500">{next.title}</h3>
+                <h3 className="text-gray-600">{next.title}</h3>
               </Link>
             )}
           </div>

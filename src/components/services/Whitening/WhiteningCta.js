@@ -11,7 +11,7 @@ const WhiteningCta = () => {
           <h2 className="text-[#4f5859] text-4xl font-semibold">
             Award Winning Whitening
           </h2>
-          <p className="leading-8 text-gray-500 my-7">
+          <p className="leading-8 text-gray-600 my-7">
             Experience our award-winning whitening treatments for a brilliantly
             radiant smile. Discover the difference of our acclaimed whitening
             services today.

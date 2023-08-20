@@ -62,7 +62,7 @@ const Services2 = () => {
                     <h5 className="text-2xl text-primary font-medium mt-10">
                       {service?.name}
                     </h5>
-                    <p className="text-gray-500 my-2 mx-auto text-base leading-8">
+                    <p className="text-gray-600 my-2 mx-auto text-base leading-8">
                       {service?.description?.description}
                     </p>
                   </div>

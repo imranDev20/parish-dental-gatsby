@@ -2,7 +2,7 @@ import * as React from "react";
 
 // markup
 const NotFoundPage = () => {
-  return <main>Something bad happened. We are sorry</main>;
+  return <main></main>;
 };
 
 export default NotFoundPage;

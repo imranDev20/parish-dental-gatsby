@@ -26,7 +26,7 @@ const CartItem = ({ cartItem, index }) => {
           <div className="flex  items-center">
             <button
               onClick={() => handleUpdateCart(index, "decr")}
-              className="border border-r-0 w-6  text-2xl  rounded-l text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
+              className="border border-r-0 w-6  text-2xl  rounded-l text-gray-600 bg-gray-200 hover:bg-gray-300 transition-colors"
             >
               -
             </button>
@@ -46,7 +46,7 @@ const CartItem = ({ cartItem, index }) => {
             />
             <button
               onClick={() => handleUpdateCart(index, "incr")}
-              className="border border-l-0 w-6 text-2xl  rounded-r text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
+              className="border border-l-0 w-6 text-2xl  rounded-r text-gray-600 bg-gray-200 hover:bg-gray-300 transition-colors"
             >
               +
             </button>

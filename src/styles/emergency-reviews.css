@@ -1,0 +1,20 @@
+.emergency-reviews .carousel__inner-slide {
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  left: 10px;
+  top: 10px;
+}
+
+.emergency-reviews .carousel__dot {
+  width: 10px;
+  height: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+  @apply transition-all;
+}

@@ -27,7 +27,7 @@ const ServicesSinglePage = ({ data }) => {
           </h1>
         </section>
 
-        <section className="container mx-auto px-5 my-20 text-center text-gray-500 text-xl h-[30vh]">
+        <section className="container mx-auto px-5 my-20 text-center text-gray-600 text-xl h-[30vh]">
           <p>{description.description}</p>
         </section>
       </Layout>

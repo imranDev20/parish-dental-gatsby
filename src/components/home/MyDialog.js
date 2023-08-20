@@ -578,7 +578,7 @@ const theme = {
                   "after:border-blue-gray-200 peer-focus:after:!border-blue-gray-500",
               },
               gray: {
-                color: "text-blue-gray-400 peer-focus:text-gray-500",
+                color: "text-blue-gray-400 peer-focus:text-gray-600",
                 before:
                   "before:border-blue-gray-200 peer-focus:before:!border-gray-500",
                 after:
@@ -921,7 +921,7 @@ const theme = {
                   "after:border-blue-gray-500 peer-focus:after:border-blue-gray-500",
               },
               gray: {
-                color: "text-blue-gray-500 peer-focus:text-gray-500",
+                color: "text-blue-gray-500 peer-focus:text-gray-600",
                 after: "after:border-gray-500 peer-focus:after:border-gray-500",
               },
               brown: {

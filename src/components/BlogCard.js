@@ -19,7 +19,7 @@ const BlogCard = ({ image, title, excerpt, slug, createdAt, category }) => {
       <Link to={`/blogs/${slug}`}>
         <h4 className="text-2xl font-medium text-primary">{title}</h4>
       </Link>
-      <p className="text-gray-500 my-3">
+      <p className="text-gray-600 my-3">
         {excerpt.length > 90 ? excerpt.substring(0, 100) + "..." : excerpt}
       </p>
       <Link

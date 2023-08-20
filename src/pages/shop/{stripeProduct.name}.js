@@ -88,10 +88,10 @@ const ProductSinglePage = ({ data }) => {
 
         <div className="w-full lg:w-3/5 px-10">
           <div className="mb-5 text-sm flex items-center">
-            <Link to="/shop" className="mr-2 text-gray-500">
+            <Link to="/shop" className="mr-2 text-gray-600">
               Shop
             </Link>
-            <FiChevronRight className="mr-2 text-gray-500" />
+            <FiChevronRight className="mr-2 text-gray-600" />
 
             <Link className="text-[#4f5859] font-semibold">{name}</Link>
           </div>
@@ -99,14 +99,14 @@ const ProductSinglePage = ({ data }) => {
             {name}
           </h2>
 
-          <p className="my-4 text-gray-500 text-sm">
+          <p className="my-4 text-gray-600 text-sm">
             Category:{" "}
             <span className="text-[#4f5859] font-medium">
               {metadata.category}
             </span>
           </p>
 
-          <p className="leading-8 lg:max-w-[400px] text-gray-500">
+          <p className="leading-8 lg:max-w-[400px] text-gray-600">
             {metadata?.summary}
           </p>
 
@@ -122,7 +122,7 @@ const ProductSinglePage = ({ data }) => {
                     setCount((count) => count - 1);
                   }
                 }}
-                className="border border-r-0 w-8 text-2xl py-1 rounded-l text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
+                className="border border-r-0 w-8 text-2xl py-1 rounded-l text-gray-600 bg-gray-200 hover:bg-gray-300 transition-colors"
               >
                 -
               </button>
@@ -140,7 +140,7 @@ const ProductSinglePage = ({ data }) => {
               />
               <button
                 onClick={() => setCount((count) => count + 1)}
-                className="border border-l-0 w-8 text-2xl py-1 text-gray-500 bg-gray-200 hover:bg-gray-300 transition-colors"
+                className="border border-l-0 w-8 text-2xl py-1 text-gray-600 bg-gray-200 hover:bg-gray-300 transition-colors"
               >
                 +
               </button>

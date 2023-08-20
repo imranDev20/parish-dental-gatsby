@@ -33,7 +33,7 @@ const BlogsSidebar = () => {
         <Link
           key={category.strapi_id}
           to={`/blogs/categories/${category.slug}`}
-          className="my-2 text-gray-500 block hover:text-secondary transition-colors"
+          className="my-2 text-gray-600 block hover:text-secondary transition-colors"
         >
           {category.name} ({category.blogs.length})
         </Link>

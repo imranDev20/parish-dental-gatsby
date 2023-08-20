@@ -8,7 +8,7 @@ const NhsCard = ({ title, price, features, remaining }) => {
         {title}
       </div>
       <h3 className="text-5xl my-2 text-primary font-semibold">{price}</h3>
-      <ul className="my-7 text-gray-500 px-12 text-left">
+      <ul className="my-7 text-gray-600 px-12 text-left">
         {features.map((feature, i) => (
           <li key={i} className="my-4 flex items-start">
             <span className="w-4 h-4 inline-block mr-4">

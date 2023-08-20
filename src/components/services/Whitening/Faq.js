@@ -171,7 +171,7 @@ const Faq = () => {
         <h2 className="text-[#4f5859] text-4xl text-center font-semibold">
           Frequently Asked Questions
         </h2>
-        <p className="leading-8 text-gray-500 my-3 text-center max-w-[900px] mx-auto">
+        <p className="leading-8 text-gray-600 my-3 text-center max-w-[900px] mx-auto">
           Discover answers to common whitening questions. From treatment
           duration to aftercare tips, our FAQ section provides valuable guidance
           for a brighter, confident smile.
@@ -195,7 +195,7 @@ const Faq = () => {
                     >
                       {faq.ques}
                     </AccordionHeader>
-                    <AccordionBody className="text-gray-500 text-base font-normal">
+                    <AccordionBody className="text-gray-600 text-base font-normal">
                       {faq.ans}
                     </AccordionBody>
                   </Accordion>
