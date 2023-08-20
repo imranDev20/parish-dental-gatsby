@@ -11,7 +11,7 @@ export const wrapPageElement = ({ element }) => (
       async
       id="chatra-bot"
       defer
-      strategy="off-main-thread"
+      strategy="idle"
       dangerouslySetInnerHTML={{
         __html: `(function(d, w, c) {
           w.ChatraID = '${process.env.GATSBY_CHATRA_ID}';
