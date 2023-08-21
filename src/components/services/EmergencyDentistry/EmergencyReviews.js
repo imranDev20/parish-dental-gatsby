@@ -6,18 +6,18 @@ import {
   IconButton,
   Typography,
 } from "@material-tailwind/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   CarouselProvider,
   Slider,
   Slide,
   ButtonBack,
   ButtonNext,
-  DotGroup,
 } from "pure-react-carousel";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "../../../styles/emergency-reviews.css";
+import { useMediaQuery } from "react-responsive";
 
 const reviews = [
   {
@@ -65,21 +65,12 @@ function StarIcon() {
 }
 
 function EmergencyReviews() {
-  const [width, setWidth] = useState(window.innerWidth);
+  const isDesktop = useMediaQuery({
+    query: "(min-device-width: 1208px)",
+  });
+  const isTablet = useMediaQuery({ query: "(min-device-width: 768px)" });
 
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
-
-  const isMobile = width <= 900;
-  const isTablet = width >= 901 && width <= 1207;
-  const isDesktop = width >= 1208;
+  const slideCount = isDesktop ? 3 : isTablet ? 2 : 1;
 
   return (
     <section className="bg-gray-100 py-20">
@@ -90,11 +81,11 @@ function EmergencyReviews() {
 
         <CarouselProvider
           className="emergency-reviews relative"
-          visibleSlides={isMobile ? 1 : isTablet ? 2 : isDesktop ? 3 : null}
+          visibleSlides={slideCount}
           naturalSlideWidth={100}
           totalSlides={reviews.length}
         >
-          <Slider className="mx-10">
+          <Slider className="mx-0 lg:mx-10">
             {reviews.map((review, index) => (
               <Slide className="min-h-[370px]" index={index}>
                 <Card className="p-8 h-full w-full">
@@ -104,12 +95,6 @@ function EmergencyReviews() {
                     shadow={false}
                     className="mx-0 flex items-center gap-4 pt-0"
                   >
-                    <Avatar
-                      size="lg"
-                      variant="circular"
-                      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                      alt="tania andrew"
-                    />
                     <div className="flex w-full flex-col gap-0.5">
                       <div className="flex items-center justify-between">
                         <Typography variant="h5" color="blue-gray">
@@ -134,7 +119,8 @@ function EmergencyReviews() {
               </Slide>
             ))}
           </Slider>
-          <div className="w-full absolute top-1/2 -translate-y-1/2 flex justify-between">
+
+          <div className="w-full absolute top-1/2 -translate-y-1/2 hidden lg:flex justify-between">
             <ButtonBack>
               <IconButton>
                 <HiChevronLeft className="text-lg" strokeWidth={1} />

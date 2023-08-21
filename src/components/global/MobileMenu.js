@@ -41,7 +41,14 @@ const MobileMenu = ({ open, setOpen }) => {
   const closeDrawer = () => setOpen(false);
 
   return (
-    <Drawer open={open} onClose={closeDrawer} className="p-4">
+    <Drawer
+      open={open}
+      onClose={closeDrawer}
+      className="p-4"
+      overlayProps={{
+        className: "fixed",
+      }}
+    >
       <div className="mb-6 flex items-center justify-between">
         <Logo />
 

@@ -1193,6 +1193,9 @@ const Layout = ({ children }) => {
         onClose={closeDrawer}
         className="p-4"
         placement="right"
+        overlayProps={{
+          className: "fixed",
+        }}
       >
         <div className="mb-6 flex items-center justify-between">
           <Typography variant="h5" color="blue-gray">
