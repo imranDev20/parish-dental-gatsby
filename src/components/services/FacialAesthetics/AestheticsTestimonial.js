@@ -1,13 +1,40 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { FaUserCircle } from "react-icons/fa";
-import { Autoplay } from "swiper";
 
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  IconButton,
+  Typography,
+} from "@material-tailwind/react";
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+} from "pure-react-carousel";
 import { Rating } from "@material-tailwind/react";
 import { StaticImage } from "gatsby-plugin-image";
 
-import "swiper/css";
-import "swiper/css/autoplay";
+function StarIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-5 w-5 text-yellow-700"
+    >
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
 
 const AestheticsTestimonial = () => {
   const testimonials = [
@@ -45,33 +72,60 @@ const AestheticsTestimonial = () => {
           />
         </div>
         <div className="mt-10 lg:mt-0  lg:max-w-[660px] md:max-w pr-10 pl-5 flex flex-col justify-center">
-          <h2 className="text-4xl font-semibold mb-12">What Our Clients Say</h2>
+          <h2 className="text-4xl font-semibold mb-8">What Our Clients Say</h2>
 
           <div className="w-full">
-            {/* <Swiper
-              modules={[Autoplay]}
-              spaceBetween={50}
-              slidesPerView={1}
-              autoplay={true}
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
+            <CarouselProvider
+              isPlaying={true}
+              interval={5000}
+              className="emergency-reviews relative"
+              visibleSlides={1}
+              naturalSlideWidth={100}
+              totalSlides={testimonials.length}
             >
-              {testimonials.map((item) => (
-                <SwiperSlide>
-                  <Rating value={5} readonly className="mb-3" />
-                  <p className="leading-8 text-gray-400 text-lg">
-                    {item.description}
-                  </p>
+              <Slider className="mx-0">
+                {testimonials.map((review, index) => (
+                  <Slide className="min-h-[400px]" index={index}>
+                    <Card
+                      shadow={false}
+                      color="transparent"
+                      className="h-full w-full "
+                    >
+                      <CardHeader
+                        color="transparent"
+                        floated={false}
+                        shadow={false}
+                        className="mx-0 flex items-center gap-4 pt-0"
+                      >
+                        <div className="flex w-full flex-col gap-0.5">
+                          <div className="mb-3">
+                            <Typography variant="h5" color="white">
+                              {review.title}
+                            </Typography>
+                          </div>
+                          <div className="5 flex items-center gap-0">
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardBody className="p-0 mt-3">
+                        <Typography className="text-gray-400 mx-auto mt-5 text-base leading-8 font-normal">
+                          "{review.description}"
+                        </Typography>
 
-                  <div className="flex items-center mt-6 ">
-                    <FaUserCircle className="text-3xl mr-3" />
-                    <p className=" text-secondary text-xl font-medium">
-                      {item.name}
-                    </p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper> */}
+                        <Typography className="text-secondary text-xl font-medium mt-3">
+                          {review.name}
+                        </Typography>
+                      </CardBody>
+                    </Card>
+                  </Slide>
+                ))}
+              </Slider>
+            </CarouselProvider>
           </div>
         </div>
       </div>

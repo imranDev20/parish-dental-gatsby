@@ -80,6 +80,8 @@ function EmergencyReviews() {
         </Typography>
 
         <CarouselProvider
+          isPlaying={true}
+          interval={5000}
           className="emergency-reviews relative"
           visibleSlides={slideCount}
           naturalSlideWidth={100}

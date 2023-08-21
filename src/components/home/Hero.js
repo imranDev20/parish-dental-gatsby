@@ -40,6 +40,8 @@ const Hero = () => {
     <>
       <section className="w-full">
         <CarouselProvider
+          isPlaying={true}
+          interval={5000}
           dragEnabled={false}
           naturalSlideWidth={100}
           totalSlides={3}
