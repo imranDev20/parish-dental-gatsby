@@ -15,7 +15,7 @@ h6 {
   @apply font-['Catamaran'];
 }
 
-.hero-carousel .swiper-button-prev {
+/* .hero-carousel .swiper-button-prev {
   @apply !text-primary bg-white p-6 rounded transition-colors !left-10 !hidden;
 }
 
@@ -69,13 +69,6 @@ h6 {
   @apply scale-[2.0];
 }
 
-::-webkit-datetime-edit-fields-wrapper {
-  @apply text-gray-400 focus:text-gray-600;
-}
-::-webkit-calendar-picker-indicator {
-  @apply filter opacity-60;
-}
-
 .reviews-carousel .swiper-wrapper {
   @apply mb-5;
 }
@@ -102,6 +95,13 @@ h6 {
 
 .reviews-carousel .swiper-pagination-bullet-active {
   @apply scale-[2.0];
+} */
+
+::-webkit-datetime-edit-fields-wrapper {
+  @apply text-gray-400 focus:text-gray-600;
+}
+::-webkit-calendar-picker-indicator {
+  @apply filter opacity-60;
 }
 
 /* Chrome, Safari, Edge, Opera */

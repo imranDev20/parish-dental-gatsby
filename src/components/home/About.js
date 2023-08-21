@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import ReactMarkdown from "react-markdown";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -17,7 +18,7 @@ const About = () => {
               description
             }
             image {
-              gatsbyImage(
+              gatsbyImageData(
                 placeholder: BLURRED
                 width: 720
                 breakpoints: [320, 480, 540, 720]
@@ -29,9 +30,8 @@ const About = () => {
     }
   `);
 
-  const image = data?.contentfulPages?.blocks[3].image.gatsbyImage;
-
   const aboutContents = data.contentfulPages.blocks[3];
+  const image = aboutContents.image.gatsbyImageData;
 
   return (
     <section className="w-full bg-background relative min-h-[600px] mb-[400px] sm:mb-[600px] lg:mb-0">
@@ -60,9 +60,10 @@ const About = () => {
         </div>
         <div className="w-full lg:w-1/2 h-full">
           <div className="absolute block right-0  w-full lg:w-1/2 h-full">
-            {/* <BackgroundImage className="h-2/4 sm:h-2/3 lg:h-full" {...bgImage}>
-              <div className="h-2/4 sm:h-2/3 lg:h-full"></div>
-            </BackgroundImage> */}
+            <GatsbyImage
+              image={image}
+              className="h-2/4 sm:h-2/3 lg:h-full w-full"
+            />
           </div>
         </div>
       </div>

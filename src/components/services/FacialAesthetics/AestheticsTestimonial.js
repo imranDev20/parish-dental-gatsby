@@ -76,8 +76,8 @@ const AestheticsTestimonial = () => {
 
           <div className="w-full">
             <CarouselProvider
-              isPlaying={true}
-              interval={5000}
+              // isPlaying={true}
+              // interval={5000}
               className="emergency-reviews relative"
               visibleSlides={1}
               naturalSlideWidth={100}

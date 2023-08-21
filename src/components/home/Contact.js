@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import QueriesForm from "../global/QueriesForm";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
@@ -36,13 +37,10 @@ const Contact = () => {
       <div className="container mx-auto flex flex-col-reverse lg:flex-row  px-10 justify-between ">
         <div className="w-full lg:w-1/2 ">
           <div className="absolute block left-0  w-full lg:w-1/2 h-full">
-            {/* <BackgroundImage
-              className="h-2/4 sm:h-2/3 lg:h-full"
-              {...image}
-              fadeIn="soft"
-            >
-              <div className="h-2/4 sm:h-2/3 lg:h-full"></div>
-            </BackgroundImage> */}
+            <GatsbyImage
+              image={contactData.image.gatsbyImage}
+              className="h-2/4 sm:h-2/3 lg:h-full w-full"
+            />
           </div>
         </div>
 
