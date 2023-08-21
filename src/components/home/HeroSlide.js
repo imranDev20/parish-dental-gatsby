@@ -116,7 +116,7 @@ function HeroSlide({ heroContent, index }) {
           </h2>
 
           {index === 2 ? (
-            <motion.button
+            <motion.div
               initial={{
                 opacity: 0,
                 x: -100,
@@ -142,11 +142,11 @@ function HeroSlide({ heroContent, index }) {
                   Learn More
                 </Button>
               </Link>
-            </motion.button>
+            </motion.div>
           ) : null}
 
           {index === 1 ? (
-            <motion.button
+            <motion.div
               initial={{
                 opacity: 0,
                 x: -100,
@@ -175,11 +175,11 @@ function HeroSlide({ heroContent, index }) {
                   Book - £35
                 </Button>
               </a>
-            </motion.button>
+            </motion.div>
           ) : null}
 
           {index === 0 ? (
-            <motion.button
+            <motion.div
               onClick={() => setIsOpen(!isOpen)}
               initial={{
                 opacity: 0,
@@ -204,7 +204,7 @@ function HeroSlide({ heroContent, index }) {
                 <BsFillCalendarDateFill className="mr-3 text-lg" />
                 Appointment
               </Button>
-            </motion.button>
+            </motion.div>
           ) : null}
         </div>
       </Slide>

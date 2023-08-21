@@ -13,9 +13,12 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { customSlugify } from "../../common/utils";
+import { useLocation } from "@reach/router";
 
 const Navigation = ({ open }) => {
   const services = useServicesQuery();
+
+  const location = useLocation();
 
   return (
     <nav className={`bg-white items-center z-10 hidden xl:flex`}>
@@ -46,15 +49,22 @@ const Navigation = ({ open }) => {
                   </Link>
                 </Typography>
               </MenuHandler>
+
               <MenuList>
                 {services.map((service) => {
+                  const isServiceInner = location.pathname.includes(
+                    customSlugify(service.name)
+                  );
+
                   return (
                     <Link
                       to={`/services/${customSlugify(service.name)}`}
                       key={service.id}
                     >
                       <MenuItem
-                        className={`uppercase  text-sm text-primary font-semibold hover:text-secondary`}
+                        className={`uppercase  text-sm ${
+                          isServiceInner ? "text-secondary" : "text-primary"
+                        } font-semibold hover:text-secondary`}
                       >
                         {service.name}
                       </MenuItem>

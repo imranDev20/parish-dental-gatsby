@@ -29,7 +29,7 @@ function EmergencyServices() {
           Our Emergency Dentist Can Help With The Following
         </Typography>
 
-        <div className="grid grid-cols-4 gap-5 mt-14">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 mt-14">
           {services.map((service) => (
             <Card className="text-center p-3">
               <CardBody className="flex items-center flex-col">

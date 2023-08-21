@@ -6,6 +6,7 @@ import EmergencyFaq from "./EmergencyFaq";
 import EmergencyCta from "./EmergencyCta";
 import EmergencyReviews from "./EmergencyReviews";
 import EmergencyAddress from "./EmergencyAddress";
+import EmergencyForm from "./EmergencyForm";
 
 function EmergencyDentistry() {
   return (
@@ -17,6 +18,7 @@ function EmergencyDentistry() {
       <EmergencyCta />
       <EmergencyReviews />
       <EmergencyAddress />
+      <EmergencyForm />
     </>
   );
 }

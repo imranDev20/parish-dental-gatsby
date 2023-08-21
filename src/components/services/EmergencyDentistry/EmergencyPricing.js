@@ -1,9 +1,9 @@
-import { Typography } from "@material-tailwind/react";
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 
 function EmergencyPricing() {
   return (
-    <section className="container mx-auto px-10 my-20 grid grid-cols-2">
+    <section className="container mx-auto px-10 my-20 grid grid-cols-1 lg:grid-cols-2">
       <div>
         <h2 className="font-bold text-blue-gray-900 text-3xl">
           How much does it cost?
@@ -42,7 +42,13 @@ function EmergencyPricing() {
         </p>
       </div>
 
-      <div></div>
+      <div className="p-4 flex justify-center mt-5 lg:mt-0">
+        <StaticImage
+          className="rounded-lg"
+          height={750}
+          src="../../../images/emergency-price.jpeg"
+        />
+      </div>
     </section>
   );
 }
