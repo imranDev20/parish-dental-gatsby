@@ -12,7 +12,10 @@ const TeamCard = ({ image, name, position, gdc }) => {
         <p className="text-secondary tracking-[0.2em] uppercase text-xs font-medium mb-1">
           {position}
         </p>
-        <p className="text-sm text-gray-600">GDC: {gdc}</p>
+
+        {gdc && gdp !== "" && (
+          <p className="text-sm text-gray-600">GDC: {gdc}</p>
+        )}
       </div>
     </div>
   );
