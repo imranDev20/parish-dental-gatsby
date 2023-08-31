@@ -1166,14 +1166,14 @@ const Layout = ({ children }) => {
         </Button>
       </a>
 
-      <div className="fixed top-1/2 -translate-y-1/2 left-0 z-[1000] bg-secondary w-12 h-20 flex justify-center items-center rounded-r-lg shadow border border-white">
+      <div className="fixed bottom-24 left-4 z-[1000] bg-secondary w-12 h-12 flex justify-center items-center rounded-lg shadow border-white">
         <CartContext.Consumer>
           {({ cart }) => {
             return (
               <Badge content={cart && cart.length?.toString()} withBorder>
                 <IconButton
                   variant="text"
-                  className="rounded-full ml-2"
+                  className="rounded-full"
                   onClick={() => setOpen(true)}
                 >
                   <BsCart3 className="text-lg text-white" />

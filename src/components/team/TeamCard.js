@@ -5,7 +5,7 @@ const TeamCard = ({ image, name, position, gdc }) => {
   return (
     <div>
       <div className="rounded overflow-hidden">
-        <GatsbyImage image={image} />
+        <GatsbyImage image={image} alt={name} />
       </div>
       <div className="my-5 text-center ">
         <h4 className="text-primary font-medium text-2xl mb-3">{name}</h4>

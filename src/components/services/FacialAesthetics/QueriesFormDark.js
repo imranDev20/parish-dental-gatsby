@@ -23,7 +23,6 @@ const QueriesFormDark = () => {
   const toastId = React.useRef(null);
 
   const {
-    register,
     handleSubmit,
     control,
     formState: { errors },
