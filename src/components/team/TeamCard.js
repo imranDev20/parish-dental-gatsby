@@ -13,7 +13,7 @@ const TeamCard = ({ image, name, position, gdc }) => {
           {position}
         </p>
 
-        {gdc && gdp !== "" && (
+        {gdc && gdc !== "" && (
           <p className="text-sm text-gray-600">GDC: {gdc}</p>
         )}
       </div>
